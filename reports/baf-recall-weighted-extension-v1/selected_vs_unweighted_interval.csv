@@ -1,0 +1,2 @@
+candidate,baseline,difference,ci_low,ci_high,replicates,uncertainty
+selected,unweighted,-0.0124758650635729,-0.022196928356154423,-0.004001763688668752,500,conditional paired row bootstrap; fixed decisions; no selection correction

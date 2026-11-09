@@ -1,0 +1,471 @@
+{
+  "results": [
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "spline_c0p1_unweighted",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-spline_c0p1_unweighted.json": "003b6e7c6e45acb0ec536eacb107c5685d302604a42fc341f4dc4a5acb8e3d51",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-spline_c0p1_unweighted.npz": "22f5acc85b52ca9e14963d49e5c0714684001829668934286b4a7d1691b0a761",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-spline_c0p1_unweighted.joblib": "ea946afbab4c87624bfbcb31a4727e6a019fb01ec1a74e14826e7057f82e2353"
+      }
+    },
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "spline_c1p0_balanced",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-spline_c1p0_balanced.json": "c44667e89a6d5ba82f3ad18a8be8530b8eb8cea6d0fd14b08f6bfd29f4c33915",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-spline_c1p0_balanced.npz": "bbbf640557ea8bbeea36b561ef86dbfbaba99e6109e1f7db125b2c46ba8b3cee",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-spline_c1p0_balanced.joblib": "4c56eced3e0c35300932de5e48fd3b5a9200de18f7cb9ec07d17d6d8da7c53e4"
+      }
+    },
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "baseline_balanced",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-baseline_balanced.json": "b87f7e5635c4797bcbaf7cd1515406530666b2dd12edcfe54359b0bf4840ffb3",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-baseline_balanced.npz": "4bc78321ed490014179988b80c0decd829396af529d66154585a95071b4196a0",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-baseline_balanced-reference.joblib": "0213c5b3397f080b6ea2d124b6e993aca9845653db5d8cc163825e17b18209c7"
+      }
+    },
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "baseline_lgbm",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-baseline_lgbm.json": "64cd48cf93ab2981f9d3855ef77b7ebd93a80f1a1fb20ab4fa365322adb38df2",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-baseline_lgbm.npz": "9f573069c67dd4ab7393ae978c8d923158f94dc4ff259d32808c2b265f49f668",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-baseline_lgbm-reference.joblib": "be05c0cdf9e5ac9e9df73b6a93779cf467c8612ab164176b525095ba8f0589f1"
+      }
+    },
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "xgb_d4_w1",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-xgb_d4_w1.json": "acd9cf8a3dfed2f5cca9714e71d0162b7203c24e1419c35edaffccdb5e3be68e",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-xgb_d4_w1.npz": "05a80e99f918d6c3aeb455d83c737700fab820ec997fe620e3b4240323762b54",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-xgb_d4_w1.ubj": "2046fae71b4c19cb9f9c9d1ac2f418ee3ef730dadded5d2a34b8b5fa3926cd6f",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-xgb_d4_w1.joblib": "e8b99344f05825cd20c7c61da1c1fac2672427cae47efeb06124c013c29de3c4"
+      }
+    },
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "bagged_balanced_s17",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-bagged_balanced_s17.json": "bda4db96a095649ae6146a23621b97c1e543d00daa9b250f11cc533203c50cd6",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-bagged_balanced_s17.npz": "79f8ad1eec6929702066d6543a2d8f8953481b165350755fb6f5f9e6d40a88b9",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-bagged_balanced_s17-bagged.joblib": "9ce8f5a2623ec0af9b2d2f3d3bb653d08ce749f6e8d65fd028dee9d56a2d7b5c"
+      }
+    },
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "bagged_balanced_s29",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-bagged_balanced_s29.json": "560a6a6723ddf79b0394f0d2ea0491b56001ca2fafb591fb53d4e0a923da56ad",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-bagged_balanced_s29.npz": "ea6ef44e0d1193410c132fb055243e25b72e8fec542231a5601a8c3f8700d839",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-bagged_balanced_s29-bagged.joblib": "c9313509e555ae4963d1caeffbbfd8ac4342a9348c8f79b21571799b718d5159"
+      }
+    },
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "bagged_balanced_s43",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-bagged_balanced_s43.json": "f1c7fc9e169290b5b9a36c1290113ca442a9fc1e35c9a88fa068210a279f91bf",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-bagged_balanced_s43.npz": "c4314b74ce3b5a13fcbd6d4816d6848615155cc9113684be6b765f30c80c24bc",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-bagged_balanced_s43-bagged.joblib": "083f900c73e1735195874d16cd6aea8966476da3b14927f7642b138589a4f829"
+      }
+    },
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "bagged_unweighted_s17",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-bagged_unweighted_s17.json": "9e5f24459eaf4d1fbdeba06198e5866e60b64cbd27eef279a6736cca5a1b5c90",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-bagged_unweighted_s17.npz": "f388701a1d700a834c774a8e9b523ed5a008f4d0d5c2ae1f06d717e068d043f3",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-bagged_unweighted_s17-bagged.joblib": "48f94228614e75d3107002abf8dcc1692a10f0761576743eef3cefed09663e7e"
+      }
+    },
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "bagged_unweighted_s29",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-bagged_unweighted_s29.json": "6050d7ef966151c9e253ec7d3a59098af9e5981de51f0ac929199de4aa2fb0c2",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-bagged_unweighted_s29.npz": "155dd612021a84fcd20d20e0645d9104621981c8bd4834f35275829e4c7c35fa",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-bagged_unweighted_s29-bagged.joblib": "471754567c153fbd00b6bb2cac2fe2247f68d1a95be48367ba09221010894e3a"
+      }
+    },
+    {
+      "month": 4,
+      "phase": "validation",
+      "candidate": "bagged_unweighted_s43",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m4-bagged_unweighted_s43.json": "100e944245585da6b2833b1f8b3a6d99471bf4d0d96d74d934c3d0cab5e7dd43",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m4-bagged_unweighted_s43.npz": "4084fead68707d6eeb6d435b766dff91105de22b58f79b0af2eb28e863dd7684",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m4-bagged_unweighted_s43-bagged.joblib": "4c9b92b415b80a6539b05560b196fa094c4daa5f9cefce9fc8cd6de7d5113437"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "spline_c0p1_unweighted",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-spline_c0p1_unweighted.json": "e88d3eb599ee64ffa2a25496673204f7c4f1966e03e75ba63eb85f7369777b65",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-spline_c0p1_unweighted.npz": "7b1e9222b77b0b0fa4ceb0e4b13a2d68546942342f3d42075d526de0fff06776",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-spline_c0p1_unweighted.joblib": "20db686c8ddcd58d78c5be1b0a7a2359cc74ae9aecb699ca2d231199a9052c94"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "spline_c1p0_balanced",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-spline_c1p0_balanced.json": "107e9e5b67aaebd13c6f3ee13479033b7fb26f129bc564b9f9784f5958d143a0",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-spline_c1p0_balanced.npz": "414b920de941d08612398a9d7809bf0449f3ae6b3c0adb89fdd701ec8e8a0fd5",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-spline_c1p0_balanced.joblib": "873aa9ef1dc7785fed5902819510c4bc63e920b35ffaf6563053baaf9b501a0a"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "baseline_balanced",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-baseline_balanced.json": "d01d6dfd4cf574cc1266afaf65010aec88b73088eb91b6ec8e644e3430d60a04",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-baseline_balanced.npz": "ec9fb57ca64b8dfc636d9c6ca317d981af916ac78a2acd4ac53620f914c8ec0e",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-baseline_balanced-reference.joblib": "519bbd087558216c9711ca6ee8bbbd4799e03f760e59cbfd3a3aec4c053b6030"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "baseline_lgbm",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-baseline_lgbm.json": "94e4876c945a6f9e70032067908aa841aec6e4f14fd6852aea5cfd1f6f3fa25e",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-baseline_lgbm.npz": "5efeda574d591987f0b815beb9b8d99db3b029f801b68b0b448482a933ca5944",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-baseline_lgbm-reference.joblib": "dd6938d0087fea30d91507b778c7d42a5ee53780db2c2eb7e4917e3af724f6c1"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "xgb_d4_w1",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-xgb_d4_w1.json": "ad68405d32a514b756ae62749a4f6284f46b306d20d75f193d9c42d39f274021",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-xgb_d4_w1.npz": "7af9ee81286424c2ba34fc594537a5f598f851dc109dca68dfd9ea39218b4dae",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-xgb_d4_w1.ubj": "f62ed97f1750442254cce1e4db6cfda6aee514f40e2a0fd8fe4293e4024976f7",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-xgb_d4_w1.joblib": "c5374e2002619e81c6ede9a5066ec654a8d92d4c4b48dcc4ea84e6908d4fbfed"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "bagged_balanced_s17",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-bagged_balanced_s17.json": "07d1bd87f74401484005ed03448b86df78c899f15dd7737fbdd5b9d123bd69df",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-bagged_balanced_s17.npz": "d2d5cd8b209ee2f2ceb25b4d5c8ff33bef3794b7091965e96d1efb0f60e758cc",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-bagged_balanced_s17-bagged.joblib": "722101ad2f135b7fbfc74398f089e33faa9e48904db46a1a26d4f90e6f067294"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "bagged_balanced_s29",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-bagged_balanced_s29.json": "69cb7a4e785449f8ad8f1e86131efa0e1f417b13c5af33d8277cae4ed2481667",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-bagged_balanced_s29.npz": "f5741d26ec29452070becc15cbc58f5469bb2b4dff786b65decf265618e2bce1",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-bagged_balanced_s29-bagged.joblib": "5b431d9492338dd3d385abd1b1867724a06e504b770be80ece072246475c168e"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "bagged_balanced_s43",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-bagged_balanced_s43.json": "ad0bee655f5788a0914da75afde793e96526598318d7816076ee93d2032f5084",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-bagged_balanced_s43.npz": "2fa27a4be387acd6fe238a619cd8f4553dc10042b8a0a0898199ba5d7f054382",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-bagged_balanced_s43-bagged.joblib": "c00da063ea5fbeef09a09eb80696617e4831a1bf7086846bbacc569bbf0a625f"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "bagged_unweighted_s17",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-bagged_unweighted_s17.json": "1085dfd2ec9df1abab8ffea84b9cef4852088b10f9a4acff2a32d9af61a49c71",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-bagged_unweighted_s17.npz": "f40caf1d5e2b520d8c09fb712d714e51025eb6250672fb6748f1d3fa6b239bec",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-bagged_unweighted_s17-bagged.joblib": "89232b096604e3679c7efc8de5548fe1a94958c207b6aefea0aa3f3edf2ec6fa"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "bagged_unweighted_s29",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-bagged_unweighted_s29.json": "715f3e2e9807c034b9d6383ea55406633f069c8e54f39b90aa60872e68831428",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-bagged_unweighted_s29.npz": "5147dfab8a1b827c223a1b479d61810b51e27791148ff49be92b80b54e0a5623",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-bagged_unweighted_s29-bagged.joblib": "c4657003470ba243f7929c3df09e732f7e506f17093650ec1d91d8d297675849"
+      }
+    },
+    {
+      "month": 5,
+      "phase": "validation",
+      "candidate": "bagged_unweighted_s43",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m5-bagged_unweighted_s43.json": "ecf9f3fb3288f9a9cc7f7ef7ab572640b83c4d9fdc6728f03a7f3c8454ce36a9",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m5-bagged_unweighted_s43.npz": "36684b468a3e8ced6075371cebf88c8889e871c935c3b93d6ddcfb36440e8c08",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m5-bagged_unweighted_s43-bagged.joblib": "6e41004b47d1165d236077b9292b129e374fc24f40c2843d196ad8cc79d23e79"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "spline_c0p1_unweighted",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-spline_c0p1_unweighted.json": "e8e9744ae4444ddbf4b0f422471a0d87e8e6abc6716c2ace7c0106ee7f2422d5",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-spline_c0p1_unweighted.npz": "005865700238a43df8d6222078fde0d207579140ac0ab60d7dbd12c99b319f38",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-spline_c0p1_unweighted.joblib": "4a67a78083db54c5502d23a0478489d8bb355e55ec14661df1a67c38a4171277"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "spline_c1p0_balanced",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-spline_c1p0_balanced.json": "c6a19df01d1f19cea958c1fc2cc9c969c8070a2ba09be62dbd50b4aae2323ad7",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-spline_c1p0_balanced.npz": "6d5816f885a546b98f4a70781fbd198e49975d820574b30e60730dd289082288",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-spline_c1p0_balanced.joblib": "03090d66cb4c1b1163808ba66bd7b0234c128f474f6aaeb50ab6fc9efe76c44e"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "baseline_balanced",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-baseline_balanced.json": "e104d39d0c4b84984544f3d7fd347ced5f4d31c07e489615afa85c72aef45a71",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-baseline_balanced.npz": "f6ed6f494e0050a31b140d2ae2e213fcc9d05f8e8276615cdbe93325ac0aa816",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-baseline_balanced-reference.joblib": "53406896cdcc54a14afebfe241f3dcb06293f071bb2ac9e11582e8defc748466"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "baseline_lgbm",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-baseline_lgbm.json": "054075f84ef1c36ab599811ccaed2e1002fb60abc833084d920e64e1ff6cd8fc",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-baseline_lgbm.npz": "c0781e9e8a2ec655bd9bfdd95469e1d33e4aceb8231504d130963924464c631d",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-baseline_lgbm-reference.joblib": "15e8ba08aa981acda2285ec4c552a506e3a3b6be8942d717a1ec3c07f0357a12"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "xgb_d4_w1",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-xgb_d4_w1.json": "ee0acf3fe98514739a68783b9b03934305d32d092aba2cb48fc1e4ade7b94245",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-xgb_d4_w1.npz": "dbf1ecc1828ea9e4e138f30ef1065bc2d6a067b8603998b0c5c12aa1d6358da5",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-xgb_d4_w1.ubj": "691da9ba9fa30d4adfa9f4706e16e89f808f8ef93cb9eb3944070bb31c387b91",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-xgb_d4_w1.joblib": "35c9f477c6f3dc696f5272a9f057e53746e6bd63a34defd28795a3bd4561d67d"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "bagged_balanced_s17",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-bagged_balanced_s17.json": "d4c140b035c4e9ace8f065b4239700422ff484afaee2462c6347854dae92c9e8",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-bagged_balanced_s17.npz": "afe93dc9db54a735f98696ae32598dacc2787b39ba79b37dcc62621f60a7c557",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-bagged_balanced_s17-bagged.joblib": "7b13879931d7a77126013e2fb0ebdbb0da010d875f71bb7d1dbcd4ad51f0a3c3"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "bagged_balanced_s29",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-bagged_balanced_s29.json": "29bcaf04946d33fae32b0b869ddf0e5596784d266722fdbbaa9df90eac6e9be8",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-bagged_balanced_s29.npz": "eba4499cc4349d6f124320d0f1c3c29b7970f4e8f3516ae4710152a506b750ef",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-bagged_balanced_s29-bagged.joblib": "2c5f33dfc5fd0e112bc9fc7d0db23da719974facfd165116e62af4399b230f5f"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "bagged_balanced_s43",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-bagged_balanced_s43.json": "91940fcda86a0cccebf5019130570c99196b5f172357a05d338011efeacc8bd4",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-bagged_balanced_s43.npz": "2a0eee022cabc35ac6b4ab5ca23ffc60541a1bb847f5687e6b3c884a5647c358",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-bagged_balanced_s43-bagged.joblib": "b5d08e3f07dbadcc1f8857810830fda5cfb336cc282b3a3ef142c9239f262779"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "bagged_unweighted_s17",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-bagged_unweighted_s17.json": "1aabd0c8a1bfd0d5cf6be541f07cdbd6d084bec5a994cb17650468f31fe0952d",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-bagged_unweighted_s17.npz": "8bc1935b96dce4174483fd51eaadcfe00dac96fa3404f4e5ff9479fabe336afd",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-bagged_unweighted_s17-bagged.joblib": "53efdcd394a0ba0b01f50e9df9b504a11cf03e5072906505a218b9b4e9d228dd"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "bagged_unweighted_s29",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-bagged_unweighted_s29.json": "1e0c51d5fefdf41a0066a381ef08f489c5dae110b05aca38343f55bf6367ae57",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-bagged_unweighted_s29.npz": "bf58c909bcc48c4cb927000a5e04432ab36d59a17356695a6d3d7a8f80a0419b",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-bagged_unweighted_s29-bagged.joblib": "4266ef0a14417fc7902722d1ae67fae4bbb464294deae3b66fb85634cb2842ae"
+      }
+    },
+    {
+      "month": 6,
+      "phase": "validation",
+      "candidate": "bagged_unweighted_s43",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/validation-m6-bagged_unweighted_s43.json": "5917ef3940a0b588d9a4c112ff39e9beb364c66a7d52a063b92f64f5252c220f",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/validation-m6-bagged_unweighted_s43.npz": "1581e3f7f5b57836e11eeb9baf2c85261838d2e7076602d63a2bdd65e85b302b",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/validation-m6-bagged_unweighted_s43-bagged.joblib": "4cec7ed7943094cb32c7d5f2c2c4ed52298aea95f15b5f804cf2498991441845"
+      }
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "spline_c0p1_unweighted",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/exploratory-m7-spline_c0p1_unweighted.json": "a73c81970ea733679d71f776abc6ca786b00bfbbf6c91af3eb82e18961822064",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/exploratory-m7-spline_c0p1_unweighted.npz": "e9abaced9da7026df8bafbb8f8bcc100539b493c68e4b819948b9abf836ebf01",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/exploratory-m7-spline_c0p1_unweighted.joblib": "0bd099ff816523a1ecc13fa72a3bdebe41569b66f1d011d8a1c1279f5d1065a9"
+      }
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "spline_c1p0_balanced",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/exploratory-m7-spline_c1p0_balanced.json": "3d1eacf2736b05acfea452f9abcd6dea246f7d4b9ec2211eb1ad0763b9b44bff",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/exploratory-m7-spline_c1p0_balanced.npz": "bb75569d038ba3a87039ea82dfe79423fb6fe70f1ac8d224ec4f1406e5da5b60",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/exploratory-m7-spline_c1p0_balanced.joblib": "cda47cbf871785d59770f62e47cc657ae39d64d72df22c90534f5cac40cb083b"
+      }
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "baseline_balanced",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/exploratory-m7-baseline_balanced.json": "33a8d019dab3778f0d275b5e65f8f6b83b849c999302771ebd6e18056c5cd2a9",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/exploratory-m7-baseline_balanced.npz": "cbf8b45eb83bfd36e622a6f53a9ba84d99b13c9e8ca6bdff3f765b5d5b878d41",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/exploratory-m7-baseline_balanced-reference.joblib": "a74f934415379975420daef25ce70489e881d8b1ef7d8eacab4e16925f857b25"
+      }
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "baseline_lgbm",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/exploratory-m7-baseline_lgbm.json": "14f02a6cdaab645834d533a0ae0b928ca3e93d1ba4279b761d5c117b31b0589e",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/exploratory-m7-baseline_lgbm.npz": "b4c36ff7923883bba192caad7c2eddea30d718926f6d26e941d87c03d3f8564d",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/exploratory-m7-baseline_lgbm-reference.joblib": "eb4b213785484416e67ad1935295b9a8b0d4961a9631bb96e4b13f885d803246"
+      }
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "xgb_d4_w1",
+      "complete": true,
+      "files": {
+        "outputs/baf-bagged-lightgbm-seeds-v1/runs/exploratory-m7-xgb_d4_w1.json": "a9769ea90022815c56d00e069bb5be0b7ee671df330d08c030e67e1c77f02a54",
+        "outputs/baf-bagged-lightgbm-seeds-v1/predictions/exploratory-m7-xgb_d4_w1.npz": "f976a26e7ba9a678cd29e4452c7d9801357f1afa1eed0fc78e44a460d58e1961",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/exploratory-m7-xgb_d4_w1.ubj": "66ef75e24fc576d6ba71e98c2484a60d24de3427a9ed6de3f86e29d8eb359321",
+        "outputs/baf-bagged-lightgbm-seeds-v1/models/exploratory-m7-xgb_d4_w1.joblib": "b3958b3525ca78134dfd45cb5545db3689709bdd7e1430d490208c00a6d68bb8"
+      }
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "bagged_balanced_s17",
+      "complete": false,
+      "files": {}
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "bagged_balanced_s29",
+      "complete": false,
+      "files": {}
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "bagged_balanced_s43",
+      "complete": false,
+      "files": {}
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "bagged_unweighted_s17",
+      "complete": false,
+      "files": {}
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "bagged_unweighted_s29",
+      "complete": false,
+      "files": {}
+    },
+    {
+      "month": 7,
+      "phase": "exploratory",
+      "candidate": "bagged_unweighted_s43",
+      "complete": false,
+      "files": {}
+    }
+  ],
+  "development_complete": 33,
+  "final_complete": 5,
+  "semantics": "File availability/hash inventory only; no month7 scores or labels read; model inference audited in scientific stages."
+}

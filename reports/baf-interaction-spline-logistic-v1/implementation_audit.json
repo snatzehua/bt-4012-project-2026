@@ -1,0 +1,37 @@
+{
+  "stage": "implementation foundation; incomplete study",
+  "checked_tasks": [
+    "1.1",
+    "1.3"
+  ],
+  "remaining_tasks": 12,
+  "checked_at_utc": "2026-10-11T09:38:34.591890+00:00",
+  "files": {
+    "baf/interaction_inputs.py": "e6aa9f4ea2cf21e27f6c66ff82c0faa425d87ede7f5fed59c5ee2ef49951204f",
+    "baf/interaction_study.py": "5fcc6e14dd5bb3f6f465d4291f272a3b805152b333d9fd484174bf12ff386a3c",
+    "baf/interaction_report.py": "c6142753462134025cf5a55225b9096ca4a42509f80392df0e2e8cf527ca8f00",
+    "configs/interaction-spline-logistic.json": "4178dbb6b2bae9b9c121dfc81ba6157ae4b8e5948ce82f7ee0feaaccf9624cd7",
+    "docs/interaction-spline-logistic-protocol.md": "2d50046e66a81006bf0601ad492bce5c06390f5fed9d6f79ab3baea364556793",
+    "tests/test_spline_interactions.py": "f278bdb540b06697ce22ae4449780bfb679933bb20f7822f1a5ddb04afdb8861",
+    "reports/baf-interaction-spline-logistic-v1/implementation-verification.md": "26bf96725b8b6937ec87197026111822edf720faf1be88f903bbaa8151ac04a3"
+  },
+  "source_closure_count": 43,
+  "mandatory_hash_count": 366,
+  "preserved_historical_files": 2860,
+  "changed_historical_files": 0,
+  "test_command": ".venv/bin/python -m pytest -q tests",
+  "tests_passed": 366,
+  "new_tests_passed": 78,
+  "test_seconds": 26.82,
+  "new_test_estimator_fits": 0,
+  "new_study_miniature_fits": 0,
+  "new_study_development_fits": 0,
+  "compileall_exit_code": 0,
+  "openspec_strict_passed": 20,
+  "openspec_strict_failed": 0,
+  "new_execution_identity_frozen": false,
+  "new_selection_exists": false,
+  "new_month7_access": false,
+  "performance_gain_established": false,
+  "broader_goal_status": "active"
+}

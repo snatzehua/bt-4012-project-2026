@@ -1,0 +1,50 @@
+{
+  "fingerprint": {
+    "config": "4b2d742c49cd3c395afdc4dde65365d5f6ba949568273f1f12aa2c4f0c642390",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+      "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+      "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+      "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+      "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+      "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+      "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+      "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.12.9"
+  },
+  "rows": [
+    {
+      "positive_weight": 1,
+      "max_probability_difference": 0.0,
+      "miniature_fits": 2,
+      "passed": true
+    },
+    {
+      "positive_weight": 3,
+      "max_probability_difference": 0.0,
+      "miniature_fits": 2,
+      "passed": true
+    }
+  ],
+  "miniature_fits": 4
+}

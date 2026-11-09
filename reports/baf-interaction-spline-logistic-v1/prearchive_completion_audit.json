@@ -1,0 +1,185 @@
+{
+  "checked_at_utc": "2026-10-11T10:47:11.472817+00:00",
+  "fingerprint": {
+    "config": "4178dbb6b2bae9b9c121dfc81ba6157ae4b8e5948ce82f7ee0feaaccf9624cd7",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+      "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+      "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+      "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+      "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+      "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+      "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+      "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082",
+      "baf/direct_grouping.py": "77337d8d6e9c2d1fd25822f7b2c3f50dc10b86a714fd51cc685799786ffe6b54",
+      "baf/direct_ranking.py": "db724fc4f2368ce2f010f5c9a3b0e3fa0ec5b07acccb0b3a1bc25111c99ac9ce",
+      "baf/direct_ranking_report.py": "8973e57aefd0986d19351082a4b75661999be3392169ad6eb9477a2c8c4a6015",
+      "baf/xgboost_inputs.py": "fa9125b8f2f20f65308f0965b5218860d2459c95fdf00f35c33d3c23267fc1e5",
+      "baf/rank_ensemble_scores.py": "0ce961c991b27794505f77f69385d11cdcc9971ef49c8b889bfe4fc462d89cf8",
+      "baf/xgboost_ensemble.py": "286bc961095330d01d560bbfbe62e1ff2f3f75b090b172525cd64448325fec50",
+      "baf/xgboost_ensemble_report.py": "0d24b0b1352068bb54af308eeb01fb1803fd7ec08a4182ee37862716a7878679",
+      "requirements.txt": "7054110540fe08cc44b48b36c5c947c61772a827a1a8b4c2310dcf4ee6f25c3b",
+      "requirements-improvements.txt": "5a385cefb4081e5d49e539ffb624226f08c39bff6202036716be579c76d8828b",
+      "requirements-xgboost.txt": "cc162a3642eb36209185f28a2ea649eb9b98b58f2e5367898b6022b85a1dccd7",
+      "baf/score_fusion.py": "712e99139ee05f46aa542cd1e8544479cb65440a709ee10ad2d3f99142843baf",
+      "baf/score_fusion_study.py": "33c49d74dba17ad71060b90db5114b541180434f5677e7e6ff20d5b8d027502a",
+      "baf/score_fusion_report.py": "4f2409e44b84a3ffded3ef9e3bce4f659ab38cb0f25d17c76ad7742d899a31cc",
+      "baf/spline_inputs.py": "ddf567258dc514f118d86d06f526dde03973ea9e966057c07f38577f9314cf57",
+      "baf/spline_study.py": "1c23ce1f580f34d46f95f2401b5acf4e1b222b71db383d320f3c1043b4809bd8",
+      "baf/spline_report.py": "bf7034ca379981bba2016b652be3183e8f2a799ceb08c6bd7e84e83c9fb880d5",
+      "baf/newton_spline_study.py": "4b61a403da52c608b07f72bb60e1d18212f3be4f51a891812a2ebaf3631bd4b1",
+      "baf/newton_spline_report.py": "14e82677c746279164639153af97443e41fd94e7f08dff2efc85399f8225e3ab",
+      "baf/newton_spline_audit.py": "7511c3a9459c97f37c11c7c19b32f2a9056de31fa46b668185fcd9b4b445924d",
+      "baf/newton_spline_audit_report.py": "95cd301dcfdcf3a50f9259ace623464f1469e8909ae24684368fd1def80def34",
+      "baf/spline_fusion_scores.py": "ab3a45a1492cbb1b9f233b8acf9e3788587e6e4302c47f55edfda6b823009d1f",
+      "baf/spline_fusion_study.py": "42b237f147ff3acb9285e03ba94fbb006faf50867fd83256ac99d2e1baaa15bb",
+      "baf/spline_fusion_report.py": "d6887ba143009dd853d8767921d7dc4dbab3208e96405cd82ffbb0a3daced87c",
+      "baf/interaction_inputs.py": "e6aa9f4ea2cf21e27f6c66ff82c0faa425d87ede7f5fed59c5ee2ef49951204f",
+      "baf/interaction_study.py": "5ed46c36981ea505ba6e3098150e6f665d33873fe7211f007f83e34512aaac60",
+      "baf/interaction_report.py": "7fb490cb5144f8b868c3a9e029cb0c7f92b267a1e646a5e56ff1178a72d55078"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0",
+      "xgboost": "3.4.1"
+    },
+    "python": "3.12.9"
+  },
+  "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+  "historical_files_unchanged": 2860,
+  "full_methodological_tests": 379,
+  "interaction_tests": 91,
+  "actual_miniature_fits": 8,
+  "actual_cache_test_fits": 10,
+  "all_seven_requirements": [
+    {
+      "requirement": "Separate finite preserved interaction study",
+      "status": "proven",
+      "evidence_sha256": {
+        "outputs/baf-interaction-spline-logistic-v1/declaration.json": "65bee7f3f8099e59ed6afeaddcffedfd8263b0ce7aee6f31b8aa74922fca60f8",
+        "outputs/baf-interaction-spline-logistic-v1/preservation.json": "6ee8110d3c88a6265d6091b5d0630c0ce3c14007898c5b584c047c6eaa14aae8",
+        "outputs/baf-interaction-spline-logistic-v1/reference_preparation.json": "49c592a35ce9b03890acf977815af17905126b17ec02fcb3b2494c873da90929",
+        "outputs/baf-interaction-spline-logistic-v1/validation_complete.json": "dc531b9f015248544b461723c0850e408e542e8f2dfa7f51231f67eddf977a75",
+        "reports/baf-interaction-spline-logistic-v1/reference_verification.json": "c14e2ce5bff5872385390bdc596afdb2e338d4e7097ef4d40a580601b6a0540c",
+        "reports/baf-interaction-spline-logistic-v1/test_fit_counts.json": "750de2c6741341b7a5eb0d40c84928a6e22994b58511c48669fd1337d34fcf2b",
+        "reports/baf-interaction-spline-logistic-v1/development_export_verification.json": "62a46aec1b8536721dc53233e345204e90ae52178f46489331559aec547eb8fd"
+      }
+    },
+    {
+      "requirement": "Fixed training-only nonlinear pair representation",
+      "status": "proven",
+      "evidence_sha256": {
+        "outputs/baf-interaction-spline-logistic-v1/feature_blocks.json": "403f311739c058a4c45aa48e86c52258be1a05a03f3649218076688e812a9b71",
+        "outputs/baf-interaction-spline-logistic-v1/interaction_blocks.json": "68ff2d07f8411890d10f4b67ee83b44c1662f8db538c0397efd17fdf966e7b57",
+        "outputs/baf-interaction-spline-logistic-v1/feature_diagnostics.csv": "71bb091dbc8011ade938be90be76a24251441e3ab6a74828801351f5606fd828",
+        "outputs/baf-interaction-spline-logistic-v1/pair_diagnostics.csv": "7c0e68f9a18ca3dd02f835f919c29df851b535ec94eddc54c76f63fe71fda41f",
+        "outputs/baf-interaction-spline-logistic-v1/coefficients.csv": "35bb0f074536082efed1fdbf5b9bf89a14fdc48a85b43737fa9a7d7c807eb613",
+        "outputs/baf-interaction-spline-logistic-v1/independent_development_audit.json": "c09bb32b6433c0491307bae992e7efddb9c7be6bbf7b03a1d27c674a1d140044",
+        "reports/baf-interaction-spline-logistic-v1/tests.xml": "712467e6f792a3cd144307a4b56f8cec180801eb5adbabf2f53a9ade5a1e953a",
+        "reports/baf-interaction-spline-logistic-v1/development_audit_verification.json": "ea0bd978f5c7bbfd602c940b86ef458f359510dbabe369e6e15cf3504a6ffb8c"
+      }
+    },
+    {
+      "requirement": "Checked numerical fitting and complete failure evidence",
+      "status": "proven",
+      "evidence_sha256": {
+        "outputs/baf-interaction-spline-logistic-v1/miniature.json": "a48bac394991c18c09cdf77257e71c159b2eb2e7ab68d7f36d192e034a5c1afe",
+        "outputs/baf-interaction-spline-logistic-v1/resource_preflight.json": "7db8675d2ba3fe6a17dda5ca60b3f6d9b250551a052013695ccb4195af59dd97",
+        "outputs/baf-interaction-spline-logistic-v1/solver.csv": "73010d506bed2d68c6d65c5ae100159ac7e6bd5837f0ef007cb4c8d41dd07042",
+        "outputs/baf-interaction-spline-logistic-v1/numerical.csv": "d843d1e731deb8ad096b1e740d9ac8a1e5afbcfc72671dcaabf975215f8a6506",
+        "outputs/baf-interaction-spline-logistic-v1/resources.csv": "c90e71bd0ab8d74314674fbcb399b2af3eb76695e0befa6146609b16ec1b7114",
+        "outputs/baf-interaction-spline-logistic-v1/independent_development_audit.json": "c09bb32b6433c0491307bae992e7efddb9c7be6bbf7b03a1d27c674a1d140044",
+        "reports/baf-interaction-spline-logistic-v1/preflight_verification.json": "91be7d45aa6e1d7eab72ed2e011c9fbdf3a294715ef47bfcc3bfdc83d63ef385",
+        "reports/baf-interaction-spline-logistic-v1/tests.xml": "712467e6f792a3cd144307a4b56f8cec180801eb5adbabf2f53a9ade5a1e953a"
+      }
+    },
+    {
+      "requirement": "Comparable chronological actual-F2 selection",
+      "status": "proven",
+      "evidence_sha256": {
+        "outputs/baf-interaction-spline-logistic-v1/crossfit.csv": "12221dfb5102986e9da75c7a8deb667724ff5d4b777fc34e7b2a131c74e399ea",
+        "outputs/baf-interaction-spline-logistic-v1/summary.csv": "8e0f3c4117901a9b403e4268e5cbb966762d14a3b825901d641839b3a974e899",
+        "outputs/baf-interaction-spline-logistic-v1/pooled.csv": "b9ad955e879a804c18331fb6df611521c5cccf2b4164fccf1673d071cdfb0e96",
+        "outputs/baf-interaction-spline-logistic-v1/score_diagnostics.csv": "ee49a4f7201ebeebebcc58101be012ccc6851301cea215501db60a7a42d2f754",
+        "outputs/baf-interaction-spline-logistic-v1/independent_development_audit.json": "c09bb32b6433c0491307bae992e7efddb9c7be6bbf7b03a1d27c674a1d140044",
+        "outputs/baf-interaction-spline-logistic-v1/selection.json": "ec8623c26a777dbd9966b5b4f3b837ac7257b779a418336e2b923efa8b2aadac",
+        "reports/baf-interaction-spline-logistic-v1/development_audit_verification.json": "ea0bd978f5c7bbfd602c940b86ef458f359510dbabe369e6e15cf3504a6ffb8c"
+      }
+    },
+    {
+      "requirement": "Complete matched feature and operating comparisons",
+      "status": "proven",
+      "evidence_sha256": {
+        "outputs/baf-interaction-spline-logistic-v1/contrasts.csv": "956a993a046174071c050eb2e7c9d93341a56501ff5efb11c6b796f358db9cb9",
+        "outputs/baf-interaction-spline-logistic-v1/feature_diagnostics.csv": "71bb091dbc8011ade938be90be76a24251441e3ab6a74828801351f5606fd828",
+        "outputs/baf-interaction-spline-logistic-v1/pair_diagnostics.csv": "7c0e68f9a18ca3dd02f835f919c29df851b535ec94eddc54c76f63fe71fda41f",
+        "outputs/baf-interaction-spline-logistic-v1/independent_development_audit.json": "c09bb32b6433c0491307bae992e7efddb9c7be6bbf7b03a1d27c674a1d140044",
+        "reports/baf-interaction-spline-logistic-v1/development_export_verification.json": "62a46aec1b8536721dc53233e345204e90ae52178f46489331559aec547eb8fd"
+      }
+    },
+    {
+      "requirement": "Frozen bounded exploratory transfer",
+      "status": "proven",
+      "evidence_sha256": {
+        "outputs/baf-interaction-spline-logistic-v1/selection.json": "ec8623c26a777dbd9966b5b4f3b837ac7257b779a418336e2b923efa8b2aadac",
+        "outputs/baf-interaction-spline-logistic-v1/exploratory_access.json": "e37e57a6e9b13dcda713cfe6f0f63b05a30daac4cba7694305450c8a7aefdcac",
+        "outputs/baf-interaction-spline-logistic-v1/transfer_complete.json": "5dab1389475dbc15f1a8410c4d77a2f720444e5077eafda57443e5a55f2728e6",
+        "outputs/baf-interaction-spline-logistic-v1/exploratory.csv": "9bc16156740a2b8a3ea2b67efb4c64d1331c693df4e043f307ef988e303285d1",
+        "reports/baf-interaction-spline-logistic-v1/freeze_verification.json": "a804b99e349e013ae00937a466e7c5742958acc8340e888566d6f2b1dc333428",
+        "reports/baf-interaction-spline-logistic-v1/transfer_verification.json": "b4809a9e2733ef43bed3761e89bf4e77b43054591748acf4c162bb70bf6c2ea9",
+        "reports/baf-interaction-spline-logistic-v1/audit.json": "8bb1844bdf653f4bfafe56459781a0401a4ffe465c56c48219b5df2ecc4394b6"
+      }
+    },
+    {
+      "requirement": "Verified evidence and reproducible completion",
+      "status": "proven",
+      "evidence_sha256": {
+        "reports/baf-interaction-spline-logistic-v1/development_draws.csv": "99e1196943e7913fcf07f258a4d69bb8790fbb8afa4139b17a05538644e8a84a",
+        "reports/baf-interaction-spline-logistic-v1/consumed_draws.csv": "7be4319d2f95f0ab53ef4c832e3ae27c91ce67ec14d29cb93f25d58bb16ad583",
+        "reports/baf-interaction-spline-logistic-v1/development_intervals.csv": "e2a9c446c25f23687fd151f801d5a27b9e6a1b53bc3427e77521bd1938e27022",
+        "reports/baf-interaction-spline-logistic-v1/consumed_intervals.csv": "e6f4067234dbb79e692ee0fa69bb02cc3dc0ddd0f5e6036216033b061376aa9e",
+        "reports/baf-interaction-spline-logistic-v1/pair_surfaces.csv": "c185bae66f4e4e78596f4b0728c5aa75528f5662a269fe835af5fbe95fca5868",
+        "reports/baf-interaction-spline-logistic-v1/pair_surfaces.png": "7447c12b69d727ff8f4ff9b3b36824d0d13adcef711d5c8cf76fff8b332225a3",
+        "reports/baf-interaction-spline-logistic-v1/interaction_operating.png": "80175e5af42a700dd00f75a9e43a7d776f4cd556bd84f192aebe98f70b39d93a",
+        "reports/baf-interaction-spline-logistic-v1/findings.md": "0d9cec437b4d211869f6adf406edf421a96b296f9f18cc7998bcf1cb504ef0a1",
+        "reports/baf-interaction-spline-logistic-v1/reporting_verification.json": "1c7817183912e0aa27ab8b3a99dd0758fdcf208cfa42c0304ad37941ac085930",
+        "reports/baf-interaction-spline-logistic-v1/environment_reproduction_verification.json": "3eda23ffa8c981ca60d7ca9d1da0e440e14a13d6be776ca3ee2fec4fd7fb38ff",
+        "reports/baf-interaction-spline-logistic-v1/openspec-presync-completion-validation.log": "3d9875bfa3bb4162c0ced10f6762b93aeb25f863dce58762d57e3486880a9018"
+      }
+    }
+  ],
+  "all_nine_scenarios_covered_by_frozen_tests_and_execution": true,
+  "specs_synced_and_exact": true,
+  "strict_openspec_items_passed": 21,
+  "all_reported_gain_differences": {
+    "recent_fusion": 0.0,
+    "fusion": 0.00010337461432047279,
+    "balanced": 0.0012083666956509975,
+    "unweighted": 0.00635625987054414
+  },
+  "consumed_gain_differences": {
+    "recent_fusion": 0.0,
+    "fusion": -0.0024465541706921168,
+    "balanced": 0.005839011476450717,
+    "unweighted": -0.006636853587122182
+  },
+  "finite_experiment_complete": true,
+  "broader_goal_achieved": false,
+  "archive_pending": true,
+  "report_manifest_finalization_pending": true
+}

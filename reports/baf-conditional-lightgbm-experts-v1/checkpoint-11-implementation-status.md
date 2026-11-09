@@ -1,0 +1,31 @@
+# Conditional-model implementation checkpoint, 12 October 2026
+
+Five of fourteen tasks are verified: prospective isolated contract (1.1), required individual source adapters (1.2), conditional model core (2.1), analytical score/policy/table pipeline (2.2), and complete methodological integration/fit accounting (2.3). This checkpoint does not freeze production sources or claim a completed study or improved F2.
+
+The configuration and prospective protocol preserve 58 source paths, 1053 mandatory historical paths, seventeen original/exported selection pairs and 4369 ignored historical files. The actual dataset checksum, parent identity, all 72 winner/policy declarations and observed training-only eligibility passed the declaration command before any current test fit. Config SHA is `6a95616379a1082711bfb41b1f1c8df647b757e2f39390d329cad1bf6dbcffb5`. The original contract receipt is retained separately from later test evidence.
+
+Implemented model behavior includes fixed canonical groups and eligibility minima, whole-training costs rather than local rebalancing, shared global preprocessing, original local200/global400 recipes, serialized inference and strict partial/corrupt-cache rejection. Group scores stitch exactly once with explicit ineligible/missing/unseen fallback. Both partitions and weightings, chronological rules, canonical blend endpoints, all 72 role cases and their exact observed dependency/type bounds are checked.
+
+| Checkpoint | Outcome | Current classifier fits | Historical classifier fits |
+|---|---|---:|---:|
+| 01 focused model/source checks | 100 passed | 10 | 0 |
+| 02 expanded analytical checks | 140 passed, 1 failed | 10 | 0 |
+| 03 corrected analytical checks | 131 passed | 0 | 0 |
+| 04 full current repository suite | 1723 passed, including 222 current-study | 10 | 75 |
+| 05 archive-compatible planning resolver and analytical checks | 214 passed | 0 | 0 |
+| 06 non-fitting orchestration/freeze/uncertainty/figure checks | 381 passed | 0 | 0 |
+| 07 receipt/source/inference-work checks | 15 passed | 0 | 0 |
+| 08 full orchestration repository suite | 1907 passed, including 406 current-study | 10 | 75 |
+| 09 fresh-copy cache/receipt fixtures | 12 passed, 1 failed | 0 | 0 |
+| 10 corrected fresh-copy cache/receipt fixtures | 13 passed | 0 | 0 |
+| 11 full current repository suite | 1915 passed, including 414 current-study | 10 | 75 |
+
+The earlier failed check concerned the independent auditor calling a metric API on an empty stratum. The implementation and auditor now explicitly retain empty groups with zero counts/rates. Checkpoint 09 failed because a fixture assumed an exported receipt lived under ignored outputs; the failure occurred before writing that receipt. The corrected fixture simulates an optional original through a temporary read adapter and never mutates exported historical reports. Failure logs, test XML and classifier-fit ledgers remain intact. Fifty cumulative current tiny classifier fits (twenty new-method variants and thirty reference-format checks), and 225 historical classifier fits across retained invocations, are separate from production. Mocked failures and preprocessing fits are excluded from the classifier ledger's declared scope. The separate disposable-copy suite is ongoing and is not included in these closed totals.
+
+The score-only synthetic reconstruction creates all 93 full-population score artifacts and 54 separate member subsets, with 48 new pure/blend compositions, 144 operating rows, 72 macro and pooled summaries, 738 complete contrasts, 72 eligibility rows, 96 routing rows and 2304 stratum-error rows. All were independently reconstructed from saved scores and raw synthetic memberships, including CSV round trips. Its receipt explicitly states that no source models were audited or fitted and no operational performance was measured. The separate helper, generated fixture and source fingerprints are retained.
+
+Full-suite 80-file source snapshots are retained under `checkpoint-04-sources/`, `checkpoint-08-sources/` and `checkpoint-11-sources/`. The planning resolver and all four analytical test readers support eventual archive without rewriting the configuration. Source gates check whole optional model sets, saved inference, effective recipes and numerical validity from exact exported receipts; wholly absent optional caches are allowed. The declaration hashes every present historical file and rejects additions or mutations, while retaining the prospective original snapshot. Checkpoint 11 tests every winner/policy freeze/reload contract, changed selections, actual type/availability bounds, execution receipts, artifact cardinality (84 model objects/87 model files/147 full-plus-subset score artifacts), role-specific paired uncertainty, figure regeneration, and measured shared inference work. Its closed receipt is `orchestration-checkpoint-verification.json`, with the earlier checkpoint-08 receipt preserved separately. Current model-fitting code remains unchanged. Original preliminary identities must be retained. The final execution declaration has not yet been frozen.
+
+All 1053 mandatory paths and 4369 actual historical files passed the checkpoint-11 preservation audit; all 85 observed test fits completed. New entry points cover resource/miniature gates, development, independent model/table/work audits, immutable actual-F2 selection, bounded transfer and reporting. README gives ordered commands and seventeen-selection restoration. The disposable-copy setup verifies all seventeen changed-restore rejections, Base SHA, 27 pins, no prior models/predictions and a simulated archived planning path; its complete suite must finish before it can be claimed passed.
+
+Actual-host resource checks, the sixteen-fit production miniature gate, 54 local/six capacity full fits, 84 saved development-model audits, actual winner freeze, bounded consumed-month transfer, bootstrap reconstruction, inspected figures, clean-copy reproduction and completion/archive remain pending. No new full-data fit or month-7 evaluation has occurred. All seventeen completed studies and the stopped attempt remain authoritative and must stay unchanged. F2 beta=2 has no quota or precision floor; month 7 remains consumed and the broader performance objective remains active.

@@ -1,0 +1,12 @@
+{
+  "selection_sha256": "b804b3bf8ff5f24d60ef896435456c99539eca7f32f8cc32eb9c8e293f63d407",
+  "table_sha256": "41a6597a4636efb08ddd5e0359a99058a197cc566e7a07562569737d80cdc8e4",
+  "base_results": 8,
+  "base_reuses": 5,
+  "new_fits": 3,
+  "new_interaction_fits": 1,
+  "reproduced_additive_fits": 2,
+  "reproduced_tree_fits": 0,
+  "role_count": 14,
+  "total_scores": 18
+}

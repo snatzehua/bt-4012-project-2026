@@ -1,0 +1,8 @@
+{
+  "command": ".venv/bin/python -m pytest tests/test_interaction_fusion.py -q --disable-warnings",
+  "exit_code": 0,
+  "terminal_output": "239 passed in 28.90s",
+  "tests_passed": 239,
+  "new_cache_test_fits": 4,
+  "current_gate": false
+}

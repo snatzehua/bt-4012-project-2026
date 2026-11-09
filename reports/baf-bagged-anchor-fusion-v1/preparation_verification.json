@@ -1,0 +1,10 @@
+{
+  "preparation_sha256": "3245de201a6ca8fba3f1f95c22707df95a9dcce0b5a66ffa56109a7135123336",
+  "physical_scores": 120,
+  "actual_development_models_audited": 33,
+  "bagged_reuses": 18,
+  "reference_reuses": 15,
+  "derived_reuses": 21,
+  "new_derived_computations": 66,
+  "new_full_fits": 0
+}

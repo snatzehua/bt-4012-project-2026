@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/verify-scientific-results.py", line 41, in <module>
+    assert bool(comparisons.loc[name,'development_pass'])==(dev>0)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

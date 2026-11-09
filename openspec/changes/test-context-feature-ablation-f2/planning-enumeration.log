@@ -1,0 +1,32 @@
+{
+  "expected_counts": {
+    "strategies": 38,
+    "winner_policy_cases": 114,
+    "new_development_fits": 18,
+    "reference_base_results": 24,
+    "full_margin_controls": 6,
+    "reference_derived_results": 15,
+    "new_blends": 72,
+    "models": 42,
+    "model_files": 45,
+    "physical_scores": 135,
+    "crossfit": 228,
+    "summary": 114,
+    "pooled": 114,
+    "contrasts": 1192,
+    "physical_score_diagnostics": 135,
+    "score_diagnostics": 114,
+    "diversity": 42,
+    "decision_overlap": 516
+  },
+  "mandatory_paths": 2020,
+  "selection_pairs": 19,
+  "historical_files": 5432,
+  "source_paths": 64,
+  "cache_model_sets": 32,
+  "parent_report_entries_verified": 153,
+  "project_context_snapshots": 3,
+  "new_model_fits": 0,
+  "new_model_inferences": 0,
+  "new_policy_evaluations": 0
+}

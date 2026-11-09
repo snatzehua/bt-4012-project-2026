@@ -1,0 +1,8 @@
+{
+  "fixture": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "candidate": "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+  "eval_month": 6,
+  "prediction_sha256": "1ad758f0c09b382129c29d6e4295ea2b4bce97c9b05a85c3ffa827bc78618092"
+}

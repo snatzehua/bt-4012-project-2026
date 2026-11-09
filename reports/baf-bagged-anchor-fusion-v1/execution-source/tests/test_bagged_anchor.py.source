@@ -1,0 +1,509 @@
+"""Bagged-anchor methodology; six genuine tiny source fits in a full invocation."""
+import copy
+from itertools import product
+from pathlib import Path
+from unittest.mock import patch
+
+import joblib
+import numpy as np
+import pandas as pd
+import pytest
+
+from baf.common import read_config, write_json, digest
+from baf import bagged_anchor_study as run
+from baf import bagged_anchor_scores as scores
+from baf import bagged_anchor_report as report
+
+
+def evidence():
+    return read_config(run.planning_evidence_path())
+
+
+def data(values):
+    return dict(row_ids=np.arange(len(values)),labels=np.arange(len(values))%2,
+                scores=np.asarray(values,dtype=np.float64))
+
+
+def test_complete_declaration_and_preservation():
+    r=run.verify_declaration()
+    assert (r['source_paths'],r['preserved_paths'],r['selection_pairs'],r['historical_files'])==(55,735,16,3732)
+    assert [s['id'] for s in scores.strategies()]==report.NAMES
+    assert scores.dependencies(report.NAMES)==report.graph(report.NAMES)
+    assert len(scores.strategies())==37 and len(scores.expression_rows())==60
+    assert set(scores.contrast_factors())==report.expected_factors()=={tuple(v) for v in evidence()['contrasts']}
+    assert scores.declaration_counts()==evidence()['expected_counts']
+
+
+@pytest.mark.parametrize('name,policy',list(product([s['id'] for s in scores.strategies()],['pooled','latest','rank_fraction'])))
+def test_every_winner_policy(name,policy):
+    expected=next(v for v in evidence()['winner_policy_cases'] if v['winner']==name and v['policy']==policy)
+    roles=scores.choices_for(name,policy);dag=scores.dependencies([n for n,k in roles.values()])
+    assert roles==expected['roles'] and dag==expected['dependencies']==report.graph([n for n,k in roles.values()])
+    assert scores.winner_kind(name)==expected['kind']
+    assert len(dag['bagged_bases'])==expected['current_new_bagged_fit_bound']
+    assert len(roles)=={'reference':7,'baseline_logit':9,'single':21,'aggregate':21,'blend':26}[expected['kind']]
+    assert len(dag['bases'])<=11 and len(dag['scores'])<=28 and len(dag['bagged_bases'])<=6
+    assert roles['selected']==[name,policy] and roles['same_strategy']==[name,'pooled']
+    # Aliases stay visible even when two role names require identical work.
+    if name in scores.REFERENCE_POLICIES:
+        assert len(roles)==7
+    elif name.endswith('logit_mean'):
+        assert roles['native_member']==roles['transformed_member']==roles['selected']
+    elif name.startswith('bagged_anchor_'):
+        assert roles['selected'] in [v for a,v in roles.items() if a.startswith('alpha_')]
+
+
+DERIVED=[s for s in scores.strategies() if s['kind'] in ['aggregate','logit','blend']]
+
+
+@pytest.mark.parametrize('spec',DERIVED,ids=lambda s:s['id'])
+def test_declared_association_and_row_label_invariance(spec):
+    arrays=[[0.,1e-9,.8,1.,.8],[.2,.2,.7,.99,.7],[.3,.3,.6,.98,.6]]
+    items={n:data(arrays[i]) for i,n in enumerate(spec['members'])}
+    if spec['kind']=='blend':
+        items[spec['members'][0]]=data([-19.,-5.,2.,18.,2.])
+        items[spec['members'][1]]=data([14.,-8.,-3.,-15.,-3.])
+    actual=scores.compose(spec,items)
+    assert np.array_equal(actual['scores'],report.expected_values(spec,items))
+    if spec['kind']=='blend':
+        h,g=[items[n]['scores'] for n in spec['members']];a=spec['alpha']
+        assert np.array_equal(actual['scores'],(1-a)*h+a*g)
+        assert np.any((actual['scores']<0)|(actual['scores']>1))
+    changed=copy.deepcopy(items)
+    for d in changed.values():
+        d['labels']=1-d['labels'];d['scores'][1]=.37
+    assert np.array_equal(actual['scores'][[0,2,3,4]],scores.compose(spec,changed)['scores'][[0,2,3,4]])
+    singleton={n:{k:v[:1] for k,v in d.items()} for n,d in items.items()}
+    assert actual['scores'][0]==scores.compose(spec,singleton)['scores'][0]
+    assert np.array_equal(actual['scores'],scores.compose(spec,dict(reversed(list(items.items()))))['scores'])
+    assert actual['scores'][2]==actual['scores'][4]
+
+
+@pytest.mark.parametrize('kind',['aggregate','logit','blend'])
+@pytest.mark.parametrize('bad',['missing','extra','alignment','labels','nan','inf','shape','epsilon','spec','empty','duplicate_ids'])
+def test_invalid_composition_is_rejected(kind,bad):
+    spec=copy.deepcopy(next(s for s in DERIVED if s['kind']==kind))
+    items={n:data([.2,.8]) for n in spec['members']};n=spec['members'][0]
+    if bad=='missing':items.pop(n)
+    elif bad=='extra':items['extra']=data([.2,.8])
+    elif bad=='alignment':items[n]['row_ids']=np.array([3,4])
+    elif bad=='labels':items[n]['labels']=np.array([1,0])
+    elif bad=='nan':items[n]['scores'][0]=np.nan
+    elif bad=='inf':items[n]['scores'][0]=np.inf
+    elif bad=='shape':items[n]['scores']=np.array([[.2,.8]])
+    elif bad=='epsilon':spec['epsilon']=1e-4
+    elif bad=='spec':spec['members']=spec['members']+spec['members'][:1]
+    elif bad=='empty':items[n]=data([])
+    else:items[n]['row_ids']=np.array([0,0])
+    # A single-source transform legitimately carries the one changed population.
+    if kind=='logit' and bad in ['alignment','labels']:
+        assert np.array_equal(scores.compose(spec,items)['row_ids'],items[n]['row_ids'])
+    else:
+        with pytest.raises(ValueError):scores.compose(spec,items)
+
+
+@pytest.mark.parametrize('value',[-.01,1.01])
+@pytest.mark.parametrize('kind',['aggregate','logit'])
+def test_probability_domains_rejected(kind,value):
+    spec=next(s for s in DERIVED if s['kind']==kind)
+    items={n:data([.2,.8]) for n in spec['members']};items[spec['members'][0]]['scores'][0]=value
+    with pytest.raises(ValueError):scores.compose(spec,items)
+
+
+def test_canonical_logit_and_endpoint_controls():
+    p=data([0,1e-8,.2,.9,1]);historical=run.parent.old_compose
+    for w in scores.WEIGHTINGS:
+        name='logit_'+scores.parent.unbagged(w);spec=scores.lookup(name)
+        expected=historical(run.parent.old_lookup(name),{spec['members'][0]:p})
+        assert np.array_equal(scores.compose(spec,{spec['members'][0]:p})['scores'],expected['scores'])
+    assert not any('_a00' in s['id'] or '_a100' in s['id'] for s in scores.strategies())
+    for w,f in product(scores.WEIGHTINGS,scores.FORMS):
+        assert scores.lookup(scores.margin(w,f))['kind'] in ['logit','aggregate']
+        with pytest.raises(ValueError):scores.blend_id(w,f,0.)
+        with pytest.raises(ValueError):scores.blend_id(w,f,1.)
+        with pytest.raises(ValueError):scores.lookup(f'logit_bagged_{w}_logit_mean')
+
+
+def test_aggregate_forms_are_distinct_and_expansions_are_only_diagnostics():
+    arrays=[[.001,.95,.2],[.1,.8,.4],[.6,.75,.7]]
+    for w in scores.WEIGHTINGS:
+        members={f'bagged_{w}_s{s}':data(p) for s,p in zip(scores.SEEDS,arrays)}
+        p=scores.compose(scores.lookup(scores.probability_mean(w)),members)
+        l=scores.compose(scores.lookup(scores.margin(w,'logit')),members)
+        assert not np.allclose(report.logit(p['scores']),l['scores'],atol=1e-12,rtol=0)
+    a=pd.DataFrame(scores.expression_rows());b=pd.DataFrame(report.independent_expressions())
+    assert len(a)==60 and not a.duplicated(['candidate','atom']).any()
+    pd.testing.assert_frame_equal(a,b,check_exact=False,atol=1e-15,rtol=0)
+    assert set(a.groupby('candidate').size())=={4,6}
+
+
+@pytest.mark.parametrize('w,form',list(product(scores.WEIGHTINGS,scores.FORMS)))
+def test_curve_endpoints_reuse_canonical_ids(w,form):
+    controls=scores.curve_controls(w,form)
+    assert controls[0]==(0.,scores.ANCHOR) and controls[-1]==(1.,scores.margin(w,form))
+    assert [a for a,n in controls]==[0.,.1,.25,.5,1.]
+    assert len({n for a,n in controls})==5 and all(n in report.NAMES for a,n in controls)
+
+
+@pytest.mark.parametrize('archived',[False,True])
+def test_planning_evidence_survives_archive(tmp_path,archived):
+    root=tmp_path/'changes'
+    p=root/('archive/2026-10-12-test-bagged-anchor-fusion-f2' if archived else 'test-bagged-anchor-fusion-f2')/'planning-evidence.json'
+    write_json(p,{'fixture':True})
+    assert run.planning_evidence_path(root)==p
+
+
+@pytest.mark.parametrize('kind',['bagged_balanced','bagged_unweighted','spline_balanced','spline_unweighted','xgboost','lightgbm'])
+def test_six_genuine_missing_cache_formats_fit_audit_reuse_and_reject_corruption(tmp_path,kind):
+    c=read_config(run.CONFIG);c.update(output_dir=str(tmp_path/'own'),threads=1)
+    fp={'fixture':'six exact tiny cache formats, not production'}
+    if kind.startswith('bagged_'):
+        frame,base=run.parent.synthetic_data()
+        spec=next(s for s in scores.recipes() if s['weighting']==kind[7:])
+    else:
+        base,y=run.parent.previous.newton.miniature_frame()
+        frame=base.assign(month=np.where(np.arange(len(base))<120,3,4),fraud_bool=y)
+        name={'spline_balanced':'spline_c1p0_balanced','spline_unweighted':'spline_c0p1_unweighted',
+              'xgboost':'xgb_d4_w1','lightgbm':'baseline_lgbm'}[kind]
+        spec=next(s for s in run.reference_specs(c) if s['id']==name)
+    month=2 if kind.startswith('bagged_') else 4
+    with patch.object(run,'source_origins',return_value=[]):
+        record=run.prepare_source(c,fp,frame,base,spec,month)
+    assert not record.get('reused') and record['fingerprint']==fp
+    ps=run.source_paths(c,spec,month,'validation');assert all(p.is_file() for p in ps)
+    original=ps[0].read_bytes();prediction_bytes=ps[1].read_bytes()
+    with patch.object(run.parent,'fit_bagged',side_effect=AssertionError('No refit')), \
+         patch.object(run.parent.previous.newton,'fit_new',side_effect=AssertionError('No refit')), \
+         patch.object(run.parent.previous.tree.old,'fit_model',side_effect=AssertionError('No refit')), \
+         patch.object(run.parent.previous.additive,'reproduce_reference',side_effect=AssertionError('No refit')), \
+         patch.object(run,'source_origins',side_effect=AssertionError('Own cache has precedence')):
+        assert run.prepare_source(c,fp,frame,base,spec,month)==record
+    for key in ['train_rows','train_fraud']:
+        broken=copy.deepcopy(record);broken[key]+=1;write_json(ps[0],broken)
+        with pytest.raises(ValueError):run.audit_source(c,fp,frame,base,spec,month)
+        ps[0].write_bytes(original)
+    pred=run.prediction(c,'validation',month,spec['id']);pred['scores']=1-pred['scores']
+    np.savez_compressed(ps[1],**pred);broken=copy.deepcopy(record);broken['prediction_sha256']=digest(ps[1]);write_json(ps[0],broken)
+    with pytest.raises(ValueError):run.audit_source(c,fp,frame,base,spec,month)
+    ps[1].write_bytes(prediction_bytes);ps[0].write_bytes(original)
+    # Audit-and-copy an exact earlier origin through the NEW adapter, without fitting.
+    other=dict(c,output_dir=str(tmp_path/'second'));otherfp={'fixture':'copied destination'}
+    with patch.object(run,'source_origins',return_value=[(c,fp)]), \
+         patch.object(run.parent,'fit_bagged',side_effect=AssertionError('No fit')), \
+         patch.object(run.parent.previous.newton,'fit_new',side_effect=AssertionError('No fit')), \
+         patch.object(run.parent.previous.tree.old,'fit_model',side_effect=AssertionError('No fit')), \
+         patch.object(run.parent.previous.additive,'reproduce_reference',side_effect=AssertionError('No fit')):
+        copied=run.prepare_source(other,otherfp,frame,base,spec,month)
+    assert copied['reused'] and copied['origin_artifacts']=={str(p):digest(p) for p in ps}
+    assert ps[0].read_bytes()==original and ps[1].read_bytes()==prediction_bytes
+    ps[1].unlink()
+    with patch.object(run,'source_origins',side_effect=AssertionError('Partial cache must fail')):
+        with pytest.raises(ValueError,match='Partial'):run.prepare_source(c,fp,frame,base,spec,month)
+    assert ps[0].read_bytes()==original
+
+
+@pytest.mark.parametrize('where',['own','current_parent','older'])
+@pytest.mark.parametrize('kind',['bagged','reference'])
+def test_partial_source_cache_never_skips_to_other_origins(tmp_path,where,kind):
+    c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));frame,base=run.parent.synthetic_data(300)
+    spec=scores.recipes()[0] if kind=='bagged' else c['candidates'][0]
+    sources=[(dict(c,output_dir=str(tmp_path/n)),{}) for n in ['current_parent','older']]
+    if kind=='bagged' and where=='older':
+        # Bagged sources have no older origin: test source-origin declaration itself.
+        assert len(run.source_origins(read_config(run.CONFIG),spec))==1
+        return
+    target=c if where=='own' else sources[0 if where=='current_parent' else 1][0]
+    ps=run.source_paths(target,spec,2,'validation');write_json(ps[0],{'partial':True})
+    with patch.object(run,'source_origins',return_value=sources),patch.object(run,'audit_source',side_effect=AssertionError('No audit/fit of a partial source')):
+        with pytest.raises(ValueError,match='Partial'):run.prepare_source(c,{},frame,base,spec,2)
+    assert read_config(ps[0])=={'partial':True}
+
+
+def test_source_failure_retention_and_retry_rejection(tmp_path):
+    c=dict(read_config(run.CONFIG),output_dir=str(tmp_path));frame,base=run.parent.synthetic_data(300);spec=c['candidates'][0]
+    error=run.parent.previous.newton.NumericalGate('fixture gradient failure',{'gradient_max_abs':.5})
+    with patch.object(run,'source_origins',return_value=[]),patch.object(run.parent.previous.newton,'fit_new',side_effect=error):
+        with pytest.raises(ValueError,match='gradient'):run.prepare_source(c,{},frame,base,spec,2)
+    ps=run.source_paths(c,spec,2,'validation');failure=tmp_path/'failures'/(ps[0].stem+'.json')
+    assert read_config(failure)['numerical']['gradient_max_abs']==.5
+    with patch.object(run,'source_origins',side_effect=AssertionError('No retry')):
+        with pytest.raises(ValueError,match='Prior failed'):run.prepare_source(c,{},frame,base,spec,2)
+
+
+def test_parent_source_precedence_and_no_descendant_guard_call():
+    c=read_config(run.CONFIG)
+    old=run.source_origins(c,c['candidates'][0]);bag=run.source_origins(c,scores.recipes()[0])
+    assert old[0]==bag[0]==(read_config(run.parent.CONFIG),c['parent_fingerprint'])
+    assert old[1:]==run.parent.source_origins(read_config(run.parent.CONFIG),c['candidates'][0])
+    assert len(bag)==1
+
+
+@pytest.fixture(scope='module')
+def _analytical_grid(tmp_path_factory):
+    tmp_path=tmp_path_factory.mktemp('bagged-anchor-analytical')
+    c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'grid'))
+    source=tmp_path/'absent-parent.json';write_json(source,{'output_dir':str(tmp_path/'absent-parent')})
+    c['parent_config']=str(source)
+    fp={'analytical':'no estimators or real source scores used'};rng=np.random.default_rng(92)
+    n=42;frame=pd.DataFrame({'month':np.repeat(np.arange(7),n),
+        'fraud_bool':np.tile((np.arange(n)%7==0).astype(int),7)})
+    dag=report.graph(report.NAMES);bagged={s['id']:s for s in scores.recipes()}
+    for m in [4,5,6]:
+        ev=frame.index[frame.month==m].to_numpy();labels=frame.loc[ev,'fraud_bool'].to_numpy()
+        for name in dag['bases']:
+            values=np.full(n,.2) if m==4 else np.clip(.03+.35*labels+rng.uniform(0,.5,n),.001,.999)
+            rp,pp=run.paths(c,'validation',m,name);pp.parent.mkdir(parents=True,exist_ok=True)
+            np.savez_compressed(pp,row_ids=ev,labels=labels,scores=values)
+            if name in bagged:
+                s=bagged[name];r=dict(candidate=name,spec=s,preprocessing={'transformed_dimension':42},
+                    class_weights={'0':1.,'1':3.},warnings=[],requested_model_params={'bagging_seed':str(s['bagging_seed'])},
+                    booster_params={'subsample':.8},fitted_tree_count=200,fit_seconds=2.2,peak_process_rss_bytes=12345,
+                    train_rows=m*n,train_fraud=m*6)
+            else:
+                r=dict(candidate=name,fixture='analytical reference metadata; no source fit claim')
+            write_json(rp,r)
+        for name in run.derived_order(report.NAMES):
+            run.derived(c,fp,name,m)
+    cf=run.crossfit(c);tables,pre,refs=run.tables(c,cf)
+    out=Path(c['output_dir'])
+    for name,table in tables.items():
+        table.to_csv(out/(name+'.csv'),index=False)
+    write_json(out/'preprocessing.json',pre);write_json(out/'reference_diagnostics.json',refs)
+    snapshot={p:p.read_bytes() for p in out.rglob('*') if p.is_file()}
+    return c,fp,frame,snapshot
+
+
+@pytest.fixture
+def analytical_grid(_analytical_grid):
+    c,fp,frame,snapshot=_analytical_grid
+    try:
+        yield c,fp,frame
+    finally:
+        out=Path(c['output_dir'])
+        for p in out.rglob('*'):
+            if p.is_file() and p not in snapshot:
+                p.unlink()
+        for p,content in snapshot.items():
+            p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(content)
+
+
+def test_complete_analytical_grid_independently_reconstructed(analytical_grid):
+    c,fp,frame=analytical_grid;r=report.audit_tables(c,fp,frame)
+    assert r['scores']==120 and r['operating_rows']==222 and r['contrasts']==947
+    assert r['expression_leaf_rows']==60 and r['clipping_rows']==39
+    assert not r['actual_source_models_audited']
+    actual=pd.read_csv(Path(c['output_dir'])/'diversity.csv')
+    assert actual[actual.eval_month==4]['correlation_reason'].eq('constant member').all()
+
+
+@pytest.mark.parametrize('table,column',[
+    ('crossfit','f2'),('crossfit','tp'),('crossfit','flagged_fraction'),('summary','f2'),('summary','recall'),
+    ('pooled','f2'),('pooled','tp'),('contrasts','f2_difference'),('contrasts','precision_difference'),
+    ('score_diagnostics','score_mean'),('score_diagnostics','unique_scores'),('clipping','changed_count'),
+    ('diversity','mean_absolute_difference'),('diversity','unequal_scores'),('decision_overlap','fraud_both'),
+    ('decision_overlap','first_only'),('model_diagnostics','bagging_seed'),('model_diagnostics','train_fraud'),
+    ('model_diagnostics','fitted_tree_count'),('model_diagnostics','transformed_dimension'),('expressions','coefficient')])
+def test_independent_grid_audit_rejects_numeric_corruption(analytical_grid,table,column):
+    c,fp,frame=analytical_grid;p=Path(c['output_dir'])/(table+'.csv');t=pd.read_csv(p)
+    t.loc[0,column]+=1;t.to_csv(p,index=False)
+    with pytest.raises(ValueError):report.audit_tables(c,fp,frame)
+
+
+@pytest.mark.parametrize('table',[n[:-4] for n in run.TABLES if n.endswith('.csv')])
+@pytest.mark.parametrize('change',['missing','duplicate','replace'])
+def test_independent_grid_audit_checks_exact_keys(analytical_grid,table,change):
+    c,fp,frame=analytical_grid;p=Path(c['output_dir'])/(table+'.csv');t=pd.read_csv(p)
+    if change=='missing':t=t.iloc[1:]
+    elif change=='duplicate':t=pd.concat([t,t.iloc[:1]],ignore_index=True)
+    else:
+        # Same row count but a replaced identity must also fail.
+        key='pair' if table in ['diversity','decision_overlap'] else 'candidate'
+        t.loc[0,key]='undeclared'
+    t.to_csv(p,index=False)
+    with pytest.raises(ValueError):report.audit_tables(c,fp,frame)
+
+
+@pytest.mark.parametrize('kind',['anchor','aggregate','logit','blend'])
+@pytest.mark.parametrize('field',['candidate','fingerprint','spec','dependencies','prediction_sha256','epsilon','arithmetic','phase','eval_month'])
+def test_independent_composition_provenance_rejects_corruption(analytical_grid,kind,field):
+    c,fp,frame=analytical_grid
+    name=next(n for n in report.graph(report.NAMES)['derived'] if report.independent_spec(n)['kind']==kind)
+    p=run.paths(c,'validation',4,name)[0];r=read_config(p);r[field]={'corrupt':True};write_json(p,r)
+    with pytest.raises(ValueError):report.audit_compositions(c,fp,[4],'validation',report.NAMES)
+
+
+@pytest.mark.parametrize('filename',['preprocessing.json','reference_diagnostics.json'])
+def test_exported_source_evidence_corruption_is_rejected(analytical_grid,filename):
+    c,fp,frame=analytical_grid;p=Path(c['output_dir'])/filename;r=read_config(p)
+    r.pop(next(iter(r)));write_json(p,r)
+    with pytest.raises(ValueError):report.audit_tables(c,fp,frame)
+
+
+@pytest.mark.parametrize('kind',['anchor','aggregate','logit','blend'])
+def test_partial_derived_cache_fails_without_overwrite(analytical_grid,kind):
+    c,fp,frame=analytical_grid
+    name=next(n for n in report.graph(report.NAMES)['derived'] if report.independent_spec(n)['kind']==kind)
+    rp,pp=run.paths(c,'validation',4,name);before=rp.read_bytes();pp.unlink()
+    with pytest.raises(ValueError,match='Partial'):run.derived(c,fp,name,4)
+    assert rp.read_bytes()==before and not pp.exists()
+
+
+@pytest.mark.parametrize('kind',['anchor','aggregate','logit','blend'])
+def test_absent_derived_reconstructs_exactly_without_extra_scores(analytical_grid,kind):
+    c,fp,frame=analytical_grid
+    name=next(n for n in report.graph(report.NAMES)['derived'] if report.independent_spec(n)['kind']==kind)
+    rp,pp=run.paths(c,'validation',4,name);values=run.prediction(c,'validation',4,name)['scores']
+    rp.unlink();pp.unlink();r=run.derived(c,fp,name,4)
+    assert not r['reused'] and np.array_equal(values,run.prediction(c,'validation',4,name)['scores'])
+
+
+@pytest.mark.parametrize('field',['parameters','source_months'])
+def test_current_or_future_policy_sources_rejected(analytical_grid,field):
+    c,fp,frame=analytical_grid;p=Path(c['output_dir'])/'crossfit.csv';t=pd.read_csv(p)
+    if field=='parameters':
+        import json
+        r=json.loads(t.loc[0,field]);r['source_months']=[int(t.loc[0,'eval_month'])];t.loc[0,field]=json.dumps(r)
+    else:
+        t.loc[0,field]='4,5,6,7'
+    t.to_csv(p,index=False)
+    with pytest.raises(ValueError):report.audit_tables(c,fp,frame)
+
+
+@pytest.mark.parametrize('name,policy',list(product(report.NAMES,report.POLICIES)))
+def test_all_actual_cache_type_bounds(name,policy,tmp_path):
+    c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'))
+    origin=dict(c,output_dir=str(tmp_path/'origin'));roles=scores.choices_for(name,policy)
+    wanted=next(v for v in evidence()['winner_policy_cases'] if v['winner']==name and v['policy']==policy)
+    for spec in run.reference_specs(c):
+        for p in run.source_paths(origin,spec,7,'exploratory'):
+            p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b'cache-availability-only; not a model audit')
+    with patch.object(run,'source_origins',return_value=[(origin,{})]):
+        b=run.final_fit_bounds(c,roles)
+    assert b['unique_base_results']==len(wanted['dependencies']['bases'])
+    assert b['physical_scores']==len(wanted['dependencies']['scores'])
+    assert b['max_new_bagged_fits']==wanted['current_new_bagged_fit_bound']
+    assert b['max_reproduced_additive_fits']==b['max_reproduced_tree_fits']==0
+    with patch.object(run,'source_origins',return_value=[]):
+        fresh=run.final_fit_bounds(c,roles)
+    assert fresh['max_reproduced_additive_fits']==2 and fresh['max_reproduced_tree_fits']==3
+    assert fresh['max_new_bagged_fits']==len(wanted['dependencies']['bagged_bases'])
+
+
+def miniature_context(tmp_path):
+    c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'))
+    source=dict(read_config(run.parent.CONFIG),report_dir=str(tmp_path/'source-report'))
+    sp=tmp_path/'source.json';write_json(sp,source);c['parent_config']=str(sp)
+    r=copy.deepcopy(read_config('reports/baf-bagged-lightgbm-seeds-v1/miniature_gate.json'))
+    mapping={p:str(tmp_path/'optional'/Path(p).name) for p in r['files']}
+    r['files']={mapping[p]:h for p,h in r['files'].items()}
+    for item in r['results']:
+        item['files']={mapping[p]:h for p,h in item['files'].items()}
+    write_json(Path(source['report_dir'])/'miniature_gate.json',r)
+    return c,r
+
+
+def fake_older_gate(c,fp):
+    write_json(Path(c['output_dir'])/'source_miniature_gate.json',dict(fingerprint=fp,preserved_fits=8,
+        optional_source_artifacts_present=0,new_production_miniature_fits=0))
+
+
+def test_preserved_nine_fit_gate_allows_wholly_absent_optional_models_without_fitting(tmp_path):
+    c,r=miniature_context(tmp_path)
+    with patch.object(run.parent.previous,'source_miniature_gate',side_effect=fake_older_gate), \
+         patch('lightgbm.LGBMClassifier.fit',side_effect=AssertionError('No new miniature fits')):
+        result=run.source_miniature_gate(c,{'fixture':True})
+    assert result['preserved_sampling_fits']==9 and result['preserved_older_fits']==8
+    assert result['optional_sampling_artifacts_present']==result['new_production_miniature_fits']==0
+
+
+@pytest.mark.parametrize('bad',['partial','corrupt','fit_count','repeat','spec','fingerprint'])
+def test_sampling_gate_corruption_is_retained_without_retry(tmp_path,bad):
+    c,r=miniature_context(tmp_path);source=read_config(c['parent_config']);p=Path(source['report_dir'])/'miniature_gate.json'
+    if bad in ['partial','corrupt']:
+        for q in list(r['files'])[:1 if bad=='partial' else len(r['files'])]:
+            q=Path(q);q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes(b'corrupt')
+    elif bad=='fit_count':r['fit_count']=8
+    elif bad=='repeat':r['same_seed_repeatable']=False
+    elif bad=='spec':r['results'][0]['spec']['fraction']=.7
+    else:r['fingerprint']={'corrupt':True}
+    write_json(p,r)
+    with patch.object(run.parent.previous,'source_miniature_gate',side_effect=AssertionError('Invalid source must fail first')):
+        with pytest.raises(ValueError):run.source_miniature_gate(c,{})
+    assert (Path(c['output_dir'])/'failures/source-miniature.json').is_file()
+    with pytest.raises(ValueError,match='Prior source-miniature'):run.source_miniature_gate(c,{})
+
+
+def test_work_accounting_separates_original_reuse_from_this_invocation(analytical_grid):
+    c,fp,frame=analytical_grid
+    records=[]
+    for name in report.graph(report.NAMES)['bases']:
+        records.append(dict(candidate=name,reused=True))
+    ds=[{'reused':i<7} for i in range(29)]
+    result=run.work_accounting(c,records,ds,[{'work':'audit existing'}])
+    assert result['base_results']==11 and result['bagged_reuses']==6 and result['reference_reuses']==5
+    assert result['new_bagged_fits']==result['reproduced_additive_fits']==result['reproduced_tree_fits']==0
+    assert result['derived_reuses']==7 and result['new_derived_computations']==22
+
+
+def test_plot_all_operating_points_and_canonical_curve_values(analytical_grid,tmp_path):
+    c,fp,frame=analytical_grid;summary=pd.read_csv(Path(c['output_dir'])/'summary.csv')
+    report.operating_figure(summary,tmp_path);report.audit_figure(summary,tmp_path)
+    assert len(pd.read_csv(tmp_path/'plotted_operating_points.csv'))==111
+    assert len(pd.read_csv(tmp_path/'plotted_alpha_curves.csv'))==60
+    curve=tmp_path/'plotted_alpha_curves.csv';t=pd.read_csv(curve);t.loc[0,'candidate']='duplicate_endpoint';t.to_csv(curve,index=False)
+    with pytest.raises(ValueError):report.audit_figure(summary,tmp_path)
+
+
+@pytest.mark.parametrize('winner',[
+    report.H,'logit_baseline_lgbm','bagged_balanced_s17','bagged_unweighted_logit_mean',
+    'bagged_anchor_unweighted_prob_a25'])
+def test_conditional_uncertainty_all_role_classes_and_aliases(analytical_grid,winner):
+    c,fp,frame=analytical_grid;c=dict(c,bootstrap_replicates=7)
+    roles=scores.choices_for(winner,'latest');s={'choices':roles};h=run.history(c)
+    cf=pd.read_csv(Path(c['output_dir'])/'crossfit.csv')
+    data={a:h[n][6] for a,(n,k) in roles.items()}
+    masks={a:report.independent_mask(data[a],report.independent_rule(h[n],k,6)) for a,(n,k) in roles.items()}
+    dint,dd,fint,fd=report.uncertainty(c,s,cf,h,data,masks)
+    assert len(dint)==3*(len(roles)-1) and len(fint)==len(roles)-1
+    assert len(dd)==14 and len(fd)==7
+    for a in set(roles)-{'selected'}:
+        if roles[a]==roles['selected']:
+            assert (dd[a]==0).all() and (fd[a]==0).all()
+
+
+@pytest.mark.parametrize('bad',['none','unaudited','wrong_winner','wrong_policy','changed_table',
+                               'changed_roles','changed_rule','changed_bounds','changed_source'])
+def test_freeze_and_load_reject_stale_or_unaudited_lifecycle(analytical_grid,monkeypatch,bad):
+    # Analytical orchestration fixture only: real source audits run on the actual data.
+    c,fp,frame=analytical_grid;out=Path(c['output_dir'])
+    monkeypatch.setattr(run,'initialize',lambda path:(c,fp))
+    monkeypatch.setattr(run,'execution_gate',lambda *args:None)
+    monkeypatch.setattr(run,'final_fit_bounds',lambda *args:{'fixture':'cache-bound unit orchestration'})
+    done=dict(fingerprint=fp,files={n:digest(out/n) for n in run.TABLES})
+    write_json(out/'validation_complete.json',done)
+    w=pd.read_csv(out/'summary.csv').iloc[0]
+    audit=dict(fingerprint=fp,validation_sha256=digest(out/'validation_complete.json'),
+               actual_source_models_audited=True,saved_model_checks=33,
+               winner=str(w.candidate),policy=str(w.policy),development_f2=float(w.f2),
+               fixture='synthetic orchestration; no real source-model audit claim')
+    if bad=='unaudited':audit['actual_source_models_audited']=False
+    elif bad=='wrong_winner':audit['winner']='undeclared'
+    elif bad=='wrong_policy':audit['policy']='undeclared'
+    write_json(out/'independent_development_audit.json',audit)
+    if bad=='changed_table':
+        with (out/'summary.csv').open('a') as f:f.write('\n')
+    if bad in ['unaudited','wrong_winner','wrong_policy','changed_table']:
+        with pytest.raises(ValueError):run.freeze('fixture')
+        assert not (out/'selection.json').exists()
+        return
+    selected=run.freeze('fixture')
+    assert run.load_selection('fixture')[1]==selected
+    with pytest.raises(ValueError,match='immutable'):run.freeze('fixture')
+    if bad=='none':return
+    if bad=='changed_roles':selected['choices']['selected']=[report.H,'pooled']
+    elif bad=='changed_rule':selected['rules']['selected']={'hindsight':True}
+    elif bad=='changed_bounds':selected['final_fit_bounds']={'corrupt':True}
+    elif bad=='changed_source':
+        p=next((out/'runs').glob('*.json'));p.write_text('{}')
+    write_json(out/'selection.json',selected)
+    with pytest.raises(ValueError):run.load_selection('fixture')

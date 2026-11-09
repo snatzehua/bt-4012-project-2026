@@ -1,0 +1,226 @@
+{
+  "status": "passed",
+  "selection_sha256": "10d9b3929fc4e7a375fb95bcc71a5397bd02ee9973160ac081d989b27d3a4474",
+  "selected_candidate": "bagged_anchor_balanced_logit_a25",
+  "selected_policy": "pooled",
+  "macro_development_f2": 0.3308809618002168,
+  "visible_roles": 8,
+  "unique_roles": 6,
+  "roles": {
+    "selected": [
+      "bagged_anchor_balanced_logit_a25",
+      "pooled"
+    ],
+    "bagged_anchor": [
+      "bagged_anchor_balanced_logit_a25",
+      "pooled"
+    ],
+    "latest_fusion": [
+      "interaction_blend_spline_c1p0_balanced_a10",
+      "latest"
+    ],
+    "recent_fusion": [
+      "margin_blend_spline_c0p1_unweighted_a25",
+      "latest"
+    ],
+    "fusion": [
+      "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+      "pooled"
+    ],
+    "balanced": [
+      "baseline_balanced",
+      "pooled"
+    ],
+    "unweighted": [
+      "baseline_lgbm",
+      "pooled"
+    ],
+    "same_strategy": [
+      "bagged_anchor_balanced_logit_a25",
+      "pooled"
+    ]
+  },
+  "exact_new_models": [],
+  "exact_full_scores": [
+    "bagged_anchor_balanced_logit_a25",
+    "bagged_balanced_logit_mean",
+    "bagged_balanced_s17",
+    "bagged_balanced_s29",
+    "bagged_balanced_s43",
+    "baseline_balanced",
+    "baseline_lgbm",
+    "interaction_blend_spline_c1p0_balanced_a10",
+    "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+    "margin_blend_spline_c0p1_unweighted_a25",
+    "spline_c0p1_unweighted",
+    "spline_c1p0_balanced",
+    "xgb_d4_w1"
+  ],
+  "actual_bounds": {
+    "unique_base_results": 8,
+    "physical_scores": 13,
+    "subset_scores": 0,
+    "max_new_local_fits": 0,
+    "max_new_capacity_fits": 0,
+    "max_reproduced_bagged_fits": 0,
+    "max_reproduced_spline_fits": 0,
+    "max_reproduced_tree_fits": 0,
+    "original_availability": {
+      "bagged_balanced_s17": {
+        "outputs/baf-bagged-anchor-fusion-v1/runs/exploratory-m7-bagged_balanced_s17.json": "8ecc905e8f3af83078a2b7a181584ead6d643df8a0afa19f5b2db2bf99161e66",
+        "outputs/baf-bagged-anchor-fusion-v1/predictions/exploratory-m7-bagged_balanced_s17.npz": "69329560aede7bd08c919cc1b475f51716f458696f5251b66c786578bcc86dda",
+        "outputs/baf-bagged-anchor-fusion-v1/models/exploratory-m7-bagged_balanced_s17-bagged.joblib": "85e8ef52a46a5f9e3ed5f4e58b0c15ebf34710265c70c911d02202ac3bb063e9"
+      },
+      "bagged_balanced_s29": {
+        "outputs/baf-bagged-anchor-fusion-v1/runs/exploratory-m7-bagged_balanced_s29.json": "bb6637e44eb197826c7885677dcef3adbe1e55e1f8efd9ee4ce8ef79fb593da8",
+        "outputs/baf-bagged-anchor-fusion-v1/predictions/exploratory-m7-bagged_balanced_s29.npz": "ffd173fc13fa93e547609e893af0c072141df5d41b47dc8b9731cebd27fb0359",
+        "outputs/baf-bagged-anchor-fusion-v1/models/exploratory-m7-bagged_balanced_s29-bagged.joblib": "1bdcd677cfe44f9444e8299c3920cc782a5833c9343d12d1be2d95198a214f71"
+      },
+      "bagged_balanced_s43": {
+        "outputs/baf-bagged-anchor-fusion-v1/runs/exploratory-m7-bagged_balanced_s43.json": "b2d1ab6a01d508e2b3078ba036672c39aff993f7bde4ad6197851716a437627e",
+        "outputs/baf-bagged-anchor-fusion-v1/predictions/exploratory-m7-bagged_balanced_s43.npz": "da88e17454a8a460c194124ffce16a0f01e1b3a25784c5e2e0d93109a52cb892",
+        "outputs/baf-bagged-anchor-fusion-v1/models/exploratory-m7-bagged_balanced_s43-bagged.joblib": "7af21aef3a04225b6a2c90a06488672cd40cb97c71735a6a68e93666ac844bb4"
+      },
+      "baseline_balanced": {
+        "outputs/baf-bagged-anchor-fusion-v1/runs/exploratory-m7-baseline_balanced.json": "d62c4ac2150ff74e73fd9430614c5763c785037333dec90ceca02de465a1b69a",
+        "outputs/baf-bagged-anchor-fusion-v1/predictions/exploratory-m7-baseline_balanced.npz": "cbf8b45eb83bfd36e622a6f53a9ba84d99b13c9e8ca6bdff3f765b5d5b878d41",
+        "outputs/baf-bagged-anchor-fusion-v1/models/exploratory-m7-baseline_balanced-reference.joblib": "a74f934415379975420daef25ce70489e881d8b1ef7d8eacab4e16925f857b25"
+      },
+      "baseline_lgbm": {
+        "outputs/baf-bagged-anchor-fusion-v1/runs/exploratory-m7-baseline_lgbm.json": "2eba17ec7b1a81354130576db7216514bedc65e327ccdcddd2f32001ae3e1d81",
+        "outputs/baf-bagged-anchor-fusion-v1/predictions/exploratory-m7-baseline_lgbm.npz": "b4c36ff7923883bba192caad7c2eddea30d718926f6d26e941d87c03d3f8564d",
+        "outputs/baf-bagged-anchor-fusion-v1/models/exploratory-m7-baseline_lgbm-reference.joblib": "eb4b213785484416e67ad1935295b9a8b0d4961a9631bb96e4b13f885d803246"
+      },
+      "spline_c0p1_unweighted": {
+        "outputs/baf-bagged-anchor-fusion-v1/runs/exploratory-m7-spline_c0p1_unweighted.json": "9e8ec0c54e1552e1e6ec15921765469092025e118ceb18805e013a6ebddabec6",
+        "outputs/baf-bagged-anchor-fusion-v1/predictions/exploratory-m7-spline_c0p1_unweighted.npz": "e9abaced9da7026df8bafbb8f8bcc100539b493c68e4b819948b9abf836ebf01",
+        "outputs/baf-bagged-anchor-fusion-v1/models/exploratory-m7-spline_c0p1_unweighted.joblib": "0bd099ff816523a1ecc13fa72a3bdebe41569b66f1d011d8a1c1279f5d1065a9"
+      },
+      "spline_c1p0_balanced": {
+        "outputs/baf-bagged-anchor-fusion-v1/runs/exploratory-m7-spline_c1p0_balanced.json": "4328ddfec2257c5997759534252e658aef0bd8d38e70b4b6029466eb7ce31497",
+        "outputs/baf-bagged-anchor-fusion-v1/predictions/exploratory-m7-spline_c1p0_balanced.npz": "bb75569d038ba3a87039ea82dfe79423fb6fe70f1ac8d224ec4f1406e5da5b60",
+        "outputs/baf-bagged-anchor-fusion-v1/models/exploratory-m7-spline_c1p0_balanced.joblib": "cda47cbf871785d59770f62e47cc657ae39d64d72df22c90534f5cac40cb083b"
+      },
+      "xgb_d4_w1": {
+        "outputs/baf-bagged-anchor-fusion-v1/runs/exploratory-m7-xgb_d4_w1.json": "ffbea7f541cd174119d4c31c3012f303df8246dc79fcb5e558e4c672fbceb107",
+        "outputs/baf-bagged-anchor-fusion-v1/predictions/exploratory-m7-xgb_d4_w1.npz": "f976a26e7ba9a678cd29e4452c7d9801357f1afa1eed0fc78e44a460d58e1961",
+        "outputs/baf-bagged-anchor-fusion-v1/models/exploratory-m7-xgb_d4_w1.ubj": "66ef75e24fc576d6ba71e98c2484a60d24de3427a9ed6de3f86e29d8eb359321",
+        "outputs/baf-bagged-anchor-fusion-v1/models/exploratory-m7-xgb_d4_w1.joblib": "b3958b3525ca78134dfd45cb5545db3689709bdd7e1430d490208c00a6d68bb8"
+      }
+    },
+    "eligibility": [
+      {
+        "eval_month": 7,
+        "partition": "payment_type",
+        "level": "AA",
+        "train_rows": 240072,
+        "train_fraud": 1228,
+        "train_legitimate": 238844,
+        "eligible": true
+      },
+      {
+        "eval_month": 7,
+        "partition": "payment_type",
+        "level": "AB",
+        "train_rows": 329804,
+        "train_fraud": 3571,
+        "train_legitimate": 326233,
+        "eligible": true
+      },
+      {
+        "eval_month": 7,
+        "partition": "payment_type",
+        "level": "AC",
+        "train_rows": 224814,
+        "train_fraud": 3692,
+        "train_legitimate": 221122,
+        "eligible": true
+      },
+      {
+        "eval_month": 7,
+        "partition": "payment_type",
+        "level": "AD",
+        "train_rows": 108207,
+        "train_fraud": 1109,
+        "train_legitimate": 107098,
+        "eligible": true
+      },
+      {
+        "eval_month": 7,
+        "partition": "payment_type",
+        "level": "AE",
+        "train_rows": 260,
+        "train_fraud": 1,
+        "train_legitimate": 259,
+        "eligible": false
+      },
+      {
+        "eval_month": 7,
+        "partition": "housing_status",
+        "level": "BA",
+        "train_rows": 150493,
+        "train_fraud": 5458,
+        "train_legitimate": 145035,
+        "eligible": true
+      },
+      {
+        "eval_month": 7,
+        "partition": "housing_status",
+        "level": "BB",
+        "train_rows": 237752,
+        "train_fraud": 1402,
+        "train_legitimate": 236350,
+        "eligible": true
+      },
+      {
+        "eval_month": 7,
+        "partition": "housing_status",
+        "level": "BC",
+        "train_rows": 334641,
+        "train_fraud": 2022,
+        "train_legitimate": 332619,
+        "eligible": true
+      },
+      {
+        "eval_month": 7,
+        "partition": "housing_status",
+        "level": "BD",
+        "train_rows": 21683,
+        "train_fraud": 184,
+        "train_legitimate": 21499,
+        "eligible": true
+      },
+      {
+        "eval_month": 7,
+        "partition": "housing_status",
+        "level": "BE",
+        "train_rows": 156808,
+        "train_fraud": 528,
+        "train_legitimate": 156280,
+        "eligible": true
+      },
+      {
+        "eval_month": 7,
+        "partition": "housing_status",
+        "level": "BF",
+        "train_rows": 1534,
+        "train_fraud": 6,
+        "train_legitimate": 1528,
+        "eligible": false
+      },
+      {
+        "eval_month": 7,
+        "partition": "housing_status",
+        "level": "BG",
+        "train_rows": 246,
+        "train_fraud": 1,
+        "train_legitimate": 245,
+        "eligible": false
+      }
+    ]
+  },
+  "independent_earlier_rules": true,
+  "all_72_prospective_cases_verified_by_full_suite": true,
+  "month7_access": false,
+  "created_at_utc": "2026-10-12T06:50:17.368097+00:00"
+}

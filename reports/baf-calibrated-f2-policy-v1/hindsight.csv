@@ -1,0 +1,7 @@
+candidate,eval_month,k,f2,diagnostic
+baseline_balanced,5,3149,0.3269646309564426,label-aware optimistic fixed-ranking prefix; not deployable
+baseline_balanced,6,4394,0.3305866195801452,label-aware optimistic fixed-ranking prefix; not deployable
+baseline_lgbm,5,3934,0.3262685320526206,label-aware optimistic fixed-ranking prefix; not deployable
+baseline_lgbm,6,4494,0.3230036914707597,label-aware optimistic fixed-ranking prefix; not deployable
+stack_logit_percentile_c0p01_w1,5,3665,0.3265656891180578,label-aware optimistic fixed-ranking prefix; not deployable
+stack_logit_percentile_c0p01_w1,6,5050,0.3313364055299539,label-aware optimistic fixed-ranking prefix; not deployable

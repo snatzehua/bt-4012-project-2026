@@ -1,3 +1,17 @@
-archive
-README.md
-AGENTS.md
+# Historical planning documents and course brief (root only; openspec/changes/archive/ is committed)
+/archive/
+
+# Local datasets and generated modelling outputs
+/data/
+/outputs/
+/tmp/
+
+# Python environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# OS/editor files
+.DS_Store

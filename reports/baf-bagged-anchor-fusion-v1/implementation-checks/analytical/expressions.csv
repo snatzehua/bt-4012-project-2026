@@ -1,0 +1,61 @@
+candidate,atom,coefficient,atom_kind,evaluation_arithmetic
+bagged_anchor_balanced_prob_a10,logit(spline_c1p0_balanced),0.09000000000000001,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a10,logit(xgb_d4_w1),0.405,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a10,logit(baseline_balanced),0.405,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a10,logit(bagged_balanced_prob_mean),0.1,nonlinear probability mean,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a25,logit(spline_c1p0_balanced),0.07500000000000001,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a25,logit(xgb_d4_w1),0.3375,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a25,logit(baseline_balanced),0.3375,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a25,logit(bagged_balanced_prob_mean),0.25,nonlinear probability mean,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a50,logit(spline_c1p0_balanced),0.05,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a50,logit(xgb_d4_w1),0.225,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a50,logit(baseline_balanced),0.225,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_prob_a50,logit(bagged_balanced_prob_mean),0.5,nonlinear probability mean,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a10,logit(spline_c1p0_balanced),0.09000000000000001,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a10,logit(xgb_d4_w1),0.405,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a10,logit(baseline_balanced),0.405,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a10,logit(bagged_balanced_s17),0.03333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a10,logit(bagged_balanced_s29),0.03333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a10,logit(bagged_balanced_s43),0.03333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a25,logit(spline_c1p0_balanced),0.07500000000000001,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a25,logit(xgb_d4_w1),0.3375,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a25,logit(baseline_balanced),0.3375,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a25,logit(bagged_balanced_s17),0.08333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a25,logit(bagged_balanced_s29),0.08333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a25,logit(bagged_balanced_s43),0.08333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a50,logit(spline_c1p0_balanced),0.05,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a50,logit(xgb_d4_w1),0.225,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a50,logit(baseline_balanced),0.225,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a50,logit(bagged_balanced_s17),0.16666666666666666,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a50,logit(bagged_balanced_s29),0.16666666666666666,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_balanced_logit_a50,logit(bagged_balanced_s43),0.16666666666666666,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a10,logit(spline_c1p0_balanced),0.09000000000000001,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a10,logit(xgb_d4_w1),0.405,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a10,logit(baseline_balanced),0.405,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a10,logit(bagged_unweighted_prob_mean),0.1,nonlinear probability mean,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a25,logit(spline_c1p0_balanced),0.07500000000000001,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a25,logit(xgb_d4_w1),0.3375,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a25,logit(baseline_balanced),0.3375,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a25,logit(bagged_unweighted_prob_mean),0.25,nonlinear probability mean,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a50,logit(spline_c1p0_balanced),0.05,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a50,logit(xgb_d4_w1),0.225,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a50,logit(baseline_balanced),0.225,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_prob_a50,logit(bagged_unweighted_prob_mean),0.5,nonlinear probability mean,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a10,logit(spline_c1p0_balanced),0.09000000000000001,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a10,logit(xgb_d4_w1),0.405,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a10,logit(baseline_balanced),0.405,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a10,logit(bagged_unweighted_s17),0.03333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a10,logit(bagged_unweighted_s29),0.03333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a10,logit(bagged_unweighted_s43),0.03333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a25,logit(spline_c1p0_balanced),0.07500000000000001,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a25,logit(xgb_d4_w1),0.3375,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a25,logit(baseline_balanced),0.3375,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a25,logit(bagged_unweighted_s17),0.08333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a25,logit(bagged_unweighted_s29),0.08333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a25,logit(bagged_unweighted_s43),0.08333333333333333,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a50,logit(spline_c1p0_balanced),0.05,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a50,logit(xgb_d4_w1),0.225,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a50,logit(baseline_balanced),0.225,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a50,logit(bagged_unweighted_s17),0.16666666666666666,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a50,logit(bagged_unweighted_s29),0.16666666666666666,source logit,(1-alpha)*anchor + alpha*margin
+bagged_anchor_unweighted_logit_a50,logit(bagged_unweighted_s43),0.16666666666666666,source logit,(1-alpha)*anchor + alpha*margin

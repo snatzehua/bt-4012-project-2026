@@ -1,0 +1,8 @@
+{
+  "fixture": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "candidate": "expert_model_payment_type_unweighted_AC",
+  "eval_month": 6,
+  "prediction_sha256": "6e620b8840085c5c1bbf3216ca1eabb8833b92b92c476a679c2f306ec6532bd0"
+}

@@ -1,0 +1,13 @@
+{
+  "initial_helper_sha256": "a0c80ab066da87b22bb9274b6e75bfb2219eb655cacb3bc338831efb70d4cf08",
+  "corrected_helper_sha256": "0b7133ce968e73e560de6fda0e5d2a53f2555e0acbaae3294956180561729504",
+  "selected_frozen_macro_value": 0.33088096180021687,
+  "selected_csv_macro_value": 0.3308809618002168,
+  "raw_cross_serialization_difference": 5.551115123125783e-17,
+  "canonical_self_difference": 0.0,
+  "reported_original_self_difference": 0.0,
+  "correction": "Use the same exported macro table for both operands, preserving exact canonical self/alias ties; numerical closeness alone cannot determine a strict positive pass.",
+  "original_generated_manifest_preserved": true,
+  "production_source_or_artifacts_changed": false,
+  "new_fits": 0
+}

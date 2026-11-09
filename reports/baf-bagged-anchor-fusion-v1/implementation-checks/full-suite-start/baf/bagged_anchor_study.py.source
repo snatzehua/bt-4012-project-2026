@@ -1,0 +1,389 @@
+"""Isolated bagged-anchor experiment and individual immutable source adapters."""
+from __future__ import annotations
+
+import argparse
+from itertools import combinations, product
+import json
+from pathlib import Path
+import shutil
+import xml.etree.ElementTree as ET
+
+import numpy as np
+import pandas as pd
+
+from . import bagged_boosting as parent
+from . import bagged_anchor_scores as scores
+from .common import digest, read_config, write_json
+from .focal_study import expected_record, now
+from .improvements import paths, prediction
+from .recall_weighted_metrics import POLICIES, aligned, learn, measure, decisions
+from .recall_extension import order_summary, expected_population
+from .improvement_metrics import confusion_metrics
+
+CONFIG = 'configs/bagged-anchor-fusion.json'
+SOURCES = parent.SOURCES + ['baf/bagged_anchor_scores.py', 'baf/bagged_anchor_study.py',
+                           'baf/bagged_anchor_report.py']
+COUNTS = scores.declaration_counts()
+TABLES = ['crossfit.csv', 'summary.csv', 'pooled.csv', 'contrasts.csv',
+          'score_diagnostics.csv', 'clipping.csv', 'diversity.csv', 'decision_overlap.csv',
+          'model_diagnostics.csv', 'expressions.csv', 'preprocessing.json', 'reference_diagnostics.json']
+verify_hashes = parent.verify_hashes
+cache_state = parent.cache_state
+reference_specs = parent.reference_specs
+
+
+def fingerprint(path=CONFIG):
+    fp = parent.fingerprint(path)
+    fp['sources'] = {p:digest(p) for p in SOURCES}
+    return fp
+
+
+def mandatory_preservation(source):
+    result = dict(source['preserve_sha256'])
+    for p in parent.SOURCES[-3:] + [parent.CONFIG, source['protocol_path'],
+            str(Path(source['output_dir'])/'selection.json'),
+            str(Path(source['report_dir'])/'report_hashes.json')]:
+        result[p] = digest(p)
+    result.update(read_config(Path(source['report_dir'])/'report_hashes.json'))
+    return result
+
+
+def guard(c):
+    source = read_config(c['parent_config'])
+    # Parent guards receive their own config, never this new descendant's config.
+    parent.guard(source)
+    if c['parent_config']!=parent.CONFIG or parent.fingerprint()!=c['parent_fingerprint']:
+        raise ValueError('Frozen parent identity changed')
+    preserved = mandatory_preservation(source)
+    if c['preserve_sha256']!=preserved or len(preserved)!=735:
+        raise ValueError('Mandatory preservation union changed')
+    verify_hashes(preserved)
+    selections = [p for p in preserved if p.startswith('outputs/') and p.endswith('/selection.json')]
+    if len(selections)!=16 or any(preserved.get(p.replace('outputs/','reports/',1))!=preserved[p] for p in selections):
+        raise ValueError('Sixteen original/exported selection pairs required')
+    expected = dict(parent_config=parent.CONFIG, parent_fingerprint=parent.fingerprint(),
+        preserve_sha256=preserved, source_paths=SOURCES, strategies=scores.strategies(),
+        expected_counts=COUNTS, alphas=scores.ALPHAS, anchor=scores.ANCHOR,
+        output_dir='outputs/baf-bagged-anchor-fusion-v1',
+        report_dir='reports/baf-bagged-anchor-fusion-v1',
+        protocol_path='docs/bagged-anchor-fusion-protocol.md',
+        historical_output_roots=sorted(set(source['historical_output_roots']+[source['output_dir']])))
+    if set(c)!=set(source)|set(expected) or any(c.get(k)!=v for k,v in expected.items()):
+        raise ValueError('Prospective finite declaration changed')
+    if any(c.get(k)!=v for k,v in source.items() if k not in expected):
+        raise ValueError('Frozen source recipe changed')
+    if len(SOURCES)!=len(set(SOURCES)) or len(SOURCES)!=55:
+        raise ValueError('Source closure changed')
+    dest = [Path(c[k]).resolve() for k in ['output_dir','report_dir']]
+    for a,b in combinations(dest+[Path(p).resolve() for p in c['historical_output_roots']],2):
+        if (a in dest or b in dest) and (a==b or a in b.parents or b in a.parents):
+            raise ValueError('Destination overlap')
+    out = Path(c['output_dir'])
+    for name in ['preimplementation_preservation.json','preservation.json']:
+        p = out/name
+        if p.exists():
+            r = read_config(p)
+            verify_hashes(r if name.startswith('preimplementation') else r['optional_present'])
+            if name=='preservation.json' and (r['mandatory']!=preserved or r['roots']!=c['historical_output_roots']):
+                raise ValueError('Historical snapshot declaration differs')
+
+
+def initialize(config_path=CONFIG):
+    """Freeze execution identity only after implementation and checks are ready."""
+    c = read_config(config_path);guard(c);fp = fingerprint(config_path)
+    out = Path(c['output_dir']);p = out/'preservation.json'
+    if not p.exists():
+        initial = out/'preimplementation_preservation.json'
+        present = read_config(initial) if initial.exists() else {
+            str(p):digest(p) for root in c['historical_output_roots'] for p in Path(root).rglob('*') if p.is_file()}
+        write_json(p,dict(mandatory=c['preserve_sha256'],optional_present=present,roots=c['historical_output_roots']))
+    record = dict(fingerprint=fp,config_path=str(config_path),protocol_sha256=digest(c['protocol_path']),
+        preservation_sha256=digest(p),strategies=c['strategies'],expected_counts=COUNTS,
+        month7_previously_consumed=True)
+    p = out/'declaration.json'
+    if p.exists():
+        if any(read_config(p).get(k)!=v for k,v in record.items()):
+            raise ValueError('Frozen execution declaration changed')
+    else:
+        write_json(p,dict(**record,created_at_utc=now()))
+    return c,fp
+
+
+def source_origins(c,spec):
+    source = read_config(c['parent_config'])
+    origins = [(source,c['parent_fingerprint'])]
+    return origins if spec in scores.recipes() else origins+parent.source_origins(source,spec)
+
+
+def source_paths(c,spec,month,phase):
+    return (parent.bagged_paths(c,phase,month,spec['id']) if spec in scores.recipes()
+            else parent.previous.cache_paths(c,spec,month,phase))
+
+
+def audit_source(c,fp,frame,base,spec,month,phase='validation'):
+    method = parent.audit_bagged if spec in scores.recipes() else parent.previous.audit_base
+    record = method(c,fp,frame,base,spec,month,phase)
+    verify_hashes(record.get('origin_artifacts',{}))
+    return record
+
+
+def prepare_source(c,fp,frame,base,spec,month,phase='validation',allow_missing=True):
+    """Own -> current parent -> declared older origins; partial sets fail in place."""
+    if spec not in reference_specs(c)+scores.recipes():
+        raise ValueError('Undeclared individual recipe')
+    own = source_paths(c,spec,month,phase)
+    if cache_state(own):
+        return audit_source(c,fp,frame,base,spec,month,phase)
+    if not allow_missing:
+        raise ValueError('Required individual cache missing')
+    failure = Path(c['output_dir'])/'failures'/(own[0].stem+'.json')
+    if failure.exists():
+        raise ValueError('Prior failed source gate retained; no automatic retry')
+    try:
+        for source,identity in source_origins(c,spec):
+            origin = source_paths(source,spec,month,phase)
+            if not cache_state(origin):
+                continue
+            record = audit_source(source,identity,frame,base,spec,month,phase)
+            for src,dst in zip(origin[1:],own[1:]):
+                dst.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,dst)
+            record = dict(record,fingerprint=fp,reused=True,
+                          origin_artifacts={str(p):digest(p) for p in origin})
+            if spec in scores.recipes():
+                pass  # Bagged serialized models are path independent.
+            elif spec.get('representation')=='spline':
+                record.update(original_fit_fingerprint=c['newton_fit_fingerprint'],
+                              original_analysis_fingerprint=c['newton_analysis_fingerprint'])
+            elif spec['id']=='xgb_d4_w1':
+                record['model_path']=str(own[2])
+            else:
+                record.update(reference_model_path=str(own[2]),reference_model_new_fit=False)
+            write_json(own[0],record)
+            return audit_source(c,fp,frame,base,spec,month,phase)
+        if spec in scores.recipes():
+            parent.fit_bagged(c,fp,frame,base,spec,month,phase)
+        elif spec.get('representation')=='spline':
+            parent.previous.newton.fit_new(c,fp,frame,base,spec,month,phase)
+        elif spec['id']=='xgb_d4_w1':
+            parent.previous.tree.old.fit_model(c,fp,frame,base,spec,month,phase)
+        else:
+            parent.previous.additive.reproduce_reference(c,fp,frame,base,spec,month,phase)
+        return audit_source(c,fp,frame,base,spec,month,phase)
+    except Exception as exc:
+        if not failure.exists():
+            write_json(failure,dict(**expected_record(frame,spec,month,phase,fp),error=repr(exc),
+                numerical=getattr(exc,'diagnostics',{}),created_at_utc=now()))
+        raise
+
+
+def derived_spec(name):
+    if name in parent.dependencies(list(scores.REFERENCE_POLICIES))['derived']:
+        return parent.old_lookup(name)
+    return scores.lookup(name)
+
+
+def arithmetic(spec):
+    return ('preserved reference' if spec['kind']=='anchor' else
+            'ordered float64 sum / 3' if spec['kind']=='aggregate' else
+            'log(p)-log1p(-p) after clip' if spec['kind']=='logit' else
+            '(1-alpha)*anchor + alpha*margin')
+
+
+def derived(c,fp,name,month,phase='validation',allow_missing=True):
+    spec = derived_spec(name)
+    items = {n:prediction(c,phase,month,n) for n in spec['members']}
+    d = parent.old_compose(spec,items) if spec['kind']=='anchor' else scores.compose(spec,items)
+    deps = {n:{str(p):digest(p) for p in paths(c,phase,month,n)} for n in spec['members']}
+    expected = dict(candidate=name,phase=phase,eval_month=month,fingerprint=fp,spec=spec,
+                    dependencies=deps,epsilon=scores.EPSILON,arithmetic=arithmetic(spec))
+    rp,pp = paths(c,phase,month,name)
+    if cache_state([rp,pp]):
+        r = read_config(rp);saved=prediction(c,phase,month,name);aligned(d,saved)
+        if any(r.get(k)!=v for k,v in expected.items()) or digest(pp)!=r['prediction_sha256'] or not np.array_equal(d['scores'],saved['scores']):
+            raise ValueError('Derived identity/arithmetic changed')
+        verify_hashes(r['origin_artifacts']);return r
+    if not allow_missing:
+        raise ValueError('Required derived cache absent')
+    origin = {}
+    if name in parent.dependencies([s['id'] for s in parent.strategies()])['derived']:
+        source = read_config(c['parent_config']);sr,sp = paths(source,phase,month,name)
+        if cache_state([sr,sp]):
+            r = read_config(sr);original=prediction(source,phase,month,name);aligned(d,original)
+            parents = {n:{str(p):digest(p) for p in paths(source,phase,month,n)} for n in spec['members']}
+            check = dict(candidate=name,phase=phase,eval_month=month,fingerprint=c['parent_fingerprint'],
+                         spec=spec,dependencies=parents,epsilon=scores.EPSILON,arithmetic=arithmetic(spec))
+            if any(r.get(k)!=v for k,v in check.items()) or digest(sp)!=r['prediction_sha256'] or not np.array_equal(original['scores'],d['scores']):
+                raise ValueError('Preserved parent composition changed')
+            verify_hashes(r.get('origin_artifacts',{}))
+            origin = {str(p):digest(p) for p in [sr,sp]}
+            for member in parents.values():
+                origin.update(member)
+    pp.parent.mkdir(parents=True,exist_ok=True);np.savez_compressed(pp,**d)
+    record = dict(**expected,prediction_sha256=digest(pp),reused=bool(origin),origin_artifacts=origin)
+    write_json(rp,record);return record
+
+
+def derived_order(names):
+    dag = scores.dependencies(names);done=set(dag['bases']);order=[]
+    while done!=set(dag['scores']):
+        ready = [n for n in dag['derived'] if n not in done and set(derived_spec(n)['members'])<=done]
+        if not ready:
+            raise ValueError('Unresolvable derived DAG')
+        order.extend(ready);done.update(ready)
+    return order
+
+
+def prepare(c,fp,frame,base,phase='validation',names=None,allow_missing=True):
+    names = [s['id'] for s in scores.strategies()] if names is None else names
+    dag = scores.dependencies(names);specs={s['id']:s for s in reference_specs(c)+scores.recipes()}
+    records,derived_records,work = [],[],[]
+    for m in c['validation_months'] if phase=='validation' else [7]:
+        for n in dag['bases']:
+            print('Preparing',phase,m,n,flush=True)
+            own_existed=cache_state(source_paths(c,specs[n],m,phase))
+            r=prepare_source(c,fp,frame,base,specs[n],m,phase,allow_missing)
+            records.append(r)
+            work.append(dict(candidate=n,eval_month=m,kind='bagged' if n in dag['bagged_bases'] else 'reference',
+                work='audit existing' if own_existed else 'reuse origin' if r.get('reused') else 'fit exact recipe'))
+        for n in derived_order(names):
+            existed=cache_state(paths(c,phase,m,n));r=derived(c,fp,n,m,phase,allow_missing)
+            derived_records.append(r)
+            work.append(dict(candidate=n,eval_month=m,kind='derived',
+                work='audit existing' if existed else 'reuse origin' if r['reused'] else 'calculate'))
+    return records,derived_records,work
+
+
+def history(c):
+    return {s['id']:{m:prediction(c,'validation',m,s['id']) for m in c['validation_months']}
+            for s in scores.strategies()}
+
+
+def crossfit(c):
+    h=history(c);rows=[]
+    for m,n,k in product([5,6],h,POLICIES):
+        aligned(h[n][m],h[scores.ANCHOR][m])
+        rule=learn({t:d for t,d in h[n].items() if t<m},k,m)
+        rows.append(dict(candidate=n,policy=k,eval_month=m,source_months=','.join(map(str,rule['source_months'])),
+                         parameters=json.dumps(rule,sort_keys=True),**measure(h[n][m],rule)))
+    return pd.DataFrame(rows)
+
+
+def tables(c,cf):
+    summary=order_summary(cf).reset_index(drop=True)
+    auc=cf.groupby(['candidate','policy'])['roc_auc'].mean()
+    summary['roc_auc']=[float(auc.loc[(r.candidate,r.policy)]) for r in summary.itertuples()]
+    index=summary.set_index(['candidate','policy']);contrasts=[];pooled=[]
+    for label,n,k,ref,rk in scores.contrast_factors():
+        a,b=index.loc[(n,k)],index.loc[(ref,rk)]
+        contrasts.append(dict(contrast=label,candidate=n,policy=k,reference=ref,reference_policy=rk,
+            **{v+'_difference':float(a[v]-b[v]) for v in ['f2','recall','precision','flagged_fraction','average_precision']}))
+    for (n,k),g in cf.groupby(['candidate','policy']):
+        t=g[['tn','fp','fn','tp']].sum()
+        pooled.append(dict(candidate=n,policy=k,**confusion_metrics(*[int(t[v]) for v in ['tn','fp','fn','tp']]),
+                           flagged_fraction=float((t.tp+t.fp)/g.n.sum())))
+    h=history(c);monthly=[];clips=[];diversity=[];joint=[];models=[];pre={};refmeta={}
+    for n,months in h.items():
+        for m,d in months.items():
+            p=d['scores'];monthly.append(dict(candidate=n,eval_month=m,n=len(p),score_min=float(p.min()),
+                score_max=float(p.max()),score_mean=float(p.mean()),unique_scores=len(np.unique(p)),tied_fraction=1-len(np.unique(p))/len(p)))
+    for m,n in product([4,5,6],scores.dependencies(list(h))['bases']):
+        r=read_config(paths(c,'validation',m,n)[0])
+        if n.startswith('bagged_'):
+            pre[f'{m}:{n}']=r['preprocessing']
+            models.append(dict(candidate=n,eval_month=m,weighting=r['spec']['weighting'],bagging_seed=r['spec']['bagging_seed'],
+                **{v:r[v] for v in ['fitted_tree_count','fit_seconds','peak_process_rss_bytes','train_rows','train_fraud']},
+                transformed_dimension=r['preprocessing']['transformed_dimension'],
+                **{v:json.dumps(r[v],sort_keys=True) for v in ['class_weights','warnings','requested_model_params','booster_params']}))
+        else:
+            refmeta[f'{m}:{n}']=r
+    probabilities=scores.dependencies(list(h))['bases']+[scores.probability_mean(w) for w in scores.WEIGHTINGS]
+    for m,n in product([4,5,6],probabilities):
+        clips.append(dict(candidate=n,eval_month=m,**parent.clipping(prediction(c,'validation',m,n)['scores'])))
+    for (label,n,r),m in product(scores.diagnostic_pairs(),[4,5,6]):
+        a,b=h[n][m],h[r][m];aligned(a,b)
+        diversity.append(dict(pair=label,first=n,second=r,eval_month=m,**parent.correlations(a['scores'],b['scores'])))
+        if m>4:
+            for k in POLICIES:
+                pa=decisions(a,learn({i:d for i,d in h[n].items() if i<m},k,m))
+                pb=decisions(b,learn({i:d for i,d in h[r].items() if i<m},k,m))
+                joint.append(dict(pair=label,first=n,second=r,eval_month=m,policy=k,**parent.overlap(a,b,pa,pb)))
+    return dict(crossfit=cf,summary=summary,pooled=pd.DataFrame(pooled),contrasts=pd.DataFrame(contrasts),
+        score_diagnostics=pd.DataFrame(monthly),clipping=pd.DataFrame(clips),diversity=pd.DataFrame(diversity),
+        decision_overlap=pd.DataFrame(joint),model_diagnostics=pd.DataFrame(models),
+        expressions=pd.DataFrame(scores.expression_rows())),pre,refmeta
+
+
+def verify_declaration(config_path=CONFIG):
+    """No execution freeze, model fits, blend evaluation or consumed-data access."""
+    c=read_config(config_path);guard(c)
+    evidence=read_config(planning_evidence_path())
+    if (c['source_paths']!=evidence['planned_source_paths']
+            or c['preserve_sha256']!=evidence['mandatory_preservation_sha256']
+            or [s['id'] for s in scores.strategies()]!=evidence['strategies']
+            or COUNTS!=evidence['expected_counts']
+            or set(scores.contrast_factors())!={tuple(x) for x in evidence['contrasts']}):
+        raise ValueError('Prospective planning declaration differs')
+    # Ignored historical models are optional in a clean checkout. Present files
+    # retain their original hashes; preparation rejects partial required sets.
+    present={p:h for p,h in evidence['historical_ignored_file_sha256'].items() if Path(p).exists()}
+    verify_hashes(present)
+    for case in evidence['winner_policy_cases']:
+        roles=scores.choices_for(case['winner'],case['policy'])
+        if roles!=case['roles'] or scores.dependencies([n for n,k in roles.values()])!=case['dependencies']:
+            raise ValueError('Winner-role dependency declaration differs')
+    if fingerprint(config_path)['sources'].keys()!=dict.fromkeys(SOURCES).keys():
+        raise ValueError('Source closure incomplete')
+    return dict(verified_at_utc=now(),config_sha256=digest(config_path),
+        implementation_sources={p:digest(p) for p in SOURCES[-3:]},protocol_sha256=digest(c['protocol_path']),
+        source_paths=55,preserved_paths=735,selection_pairs=16,historical_files=len(present),
+        declared_historical_snapshot_files=3732,
+        **COUNTS)
+
+
+def planning_evidence_path(root=Path('openspec/changes')):
+    active=root/'test-bagged-anchor-fusion-f2/planning-evidence.json'
+    matches=[active] if active.is_file() else list((root/'archive').glob('*-test-bagged-anchor-fusion-f2/planning-evidence.json'))
+    if len(matches)!=1:
+        raise ValueError('Exactly one prospective planning evidence artifact required')
+    return matches[0]
+
+
+def record_checks(config_path=CONFIG):
+    """Record a closed full-suite receipt without freezing unfinished execution code."""
+    c=read_config(config_path);guard(c);out=Path(c['output_dir']);dest=Path(c['report_dir'])
+    if (out/'selection.json').exists():
+        raise ValueError('Selection-era checks cannot be overwritten')
+    xml=dest/'tests.xml';root=ET.parse(xml).getroot();cases=list(root.iter('testcase'))
+    if not cases or any(list(root.iter(n)) for n in ['failure','error','skipped']):
+        raise ValueError('Complete passing methodological suite required')
+    own=[t.get('name','') for t in cases if t.get('classname','').endswith('test_bagged_anchor')]
+    formats=[n for n in own if n.startswith('test_six_genuine_missing_cache_formats_fit_audit_reuse_and_reject_corruption[')]
+    expected={'bagged_balanced','bagged_unweighted','spline_balanced','spline_unweighted','xgboost','lightgbm'}
+    if {n.split('[')[-1].removesuffix(']') for n in formats}!=expected or len(formats)!=6:
+        raise ValueError('All six genuine tiny cache-format fits required')
+    if sum(n.startswith('test_every_winner_policy[') for n in own)!=111:
+        raise ValueError('All 111 winner/policy cases required')
+    # Require every collected test, not a hand-picked passing subset.
+    required=[]
+    for path in sorted(Path('tests').glob('test_*.py')):
+        required.append('tests.'+path.stem)
+    actual_classes={t.get('classname','') for t in cases}
+    if any(not any(v==n or v.startswith(n+'.') for v in actual_classes) for n in required):
+        raise ValueError('Every historical/current methodological module required')
+    receipt=dict(fingerprint=fingerprint(config_path),junit_sha256=digest(xml),tests_passed=len(cases),
+        own_tests=len(own),new_cache_test_fits=6,historical_test_fits_separate=True,
+        test_source_sha256=digest('tests/test_bagged_anchor.py'),created_at_utc=now())
+    p=dest/'test_fit_counts.json';invocations=read_config(p)['invocations'] if p.exists() else []
+    if not any(r['junit_sha256']==receipt['junit_sha256'] for r in invocations):
+        invocations.append(receipt)
+    write_json(p,dict(invocations=invocations,total_new_cache_test_fits=sum(r['new_cache_test_fits'] for r in invocations)))
+    write_json(out/'checks.json',receipt)
+    return receipt
+
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('step',choices=['verify_declaration','record_checks'])
+    parser.add_argument('--config',default=CONFIG)
+    args=parser.parse_args()
+    print(json.dumps(globals()[args.step](args.config),indent=2))

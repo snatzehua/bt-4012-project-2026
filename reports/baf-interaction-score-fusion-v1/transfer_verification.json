@@ -1,0 +1,149 @@
+{
+  "verified_at_utc": "2026-10-11T11:42:57.686045+00:00",
+  "selection_sha256": "b804b3bf8ff5f24d60ef896435456c99539eca7f32f8cc32eb9c8e293f63d407",
+  "freeze_before_access": true,
+  "exact_role_and_score_DAG": true,
+  "aligned_populations": true,
+  "operating_metrics_reconstructed": true,
+  "source_numerical_checks_completed_by_prepare": true,
+  "independent_report_audit_pending": true,
+  "counts": {
+    "base_results": 8,
+    "base_reuses": 5,
+    "new_fits": 3,
+    "new_interaction_fits": 1,
+    "reproduced_additive_fits": 2,
+    "reproduced_tree_fits": 0,
+    "role_count": 14,
+    "total_scores": 18
+  },
+  "results": [
+    {
+      "role": "selected",
+      "f2": 0.3715337954939341,
+      "precision": 0.1948863636363636,
+      "recall": 0.4803921568627451,
+      "tp": 686,
+      "fp": 2834,
+      "fn": 742
+    },
+    {
+      "role": "recent_fusion",
+      "f2": 0.3702475685234306,
+      "precision": 0.2008393285371702,
+      "recall": 0.469187675070028,
+      "tp": 670,
+      "fp": 2666,
+      "fn": 758
+    },
+    {
+      "role": "fusion",
+      "f2": 0.3726941226941227,
+      "precision": 0.1924141749723145,
+      "recall": 0.4866946778711484,
+      "tp": 695,
+      "fp": 2917,
+      "fn": 733
+    },
+    {
+      "role": "balanced",
+      "f2": 0.3644085570469799,
+      "precision": 0.1817468619246862,
+      "recall": 0.4866946778711484,
+      "tp": 695,
+      "fp": 3129,
+      "fn": 733
+    },
+    {
+      "role": "unweighted",
+      "f2": 0.3768844221105528,
+      "precision": 0.1682484900776531,
+      "recall": 0.5462184873949579,
+      "tp": 780,
+      "fp": 3856,
+      "fn": 648
+    },
+    {
+      "role": "same_strategy",
+      "f2": 0.3749739962554608,
+      "precision": 0.1847770374167093,
+      "recall": 0.5049019607843137,
+      "tp": 721,
+      "fp": 3181,
+      "fn": 707
+    },
+    {
+      "role": "original_member",
+      "f2": 0.358045030203185,
+      "precision": 0.1921603300913645,
+      "recall": 0.4565826330532213,
+      "tp": 652,
+      "fp": 2741,
+      "fn": 776
+    },
+    {
+      "role": "transformed_member",
+      "f2": 0.358045030203185,
+      "precision": 0.1921603300913645,
+      "recall": 0.4565826330532213,
+      "tp": 652,
+      "fp": 2741,
+      "fn": 776
+    },
+    {
+      "role": "matched_representation",
+      "f2": 0.3741317617343717,
+      "precision": 0.187598944591029,
+      "recall": 0.4978991596638655,
+      "tp": 711,
+      "fp": 3079,
+      "fn": 717
+    },
+    {
+      "role": "matched_weight",
+      "f2": 0.372888558376713,
+      "precision": 0.1896784652796541,
+      "recall": 0.4915966386554621,
+      "tp": 702,
+      "fp": 2999,
+      "fn": 726
+    },
+    {
+      "role": "matched_C",
+      "f2": 0.3746579667438434,
+      "precision": 0.187862796833773,
+      "recall": 0.4985994397759103,
+      "tp": 712,
+      "fp": 3078,
+      "fn": 716
+    },
+    {
+      "role": "other_alpha_25",
+      "f2": 0.3706962930370696,
+      "precision": 0.1994672980171648,
+      "recall": 0.4719887955182072,
+      "tp": 674,
+      "fp": 2705,
+      "fn": 754
+    },
+    {
+      "role": "other_alpha_50",
+      "f2": 0.3682719546742209,
+      "precision": 0.1950375072129255,
+      "recall": 0.4733893557422969,
+      "tp": 676,
+      "fp": 2790,
+      "fn": 752
+    },
+    {
+      "role": "other_alpha_75",
+      "f2": 0.3656030286641428,
+      "precision": 0.1913388055476931,
+      "recall": 0.4733893557422969,
+      "tp": 676,
+      "fp": 2857,
+      "fn": 752
+    }
+  ],
+  "fingerprint_unchanged": true
+}

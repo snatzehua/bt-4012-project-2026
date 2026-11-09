@@ -1,0 +1,11 @@
+{
+  "archive_path": "openspec/changes/archive/2026-10-12-test-bagged-anchor-fusion-f2",
+  "tasks_complete": 14,
+  "requirements": 7,
+  "scenarios": 11,
+  "specs_synchronized": true,
+  "main_spec_sha256": "b3362a702c1c39f165b1ff01555776dbff29d373ee764c631228fd9b3b14cf30",
+  "archived_delta_sha256": "0ca197fdec131805cc746b07d412159551af1f4142fa5949506a8949b8074418",
+  "archived_tasks_sha256": "18c866a536e57b4f906a1a35e3c1a7ca968184076ff284d9b90e1ab146a6fc6e",
+  "warnings": []
+}

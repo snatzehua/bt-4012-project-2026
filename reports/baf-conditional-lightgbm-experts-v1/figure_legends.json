@@ -1,0 +1,31 @@
+{
+  "operating": [
+    "pooled",
+    "latest",
+    "rank_fraction"
+  ],
+  "pooled": [
+    "payment_type / balanced",
+    "payment_type / unweighted",
+    "housing_status / balanced",
+    "housing_status / unweighted",
+    "global400 / balanced",
+    "global400 / unweighted"
+  ],
+  "latest": [
+    "payment_type / balanced",
+    "payment_type / unweighted",
+    "housing_status / balanced",
+    "housing_status / unweighted",
+    "global400 / balanced",
+    "global400 / unweighted"
+  ],
+  "rank_fraction": [
+    "payment_type / balanced",
+    "payment_type / unweighted",
+    "housing_status / balanced",
+    "housing_status / unweighted",
+    "global400 / balanced",
+    "global400 / unweighted"
+  ]
+}

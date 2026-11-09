@@ -1,0 +1,47 @@
+Checking validation 4 baseline_balanced
+Checking validation 4 baseline_lgbm
+Checking validation 4 interaction_c0p1_balanced
+Checking validation 4 interaction_c0p1_unweighted
+Checking validation 4 interaction_c1p0_balanced
+Checking validation 4 interaction_c1p0_unweighted
+Checking validation 4 spline_c0p1_balanced
+Checking validation 4 spline_c0p1_unweighted
+Checking validation 4 spline_c1p0_balanced
+Checking validation 4 spline_c1p0_unweighted
+Checking validation 4 xgb_d4_w1
+Checking validation 5 baseline_balanced
+Checking validation 5 baseline_lgbm
+Checking validation 5 interaction_c0p1_balanced
+Checking validation 5 interaction_c0p1_unweighted
+Checking validation 5 interaction_c1p0_balanced
+Checking validation 5 interaction_c1p0_unweighted
+Checking validation 5 spline_c0p1_balanced
+Checking validation 5 spline_c0p1_unweighted
+Checking validation 5 spline_c1p0_balanced
+Checking validation 5 spline_c1p0_unweighted
+Checking validation 5 xgb_d4_w1
+Checking validation 6 baseline_balanced
+Checking validation 6 baseline_lgbm
+Checking validation 6 interaction_c0p1_balanced
+Checking validation 6 interaction_c0p1_unweighted
+Checking validation 6 interaction_c1p0_balanced
+Checking validation 6 interaction_c1p0_unweighted
+Checking validation 6 spline_c0p1_balanced
+Checking validation 6 spline_c0p1_unweighted
+Checking validation 6 spline_c1p0_balanced
+Checking validation 6 spline_c1p0_unweighted
+Checking validation 6 xgb_d4_w1
+                                        candidate policy       f2       f1       f3  precision   recall  flagged_fraction  average_precision    tp     fp    fn
+       interaction_blend_spline_c1p0_balanced_a10 latest 0.330793 0.234529 0.384271   0.158659 0.459837          0.037598           0.189693 658.5 3569.0 772.0
+       interaction_blend_spline_c1p0_balanced_a10 pooled 0.330716 0.234546 0.384105   0.158702 0.459493          0.037552           0.189693 658.0 3564.5 772.5
+  interaction_blend_interaction_c0p1_balanced_a10 pooled 0.330340 0.235917 0.382242   0.160560 0.454915          0.036733           0.189707 651.5 3478.5 779.0
+interaction_blend_interaction_c1p0_unweighted_a25 pooled 0.330205 0.239095 0.379383   0.164696 0.447243          0.035330           0.190088 640.5 3330.0 790.0
+interaction_blend_interaction_c1p0_unweighted_a50 latest 0.329884 0.235442 0.381998   0.160262 0.455307          0.037039           0.189601 652.0 3510.0 778.5
+  interaction_blend_interaction_c1p0_balanced_a25 pooled 0.329833 0.240267 0.378497   0.166977 0.446400          0.035343           0.190169 639.5 3322.5 791.0
+  interaction_blend_interaction_c1p0_balanced_a10 pooled 0.329747 0.237989 0.380037   0.163896 0.450624          0.036165           0.189630 645.5 3411.5 785.0
+interaction_blend_interaction_c1p0_unweighted_a10 pooled 0.329555 0.241003 0.376601   0.167368 0.440624          0.034205           0.189555 631.0 3214.0 799.5
+interaction_blend_interaction_c0p1_unweighted_a10 pooled 0.329492 0.241209 0.376313   0.167654 0.439935          0.034093           0.189575 630.0 3202.5 800.5
+interaction_blend_interaction_c0p1_unweighted_a25 pooled 0.329421 0.239079 0.378242   0.165189 0.445787          0.035266           0.190267 638.5 3321.5 792.0
+interaction_blend_interaction_c1p0_unweighted_a50 pooled 0.329367 0.234864 0.381627   0.159781 0.455307          0.037197           0.189601 652.0 3527.0 778.5
+       interaction_blend_spline_c1p0_balanced_a25 latest 0.329192 0.238816 0.378898   0.165628 0.449150          0.036092           0.190314 643.5 3399.0 787.0
+Completed validate

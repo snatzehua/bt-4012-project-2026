@@ -1,0 +1,764 @@
+{
+  "selection_sha256": "3d6b693e78be6dee30b0911a0776cce6580f4edbaa1cb9c389d0a02a9e0c8dae",
+  "auditor_sha256": "fdc06ab43968d1f8bbb78a981e49ea1513da1f3dc23323e6b07f7544b74d0344",
+  "score_results": 85,
+  "newton_coefficient_sigmoid_checks": 15,
+  "independent_contrast_factor_count": 433,
+  "complete_score_parent_sets": true,
+  "results": [
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "baseline_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "baseline_lgbm",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "linear_c0p1_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "linear_c0p1_unweighted",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "logit_linear_c0p1_balanced",
+      "parents": [
+        "linear_c0p1_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "logit_linear_c0p1_unweighted",
+      "parents": [
+        "linear_c0p1_unweighted"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+      "parents": [
+        "xgb_d4_w1",
+        "baseline_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "logit_spline_c0p1_balanced",
+      "parents": [
+        "spline_c0p1_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "logit_spline_c0p1_unweighted",
+      "parents": [
+        "spline_c0p1_unweighted"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_linear_c0p1_balanced_a10",
+      "parents": [
+        "logit_linear_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_linear_c0p1_balanced_a25",
+      "parents": [
+        "logit_linear_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_linear_c0p1_balanced_a50",
+      "parents": [
+        "logit_linear_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_linear_c0p1_unweighted_a10",
+      "parents": [
+        "logit_linear_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_linear_c0p1_unweighted_a25",
+      "parents": [
+        "logit_linear_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_linear_c0p1_unweighted_a50",
+      "parents": [
+        "logit_linear_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_spline_c0p1_balanced_a10",
+      "parents": [
+        "logit_spline_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_spline_c0p1_balanced_a25",
+      "parents": [
+        "logit_spline_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_spline_c0p1_balanced_a50",
+      "parents": [
+        "logit_spline_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_spline_c0p1_unweighted_a10",
+      "parents": [
+        "logit_spline_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_spline_c0p1_unweighted_a25",
+      "parents": [
+        "logit_spline_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "margin_blend_spline_c0p1_unweighted_a50",
+      "parents": [
+        "logit_spline_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "spline_c0p1_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "spline_c0p1_unweighted",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 4,
+      "candidate": "xgb_d4_w1",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "baseline_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "baseline_lgbm",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "linear_c0p1_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "linear_c0p1_unweighted",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "logit_linear_c0p1_balanced",
+      "parents": [
+        "linear_c0p1_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "logit_linear_c0p1_unweighted",
+      "parents": [
+        "linear_c0p1_unweighted"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+      "parents": [
+        "xgb_d4_w1",
+        "baseline_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "logit_spline_c0p1_balanced",
+      "parents": [
+        "spline_c0p1_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "logit_spline_c0p1_unweighted",
+      "parents": [
+        "spline_c0p1_unweighted"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_linear_c0p1_balanced_a10",
+      "parents": [
+        "logit_linear_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_linear_c0p1_balanced_a25",
+      "parents": [
+        "logit_linear_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_linear_c0p1_balanced_a50",
+      "parents": [
+        "logit_linear_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_linear_c0p1_unweighted_a10",
+      "parents": [
+        "logit_linear_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_linear_c0p1_unweighted_a25",
+      "parents": [
+        "logit_linear_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_linear_c0p1_unweighted_a50",
+      "parents": [
+        "logit_linear_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_spline_c0p1_balanced_a10",
+      "parents": [
+        "logit_spline_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_spline_c0p1_balanced_a25",
+      "parents": [
+        "logit_spline_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_spline_c0p1_balanced_a50",
+      "parents": [
+        "logit_spline_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_spline_c0p1_unweighted_a10",
+      "parents": [
+        "logit_spline_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_spline_c0p1_unweighted_a25",
+      "parents": [
+        "logit_spline_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "margin_blend_spline_c0p1_unweighted_a50",
+      "parents": [
+        "logit_spline_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "spline_c0p1_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "spline_c0p1_unweighted",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 5,
+      "candidate": "xgb_d4_w1",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "baseline_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "baseline_lgbm",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "linear_c0p1_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "linear_c0p1_unweighted",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "logit_linear_c0p1_balanced",
+      "parents": [
+        "linear_c0p1_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "logit_linear_c0p1_unweighted",
+      "parents": [
+        "linear_c0p1_unweighted"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+      "parents": [
+        "xgb_d4_w1",
+        "baseline_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "logit_spline_c0p1_balanced",
+      "parents": [
+        "spline_c0p1_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "logit_spline_c0p1_unweighted",
+      "parents": [
+        "spline_c0p1_unweighted"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_linear_c0p1_balanced_a10",
+      "parents": [
+        "logit_linear_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_linear_c0p1_balanced_a25",
+      "parents": [
+        "logit_linear_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_linear_c0p1_balanced_a50",
+      "parents": [
+        "logit_linear_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_linear_c0p1_unweighted_a10",
+      "parents": [
+        "logit_linear_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_linear_c0p1_unweighted_a25",
+      "parents": [
+        "logit_linear_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_linear_c0p1_unweighted_a50",
+      "parents": [
+        "logit_linear_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_spline_c0p1_balanced_a10",
+      "parents": [
+        "logit_spline_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_spline_c0p1_balanced_a25",
+      "parents": [
+        "logit_spline_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_spline_c0p1_balanced_a50",
+      "parents": [
+        "logit_spline_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_spline_c0p1_unweighted_a10",
+      "parents": [
+        "logit_spline_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_spline_c0p1_unweighted_a25",
+      "parents": [
+        "logit_spline_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "margin_blend_spline_c0p1_unweighted_a50",
+      "parents": [
+        "logit_spline_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "spline_c0p1_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "spline_c0p1_unweighted",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "validation",
+      "month": 6,
+      "candidate": "xgb_d4_w1",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "baseline_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "baseline_lgbm",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "linear_c0p1_unweighted",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "logit_linear_c0p1_unweighted",
+      "parents": [
+        "linear_c0p1_unweighted"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+      "parents": [
+        "xgb_d4_w1",
+        "baseline_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "logit_spline_c0p1_balanced",
+      "parents": [
+        "spline_c0p1_balanced"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "logit_spline_c0p1_unweighted",
+      "parents": [
+        "spline_c0p1_unweighted"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "margin_blend_linear_c0p1_unweighted_a25",
+      "parents": [
+        "logit_linear_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "margin_blend_spline_c0p1_balanced_a25",
+      "parents": [
+        "logit_spline_c0p1_balanced",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "margin_blend_spline_c0p1_unweighted_a25",
+      "parents": [
+        "logit_spline_c0p1_unweighted",
+        "logit_mean_xgb_d4_w1_baseline_balanced_a50"
+      ],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "spline_c0p1_balanced",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "spline_c0p1_unweighted",
+      "parents": [],
+      "checked": true
+    },
+    {
+      "phase": "exploratory",
+      "month": 7,
+      "candidate": "xgb_d4_w1",
+      "parents": [],
+      "checked": true
+    }
+  ]
+}

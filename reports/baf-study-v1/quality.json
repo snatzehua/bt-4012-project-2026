@@ -1,0 +1,11 @@
+{
+  "rows": 903157,
+  "columns": 32,
+  "literal_null_cells": 0,
+  "duplicate_rows": 0,
+  "constant_columns": [
+    "device_fraud_count"
+  ],
+  "test_month_excluded": 7,
+  "predictor_count": 29
+}

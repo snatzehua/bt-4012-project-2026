@@ -1,0 +1,77 @@
+........................................................................ [ 25%]
+........................................................................ [ 50%]
+...............................F........................................ [ 75%]
+...................................................................F.    [100%]
+=================================== FAILURES ===================================
+__________________ test_canonical_logit_and_endpoint_controls __________________
+
+    def test_canonical_logit_and_endpoint_controls():
+        p=data([0,1e-8,.2,.9,1]);historical=run.parent.old_compose
+        for w in scores.WEIGHTINGS:
+>           name='logit_'+run.parent.unbagged(w);spec=scores.lookup(name)
+                          ^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'baf.bagged_boosting' has no attribute 'unbagged'
+
+tests/test_bagged_anchor.py:116: AttributeError
+__________ test_current_or_future_policy_sources_rejected[parameters] __________
+
+analytical_grid = ({'data_path': 'data/raw/baf/Base.csv', 'data_sha256': '7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b8... 0
+290      6           0
+291      6           0
+292      6           0
+293      6           0
+
+[294 rows x 2 columns])
+field = 'parameters'
+
+    @pytest.mark.parametrize('field',['parameters','source_months'])
+    def test_current_or_future_policy_sources_rejected(analytical_grid,field):
+        c,fp,frame=analytical_grid;p=Path(c['output_dir'])/'crossfit.csv';t=pd.read_csv(p)
+        if field=='parameters':
+            import json
+>           r=json.loads(t.loc[0,field]);r['source_months']=[t.loc[0,'eval_month']];t.loc[0,field]=json.dumps(r)
+                                                                                                   ^^^^^^^^^^^^^
+
+tests/test_bagged_anchor.py:333: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/__init__.py:231: in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/encoder.py:200: in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/encoder.py:258: in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.encoder.JSONEncoder object at 0x10066e660>, o = np.int64(5)
+
+    def default(self, o):
+        """Implement this method in a subclass such that it returns
+        a serializable object for ``o``, or calls the base implementation
+        (to raise a ``TypeError``).
+    
+        For example, to support arbitrary iterators, you could
+        implement default like this::
+    
+            def default(self, o):
+                try:
+                    iterable = iter(o)
+                except TypeError:
+                    pass
+                else:
+                    return list(iterable)
+                # Let the base class default method raise the TypeError
+                return super().default(o)
+    
+        """
+>       raise TypeError(f'Object of type {o.__class__.__name__} '
+                        f'is not JSON serializable')
+E       TypeError: Object of type int64 is not JSON serializable
+
+/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/json/encoder.py:180: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_bagged_anchor.py::test_canonical_logit_and_endpoint_controls
+FAILED tests/test_bagged_anchor.py::test_current_or_future_policy_sources_rejected[parameters]
+2 failed, 283 passed, 6 deselected in 119.03s (0:01:59)

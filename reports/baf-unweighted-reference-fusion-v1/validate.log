@@ -1,0 +1,32 @@
+Checking validation 4 baseline_balanced
+Checking validation 4 baseline_lgbm
+Checking validation 4 interaction_c1p0_balanced
+Checking validation 4 spline_c0p1_unweighted
+Checking validation 4 spline_c1p0_balanced
+Checking validation 4 xgb_d4_w1
+Checking validation 5 baseline_balanced
+Checking validation 5 baseline_lgbm
+Checking validation 5 interaction_c1p0_balanced
+Checking validation 5 spline_c0p1_unweighted
+Checking validation 5 spline_c1p0_balanced
+Checking validation 5 xgb_d4_w1
+Checking validation 6 baseline_balanced
+Checking validation 6 baseline_lgbm
+Checking validation 6 interaction_c1p0_balanced
+Checking validation 6 spline_c0p1_unweighted
+Checking validation 6 spline_c1p0_balanced
+Checking validation 6 xgb_d4_w1
+                                      candidate policy       f2       f1       f3  precision   recall  flagged_fraction  average_precision    tp     fp    fn
+     interaction_blend_spline_c1p0_balanced_a10 latest 0.330793 0.234529 0.384271   0.158659 0.459837          0.037598           0.189693 658.5 3569.0 772.0
+     interaction_blend_spline_c1p0_balanced_a10 pooled 0.330716 0.234546 0.384105   0.158702 0.459493          0.037552           0.189693 658.0 3564.5 772.5
+interaction_blend_interaction_c1p0_balanced_a10 pooled 0.329747 0.237989 0.380037   0.163896 0.450624          0.036165           0.189630 645.5 3411.5 785.0
+                 lgbm_blend_recent_balanced_l25 latest 0.329726 0.241105 0.376999   0.167583 0.441640          0.034390           0.189483 632.5 3230.5 798.0
+            lgbm_blend_interaction_balanced_l10 pooled 0.329645 0.236919 0.379608   0.161687 0.448085          0.035514           0.189465 641.5 3361.5 789.0
+                 lgbm_blend_latest_balanced_l10 pooled 0.329552 0.233725 0.382718   0.158127 0.457730          0.037494           0.189471 655.5 3561.0 775.0
+                 lgbm_blend_latest_balanced_l10 latest 0.329451 0.234573 0.381637   0.159107 0.454627          0.036898           0.189471 651.0 3501.0 779.5
+                 lgbm_blend_latest_balanced_l25 pooled 0.329019 0.236173 0.379493   0.161278 0.449397          0.036013           0.188879 643.5 3408.5 787.0
+                 lgbm_blend_recent_balanced_l25 pooled 0.329014 0.238508 0.378315   0.164880 0.447157          0.035716           0.189483 640.5 3366.0 790.0
+        margin_blend_spline_c0p1_unweighted_a25 latest 0.329010 0.231593 0.383368   0.155537 0.460249          0.038074           0.190366 659.0 3628.5 771.5
+     logit_mean_xgb_d4_w1_baseline_balanced_a50 pooled 0.328907 0.240464 0.375839   0.166891 0.439609          0.034181           0.188626 629.5 3214.0 801.0
+            lgbm_blend_interaction_balanced_l25 pooled 0.328701 0.234687 0.380327   0.159638 0.452510          0.036718           0.188843 648.0 3481.5 782.5
+Completed validate

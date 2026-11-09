@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/tmp/bagged-verify-replay.py", line 3, in <module>
+    from baf.common import digest,read_config,write_json
+ModuleNotFoundError: No module named 'baf'

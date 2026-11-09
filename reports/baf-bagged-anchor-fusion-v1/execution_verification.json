@@ -1,0 +1,17 @@
+{
+  "development_models": 33,
+  "development_scores": 120,
+  "forward_rows": 222,
+  "contrasts": 947,
+  "roles": 26,
+  "final_models": 11,
+  "final_scores": 27,
+  "new_development_fits": 0,
+  "new_final_bagged_fits": 6,
+  "preserved_histories": 16,
+  "mandatory_paths": 735,
+  "preservation_checked": true,
+  "source_identity_checked": true,
+  "closed_scientific_logs_checked": true,
+  "all_five_both_scope_measured_acceptance": false
+}

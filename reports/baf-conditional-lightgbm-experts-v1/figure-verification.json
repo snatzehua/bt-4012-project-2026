@@ -1,0 +1,18 @@
+{
+  "visually_inspected": true,
+  "pixel_identical_regeneration": true,
+  "image_sha256": "eaa53553c09a959a322a843503d09d5c8b8778e9ee756c08a55afd544266cd4d",
+  "pixel_dimensions": [
+    2240,
+    1600
+  ],
+  "operating_points": 72,
+  "curves": 12,
+  "curve_rows": 60,
+  "capacity_lines": 6,
+  "legends_and_labels_readable": true,
+  "no_clipping_or_overlap_observed": true,
+  "canonical_endpoints_checked": true,
+  "original_audit_visual_flag_preserved": true,
+  "visual_inspection_tool": "view_image"
+}

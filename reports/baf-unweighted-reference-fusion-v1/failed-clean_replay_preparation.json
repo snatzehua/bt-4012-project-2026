@@ -1,0 +1,12 @@
+{
+  "replay_directory": "/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/baf-fusion-clean-replay-bmfdg9kj",
+  "selection_restores": 14,
+  "changed_selection_rejected": true,
+  "prior_models": 0,
+  "prior_prediction_caches": 0,
+  "pinned_packages": 27,
+  "python": "3.12.9",
+  "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+  "test_source_sha256": "6e88d5d6d62b1ef92e6d1e6cca20dfa92fa088f91335d18b87220810580b7bf5",
+  "portable_fixture_sha256": "bf233af8b6d7155e69ebf87316acaea0689e245b3302fda3af6471b7ec61b339"
+}

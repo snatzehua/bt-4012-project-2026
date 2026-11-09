@@ -1,0 +1,6 @@
+candidate,baseline,difference,ci_low,ci_high,replicates,uncertainty
+baseline_balanced__latest,baseline_balanced__pooled,-0.000858037689095,-0.0023672298116579,0.0001514086103498,500,conditional paired row bootstrap; fixed decisions; no selection correction
+baseline_balanced__rank_fraction,baseline_balanced__pooled,-0.0033215063756936,-0.0084043713946112,0.0016282349317749,500,conditional paired row bootstrap; fixed decisions; no selection correction
+baseline_lgbm__pooled,baseline_balanced__pooled,0.0124758650635729,0.0040017636886687,0.0221969283561544,500,conditional paired row bootstrap; fixed decisions; no selection correction
+baseline_lgbm__latest,baseline_balanced__pooled,0.0016259805099647,-0.0072482557054826,0.0101354496650061,500,conditional paired row bootstrap; fixed decisions; no selection correction
+baseline_lgbm__rank_fraction,baseline_balanced__pooled,0.0072096668291138,-0.0011652485172831,0.0158900412624389,500,conditional paired row bootstrap; fixed decisions; no selection correction

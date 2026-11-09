@@ -1,0 +1,9 @@
+{
+  "preparation_sha256": "7bf8bffd2363cab479cc0c557c29f4ddb1f901dc6f01772c1457c4aab535540e",
+  "new_fits": 18,
+  "reference_reuses": 15,
+  "reference_reproductions": 0,
+  "physical_scores": 54,
+  "reference_precedence": "current parent",
+  "complete_rounds_warning_free": true
+}

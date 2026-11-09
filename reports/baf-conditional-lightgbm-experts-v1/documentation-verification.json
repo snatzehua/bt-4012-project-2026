@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "phase": "prearchive",
+  "snapshot_files": {
+    "reports/baf-conditional-lightgbm-experts-v1/prearchive-documentation-source/README.md.source": "b0fba1860d08c6255dafb651427e15a00420a08fd03bb5f372c08754fc09cad2",
+    "reports/baf-conditional-lightgbm-experts-v1/prearchive-documentation-source/AGENTS.md.source": "00953533791379363776d3ae0bed2ab8437204ea0e5d62869c44cbe28279ac1a",
+    "reports/baf-conditional-lightgbm-experts-v1/prearchive-documentation-source/openspec/config.yaml.source": "1e5800c23d170a1c41eab1ebbe79cd73c32a34e100330899ad5964a42ffd1c21"
+  },
+  "current_root_files": {
+    "README.md": "b0fba1860d08c6255dafb651427e15a00420a08fd03bb5f372c08754fc09cad2",
+    "AGENTS.md": "00953533791379363776d3ae0bed2ab8437204ea0e5d62869c44cbe28279ac1a",
+    "openspec/config.yaml": "1e5800c23d170a1c41eab1ebbe79cd73c32a34e100330899ad5964a42ffd1c21"
+  },
+  "ordered_commands_checked": true,
+  "pins_verified": 27,
+  "selection_restores_verified": 17,
+  "methodology_full_tests": 1915,
+  "current_tests": 414,
+  "full_size_copy_retraining_claimed": false,
+  "frozen_execution_identity_unchanged": true,
+  "assistance_disclosed": true,
+  "broader_goal_achieved": false,
+  "created_at_utc": "2026-10-12T07:06:39.857974+00:00"
+}

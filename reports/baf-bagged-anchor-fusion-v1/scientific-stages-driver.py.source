@@ -1,0 +1,21 @@
+from pathlib import Path
+import subprocess,time,sys,json
+from baf.common import write_json,digest
+root=Path.cwd();out=root/'outputs/baf-bagged-anchor-fusion-v1';logs=out/'execution-logs';logs.mkdir(parents=True,exist_ok=True)
+steps=[('record_checks','baf.bagged_anchor_study'),('preflight','baf.bagged_anchor_study'),
+       ('prepare_development','baf.bagged_anchor_study'),('validate','baf.bagged_anchor_study'),
+       ('freeze','baf.bagged_anchor_study'),('exploratory','baf.bagged_anchor_study'),
+       ('report','baf.bagged_anchor_report')]
+for step,module in steps:
+ p=logs/(step+'.log')
+ if p.exists():raise ValueError('Existing stage log must remain intact: '+str(p))
+ print('Starting',step,flush=True);start=time.perf_counter()
+ with p.open('w') as f:r=subprocess.run([str(root/'.venv/bin/python'),'-m',module,step],stdout=f,stderr=subprocess.STDOUT)
+ write_json(logs/(step+'.receipt.json'),dict(step=step,module=module,returncode=r.returncode,elapsed_seconds=time.perf_counter()-start,closed_log_sha256=digest(p)))
+ print('Finished',step,'exit',r.returncode,'seconds',round(time.perf_counter()-start,1),flush=True)
+ if r.returncode:
+  print(p.read_text()[-6000:],flush=True);sys.exit(r.returncode)
+ if step=='validate':
+  import pandas as pd
+  t=pd.read_csv(out/'summary.csv');print(t[['candidate','policy','f2','recall','precision','flagged_fraction']].head(5).to_string(index=False),flush=True)
+print('All scientific stages finished.',flush=True)

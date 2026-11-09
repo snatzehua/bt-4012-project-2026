@@ -1,0 +1,25 @@
+{
+  "operating": [
+    "pooled",
+    "latest",
+    "rank_fraction"
+  ],
+  "pooled": [
+    "balanced / logit(probability mean)",
+    "balanced / mean(logits)",
+    "unweighted / logit(probability mean)",
+    "unweighted / mean(logits)"
+  ],
+  "latest": [
+    "balanced / logit(probability mean)",
+    "balanced / mean(logits)",
+    "unweighted / logit(probability mean)",
+    "unweighted / mean(logits)"
+  ],
+  "rank_fraction": [
+    "balanced / logit(probability mean)",
+    "balanced / mean(logits)",
+    "unweighted / logit(probability mean)",
+    "unweighted / mean(logits)"
+  ]
+}

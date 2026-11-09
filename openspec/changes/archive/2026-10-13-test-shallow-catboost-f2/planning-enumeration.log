@@ -1,0 +1,73 @@
+{
+  "counts": {
+    "selectable_strategies": 54,
+    "strategy_policy_cases": 162,
+    "new_catboost_recipes": 12,
+    "new_native_score_months": 36,
+    "new_blend_score_months": 108,
+    "reference_base_results": 24,
+    "reference_derived_results": 15,
+    "physical_full_scores": 183,
+    "selectable_score_months": 162,
+    "available_cache_model_objects": 60,
+    "available_cache_model_files": 99,
+    "new_full_development_fits": 36,
+    "forward_rows": 324,
+    "macro_rows": 162,
+    "pooled_rows": 162,
+    "contrasts": 1728,
+    "physical_score_diagnostic_rows": 183,
+    "selectable_score_diagnostic_rows": 162,
+    "native_anchor_diversity_rows": 36,
+    "decision_overlap_rows": 504,
+    "model_work_rows": 60,
+    "new_preprocessing_records": 36,
+    "new_model_parameter_rows": 36,
+    "operating_points": 162,
+    "alpha_curves": 36,
+    "canonical_alpha_curve_rows": 180,
+    "production_catboost_miniature_fits": 14,
+    "current_tiny_fits_per_complete_invocation": 18,
+    "expected_historical_tiny_calls_per_complete_invocation": 85,
+    "paired_draws": 1500
+  },
+  "contrasts": {
+    "blend_vs_anchor": 108,
+    "blend_vs_native": 108,
+    "fixed_reference": 972,
+    "higher_alpha": 108,
+    "matched_cost": 72,
+    "matched_depth": 144,
+    "matched_rounds": 72,
+    "native_vs_anchor": 36,
+    "own_policy": 108
+  },
+  "preservation": {
+    "mandatory": 1860,
+    "historical": 4848,
+    "selection_pairs": 18
+  },
+  "case_shapes": [
+    [
+      "blend",
+      22,
+      5,
+      25,
+      84
+    ],
+    [
+      "native",
+      22,
+      5,
+      21,
+      84
+    ],
+    [
+      "reference",
+      8,
+      0,
+      13,
+      28
+    ]
+  ]
+}

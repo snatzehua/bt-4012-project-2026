@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="12" skipped="0" tests="218" time="30.553" timestamp="2026-10-12T15:48:54.984978+08:00" hostname="Kierans-MacBook-Pro-2.local"><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r200_w1]" time="0.250"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit0')
+spec = {'id': 'cb_d3_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=3, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d3_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r200_w100]" time="0.125"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit1')
+spec = {'id': 'cb_d3_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=3...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d3_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r400_w1]" time="0.245"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit2')
+spec = {'id': 'cb_d3_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=3, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d3_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r400_w100]" time="0.227"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit3')
+spec = {'id': 'cb_d3_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=3...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d3_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r200_w1]" time="0.147"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit4')
+spec = {'id': 'cb_d4_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=4, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d4_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r200_w100]" time="0.143"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit5')
+spec = {'id': 'cb_d4_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=4...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d4_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r400_w1]" time="0.276"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit6')
+spec = {'id': 'cb_d4_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=4, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d4_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r400_w100]" time="0.261"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit7')
+spec = {'id': 'cb_d4_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=4...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d4_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r200_w1]" time="0.224"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit8')
+spec = {'id': 'cb_d6_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=6, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d6_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r200_w100]" time="0.231"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit9')
+spec = {'id': 'cb_d6_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=6...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d6_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r400_w1]" time="0.465"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit10')
+spec = {'id': 'cb_d6_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=6, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d6_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r400_w100]" time="0.419"><failure message="ValueError: Effective native learning rate differs">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit11')
+spec = {'id': 'cb_d6_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+&gt;       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=6...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d6_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+&gt;           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError</failure></testcase><testcase classname="tests.test_shallow_catboost" name="test_six_reference_formats_through_new_destination[bagged_balanced]" time="0.329" /><testcase classname="tests.test_shallow_catboost" name="test_six_reference_formats_through_new_destination[bagged_unweighted]" time="0.271" /><testcase classname="tests.test_shallow_catboost" name="test_six_reference_formats_through_new_destination[spline]" time="0.295" /><testcase classname="tests.test_shallow_catboost" name="test_six_reference_formats_through_new_destination[xgboost]" time="0.141" /><testcase classname="tests.test_shallow_catboost" name="test_six_reference_formats_through_new_destination[lightgbm_balanced]" time="0.091" /><testcase classname="tests.test_shallow_catboost" name="test_six_reference_formats_through_new_destination[lightgbm_unweighted]" time="0.089" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[bagged_anchor_balanced_logit_a25-pooled]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[bagged_anchor_balanced_logit_a25-latest]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[bagged_anchor_balanced_logit_a25-rank_fraction]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[interaction_blend_spline_c1p0_balanced_a10-pooled]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[interaction_blend_spline_c1p0_balanced_a10-latest]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[interaction_blend_spline_c1p0_balanced_a10-rank_fraction]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[margin_blend_spline_c0p1_unweighted_a25-pooled]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[margin_blend_spline_c0p1_unweighted_a25-latest]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[margin_blend_spline_c0p1_unweighted_a25-rank_fraction]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[logit_mean_xgb_d4_w1_baseline_balanced_a50-pooled]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[logit_mean_xgb_d4_w1_baseline_balanced_a50-latest]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[logit_mean_xgb_d4_w1_baseline_balanced_a50-rank_fraction]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[baseline_balanced-pooled]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[baseline_balanced-latest]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[baseline_balanced-rank_fraction]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[baseline_lgbm-pooled]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[baseline_lgbm-latest]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[baseline_lgbm-rank_fraction]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r200_w1-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r200_w1-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r200_w1-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r200_w100-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r200_w100-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r200_w100-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r400_w1-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r400_w1-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r400_w1-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r400_w100-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r400_w100-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d3_r400_w100-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r200_w1-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r200_w1-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r200_w1-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r200_w100-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r200_w100-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r200_w100-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r400_w1-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r400_w1-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r400_w1-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r400_w100-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r400_w100-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d4_r400_w100-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r200_w1-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r200_w1-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r200_w1-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r200_w100-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r200_w100-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r200_w100-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r400_w1-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r400_w1-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r400_w1-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r400_w100-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r400_w100-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_d6_r400_w100-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w1_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w1_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w1_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w1_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w1_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w1_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w1_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w1_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w1_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w100_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w100_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w100_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w100_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w100_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w100_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w100_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w100_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r200_w100_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w1_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w1_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w1_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w1_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w1_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w1_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w1_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w1_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w1_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w100_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w100_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w100_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w100_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w100_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w100_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w100_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w100_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d3_r400_w100_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w1_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w1_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w1_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w1_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w1_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w1_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w1_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w1_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w1_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w100_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w100_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w100_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w100_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w100_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w100_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w100_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w100_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r200_w100_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w1_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w1_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w1_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w1_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w1_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w1_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w1_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w1_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w1_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w100_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w100_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w100_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w100_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w100_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w100_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w100_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w100_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d4_r400_w100_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w1_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w1_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w1_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w1_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w1_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w1_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w1_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w1_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w1_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w100_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w100_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w100_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w100_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w100_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w100_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w100_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w100_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r200_w100_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w1_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w1_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w1_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w1_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w1_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w1_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w1_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w1_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w1_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w100_a10-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w100_a10-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w100_a10-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w100_a25-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w100_a25-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w100_a25-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w100_a50-pooled]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w100_a50-latest]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_all_winner_policy_cases_preserve_roles_and_bounds[cb_anchor_d6_r400_w100_a50-rank_fraction]" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_complete_analytical_tables_independently_reconstruct" time="1.499" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_numeric_corruption[crossfit-f2]" time="0.031" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_numeric_corruption[summary-recall]" time="0.473" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_numeric_corruption[pooled-tp]" time="0.510" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_numeric_corruption[contrasts-f2_difference]" time="0.583" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_numeric_corruption[physical_score_diagnostics-q0.25]" time="0.715" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_numeric_corruption[score_diagnostics-outside_unit]" time="0.770" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_numeric_corruption[diversity-spearman]" time="0.807" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_numeric_corruption[decision_overlap-fraud_first_only]" time="0.824" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_missing_and_duplicate_keys[crossfit.csv]" time="0.049" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_missing_and_duplicate_keys[summary.csv]" time="0.049" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_missing_and_duplicate_keys[pooled.csv]" time="0.051" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_missing_and_duplicate_keys[contrasts.csv]" time="1.159" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_missing_and_duplicate_keys[physical_score_diagnostics.csv]" time="1.479" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_missing_and_duplicate_keys[score_diagnostics.csv]" time="1.536" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_missing_and_duplicate_keys[diversity.csv]" time="1.638" /><testcase classname="tests.test_shallow_catboost" name="test_independent_audit_rejects_missing_and_duplicate_keys[decision_overlap.csv]" time="1.653" /><testcase classname="tests.test_shallow_catboost" name="test_audit_rejects_domain_population_and_policy_corruption[domain]" time="0.004" /><testcase classname="tests.test_shallow_catboost" name="test_audit_rejects_domain_population_and_policy_corruption[ids]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_audit_rejects_domain_population_and_policy_corruption[labels]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_audit_rejects_domain_population_and_policy_corruption[nonfinite]" time="0.019" /><testcase classname="tests.test_shallow_catboost" name="test_audit_rejects_domain_population_and_policy_corruption[month]" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_audit_rejects_domain_population_and_policy_corruption[rule]" time="0.028" /><testcase classname="tests.test_shallow_catboost" name="test_duplicate_costs_and_undeclared_settings_rejected_before_fit[sample_weight-value0]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_duplicate_costs_and_undeclared_settings_rejected_before_fit[auto_class_weights-Balanced]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_duplicate_costs_and_undeclared_settings_rejected_before_fit[scale_pos_weight-100]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_duplicate_costs_and_undeclared_settings_rejected_before_fit[class_weights-value3]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_duplicate_costs_and_undeclared_settings_rejected_before_fit[early_stopping_rounds-10]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_only_declared_interior_composition_weights[0]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_only_declared_interior_composition_weights[1]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_only_declared_interior_composition_weights[-0.1]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_only_declared_interior_composition_weights[0.75]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_only_declared_interior_composition_weights[True]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_only_declared_interior_composition_weights[nan]" time="0.000" /><testcase classname="tests.test_shallow_catboost" name="test_preservation_and_prospective_enumeration_without_fits" time="11.118" /><testcase classname="tests.test_shallow_catboost" name="test_only_required_individual_sources_can_execute" time="0.002" /><testcase classname="tests.test_shallow_catboost" name="test_source_gate_uses_reference_view_not_conditional_gate" time="0.001" /><testcase classname="tests.test_shallow_catboost" name="test_canonical_figure_curves_and_checked_rendering" time="0.596" /></testsuite></testsuites>

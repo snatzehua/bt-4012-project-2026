@@ -1,0 +1,99 @@
+{
+  "planning_complete": true,
+  "implementation_tasks_complete": 0,
+  "implementation_tasks_total": 14,
+  "requirements": 9,
+  "scenarios": 12,
+  "requirement_task_coverage": {
+    "Prospective isolated preservation and exact source reuse": [
+      "1.1",
+      "1.2",
+      "5.3",
+      "5.4"
+    ],
+    "Earlier-only native feature handling": [
+      "2.1",
+      "3.1",
+      "3.3"
+    ],
+    "Finite matched model recipes and valid persistence": [
+      "2.1",
+      "3.1",
+      "3.2",
+      "3.3"
+    ],
+    "Canonical finite margins and fixed blends": [
+      "2.2",
+      "3.3"
+    ],
+    "Actual chronological F2 selection without a quota": [
+      "2.2",
+      "3.3"
+    ],
+    "Complete matched effects and work diagnostics": [
+      "2.2",
+      "3.2",
+      "3.3",
+      "5.2"
+    ],
+    "Frozen bounded exploratory transfer": [
+      "2.3",
+      "4.1",
+      "4.2"
+    ],
+    "Independent gates and reproducible completion": [
+      "2.3",
+      "3.1",
+      "3.3",
+      "4.2",
+      "5.1",
+      "5.2",
+      "5.3",
+      "5.4"
+    ],
+    "Measured acceptance and honest uncertainty": [
+      "5.2",
+      "5.4"
+    ]
+  },
+  "expected_row_counts": {
+    "physical_scores": 183,
+    "selectable_scores": 162,
+    "forward": 324,
+    "macro": 162,
+    "pooled": 162,
+    "models": 60,
+    "new_parameters": 36,
+    "diversity": 36,
+    "overlap": 504,
+    "curves": 180
+  },
+  "strategies": 54,
+  "winner_policy_cases": 162,
+  "contrast_identities": 1728,
+  "mandatory_paths": 1860,
+  "historical_files": 4848,
+  "selection_pairs": 18,
+  "strict_openspec_passed": 26,
+  "strict_openspec_failed": 0,
+  "new_model_fits": 0,
+  "new_score_evaluations": 0,
+  "previous_goal_turn_classification": "progress",
+  "previous_goal_turn_evidence": "18th conditional study completed/archived; frozen outputs and all predecessor identities remain verified. Its negative result motivates the distinct shallow/short native grid.",
+  "current_goal_turn_classification": "progress",
+  "broader_goal_achieved": false,
+  "reason": "Verified prospective plan; no new experimental performance evidence yet.",
+  "planning_inputs": {
+    "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-shallow-catboost-f2/proposal.md": "2e02acf4eb3d9c58b537923606a2c79990e7d3157d65821260340a06532f6ed6",
+    "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-shallow-catboost-f2/design.md": "9ffea71cc6d19deab32670500d81d0fae6f1728da423030d14d46b27af94329f",
+    "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-shallow-catboost-f2/specs/baf-shallow-catboost-study/spec.md": "8cae375c6ce42ef7fdb5af23d3d2cbf9a6bcde1e0d64913964fdeeee23896e11",
+    "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-shallow-catboost-f2/tasks.md": "e6a64ded433b8520630b45f91488c229f1da3b53f1f8a03c06a261fb00072a1f",
+    "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-shallow-catboost-f2/planning-evidence.json": "6719338ce01e0fe36d7060eee2d3dfad1c8275591076a60302d51c2f7d39a5dd",
+    "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-shallow-catboost-f2/planning-enumeration.py": "1e3809665ae1fb0ffb4ed1fdeda77f940ecc07879608f506e00c28c694350cb2"
+  },
+  "context_snapshots": {
+    "README.md": "c79d0cd0b6b7b33e036de53ee00eeef34e1e350d920ec83dec34a79bd335b97f",
+    "AGENTS.md": "d03cc6018116332fa775c862aaf1e992375c4c5bfce370a413d522bbd35480bd",
+    "openspec/config.yaml": "e594365114a5eaf8dd1bd51e00637c43bd39b00ab4529d0c72d7d354f62685c6"
+  }
+}

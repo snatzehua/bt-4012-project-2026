@@ -1,0 +1,13 @@
+{
+  "setup_restore_blocks_identical_to_executed": true,
+  "full_clean_suite": 1501,
+  "selection_pairs": 16,
+  "changed_selection_rejected": true,
+  "pins": 27,
+  "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+  "full_production_retraining_in_clean_copy_claimed": false,
+  "scientific_commands_implemented_and_run": true,
+  "readme_sha256": "280d1ec13a41e3e291e628a4dadd826c3245640fdd3edabcd9a1c8f161164b76",
+  "agents_sha256": "590661b287686218a8a2553cbafd1afed05aebed473b83319659158d5c7b52fd",
+  "openspec_context_sha256": "264b11e2a2b2cf7bd19ed8b688b6e4ea9351383013ea13666d12d72d83e055ad"
+}

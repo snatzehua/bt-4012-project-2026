@@ -1,0 +1,12 @@
+{
+  "archive_path": "openspec/changes/archive/2026-10-12-test-bagged-lightgbm-seed-ensembles-f2",
+  "tasks_sha256": "6d922b71c19dac919ae1fb54ab22621e610154b6ccd93585066784b877b443c9",
+  "tasks_verified": 14,
+  "requirements_verified": 7,
+  "scenarios_verified": 10,
+  "main_spec_sha256": "89c1662a0a610837239df81fff0b86942a66368c1c15497b578181797f235f56",
+  "delta_spec_sha256": "32bc4718d7dfe3f7da35065280e761353baceba52e15f86619ef212b2a0ef9e8",
+  "synced": true,
+  "artifact_status_all_done": true,
+  "broader_goal_achieved": false
+}

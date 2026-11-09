@@ -1,0 +1,28 @@
+{
+  "error": "Inherited history inspector included bytecode that the prospective planning enumerator explicitly excluded.",
+  "sources": {
+    "baf/context_ablation.py": {
+      "sha256": "8bb56981a3d605dcd5bb45da8d1850ec8c321d82ef64b1b3e474353dba21417b",
+      "preserved_at": "reports/baf-context-feature-ablation-v1/declaration-failure-01-source/context_ablation.py"
+    },
+    "baf/context_ablation_study.py": {
+      "sha256": "8e1f8aa5aeeffa98a591ef2b1ca5ad9fb3296986746a95b091b1af2c8f091cc9",
+      "preserved_at": "reports/baf-context-feature-ablation-v1/declaration-failure-01-source/context_ablation_study.py"
+    },
+    "baf/context_ablation_report.py": {
+      "sha256": "42c6478f17a8ecf8b21eb4e4f540f174c4a899c179dfc5fca185894f1a8d886d",
+      "preserved_at": "reports/baf-context-feature-ablation-v1/declaration-failure-01-source/context_ablation_report.py"
+    },
+    "configs/context-feature-ablation.json": {
+      "sha256": "388f319b2400b8e1e871fbcc9ebc4864a4c1cb339246ec3ee051ea443c9c0b0c",
+      "preserved_at": "reports/baf-context-feature-ablation-v1/declaration-failure-01-source/context-feature-ablation.json"
+    },
+    "docs/context-feature-ablation-protocol.md": {
+      "sha256": "a5cd1fc36cc7911a2972b3f8432637905b5d73cb510a4d165667914ded45dd04",
+      "preserved_at": "reports/baf-context-feature-ablation-v1/declaration-failure-01-source/context-feature-ablation-protocol.md"
+    }
+  },
+  "log_sha256": "1f404f33baf75ab22e40ae9c0aca31a8dc00d8e3bc3015a6a1e1246158689440",
+  "new_scientific_fits": 0,
+  "remedy": "Match the planning enumerator exactly; preserve existing bytecode separately, without loosening scientific/source/model/prediction checks."
+}

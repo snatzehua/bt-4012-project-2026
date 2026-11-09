@@ -1,0 +1,8 @@
+{
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-start/tests/test_bagged_anchor.py": "d61582dab7bf0e5b42332990e56ebe6ab77a59f3c8f561e4128ba4df1a30a6b3",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-start/docs/bagged-anchor-fusion-protocol.md": "3c5e68ffadc7e0bbe1cb504b530055890c9fbe48cbccc1f9df727f5a9993b166",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-start/configs/bagged-anchor-fusion.json": "50e749a9f46bf52e0ec4b2bc5703edfe3a44e4ba4d78449e84ad23bb80e57f85",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-start/baf/bagged_anchor_study.py": "164473eb92d77fc08c612894b4707e907fe1b58183ff91a2684653df9e6419ef",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-start/baf/bagged_anchor_report.py": "4fa7b9d1adc3159bcbe379900c978a69cb1c750d1dfafc5d0159766ea819b232",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-start/baf/bagged_anchor_scores.py": "a467d89bdde42ed09d2a5c4d42e5ce0ca3b7d2725a8ed5cd779eb0810db6a9ee"
+}

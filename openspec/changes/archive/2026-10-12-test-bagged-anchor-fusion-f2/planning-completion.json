@@ -1,0 +1,29 @@
+{
+  "schema": "spec-driven",
+  "planning_artifacts_complete": true,
+  "implementation_tasks_complete": 0,
+  "implementation_tasks_total": 14,
+  "requirements": 7,
+  "scenarios": 11,
+  "strategies": 37,
+  "source_paths": 55,
+  "winner_policy_cases": 111,
+  "independent_factor_keys": 947,
+  "mandatory_preservation_paths": 735,
+  "selection_pairs": 16,
+  "historical_files": 3732,
+  "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+  "strict_openspec_passed": 24,
+  "new_model_fits": 0,
+  "new_blends_evaluated": 0,
+  "new_consumed_bagged_predictions_evaluated": 0,
+  "broader_goal_achieved": false,
+  "planning_files": {
+    "openspec/changes/test-bagged-anchor-fusion-f2/proposal.md": "846516bef1ee6e09b43673d823d2bd7f327a852316f6abc47175f4683ae2c021",
+    "openspec/changes/test-bagged-anchor-fusion-f2/design.md": "e44ac97660c6b7704ccf37e960ee005dcb45ce245b04630a949247e67feae541",
+    "openspec/changes/test-bagged-anchor-fusion-f2/tasks.md": "1331a55733a04f18711a0250751d27a355c02fb4453e3075102535254bf7ce92",
+    "openspec/changes/test-bagged-anchor-fusion-f2/specs/baf-bagged-anchor-fusion-study/spec.md": "0ca197fdec131805cc746b07d412159551af1f4142fa5949506a8949b8074418",
+    "openspec/changes/test-bagged-anchor-fusion-f2/planning-evidence.json": "a41b07803c64e845fef76444a86367f7f1a404adcd38f07f80e44c433a835f74",
+    "openspec/changes/test-bagged-anchor-fusion-f2/planning-verification.json": "b438ff07518a4dd81ff0b8acdc7279cf0765b947aafef0129958aab716361b88"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "planning_complete": true,
+  "implementation_complete": false,
+  "implementation_tasks_complete": 0,
+  "implementation_tasks_total": 14,
+  "requirements": 9,
+  "scenarios": 13,
+  "prospective_cases": 114,
+  "contrasts": 1192,
+  "mandatory_paths": 2020,
+  "selection_pairs": 19,
+  "preserved_historical_files": 5432,
+  "planned_sources": 64,
+  "parent_scientific_execution_and_report_indices_unchanged": true,
+  "project_context_current_and_snapshot_hashes_equal": true,
+  "new_fits": 0,
+  "new_inferences": 0,
+  "new_policy_evaluations": 0,
+  "broader_goal_achieved": false
+}

@@ -1,0 +1,19 @@
+pair,first,second,eval_month,pearson,spearman,correlation_reason,mean_absolute_difference,unequal_scores
+anchor versus balanced prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_balanced_prob_mean,4,,,constant member,0.0,0
+anchor versus balanced prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_balanced_prob_mean,5,0.5432175806799234,0.40798962806903816,defined,0.5397935169147907,42
+anchor versus balanced prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_balanced_prob_mean,6,0.5670054112730591,0.3099424681954461,defined,0.5525094893017535,42
+anchor versus balanced logit,interaction_blend_spline_c1p0_balanced_a10,bagged_balanced_logit_mean,4,,,constant member,0.0,0
+anchor versus balanced logit,interaction_blend_spline_c1p0_balanced_a10,bagged_balanced_logit_mean,5,0.5438207437436787,0.39907624989871165,defined,0.563395601337985,42
+anchor versus balanced logit,interaction_blend_spline_c1p0_balanced_a10,bagged_balanced_logit_mean,6,0.5497805237497332,0.3011911514463982,defined,0.6128247623562583,42
+anchor versus unweighted prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_unweighted_prob_mean,4,,,constant member,0.0,0
+anchor versus unweighted prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_unweighted_prob_mean,5,0.5774396501425331,0.1948788590875942,defined,0.538440238435316,42
+anchor versus unweighted prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_unweighted_prob_mean,6,0.5550443187702551,0.46568349404424286,defined,0.5588479509052515,42
+anchor versus unweighted logit,interaction_blend_spline_c1p0_balanced_a10,bagged_unweighted_logit_mean,4,,,constant member,0.0,0
+anchor versus unweighted logit,interaction_blend_spline_c1p0_balanced_a10,bagged_unweighted_logit_mean,5,0.561389305877093,0.20622315857710075,defined,0.579681762912105,42
+anchor versus unweighted logit,interaction_blend_spline_c1p0_balanced_a10,bagged_unweighted_logit_mean,6,0.5738192455466292,0.47362450368689735,defined,0.5679383742265681,42
+aggregation forms balanced,logit_bagged_balanced_prob_mean,bagged_balanced_logit_mean,4,,,constant member,0.0,0
+aggregation forms balanced,logit_bagged_balanced_prob_mean,bagged_balanced_logit_mean,5,0.9897333137288283,0.9829835507657402,defined,0.13170030239592517,42
+aggregation forms balanced,logit_bagged_balanced_prob_mean,bagged_balanced_logit_mean,6,0.9933755291466752,0.9871971477189856,defined,0.10260710974161971,42
+aggregation forms unweighted,logit_bagged_unweighted_prob_mean,bagged_unweighted_logit_mean,4,,,constant member,0.0,0
+aggregation forms unweighted,logit_bagged_unweighted_prob_mean,bagged_unweighted_logit_mean,5,0.9904949657153423,0.9726116198039058,defined,0.11344761189209746,42
+aggregation forms unweighted,logit_bagged_unweighted_prob_mean,bagged_unweighted_logit_mean,6,0.9908301731668365,0.9914107446722309,defined,0.11502780031858746,42

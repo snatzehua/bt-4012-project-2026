@@ -1,0 +1,37 @@
+pair,first,second,eval_month,policy,both,first_only,second_only,neither,fraud_both,fraud_first_only,fraud_second_only,fraud_neither,legitimate_both,legitimate_first_only,legitimate_second_only,legitimate_neither
+anchor versus balanced prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_balanced_prob_mean,5,pooled,3027,408,222,115666,565,33,15,798,2462,375,207,114868
+anchor versus balanced prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_balanced_prob_mean,5,latest,3027,408,222,115666,565,33,15,798,2462,375,207,114868
+anchor versus balanced prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_balanced_prob_mean,5,rank_fraction,4828,504,254,113737,672,27,17,695,4156,477,237,113042
+anchor versus balanced prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_balanced_prob_mean,6,pooled,4370,640,166,102992,671,47,5,727,3699,593,161,102265
+anchor versus balanced prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_balanced_prob_mean,6,latest,4586,434,360,102788,689,30,15,716,3897,404,345,102072
+anchor versus balanced prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_balanced_prob_mean,6,rank_fraction,3607,396,198,103967,613,25,21,791,2994,371,177,103176
+anchor versus balanced logit,interaction_blend_spline_c1p0_balanced_a10,bagged_balanced_logit_mean,5,pooled,3008,427,209,115679,564,34,13,800,2444,393,196,114879
+anchor versus balanced logit,interaction_blend_spline_c1p0_balanced_a10,bagged_balanced_logit_mean,5,latest,3008,427,209,115679,564,34,13,800,2444,393,196,114879
+anchor versus balanced logit,interaction_blend_spline_c1p0_balanced_a10,bagged_balanced_logit_mean,5,rank_fraction,4808,524,240,113751,671,28,17,695,4137,496,223,113056
+anchor versus balanced logit,interaction_blend_spline_c1p0_balanced_a10,bagged_balanced_logit_mean,6,pooled,4354,656,154,103004,671,47,5,727,3683,609,149,102277
+anchor versus balanced logit,interaction_blend_spline_c1p0_balanced_a10,bagged_balanced_logit_mean,6,latest,4582,438,358,102790,687,32,15,716,3895,406,343,102074
+anchor versus balanced logit,interaction_blend_spline_c1p0_balanced_a10,bagged_balanced_logit_mean,6,rank_fraction,3595,408,192,103973,612,26,21,791,2983,382,171,103182
+anchor versus unweighted prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_unweighted_prob_mean,5,pooled,2815,620,144,115744,534,64,6,807,2281,556,138,114937
+anchor versus unweighted prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_unweighted_prob_mean,5,latest,2815,620,144,115744,534,64,6,807,2281,556,138,114937
+anchor versus unweighted prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_unweighted_prob_mean,5,rank_fraction,4403,929,169,113822,662,37,5,707,3741,892,164,113115
+anchor versus unweighted prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_unweighted_prob_mean,6,pooled,4660,350,480,102678,686,32,23,709,3974,318,457,101969
+anchor versus unweighted prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_unweighted_prob_mean,6,latest,4956,64,1618,101530,710,9,69,662,4246,55,1549,100868
+anchor versus unweighted prob,interaction_blend_spline_c1p0_balanced_a10,logit_bagged_unweighted_prob_mean,6,rank_fraction,3687,316,379,103786,614,24,25,787,3073,292,354,102999
+anchor versus unweighted logit,interaction_blend_spline_c1p0_balanced_a10,bagged_unweighted_logit_mean,5,pooled,2858,577,165,115723,542,56,8,805,2316,521,157,114918
+anchor versus unweighted logit,interaction_blend_spline_c1p0_balanced_a10,bagged_unweighted_logit_mean,5,latest,2858,577,165,115723,542,56,8,805,2316,521,157,114918
+anchor versus unweighted logit,interaction_blend_spline_c1p0_balanced_a10,bagged_unweighted_logit_mean,5,rank_fraction,4450,882,185,113806,668,31,6,706,3782,851,179,113100
+anchor versus unweighted logit,interaction_blend_spline_c1p0_balanced_a10,bagged_unweighted_logit_mean,6,pooled,4745,265,688,102470,696,22,34,698,4049,243,654,101772
+anchor versus unweighted logit,interaction_blend_spline_c1p0_balanced_a10,bagged_unweighted_logit_mean,6,latest,4965,55,1722,101426,710,9,71,660,4255,46,1651,100766
+anchor versus unweighted logit,interaction_blend_spline_c1p0_balanced_a10,bagged_unweighted_logit_mean,6,rank_fraction,3776,227,537,103628,621,17,37,775,3155,210,500,102853
+aggregation forms balanced,logit_bagged_balanced_prob_mean,bagged_balanced_logit_mean,5,pooled,3217,32,0,116074,577,3,0,831,2640,29,0,115243
+aggregation forms balanced,logit_bagged_balanced_prob_mean,bagged_balanced_logit_mean,5,latest,3217,32,0,116074,577,3,0,831,2640,29,0,115243
+aggregation forms balanced,logit_bagged_balanced_prob_mean,bagged_balanced_logit_mean,5,rank_fraction,5048,34,0,114241,688,1,0,722,4360,33,0,113519
+aggregation forms balanced,logit_bagged_balanced_prob_mean,bagged_balanced_logit_mean,6,pooled,4508,28,0,103632,676,0,0,774,3832,28,0,102858
+aggregation forms balanced,logit_bagged_balanced_prob_mean,bagged_balanced_logit_mean,6,latest,4937,9,3,103219,702,2,0,746,4235,7,3,102473
+aggregation forms balanced,logit_bagged_balanced_prob_mean,bagged_balanced_logit_mean,6,rank_fraction,3787,18,0,104363,633,1,0,816,3154,17,0,103547
+aggregation forms unweighted,logit_bagged_unweighted_prob_mean,bagged_unweighted_logit_mean,5,pooled,2956,3,67,116297,540,0,10,861,2416,3,57,115436
+aggregation forms unweighted,logit_bagged_unweighted_prob_mean,bagged_unweighted_logit_mean,5,latest,2956,3,67,116297,540,0,10,861,2416,3,57,115436
+aggregation forms unweighted,logit_bagged_unweighted_prob_mean,bagged_unweighted_logit_mean,5,rank_fraction,4561,11,74,114677,667,0,7,737,3894,11,67,113940
+aggregation forms unweighted,logit_bagged_unweighted_prob_mean,bagged_unweighted_logit_mean,6,pooled,5139,1,294,102734,709,0,21,720,4430,1,273,102014
+aggregation forms unweighted,logit_bagged_unweighted_prob_mean,bagged_unweighted_logit_mean,6,latest,6571,3,116,101478,779,0,2,669,5792,3,114,100809
+aggregation forms unweighted,logit_bagged_unweighted_prob_mean,bagged_unweighted_logit_mean,6,rank_fraction,4066,0,247,103855,639,0,19,792,3427,0,228,103063

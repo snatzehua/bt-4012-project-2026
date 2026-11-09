@@ -1,0 +1,8 @@
+{
+  "fixture": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "candidate": "expert_model_housing_status_balanced_BC",
+  "eval_month": 6,
+  "prediction_sha256": "ec3566d09d92cdb2e9954349e7e2df5d5feae904078ecb4fe2f7fda2a064930e"
+}

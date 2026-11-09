@@ -1,0 +1,10 @@
+candidate,eval_month,reused,measurement_scope,fit_seconds,peak_process_rss_bytes,rows,dimension,nnz,csr_bytes,dense_bytes,estimated_hessian_bytes
+spline_c0p1_unweighted,4,True,original fit time/RSS; current exact matrix storage,19.74695037503261,3669491712,547975,157,40657005,490075964,688256600,199712
+spline_c1p0_balanced,4,True,original fit time/RSS; current exact matrix storage,20.090657041990198,3669491712,547975,157,40657005,490075964,688256600,199712
+interaction_c1p0_balanced,4,True,original source fit,85.13047933392227,4227694592,547975,259,94265796,1133381456,1135404200,540800
+spline_c0p1_unweighted,5,True,original fit time/RSS; current exact matrix storage,23.992025000043213,4253073408,675666,157,50134494,604316596,848636496,199712
+spline_c1p0_balanced,5,True,original fit time/RSS; current exact matrix storage,25.650201790966094,4446306304,675666,157,50134494,604316596,848636496,199712
+interaction_c1p0_balanced,5,True,original source fit,108.08104862493929,4731666432,675666,259,116229657,1397458552,1399979952,540800
+spline_c0p1_unweighted,6,True,original fit time/RSS; current exact matrix storage,29.301300290971994,4804853760,794989,157,58987211,711026492,998506184,199712
+spline_c1p0_balanced,6,True,original fit time/RSS; current exact matrix storage,29.096274042036384,4804853760,794989,157,58987211,711026492,998506184,199712
+interaction_c1p0_balanced,6,True,original source fit,128.2475614999421,5829181440,794989,259,136729776,1643937272,1647217208,540800

@@ -1,0 +1,525 @@
+{
+  "fingerprint": {
+    "config": "a8c09a5dd7af04944e0ea31384aa50911d35ff75c0d1d926bf1d4a7345ef83a8",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+      "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+      "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+      "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+      "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+      "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+      "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+      "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082",
+      "baf/direct_grouping.py": "77337d8d6e9c2d1fd25822f7b2c3f50dc10b86a714fd51cc685799786ffe6b54",
+      "baf/direct_ranking.py": "db724fc4f2368ce2f010f5c9a3b0e3fa0ec5b07acccb0b3a1bc25111c99ac9ce",
+      "baf/direct_ranking_report.py": "8973e57aefd0986d19351082a4b75661999be3392169ad6eb9477a2c8c4a6015",
+      "baf/xgboost_inputs.py": "fa9125b8f2f20f65308f0965b5218860d2459c95fdf00f35c33d3c23267fc1e5",
+      "baf/rank_ensemble_scores.py": "0ce961c991b27794505f77f69385d11cdcc9971ef49c8b889bfe4fc462d89cf8",
+      "baf/xgboost_ensemble.py": "286bc961095330d01d560bbfbe62e1ff2f3f75b090b172525cd64448325fec50",
+      "baf/xgboost_ensemble_report.py": "0d24b0b1352068bb54af308eeb01fb1803fd7ec08a4182ee37862716a7878679",
+      "requirements.txt": "7054110540fe08cc44b48b36c5c947c61772a827a1a8b4c2310dcf4ee6f25c3b",
+      "requirements-improvements.txt": "5a385cefb4081e5d49e539ffb624226f08c39bff6202036716be579c76d8828b",
+      "requirements-xgboost.txt": "cc162a3642eb36209185f28a2ea649eb9b98b58f2e5367898b6022b85a1dccd7",
+      "baf/score_fusion.py": "712e99139ee05f46aa542cd1e8544479cb65440a709ee10ad2d3f99142843baf",
+      "baf/score_fusion_study.py": "33c49d74dba17ad71060b90db5114b541180434f5677e7e6ff20d5b8d027502a",
+      "baf/score_fusion_report.py": "4f2409e44b84a3ffded3ef9e3bce4f659ab38cb0f25d17c76ad7742d899a31cc",
+      "baf/spline_inputs.py": "ddf567258dc514f118d86d06f526dde03973ea9e966057c07f38577f9314cf57",
+      "baf/spline_study.py": "1c23ce1f580f34d46f95f2401b5acf4e1b222b71db383d320f3c1043b4809bd8",
+      "baf/spline_report.py": "bf7034ca379981bba2016b652be3183e8f2a799ceb08c6bd7e84e83c9fb880d5"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0",
+      "xgboost": "3.4.1"
+    },
+    "python": "3.12.9"
+  },
+  "fit_count": 24,
+  "created_at_utc": "2026-10-11T06:31:29.115238+00:00",
+  "results": [
+    {
+      "spec": {
+        "id": "linear_c0p01_unweighted",
+        "representation": "linear",
+        "C": 0.01,
+        "class_weight": null
+      },
+      "dimension": 59,
+      "runs": [
+        {
+          "iterations": 14,
+          "warnings": [],
+          "scores": [
+            0.14442202343962435,
+            0.38372810783597844,
+            0.9999999999992573,
+            0.16593686471733105,
+            0.13778433328873807,
+            0.1674037183091531,
+            0.35956093793359467,
+            0.1826058940885522
+          ]
+        },
+        {
+          "iterations": 14,
+          "warnings": [],
+          "scores": [
+            0.14442202343962435,
+            0.38372810783597844,
+            0.9999999999992573,
+            0.16593686471733105,
+            0.13778433328873807,
+            0.1674037183091531,
+            0.35956093793359467,
+            0.1826058940885522
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "linear_c0p01_balanced",
+        "representation": "linear",
+        "C": 0.01,
+        "class_weight": "balanced"
+      },
+      "dimension": 59,
+      "runs": [
+        {
+          "iterations": 13,
+          "warnings": [],
+          "scores": [
+            0.3040886816989111,
+            0.6826477049109964,
+            0.9999999999999998,
+            0.3502711986201743,
+            0.2892981104276574,
+            0.35775991970866305,
+            0.6648961370126784,
+            0.38443312870964985
+          ]
+        },
+        {
+          "iterations": 13,
+          "warnings": [],
+          "scores": [
+            0.3040886816989111,
+            0.6826477049109964,
+            0.9999999999999998,
+            0.3502711986201743,
+            0.2892981104276574,
+            0.35775991970866305,
+            0.6648961370126784,
+            0.38443312870964985
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "linear_c0p1_unweighted",
+        "representation": "linear",
+        "C": 0.1,
+        "class_weight": null
+      },
+      "dimension": 59,
+      "runs": [
+        {
+          "iterations": 22,
+          "warnings": [],
+          "scores": [
+            0.03957932720983993,
+            0.7362940570826737,
+            1.0,
+            0.05954213646467452,
+            0.026756803899786727,
+            0.07412201477318106,
+            0.7097018543844651,
+            0.07760838351704243
+          ]
+        },
+        {
+          "iterations": 22,
+          "warnings": [],
+          "scores": [
+            0.03957932720983993,
+            0.7362940570826737,
+            1.0,
+            0.05954213646467452,
+            0.026756803899786727,
+            0.07412201477318106,
+            0.7097018543844651,
+            0.07760838351704243
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "linear_c0p1_balanced",
+        "representation": "linear",
+        "C": 0.1,
+        "class_weight": "balanced"
+      },
+      "dimension": 59,
+      "runs": [
+        {
+          "iterations": 23,
+          "warnings": [],
+          "scores": [
+            0.08327461471691631,
+            0.8853493002331931,
+            1.0,
+            0.13392104057535276,
+            0.06143368506856043,
+            0.18602159365948354,
+            0.9082015170052508,
+            0.18207642876976124
+          ]
+        },
+        {
+          "iterations": 23,
+          "warnings": [],
+          "scores": [
+            0.08327461471691631,
+            0.8853493002331931,
+            1.0,
+            0.13392104057535276,
+            0.06143368506856043,
+            0.18602159365948354,
+            0.9082015170052508,
+            0.18207642876976124
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "linear_c1p0_unweighted",
+        "representation": "linear",
+        "C": 1.0,
+        "class_weight": null
+      },
+      "dimension": 59,
+      "runs": [
+        {
+          "iterations": 44,
+          "warnings": [],
+          "scores": [
+            0.007967755224308391,
+            0.928905158825902,
+            1.0,
+            0.01754789980055296,
+            0.0028085604280475227,
+            0.0432851073663757,
+            0.8896401127564346,
+            0.026408785538323983
+          ]
+        },
+        {
+          "iterations": 44,
+          "warnings": [],
+          "scores": [
+            0.007967755224308391,
+            0.928905158825902,
+            1.0,
+            0.01754789980055296,
+            0.0028085604280475227,
+            0.0432851073663757,
+            0.8896401127564346,
+            0.026408785538323983
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "linear_c1p0_balanced",
+        "representation": "linear",
+        "C": 1.0,
+        "class_weight": "balanced"
+      },
+      "dimension": 59,
+      "runs": [
+        {
+          "iterations": 43,
+          "warnings": [],
+          "scores": [
+            0.018540746413680968,
+            0.9598773819626745,
+            1.0,
+            0.04224845549794764,
+            0.008956208780071797,
+            0.13193821093960117,
+            0.9772596631064939,
+            0.08372492664201892
+          ]
+        },
+        {
+          "iterations": 43,
+          "warnings": [],
+          "scores": [
+            0.018540746413680968,
+            0.9598773819626745,
+            1.0,
+            0.04224845549794764,
+            0.008956208780071797,
+            0.13193821093960117,
+            0.9772596631064939,
+            0.08372492664201892
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "spline_c0p01_unweighted",
+        "representation": "spline",
+        "C": 0.01,
+        "class_weight": null
+      },
+      "dimension": 129,
+      "runs": [
+        {
+          "iterations": 28,
+          "warnings": [],
+          "scores": [
+            0.09276187968460813,
+            0.5603265138406087,
+            0.46290231336163157,
+            0.13500318204288875,
+            0.1124925546541,
+            0.0944185830593777,
+            0.4739640440654833,
+            0.09659999723372255
+          ]
+        },
+        {
+          "iterations": 28,
+          "warnings": [],
+          "scores": [
+            0.09276187968460813,
+            0.5603265138406087,
+            0.46290231336163157,
+            0.13500318204288875,
+            0.1124925546541,
+            0.0944185830593777,
+            0.4739640440654833,
+            0.09659999723372255
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "spline_c0p01_balanced",
+        "representation": "spline",
+        "C": 0.01,
+        "class_weight": "balanced"
+      },
+      "dimension": 129,
+      "runs": [
+        {
+          "iterations": 20,
+          "warnings": [],
+          "scores": [
+            0.1760934842353414,
+            0.8045031258063509,
+            0.7248362553235403,
+            0.2715239166360516,
+            0.2188402164522155,
+            0.2024497652737961,
+            0.7471737554127096,
+            0.19705137457372845
+          ]
+        },
+        {
+          "iterations": 20,
+          "warnings": [],
+          "scores": [
+            0.1760934842353414,
+            0.8045031258063509,
+            0.7248362553235403,
+            0.2715239166360516,
+            0.2188402164522155,
+            0.2024497652737961,
+            0.7471737554127096,
+            0.19705137457372845
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "spline_c0p1_unweighted",
+        "representation": "spline",
+        "C": 0.1,
+        "class_weight": null
+      },
+      "dimension": 129,
+      "runs": [
+        {
+          "iterations": 57,
+          "warnings": [],
+          "scores": [
+            0.019635384397359335,
+            0.9063406568578889,
+            0.7094834879135088,
+            0.03730455349616044,
+            0.031364646307231944,
+            0.020032432695813014,
+            0.6699762220827131,
+            0.014082449862708174
+          ]
+        },
+        {
+          "iterations": 57,
+          "warnings": [],
+          "scores": [
+            0.019635384397359335,
+            0.9063406568578889,
+            0.7094834879135088,
+            0.03730455349616044,
+            0.031364646307231944,
+            0.020032432695813014,
+            0.6699762220827131,
+            0.014082449862708174
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "spline_c0p1_balanced",
+        "representation": "spline",
+        "C": 0.1,
+        "class_weight": "balanced"
+      },
+      "dimension": 129,
+      "runs": [
+        {
+          "iterations": 52,
+          "warnings": [],
+          "scores": [
+            0.029809835512875506,
+            0.9626986600282266,
+            0.8830322383817897,
+            0.08637720651645248,
+            0.053406717348481215,
+            0.04093189145017085,
+            0.8839003777147562,
+            0.026861226602190088
+          ]
+        },
+        {
+          "iterations": 52,
+          "warnings": [],
+          "scores": [
+            0.029809835512875506,
+            0.9626986600282266,
+            0.8830322383817897,
+            0.08637720651645248,
+            0.053406717348481215,
+            0.04093189145017085,
+            0.8839003777147562,
+            0.026861226602190088
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "spline_c1p0_unweighted",
+        "representation": "spline",
+        "C": 1.0,
+        "class_weight": null
+      },
+      "dimension": 129,
+      "runs": [
+        {
+          "iterations": 114,
+          "warnings": [],
+          "scores": [
+            0.0009859142322754637,
+            0.9919467915632373,
+            0.9200499334014433,
+            0.0014656543097100925,
+            0.00491413037616613,
+            0.0003449522616726846,
+            0.6004682578177781,
+            0.0002546448235209301
+          ]
+        },
+        {
+          "iterations": 114,
+          "warnings": [],
+          "scores": [
+            0.0009859142322754637,
+            0.9919467915632373,
+            0.9200499334014433,
+            0.0014656543097100925,
+            0.00491413037616613,
+            0.0003449522616726846,
+            0.6004682578177781,
+            0.0002546448235209301
+          ]
+        }
+      ]
+    },
+    {
+      "spec": {
+        "id": "spline_c1p0_balanced",
+        "representation": "spline",
+        "C": 1.0,
+        "class_weight": "balanced"
+      },
+      "dimension": 129,
+      "runs": [
+        {
+          "iterations": 141,
+          "warnings": [],
+          "scores": [
+            0.0010096991303848869,
+            0.9972073063930148,
+            0.9735347625238087,
+            0.0035199952686245503,
+            0.005565169130058262,
+            0.00044813430494189887,
+            0.8269832464421525,
+            0.0003780846721318573
+          ]
+        },
+        {
+          "iterations": 141,
+          "warnings": [],
+          "scores": [
+            0.0010096991303848869,
+            0.9972073063930148,
+            0.9735347625238087,
+            0.0035199952686245503,
+            0.005565169130058262,
+            0.00044813430494189887,
+            0.8269832464421525,
+            0.0003780846721318573
+          ]
+        }
+      ]
+    }
+  ],
+  "fixture": "seed 1027; missing/constant/duplicate knots/unseen category/new missingness/outside range; no BAF fits"
+}

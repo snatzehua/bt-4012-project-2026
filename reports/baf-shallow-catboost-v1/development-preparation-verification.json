@@ -1,0 +1,13 @@
+{
+  "preparation_sha256": "db47aa92bbc298bb5195c81e91d39d0b71d0bd8162562ef54df617a27a66e8e3",
+  "checked_at_utc": "2026-10-12T08:38:35.408361+00:00",
+  "grid": {
+    "model_artifacts": 60,
+    "model_files": 99,
+    "prediction_artifacts": 183
+  },
+  "new_native_fits": 36,
+  "exact_reference_refits": 0,
+  "reference_base_reuses": 24,
+  "reference_derived_reuses": 15
+}

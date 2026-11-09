@@ -1,0 +1,7 @@
+{
+  "step": "record_checks",
+  "module": "baf.bagged_anchor_study",
+  "returncode": 0,
+  "elapsed_seconds": 10.221943040960468,
+  "closed_log_sha256": "62d2e63d64e6ba8e1b126c8dcdc9061696831c738cc52921f4310c40531d76e2"
+}

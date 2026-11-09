@@ -1,0 +1,110 @@
+{
+  "candidate": "expert_housing_status_balanced",
+  "phase": "validation",
+  "eval_month": 5,
+  "spec": {
+    "id": "expert_housing_status_balanced",
+    "kind": "expert",
+    "partition": "housing_status",
+    "weighting": "balanced",
+    "alpha_numerator": 100,
+    "alpha_denominator": 100
+  },
+  "fingerprint": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "dependencies": {
+    "baseline_balanced": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m5-baseline_balanced.json": "ee4bce7915058e5490d2c15ddc1d98f5473dc8d1c276c4ace07c9e46e01f8202",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m5-baseline_balanced.npz": "f0adc86f58a54632a91afbaccd7433bee79a6edb9c67bf2b5e189a87eeba0bef"
+    },
+    "expert_model_housing_status_balanced_BA": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m5-expert_model_housing_status_balanced_BA.json": "5ec687785a80d048d097e5c6dac2cc7ca7eb141479e4ddc27467f9a4c74349f3",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m5-expert_model_housing_status_balanced_BA.npz": "2bb3667f319ca8025f760f51e7291411ff97de2adef393044a9b19cbefeb97af"
+    },
+    "expert_model_housing_status_balanced_BB": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m5-expert_model_housing_status_balanced_BB.json": "e9fc1ddf5b34084bfb967e51aae99e75c57526381b8132fcdd2daa27f248669a",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m5-expert_model_housing_status_balanced_BB.npz": "5c26b96a292fa926ef676af28a2860f77ba6722f272e6a35478c4e77bb482545"
+    },
+    "expert_model_housing_status_balanced_BC": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m5-expert_model_housing_status_balanced_BC.json": "eb2ccd98c428c2b67e453ed160d370f244c3191195dfb42d32e0dd1c9c62c547",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m5-expert_model_housing_status_balanced_BC.npz": "2ba2bdf1c06ea9aae0299379a622d0f0806863b6f062235cd84110124b80f79e"
+    },
+    "expert_model_housing_status_balanced_BD": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m5-expert_model_housing_status_balanced_BD.json": "b67fd31b7c8341435f1e0c87c5086c297f55292c3cc1f1b9ff7a0dee3975c630",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m5-expert_model_housing_status_balanced_BD.npz": "df6548333f1c2e9e7fa9009dc9508bb4f755b21b0b08dedbe99d4bcb3b92234b"
+    },
+    "expert_model_housing_status_balanced_BE": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m5-expert_model_housing_status_balanced_BE.json": "beb30dbd186a3b0083e676c240c380f091a8cf74b41617cdd42469ddeee6b5bc",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m5-expert_model_housing_status_balanced_BE.npz": "1539cd3c00bef8569c58d2012c3c02de1ad09782a1f5c1aa599b5b7ebb4e2cef"
+    }
+  },
+  "arithmetic": "one eligible member per original partition value, else global200",
+  "routing": [
+    {
+      "eval_month": 5,
+      "partition": "housing_status",
+      "level": "BA",
+      "rows": 5,
+      "route": "expert"
+    },
+    {
+      "eval_month": 5,
+      "partition": "housing_status",
+      "level": "BB",
+      "rows": 5,
+      "route": "expert"
+    },
+    {
+      "eval_month": 5,
+      "partition": "housing_status",
+      "level": "BC",
+      "rows": 5,
+      "route": "expert"
+    },
+    {
+      "eval_month": 5,
+      "partition": "housing_status",
+      "level": "BD",
+      "rows": 5,
+      "route": "expert"
+    },
+    {
+      "eval_month": 5,
+      "partition": "housing_status",
+      "level": "BE",
+      "rows": 5,
+      "route": "expert"
+    },
+    {
+      "eval_month": 5,
+      "partition": "housing_status",
+      "level": "BF",
+      "rows": 5,
+      "route": "ineligible"
+    },
+    {
+      "eval_month": 5,
+      "partition": "housing_status",
+      "level": "BG",
+      "rows": 4,
+      "route": "ineligible"
+    },
+    {
+      "eval_month": 5,
+      "partition": "housing_status",
+      "level": "__missing__",
+      "rows": 4,
+      "route": "missing"
+    },
+    {
+      "eval_month": 5,
+      "partition": "housing_status",
+      "level": "__unseen__",
+      "rows": 4,
+      "route": "unseen"
+    }
+  ],
+  "prediction_sha256": "af4af40635120fcdd1dab889d5fd52a598e257db0cfb8c1e87599774340cb52e",
+  "reused": false
+}

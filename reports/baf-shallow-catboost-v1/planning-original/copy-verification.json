@@ -1,0 +1,62 @@
+{
+  "openspec/changes/test-shallow-catboost-f2/.openspec.yaml": {
+    "original_sha256": "1dfdca412094f24473d8b842866201ec26f200b29b17064b03f1e4982c35a7b9",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/.openspec.yaml"
+  },
+  "openspec/changes/test-shallow-catboost-f2/design.md": {
+    "original_sha256": "9ffea71cc6d19deab32670500d81d0fae6f1728da423030d14d46b27af94329f",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/design.md"
+  },
+  "openspec/changes/test-shallow-catboost-f2/planning-completion-check.log": {
+    "original_sha256": "23ae53266af061e232ee40688d7f36d69e3b3df6d06abe339419425360f8a832",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/planning-completion-check.log"
+  },
+  "openspec/changes/test-shallow-catboost-f2/planning-completion-check.py": {
+    "original_sha256": "81aa85aa74c365a7f0280e330680bce91117195c812fa61b1b69d4b194e1c471",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/planning-completion-check.py"
+  },
+  "openspec/changes/test-shallow-catboost-f2/planning-completion.json": {
+    "original_sha256": "a87933f291fcd2f7d3635b187bc94b973ac2f76affd01aa5b513602ed867628f",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/planning-completion.json"
+  },
+  "openspec/changes/test-shallow-catboost-f2/planning-enumeration-final.log": {
+    "original_sha256": "cd5a2d4960b272a191b362f5731a9f8c947963795ce2910c8d5fbe6e99c72750",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/planning-enumeration-final.log"
+  },
+  "openspec/changes/test-shallow-catboost-f2/planning-enumeration-parameters.log": {
+    "original_sha256": "cd5a2d4960b272a191b362f5731a9f8c947963795ce2910c8d5fbe6e99c72750",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/planning-enumeration-parameters.log"
+  },
+  "openspec/changes/test-shallow-catboost-f2/planning-enumeration.log": {
+    "original_sha256": "cd5a2d4960b272a191b362f5731a9f8c947963795ce2910c8d5fbe6e99c72750",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/planning-enumeration.log"
+  },
+  "openspec/changes/test-shallow-catboost-f2/planning-enumeration.py": {
+    "original_sha256": "1e3809665ae1fb0ffb4ed1fdeda77f940ecc07879608f506e00c28c694350cb2",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/planning-enumeration.py"
+  },
+  "openspec/changes/test-shallow-catboost-f2/planning-evidence.json": {
+    "original_sha256": "6719338ce01e0fe36d7060eee2d3dfad1c8275591076a60302d51c2f7d39a5dd",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/planning-evidence.json"
+  },
+  "openspec/changes/test-shallow-catboost-f2/planning-openspec-validation.log": {
+    "original_sha256": "28efae19dc55e64dea555383b8a26b60e70ab2ed87290625532715afa46c2006",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/planning-openspec-validation.log"
+  },
+  "openspec/changes/test-shallow-catboost-f2/planning-status.json": {
+    "original_sha256": "5278e8d2fbda2e3b14f89ef4b405a70d11088a76e4ec52f72fa0e2ba78a841cf",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/planning-status.json"
+  },
+  "openspec/changes/test-shallow-catboost-f2/proposal.md": {
+    "original_sha256": "2e02acf4eb3d9c58b537923606a2c79990e7d3157d65821260340a06532f6ed6",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/proposal.md"
+  },
+  "openspec/changes/test-shallow-catboost-f2/specs/baf-shallow-catboost-study/spec.md": {
+    "original_sha256": "8cae375c6ce42ef7fdb5af23d3d2cbf9a6bcde1e0d64913964fdeeee23896e11",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/specs/baf-shallow-catboost-study/spec.md"
+  },
+  "openspec/changes/test-shallow-catboost-f2/tasks.md": {
+    "original_sha256": "e6a64ded433b8520630b45f91488c229f1da3b53f1f8a03c06a261fb00072a1f",
+    "preserved_copy": "reports/baf-shallow-catboost-v1/planning-original/tasks.md"
+  }
+}

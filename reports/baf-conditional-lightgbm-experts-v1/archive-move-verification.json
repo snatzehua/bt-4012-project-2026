@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "source": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-conditional-lightgbm-experts-f2",
+  "target": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/archive/2026-10-12-test-conditional-lightgbm-experts-f2",
+  "files": {
+    "planning-initial.log": "8342a8adb99b781599110b220edf7a42288604da6a2391b25d20e0f815e0c891",
+    ".openspec.yaml": "1dfdca412094f24473d8b842866201ec26f200b29b17064b03f1e4982c35a7b9",
+    "planning-initial.py.source": "385ccf252e2ae9b1c2fe07ed5bc4e84e7d13942166fc8087fe66478d484e4af7",
+    "planning-status.json": "cb912b251dc37d3fd840dcbe06ad18784d55b2b6b68b98ebf1f0c667a65c5a4c",
+    "planning-file-hashes.json": "895f0350c319964d67360fab69b38a47252e64b83b163e6693cde5f85b5e9586",
+    "planning-completion-verification.json": "811babc77fb6eea3127597f7347c0a0ede5a090a9ded24e57e3210f1ccf29ea0",
+    "planning-completion-check.py": "e84bac3504b049bb73a5c4d402b018b0e80d6c0ec0b9e85ca2c826729d665f46",
+    "tasks.md": "2551aaa24291d78bfbdbdd02abfb2c2b19119b4f29de65d2e63fe70897c83f7d",
+    "planning-evidence.json": "0fd22004d5a943e2e82bcdc22c0998d0d2470232dc0a659ed6adb97b0cfbbb54",
+    "planning-completion-verification.log": "93f2476e4e1f30f664c747876541922697bd33e3729c0ab07f2f934e6e55f8ba",
+    "design.md": "ef621a48ce2b6175e17a369a156dde5ba3c63d5c57838a940708b128965c7eba",
+    "proposal.md": "957953075700d343af994fd08991b463347339769bfebb8bd2450f2cea50b116",
+    "planning-openspec-validation.log": "ff20561e739942ad7dc59db6a16894b49a49ed0594e0231486eefe4e599e60a6",
+    "planning-verification.log": "cac442230bffb671f803458aca991ab2b2c607780f9bf2a0740419d3adf7e09f",
+    "planning-enumeration.py": "ecb2580194d64d5405620f975763aef7a9859bcc168a1deee044e954a648e594",
+    "planning-completion-initial.log": "25be3bfd602d20fc7407d35e4e9650b21866ddb578f9fe6d5f4df88029a9c5cd",
+    "specs/baf-conditional-lightgbm-expert-study/spec.md": "b3367cd039436ef0ab0a06478c00186e39ca6f250c2357bbfed9dcab79bc7fac"
+  },
+  "unchanged_move": true
+}

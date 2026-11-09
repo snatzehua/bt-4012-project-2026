@@ -1,0 +1,315 @@
+{
+  "created_at_utc": "2026-10-11T23:01:32.389038+00:00",
+  "finite_study_complete": true,
+  "goal_achieved": false,
+  "goal_remains_active": true,
+  "requirements_verified": 7,
+  "scenarios_verified": 11,
+  "tasks": [
+    {
+      "id": "1.1",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/declaration.json": "80c95aa7841d860899428d73447919b840d79bc071baeea7c3d20a8910a394a4",
+        "reports/baf-unweighted-reference-fusion-v1/implementation_enumeration.json": "3d09105e7d1ee1e3cea883c9353176d4a24a49f76e77a6cf273203276b3967cd"
+      }
+    },
+    {
+      "id": "1.2",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/preparation_verified.json": "e1a8be968be67a87891790514c36bd999c3bd97f3f667f109d3b214a327875b0",
+        "reports/baf-unweighted-reference-fusion-v1/frozen_run_artifacts.json": "f68a9199fd5eb983272d900c975fc81b29dc21b847a489dd8af7529c403f5123"
+      }
+    },
+    {
+      "id": "1.3",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/preparation_verified.json": "e1a8be968be67a87891790514c36bd999c3bd97f3f667f109d3b214a327875b0",
+        "reports/baf-unweighted-reference-fusion-v1/independent_development_audit.json": "7574c95b0bc9834614ee3f4d6479208214272e14d35df2dbecc960508f12a3d0"
+      }
+    },
+    {
+      "id": "2.1",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/independent_development_audit.json": "7574c95b0bc9834614ee3f4d6479208214272e14d35df2dbecc960508f12a3d0",
+        "reports/baf-unweighted-reference-fusion-v1/clean-replay-tests.xml": "9dd190b708db3fcf2d25bacf1c233310eb4eb59a4e0c65432ead50a6c2b3faab"
+      }
+    },
+    {
+      "id": "2.2",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/preexecution_gates_verified.json": "92d932aa1d9f3989c816263b125a3722efc364eddfc7aa41bf11cecafc0973fd",
+        "reports/baf-unweighted-reference-fusion-v1/resource_preflight.json": "485609891af28e0e8e811385e3c558838732277efc24d4baf35b3348b1fa62d8",
+        "reports/baf-unweighted-reference-fusion-v1/source_miniature_gate.json": "3b68d0a9e22630878520d27be2baa935b8d0f03d46ee9f4e2e2dc2c42e61c886",
+        "reports/baf-unweighted-reference-fusion-v1/portable_replay_verification.json": "ca19fd98bc496ff5fb2acd3054ee804400bf1058d9f3a618336e6e769b5266e2"
+      }
+    },
+    {
+      "id": "3.1",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/preparation.json": "cfb85db14b20e470b822db731663c56b60e37720872068323096a417254928df",
+        "reports/baf-unweighted-reference-fusion-v1/validation_complete.json": "90f8cac3878d0685155e1863df7fe79c2df937156e6131f29169a3b805a0cf5a"
+      }
+    },
+    {
+      "id": "3.2",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/independent_development_audit.json": "7574c95b0bc9834614ee3f4d6479208214272e14d35df2dbecc960508f12a3d0",
+        "reports/baf-unweighted-reference-fusion-v1/matched-effects.md": "01e398c4066016dc5940fe6a8ebc590cd6af36692d4f2c4860de0b5d56705371"
+      }
+    },
+    {
+      "id": "3.3",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/independent_development_audit.json": "7574c95b0bc9834614ee3f4d6479208214272e14d35df2dbecc960508f12a3d0",
+        "reports/baf-unweighted-reference-fusion-v1/development_verified.json": "7aaf4dc24b275edd59be18cf793d028dbe7b7cb21dd6913968d7b3f4e83516af"
+      }
+    },
+    {
+      "id": "4.1",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/selection.json": "484db880ec8477cfc54db83e7f8e6b0f5970cc9950f4e5925b90a0cf736a8c01",
+        "reports/baf-unweighted-reference-fusion-v1/freeze_verified.json": "4ae277c6fb09b7395341d6511270bd3fafb4f22c9394a02f5fe18afb1223a73b"
+      }
+    },
+    {
+      "id": "4.2",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/transfer_verified.json": "7e8b0271598ac74f23c7306f259a92940f74fad3e090714d5a2c47398fd622f0",
+        "reports/baf-unweighted-reference-fusion-v1/transfer_complete.json": "e749f7d2ace38ac727a05b04d8e3f4ee105355c68c14eead87cd2bebf37bc6de",
+        "reports/baf-unweighted-reference-fusion-v1/exploratory_access.json": "1d4630dc8cb58497d103bc4df8a717d89df8010316fdac77fb5d257a02089cd2"
+      }
+    },
+    {
+      "id": "5.1",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/audit.json": "412bc40e7283af2fd0572c1582516e849ff667a8bca6cfe71531c6aadc780889",
+        "reports/baf-unweighted-reference-fusion-v1/development_draws.csv": "b549ca13578d4aad981e7e5d6627cfff8762549fc49710f4dfd7301553cc908e",
+        "reports/baf-unweighted-reference-fusion-v1/consumed_draws.csv": "d08e95f04e04e50e2500b42f85d0ef472d688871557bb9a0dd671ebeb9e2cac8",
+        "reports/baf-unweighted-reference-fusion-v1/development_intervals.csv": "15a1a3f7fb9f4447825c505c782034f388741af1e54bd5a9e281898583539327",
+        "reports/baf-unweighted-reference-fusion-v1/consumed_intervals.csv": "3f8df5c3055d18d0ec5687c764403443ea492ee14df7d953c680ece9e6901093"
+      }
+    },
+    {
+      "id": "5.2",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/findings.md": "2cf559de28793cafaa6b8da501f36f06633af1dedfcaed2fe785144bca12ecbd",
+        "reports/baf-unweighted-reference-fusion-v1/matched-effects.md": "01e398c4066016dc5940fe6a8ebc590cd6af36692d4f2c4860de0b5d56705371",
+        "reports/baf-unweighted-reference-fusion-v1/figure_verification.json": "56845ac313b520cb70674993c48c0562cddfc1297a42632523aa7f22687d878b",
+        "reports/baf-unweighted-reference-fusion-v1/verification.md": "617552ad7af2ba1b8c3eb8e6534f2160110ffd990435f85f2d1f9bcf08fbd9fa"
+      }
+    },
+    {
+      "id": "5.3",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/clean_replay_preparation.json": "bc5a279d55c30d42bbc001ae93c2f7c76375ca16425f737984eca5b64d8b2048",
+        "reports/baf-unweighted-reference-fusion-v1/portable_replay_verification.json": "ca19fd98bc496ff5fb2acd3054ee804400bf1058d9f3a618336e6e769b5266e2",
+        "reports/baf-unweighted-reference-fusion-v1/reproduction-verification.md": "48fac8c7f70b6dc3f17e6df3065e72f959a05cc33f99f840b776fbedaef58070",
+        "reports/baf-unweighted-reference-fusion-v1/completion_context.json": "95db46c40163577fa846ce2c3a791c28fc8640f25ec0d099c1c6937266ef4747"
+      }
+    },
+    {
+      "id": "5.4",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-unweighted-reference-fusion-v1/completion_requirements.json": "7ee87b93f15c4246bb94bd2ca1fa9cf4b1d5d53fb6d447f4d49e1ec6eb07498e",
+        "reports/baf-unweighted-reference-fusion-v1/frozen_run_artifacts.json": "f68a9199fd5eb983272d900c975fc81b29dc21b847a489dd8af7529c403f5123",
+        "reports/baf-unweighted-reference-fusion-v1/final-openspec-validation.log": "53d143089187e2102e4680dc66bf02dc154b9744d76778424c901e0d66b1f5f2",
+        "reports/baf-unweighted-reference-fusion-v1/postarchive-tests.xml": "5f2466eb591b5eec9e2d0dec9a1eb3a2652d6bda76eae83f202ad5c5e48cfb27",
+        "reports/baf-unweighted-reference-fusion-v1/archive_receipt.json": "04654caaf9e696c8d7c5ed169bac1ccf70377d453fcbe3eb926b153afe49b79a"
+      }
+    }
+  ],
+  "archive_path": "openspec/changes/archive/2026-10-12-test-unweighted-reference-fusion-f2",
+  "main_spec_sha256": "a63299a4c0c68538d6784ce7266444be6f82fa2ce3428b48c4ccf452a9224f64",
+  "planning_files": {
+    ".openspec.yaml": "3ae9e70fc0101b2a700cedadfa7b02caa5799fdfd1db033999469c527448c6b2",
+    "planning-status.json": "2cb11245e7e4dbf9b7ae9b35cce4d340e860e889780d7918432c232438494351",
+    "tasks.md": "d4d4e1631de56f330e772f6e35d868899e4264553e8d0af4c09dbacdf3ba2334",
+    "planning-evidence.json": "0e073c862e0a563e11878379895231abc5ae41bbc765311aef8792d03466f893",
+    "design.md": "3e315c26e5ddd65634bf261ac5311d23de892c951510796d9306f924b0200f30",
+    "proposal.md": "24b9461a9b62551e2195da259c79e87e0d97db228bd51300a2c3e187f7df7c3c",
+    "planning-validation.log": "c5191244e0d3861cf19cc4f7dbbfd7b1788ce385cdbce6f233830ec86adf3dc3",
+    "specs/baf-unweighted-reference-fusion-study/spec.md": "d4716a2b2059e17d594d3a9b878ad8315afa4d869fdab5350f9a477947f587d2"
+  },
+  "production_fingerprint": {
+    "config": "71a602d4993cd680b6ac17ac39bbb28941a076ea326ce9c59b39fc7a2086b595",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+      "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+      "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+      "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+      "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+      "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+      "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+      "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082",
+      "baf/direct_grouping.py": "77337d8d6e9c2d1fd25822f7b2c3f50dc10b86a714fd51cc685799786ffe6b54",
+      "baf/direct_ranking.py": "db724fc4f2368ce2f010f5c9a3b0e3fa0ec5b07acccb0b3a1bc25111c99ac9ce",
+      "baf/direct_ranking_report.py": "8973e57aefd0986d19351082a4b75661999be3392169ad6eb9477a2c8c4a6015",
+      "baf/xgboost_inputs.py": "fa9125b8f2f20f65308f0965b5218860d2459c95fdf00f35c33d3c23267fc1e5",
+      "baf/rank_ensemble_scores.py": "0ce961c991b27794505f77f69385d11cdcc9971ef49c8b889bfe4fc462d89cf8",
+      "baf/xgboost_ensemble.py": "286bc961095330d01d560bbfbe62e1ff2f3f75b090b172525cd64448325fec50",
+      "baf/xgboost_ensemble_report.py": "0d24b0b1352068bb54af308eeb01fb1803fd7ec08a4182ee37862716a7878679",
+      "requirements.txt": "7054110540fe08cc44b48b36c5c947c61772a827a1a8b4c2310dcf4ee6f25c3b",
+      "requirements-improvements.txt": "5a385cefb4081e5d49e539ffb624226f08c39bff6202036716be579c76d8828b",
+      "requirements-xgboost.txt": "cc162a3642eb36209185f28a2ea649eb9b98b58f2e5367898b6022b85a1dccd7",
+      "baf/score_fusion.py": "712e99139ee05f46aa542cd1e8544479cb65440a709ee10ad2d3f99142843baf",
+      "baf/score_fusion_study.py": "33c49d74dba17ad71060b90db5114b541180434f5677e7e6ff20d5b8d027502a",
+      "baf/score_fusion_report.py": "4f2409e44b84a3ffded3ef9e3bce4f659ab38cb0f25d17c76ad7742d899a31cc",
+      "baf/spline_inputs.py": "ddf567258dc514f118d86d06f526dde03973ea9e966057c07f38577f9314cf57",
+      "baf/spline_study.py": "1c23ce1f580f34d46f95f2401b5acf4e1b222b71db383d320f3c1043b4809bd8",
+      "baf/spline_report.py": "bf7034ca379981bba2016b652be3183e8f2a799ceb08c6bd7e84e83c9fb880d5",
+      "baf/newton_spline_study.py": "4b61a403da52c608b07f72bb60e1d18212f3be4f51a891812a2ebaf3631bd4b1",
+      "baf/newton_spline_report.py": "14e82677c746279164639153af97443e41fd94e7f08dff2efc85399f8225e3ab",
+      "baf/newton_spline_audit.py": "7511c3a9459c97f37c11c7c19b32f2a9056de31fa46b668185fcd9b4b445924d",
+      "baf/newton_spline_audit_report.py": "95cd301dcfdcf3a50f9259ace623464f1469e8909ae24684368fd1def80def34",
+      "baf/spline_fusion_scores.py": "ab3a45a1492cbb1b9f233b8acf9e3788587e6e4302c47f55edfda6b823009d1f",
+      "baf/spline_fusion_study.py": "42b237f147ff3acb9285e03ba94fbb006faf50867fd83256ac99d2e1baaa15bb",
+      "baf/spline_fusion_report.py": "d6887ba143009dd853d8767921d7dc4dbab3208e96405cd82ffbb0a3daced87c",
+      "baf/interaction_inputs.py": "e6aa9f4ea2cf21e27f6c66ff82c0faa425d87ede7f5fed59c5ee2ef49951204f",
+      "baf/interaction_study.py": "5ed46c36981ea505ba6e3098150e6f665d33873fe7211f007f83e34512aaac60",
+      "baf/interaction_report.py": "7fb490cb5144f8b868c3a9e029cb0c7f92b267a1e646a5e56ff1178a72d55078",
+      "baf/interaction_fusion_scores.py": "36a04d4d049b7cd82b83db29e7f408a1abd40695fcebe2016a746de0bfc5f2aa",
+      "baf/interaction_fusion_study.py": "d4bfe8e50ea1f5bef5ef1d7478465d5f406e5a4849ac8cc1472280c1d0e14ee9",
+      "baf/interaction_fusion_report.py": "ddc2ede8d883eb865e77c85e446d0c303724a1a8f839720c634cf997681957bf",
+      "baf/unweighted_fusion_scores.py": "7ee2a9468fec66ba77c8eba48300be8e112f2da5fd16680ed339db1aace1aff7",
+      "baf/unweighted_fusion_study.py": "908288c9f7fe70fc961ec4b5cb3d421ef4df8db5001b7d1b4e9ed11ef66e4f49",
+      "baf/unweighted_fusion_report.py": "3f89b64d4a08b039f2c9976bdde3c7ac08d9322c306303f4d6a9e1b719413e3d"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0",
+      "xgboost": "3.4.1"
+    },
+    "python": "3.12.9"
+  },
+  "original_generated_files_preserved": 53,
+  "frozen_run_files": 430,
+  "mandatory_preservation_paths": 529,
+  "historical_ignored_files": 3092,
+  "stopped_format_attempt_files": 87,
+  "current_full_clean_suite_passed": 941,
+  "current_study_checks": 322,
+  "postarchive_no_fit_checks": 155,
+  "additional_estimator_fits": 0,
+  "total_new_cache_test_fits": 28,
+  "compileall_passed": true,
+  "strict_openspec_passed": true,
+  "measured_acceptance": {
+    "fingerprint": {
+      "config": "71a602d4993cd680b6ac17ac39bbb28941a076ea326ce9c59b39fc7a2086b595",
+      "sources": {
+        "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+        "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+        "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+        "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+        "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+        "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+        "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+        "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+        "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+        "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+        "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+        "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+        "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+        "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+        "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+        "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+        "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082",
+        "baf/direct_grouping.py": "77337d8d6e9c2d1fd25822f7b2c3f50dc10b86a714fd51cc685799786ffe6b54",
+        "baf/direct_ranking.py": "db724fc4f2368ce2f010f5c9a3b0e3fa0ec5b07acccb0b3a1bc25111c99ac9ce",
+        "baf/direct_ranking_report.py": "8973e57aefd0986d19351082a4b75661999be3392169ad6eb9477a2c8c4a6015",
+        "baf/xgboost_inputs.py": "fa9125b8f2f20f65308f0965b5218860d2459c95fdf00f35c33d3c23267fc1e5",
+        "baf/rank_ensemble_scores.py": "0ce961c991b27794505f77f69385d11cdcc9971ef49c8b889bfe4fc462d89cf8",
+        "baf/xgboost_ensemble.py": "286bc961095330d01d560bbfbe62e1ff2f3f75b090b172525cd64448325fec50",
+        "baf/xgboost_ensemble_report.py": "0d24b0b1352068bb54af308eeb01fb1803fd7ec08a4182ee37862716a7878679",
+        "requirements.txt": "7054110540fe08cc44b48b36c5c947c61772a827a1a8b4c2310dcf4ee6f25c3b",
+        "requirements-improvements.txt": "5a385cefb4081e5d49e539ffb624226f08c39bff6202036716be579c76d8828b",
+        "requirements-xgboost.txt": "cc162a3642eb36209185f28a2ea649eb9b98b58f2e5367898b6022b85a1dccd7",
+        "baf/score_fusion.py": "712e99139ee05f46aa542cd1e8544479cb65440a709ee10ad2d3f99142843baf",
+        "baf/score_fusion_study.py": "33c49d74dba17ad71060b90db5114b541180434f5677e7e6ff20d5b8d027502a",
+        "baf/score_fusion_report.py": "4f2409e44b84a3ffded3ef9e3bce4f659ab38cb0f25d17c76ad7742d899a31cc",
+        "baf/spline_inputs.py": "ddf567258dc514f118d86d06f526dde03973ea9e966057c07f38577f9314cf57",
+        "baf/spline_study.py": "1c23ce1f580f34d46f95f2401b5acf4e1b222b71db383d320f3c1043b4809bd8",
+        "baf/spline_report.py": "bf7034ca379981bba2016b652be3183e8f2a799ceb08c6bd7e84e83c9fb880d5",
+        "baf/newton_spline_study.py": "4b61a403da52c608b07f72bb60e1d18212f3be4f51a891812a2ebaf3631bd4b1",
+        "baf/newton_spline_report.py": "14e82677c746279164639153af97443e41fd94e7f08dff2efc85399f8225e3ab",
+        "baf/newton_spline_audit.py": "7511c3a9459c97f37c11c7c19b32f2a9056de31fa46b668185fcd9b4b445924d",
+        "baf/newton_spline_audit_report.py": "95cd301dcfdcf3a50f9259ace623464f1469e8909ae24684368fd1def80def34",
+        "baf/spline_fusion_scores.py": "ab3a45a1492cbb1b9f233b8acf9e3788587e6e4302c47f55edfda6b823009d1f",
+        "baf/spline_fusion_study.py": "42b237f147ff3acb9285e03ba94fbb006faf50867fd83256ac99d2e1baaa15bb",
+        "baf/spline_fusion_report.py": "d6887ba143009dd853d8767921d7dc4dbab3208e96405cd82ffbb0a3daced87c",
+        "baf/interaction_inputs.py": "e6aa9f4ea2cf21e27f6c66ff82c0faa425d87ede7f5fed59c5ee2ef49951204f",
+        "baf/interaction_study.py": "5ed46c36981ea505ba6e3098150e6f665d33873fe7211f007f83e34512aaac60",
+        "baf/interaction_report.py": "7fb490cb5144f8b868c3a9e029cb0c7f92b267a1e646a5e56ff1178a72d55078",
+        "baf/interaction_fusion_scores.py": "36a04d4d049b7cd82b83db29e7f408a1abd40695fcebe2016a746de0bfc5f2aa",
+        "baf/interaction_fusion_study.py": "d4bfe8e50ea1f5bef5ef1d7478465d5f406e5a4849ac8cc1472280c1d0e14ee9",
+        "baf/interaction_fusion_report.py": "ddc2ede8d883eb865e77c85e446d0c303724a1a8f839720c634cf997681957bf",
+        "baf/unweighted_fusion_scores.py": "7ee2a9468fec66ba77c8eba48300be8e112f2da5fd16680ed339db1aace1aff7",
+        "baf/unweighted_fusion_study.py": "908288c9f7fe70fc961ec4b5cb3d421ef4df8db5001b7d1b4e9ed11ef66e4f49",
+        "baf/unweighted_fusion_report.py": "3f89b64d4a08b039f2c9976bdde3c7ac08d9322c306303f4d6a9e1b719413e3d"
+      },
+      "software": {
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "lightgbm": "4.7.0",
+        "catboost": "1.2.10",
+        "joblib": "1.6.0",
+        "threadpoolctl": "3.7.0",
+        "xgboost": "3.4.1"
+      },
+      "python": "3.12.9"
+    },
+    "selection_sha256": "484db880ec8477cfc54db83e7f8e6b0f5970cc9950f4e5925b90a0cf736a8c01",
+    "development_gain": {
+      "latest_fusion": 0.0,
+      "recent_fusion": 0.0017833088806369912,
+      "fusion": 0.0018866834949574085,
+      "balanced": 0.0029916755762879887,
+      "unweighted": 0.008139568751181103
+    },
+    "consumed_gain": {
+      "latest_fusion": 0.0,
+      "recent_fusion": 0.0012862269705035123,
+      "fusion": -0.0011603272001886045,
+      "balanced": 0.00712523844695423,
+      "unweighted": -0.00535062661661867,
+      "same_strategy": -0.0034402007615266794
+    },
+    "measured_gain_on_both_scopes": false,
+    "direct_draws_checked": 1500,
+    "saved_development_models_checked": 18,
+    "conditional_clear_development_gain": false,
+    "conditional_clear_consumed_gain": false,
+    "preservation_checked": true
+  }
+}

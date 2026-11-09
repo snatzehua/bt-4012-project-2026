@@ -1,0 +1,10 @@
+{
+  "all_operating_points": 111,
+  "all_curve_rows": 60,
+  "matched_curves": 12,
+  "canonical_endpoints": true,
+  "values_legends_independently_reconstructed": true,
+  "pixel_identical_regeneration": true,
+  "visually_inspected": true,
+  "visual_findings": "Four panels readable; axes/legends/endpoints visible; no clipping or overlap of text. Coincident operating markers represent valid identical decisions."
+}

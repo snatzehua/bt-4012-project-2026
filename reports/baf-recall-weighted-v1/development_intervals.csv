@@ -1,0 +1,4 @@
+eval_month,candidate,baseline,difference,ci_low,ci_high,replicates,uncertainty
+5,selected,baseline,0.0,0.0,0.0,500,conditional paired row bootstrap; fixed decisions; no selection correction
+6,selected,baseline,0.0,0.0,0.0,500,conditional paired row bootstrap; fixed decisions; no selection correction
+macro,selected,baseline,0.0,0.0,0.0,500,conditional paired within-month row bootstrap of macro F2; fixed decisions; no selection correction

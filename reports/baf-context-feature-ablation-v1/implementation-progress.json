@@ -1,0 +1,34 @@
+{
+  "tasks_complete": 3,
+  "tasks_total": 14,
+  "focused_tests_passed": 173,
+  "focused_actual_fits": 12,
+  "cumulative_current_tiny_fits": 60,
+  "historical_suite_fits": 0,
+  "scientific_source_paths": 64,
+  "scientific_execution_identity_frozen": false,
+  "production_gates_passed": false,
+  "new_baf_fits": 0,
+  "new_baf_scores": 0,
+  "goal_achieved": false,
+  "remaining": [
+    "Finish execution identity/check/resource/miniature/coordinator entry points and independent development/final/report work auditing.",
+    "Complete uncertainty/figure/selection/freeze/bounded transfer integration and tests.",
+    "Run the complete methodological suite (current and historical), then freeze scientific sources/config/protocol/software.",
+    "Run resource/source/eight-fit production miniature gates, eighteen full development fits, all audits, freeze and bounded consumed transfer.",
+    "Complete uncertainty/figures/clean reproduction/closure; retain the broader performance goal unless all declared comparisons pass."
+  ],
+  "verification_runner_current_scope_passed": true,
+  "analytical_checks_passed": 33,
+  "synthetic_table_counts": {
+    "crossfit": 228,
+    "summary": 114,
+    "pooled": 114,
+    "contrasts": 1192,
+    "physical_score_diagnostics": 135,
+    "score_diagnostics": 114,
+    "diversity": 42,
+    "decision_overlap": 516
+  },
+  "complete_methodological_suite_executed": false
+}

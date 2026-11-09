@@ -1,0 +1,11 @@
+{
+  "attempts": [
+    {
+      "label": "supplementary-freeze-check-initial",
+      "result": "assertion failed before writing verification",
+      "reason": "The supplementary check assumed the across-case maximum28 scores; the actual independently enumerated winner needs27. Frozen selection and scientific sources were unchanged.",
+      "new_fits": 0
+    }
+  ],
+  "corrected_check_uses_prospective_case": true
+}

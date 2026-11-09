@@ -1,0 +1,13 @@
+{
+  "setup_sha256": "e152d9151f6ba379805108e1b0c920d4887a7109da7c4993c7b7eb5efd4cd5b7",
+  "full_suite_sha256": "360be73a4fe52100d51af50766385853f3cb7c522e1c9d53a0a597246a1eff75",
+  "test_source_sha256": "6aa2ea22d7b4be906d9878c4892e4b2dd9aa78ea02a47bdf908e6b4e4b2a5168",
+  "checks_sha256": "8db807c2ef8b1e758d6ee9323c1441abcc6769d3b010595f5eaab934fb53364f",
+  "full_suite_passed": 1070,
+  "own_tests_passed": 129,
+  "selection_pairs": 15,
+  "changed_selection_rejected": true,
+  "prior_model_prediction_caches": 0,
+  "new_cache_test_fits": 2,
+  "no_production_fit": true
+}

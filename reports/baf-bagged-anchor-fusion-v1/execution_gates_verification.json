@@ -1,0 +1,13 @@
+{
+  "checks_sha256": "62d2e63d64e6ba8e1b126c8dcdc9061696831c738cc52921f4310c40531d76e2",
+  "resource_sha256": "0aa2e315da11981d4284e756babbf448236165fe1ae5a2ff0f0c3059224f5271",
+  "miniature_sha256": "c5e874fede4737c6fa4ad0afd8268734368ad1010c3f038ff4a2acac6b64210e",
+  "test_ledger_sha256": "6a6a16fe67e089424aa44dd298b21f78e36b697fed85833e16b1a00581f559ec",
+  "full_tests": 1501,
+  "current_tests": 431,
+  "full_source_identity_bound": true,
+  "preserved_sampling_fits": 9,
+  "preserved_older_fits": 8,
+  "new_production_miniature_fits": 0,
+  "total_current_tiny_fits": 30
+}

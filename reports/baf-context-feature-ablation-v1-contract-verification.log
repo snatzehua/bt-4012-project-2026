@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/baf/context_ablation_study.py", line 176, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/baf/context_ablation_study.py", line 173, in main
+    args=parser.parse_args();print(json.dumps(globals()[args.step](args.config),indent=2))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/baf/context_ablation_study.py", line 102, in verify_declaration
+    present=parent.parent.present_history(c,p['historical_ignored_file_sha256']);out=Path(c['output_dir']);initial=out/'preimplementation_preservation.json'
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/baf/conditional_expert_study.py", line 115, in present_history
+    if not actual<=set(original):raise ValueError('Undeclared historical files appeared')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Undeclared historical files appeared

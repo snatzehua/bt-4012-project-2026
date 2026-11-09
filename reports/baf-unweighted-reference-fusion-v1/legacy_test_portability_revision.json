@@ -1,0 +1,7 @@
+{
+  "original_test_sha256": "7e25e55765189f391b656828eaa778d676571e8733a5f4963bf8f5af74868f24",
+  "current_test_sha256": "00ccd7f95cdbd1f5f5588e6eabf753c13a8386a92c9354f6b4e377248731fcd0",
+  "scope": "Existing unit test used dummy x-only data and mocked model reproduction, but accidentally relied on ignored old caches to avoid real feature engineering. Its fixture now mocks that unused engineering dependency too. No frozen production module changed.",
+  "production_source_modules_changed": 0,
+  "failed_clean_run_new_cache_test_fits": 4
+}

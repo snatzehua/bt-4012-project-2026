@@ -1,0 +1,92 @@
+{
+  "candidate": "expert_payment_type_balanced",
+  "phase": "validation",
+  "eval_month": 4,
+  "spec": {
+    "id": "expert_payment_type_balanced",
+    "kind": "expert",
+    "partition": "payment_type",
+    "weighting": "balanced",
+    "alpha_numerator": 100,
+    "alpha_denominator": 100
+  },
+  "fingerprint": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "dependencies": {
+    "baseline_balanced": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m4-baseline_balanced.json": "1374bbebdcf8eb987022d304d0d6b1d8d918e611f2abe2dc2fbf2ece6f0158b2",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m4-baseline_balanced.npz": "4784ada00932584de173190e054dde8f93208712e980cf3aad1f0513a77611c3"
+    },
+    "expert_model_payment_type_balanced_AA": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m4-expert_model_payment_type_balanced_AA.json": "857e1fcf08e87084fa4afe86f117b13cd16d8f3b3a52664216389b768fd533ab",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m4-expert_model_payment_type_balanced_AA.npz": "94050591d60f69e16e6a848465050e70c51ae17f48b7875f5dcb408c0ac3db36"
+    },
+    "expert_model_payment_type_balanced_AB": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m4-expert_model_payment_type_balanced_AB.json": "0c4db67624da9cab5db162f20f5eae4ca85f44980a3da61a9796d9dcc2f00c24",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m4-expert_model_payment_type_balanced_AB.npz": "5d1ffe9b3669c85eb2ab965a51addebff3f4fe3894e0474294bdafed1ef733eb"
+    },
+    "expert_model_payment_type_balanced_AC": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m4-expert_model_payment_type_balanced_AC.json": "55085f90270c133692e8d33bcfddc32073e65c56f3f18af9a5da1e4cee444b5f",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m4-expert_model_payment_type_balanced_AC.npz": "2c8e2c05e85346334c6cbf3aa8927f79d45e4726b8abcd1dec30f453a2a86f78"
+    },
+    "expert_model_payment_type_balanced_AD": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m4-expert_model_payment_type_balanced_AD.json": "b4ae897c448d37fca805fdc43e9495be0f2b0a597e50e996bb7290e30ae1b190",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m4-expert_model_payment_type_balanced_AD.npz": "bc184667d6d8284b1168c837f86ccf555e2971ce54e2b15da65e2aff3d20397a"
+    }
+  },
+  "arithmetic": "one eligible member per original partition value, else global200",
+  "routing": [
+    {
+      "eval_month": 4,
+      "partition": "payment_type",
+      "level": "AA",
+      "rows": 6,
+      "route": "expert"
+    },
+    {
+      "eval_month": 4,
+      "partition": "payment_type",
+      "level": "AB",
+      "rows": 6,
+      "route": "expert"
+    },
+    {
+      "eval_month": 4,
+      "partition": "payment_type",
+      "level": "AC",
+      "rows": 6,
+      "route": "expert"
+    },
+    {
+      "eval_month": 4,
+      "partition": "payment_type",
+      "level": "AD",
+      "rows": 6,
+      "route": "expert"
+    },
+    {
+      "eval_month": 4,
+      "partition": "payment_type",
+      "level": "AE",
+      "rows": 6,
+      "route": "ineligible"
+    },
+    {
+      "eval_month": 4,
+      "partition": "payment_type",
+      "level": "__missing__",
+      "rows": 6,
+      "route": "missing"
+    },
+    {
+      "eval_month": 4,
+      "partition": "payment_type",
+      "level": "__unseen__",
+      "rows": 6,
+      "route": "unseen"
+    }
+  ],
+  "prediction_sha256": "a40860966eb019bb7542b6ff0d5b1ab138c03c179f2a133b0b3c3725c6c48256",
+  "reused": false
+}

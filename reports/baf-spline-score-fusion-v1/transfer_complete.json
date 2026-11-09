@@ -1,0 +1,9 @@
+{
+  "selection_sha256": "3d6b693e78be6dee30b0911a0776cce6580f4edbaa1cb9c389d0a02a9e0c8dae",
+  "table_sha256": "63a84a06857e885ba173411a205d4f00d8896555a9336c85aa7ad16c640deb51",
+  "base_results": 6,
+  "base_reuses": 3,
+  "new_fits": 3,
+  "new_newton_fits": 3,
+  "role_count": 10
+}

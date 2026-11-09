@@ -1,0 +1,86 @@
+{
+  "source_paths": 55,
+  "preserved_paths": 735,
+  "selection_pairs": 16,
+  "historical_files": 3732,
+  "counts": {
+    "strategies": 37,
+    "physical_development_scores": 120,
+    "selectable_scores": 111,
+    "forward_rows": 222,
+    "macro_rows": 111,
+    "pooled_rows": 111,
+    "score_rows": 111,
+    "contrasts": 947,
+    "source_bases": 33,
+    "source_derived": 21,
+    "new_derived": 66,
+    "diversity_rows": 18,
+    "overlap_rows": 36,
+    "clipping_rows": 39,
+    "expression_leaf_rows": 60,
+    "winner_policy_cases": 111,
+    "development_draws": 1000,
+    "consumed_draws": 500,
+    "new_production_miniature_fits": 0,
+    "cache_test_fits_per_full_invocation": 6
+  },
+  "winner_case_summary": {
+    "reference": {
+      "cases": 15,
+      "roles": 7,
+      "max_bases": 5,
+      "max_scores": 8,
+      "max_new_bagged_fits": 0
+    },
+    "baseline_logit": {
+      "cases": 6,
+      "roles": 9,
+      "max_bases": 5,
+      "max_scores": 10,
+      "max_new_bagged_fits": 0
+    },
+    "single": {
+      "cases": 36,
+      "roles": 21,
+      "max_bases": 9,
+      "max_scores": 20,
+      "max_new_bagged_fits": 4
+    },
+    "aggregate": {
+      "cases": 18,
+      "roles": 21,
+      "max_bases": 11,
+      "max_scores": 23,
+      "max_new_bagged_fits": 6
+    },
+    "blend": {
+      "cases": 36,
+      "roles": 26,
+      "max_bases": 11,
+      "max_scores": 28,
+      "max_new_bagged_fits": 6
+    }
+  },
+  "contrast_groups": {
+    "fixed reference latest_fusion": 111,
+    "fixed reference recent_fusion": 111,
+    "fixed reference fusion": 111,
+    "fixed reference balanced": 111,
+    "fixed reference unweighted": 111,
+    "policy minus own pooled": 74,
+    "blend minus anchor": 36,
+    "blend minus added margin": 36,
+    "higher minus lower blend weight": 36,
+    "blend balanced minus unweighted": 18,
+    "blend mean-logit minus logit-mean-probability": 18,
+    "transformed minus native": 30,
+    "added mean-logit minus logit-mean-probability": 6,
+    "native balanced minus unweighted": 15,
+    "logit balanced minus unweighted": 15,
+    "probability aggregate minus native member": 18,
+    "mean-logit aggregate minus logit member": 18,
+    "logit-probability aggregate minus logit member": 18,
+    "randomized minus matched unbagged": 54
+  }
+}

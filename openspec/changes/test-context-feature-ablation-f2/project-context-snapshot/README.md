@@ -1,0 +1,853 @@
+# BT4012 Fraud Analytics - Group Project
+
+NUS, AY2026/2027 Semester 1.
+
+## Current direction
+
+The current proposal is **Robust Bank Account Fraud Detection under Temporal Drift and Class Imbalance**, using one main variant of the Bank Account Fraud (BAF) Dataset Suite. See the [revised proposal](BT4012_Proposal_BAF_Revised.pdf) and [proposal feedback](feedback.md).
+
+The proposal covers training-window design, class imbalance, model comparisons and chronological evaluation. The feedback asks us to separate training recency from sample size by comparing the most recent K applications with K historical applications, and to justify features and preprocessing for each model family.
+
+The completed first study uses **BAF Base, Kaggle version 2**, under the [experiment protocol](docs/experiment-protocol.md) and `configs/study.json`. The [findings report](reports/baf-study-v1/findings.md) contains development-only EDA and 107 model fits: 90 forward-validation, 14 final and three diagnostic fits. Recent data did not show a reliable advantage over size/class-matched historical samples; both models' conditional intervals include zero. These are analyst-selected first-study settings, open to group review. Month 7 has been evaluated and is now a consumed holdout. Earlier BAF/IBM AML planning documents are retained locally in the ignored `archive/` directory as historical context.
+
+The completed [improvement study](reports/baf-improvements-v1/findings.md) tests feature engineering, stronger models, weights, undersampling, ensembles and multiple threshold policies. A validation-selected 25% LightGBM / 75% CatBoost ensemble catches **334 versus 319 frauds at the same 969-case review quota** on exploratory month 7 (precision **34.47% versus 32.92%**, recall **23.39% versus 22.34%**). Engineered logistic features also improve all three forward-month AP results, with a controlled regularization diagnostic supporting the feature effect. See the report for F1/F2, uncertainty, unsuccessful strategies and the consumed-holdout limitation.
+
+## Repository contents
+
+The completed [conditional-model experiment](openspec/changes/archive/2026-10-12-test-conditional-lightgbm-experts-f2/proposal.md) has checked [findings](reports/baf-conditional-lightgbm-experts-v1/findings.md), [requirements](openspec/changes/archive/2026-10-12-test-conditional-lightgbm-experts-f2/specs/baf-conditional-lightgbm-expert-study/spec.md) and [tasks](openspec/changes/archive/2026-10-12-test-conditional-lightgbm-experts-f2/tasks.md). Its 24 strategies used 54 local/six global400 development fits, 24 base/fifteen derived reuses, 93 full scores and 54 separate subsets. All 84 saved models, 144 earlier-only operating rows, 738 contrasts and 2304 group-error rows passed independent auditing. No new strategy improved the existing bagged-anchor/pooled winner: macro F2 remains **0.330880962**, versus **0.324795452** for the best new housing/balanced/25% blend with latest policy. All twelve pure-expert versus global200 effects are negative. Eight frozen roles/eight models/thirteen scores transferred with zero new fits; consumed F2 remains **0.372239748**, below tree fusion and unweighted references. All 1500 paired draws/28 interval rows and the rendered figure passed checks. All fourteen tasks are verified and requirements are synchronized; the change is archived. Primary and no-prior-cache copied suites each pass 1915 tests (414 own). Sixty cumulative current tiny fits, 300 historical test calls and sixteen production miniature fits are separate from the 60 full development fits. Preserve all seventeen predecessors, the 58-source/config/software/protocol/selection/access identity, 1053 mandatory paths, seventeen selection pairs, 4369 historical files and the stopped attempt. See the retained [miniature metadata correction](reports/baf-conditional-lightgbm-experts-v1/miniature-metadata-note.md) and [work measurement scope](reports/baf-conditional-lightgbm-experts-v1/work-accounting-note.md). F2 beta=2 has no quota or precision floor; settings/partition choices are adaptive analyst selections, month 7 is consumed and the broader goal remains active.
+
+The later archive-compatible planning resolver passed 214 non-fitting checks with zero fits; the earlier full-suite source snapshot and receipts remain intact. These are preliminary implementation checkpoints, not the final execution gate. Declaration/checkpoint commands are below; the subsequent execution procedure requires current passing gates. Use new ledger/JUnit paths for another test invocation; existing receipts must be retained.
+
+```bash
+.venv/bin/python -m baf.conditional_expert_study verify-declaration
+.venv/bin/python scripts/check_conditional_experts.py --junit reports/baf-conditional-lightgbm-experts-v1/replay-tests.xml --ledger reports/baf-conditional-lightgbm-experts-v1/replay-fit-ledger.json
+```
+
+The conditional study also implements the ordered execution entry points below. These commands reproduced the checked scientific execution in the primary destination. Use a new destination for further tuning; do not overwrite the completed frozen run. Run the full methodological runner at its default fresh `tests.xml`/`test_model_fits.json` destinations before `record-checks`; retain every prior log, ledger and XML under its original checkpoint name. Reusing a ledger path is rejected. The execution declaration freezes all 58 sources, configuration, software and protocol before production gates; changed sources cannot silently resume that run.
+
+```bash
+set -e
+.venv/bin/python scripts/check_conditional_experts.py
+.venv/bin/python -m baf.conditional_expert_study record-checks
+.venv/bin/python -m baf.conditional_expert_study preflight
+.venv/bin/python -m baf.conditional_expert_study miniature
+.venv/bin/python -m baf.conditional_expert_study prepare-development
+.venv/bin/python -m baf.conditional_expert_study validate
+.venv/bin/python -m baf.conditional_expert_study freeze
+.venv/bin/python -m baf.conditional_expert_study exploratory
+.venv/bin/python -m baf.conditional_expert_report report
+```
+
+Preflight independently checks preserved nine-fit sampling and eight-fit ancestry evidence, with zero new old-gate fits. The separate production miniature has sixteen fits and retains the original population minima. Development requires 54 local and six global400 fits, plus individually audited reference reuses. Wholly absent required references reproduce only their exact individual recipes in the new destination (at most nine bagged, six spline and nine other-tree development fits); partial or incompatible sets stop execution. Freeze records the actual eight/ten/seventeen visible roles, eligibility, original-cache availability and deduplicated transfer bounds. Further month-7 work uses only that DAG. No quota or precision floor is imposed, and consumed month 7 does not provide independent confirmation.
+
+The current primary and disposable-copy suites each pass 1915 tests (414 own), with ten current/75 historical tiny fits per invocation. The clean copy has zero prior model/prediction caches, verifies all seventeen changed-restore rejections and runs after simulated planning archive. Actual-host preflight and sixteen saved miniature models pass independent checks. Preserve the [supplemental miniature metadata note](reports/baf-conditional-lightgbm-experts-v1/miniature-metadata-note.md): one original balanced miniature getter was affected by shallow-copy inspection, while retained fitted weighting and exact prediction equivalence remain verified. Frozen producers and gate artifacts were not edited. The new full-data models use explicit global weights and do not use that inspection path.
+
+A fresh checkout needs Python 3.12.9, the 27 exact pins (`.venv/bin/python -m pip install -r requirements-xgboost.txt`) and Base.csv at `data/raw/baf/Base.csv` with SHA256 `7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809`. Restore the seventeen mandatory original selections from their unchanged exports before verifying the declaration or running the suite. Verify all records before copying any, so a changed existing record fails without being overwritten:
+
+```bash
+.venv/bin/python - <<'PYTHON'
+from pathlib import Path
+import shutil
+from baf.common import read_config, digest
+c = read_config('configs/conditional-lightgbm-experts.json')
+pairs = [(Path(p), Path(p.replace('outputs/', 'reports/', 1)), h)
+         for p, h in c['preserve_sha256'].items()
+         if p.startswith('outputs/') and p.endswith('/selection.json')]
+assert len(pairs) == 17
+for original, exported, expected in pairs:
+    assert exported.is_file() and digest(exported) == expected, str(exported)
+    if original.exists():
+        assert digest(original) == expected, str(original)
+for original, exported, expected in pairs:
+    if not original.exists():
+        original.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(exported, original)
+PYTHON
+```
+
+The declaration hashes every present historical file against the prospective snapshot and rejects undeclared additions. Optional old model/prediction caches can be wholly absent; individual source adapters reject partial sets before reusing or reproducing a required recipe. Exported nine/eight-fit gate records remain required and can support reproduction without their ignored model files. The separate clean-copy setup checks every changed-selection rejection, data/pins, absence of prior models/predictions and the planning resolver after simulated archive movement. Methodological tiny fits in that copy do not establish full-size production retraining there.
+
+The completed [recall-weighted F2 study](reports/baf-recall-weighted-v1/findings.md) tested 30 new development fits, 15 verified reuses and 108 chronological model/policy evaluations without imposing a 1% review quota. It did not improve the previous macro development F2 of 0.3278; balanced LightGBM remained selected. The [extension](reports/baf-recall-weighted-extension-v1/findings.md) added 36 development fits, 81 verified reuses and 288 forward policy evaluations, also without a gain. Its best added strategy scored 0.3261. Both frozen identities and negative results are preserved; the performance-improvement goal remains unachieved. Consumed month-7 F2 remains 0.3644 for the development-selected balanced model and 0.3769 for the unweighted reference.
+
+| Path | Purpose |
+|---|---|
+| `BT4012_Proposal_BAF_Revised.pdf` | Current proposal |
+| `feedback.md` | Lecturer feedback (the supplied final sentence is truncated) |
+| `openspec/config.yaml` | Project context and planning rules |
+| `openspec/specs/` | Current project requirements |
+| `openspec/changes/` | Proposed work with requirements, design and task checklists |
+| `.agents/skills/openspec-*/` | Generated OpenSpec workflows for Codex |
+| `AGENTS.md` | Repository instructions for coding agents |
+| `data/raw/baf/` | Ignored local Base CSV, download archive and provenance manifest |
+| `baf/` | EDA, controlled experiment and reporting modules |
+| `configs/study.json` | Exact first-study configuration |
+| `docs/experiment-protocol.md` | Research design, feature inventory, decisions and limitations |
+| `requirements.txt` / `tests/` | Pinned Python environment and methodological checks |
+| `reports/baf-study-v1/` | Small results, figures and verification artifacts |
+| `configs/improvements.json` / `docs/improvement-protocol.md` | Separate exploratory improvement search and operating objectives |
+| `baf/engineering.py` / `baf/improvements.py` | Row-local features, model comparisons, temporal threshold policies and ensembles |
+| `reports/baf-improvements-v1/` / `reports/baf-logistic-ablation-v1/` | Improvement findings, controlled feature diagnostic and audits |
+
+## Shallow CatBoost study: scientific evaluation complete
+
+The separate [test-shallow-catboost-f2](openspec/changes/archive/2026-10-13-test-shallow-catboost-f2/proposal.md) study has **14/14 verified tasks**, nine synchronized requirements and a completed archive. Preservation and closed-log/run/report manifest checks passed. Twelve raw-feature native recipes and thirty-six fixed margin blends produced no new gain. Best pure CatBoost F2 is 0.315118369; best new blend is 0.329399758. The existing bagged-anchor/pooled strategy remains selected at macro chronological F2 0.330880962. All sixty saved development models and eight transfer models passed independent audits. Eight frozen transfer roles reused eight bases/five derived scores, with thirteen scores and zero new fits; consumed F2 0.372239748 trails unweighted 0.376884422. F2 uses beta=2 without a 1% quota or precision floor, and month7 remains consumed. See the [findings](reports/baf-shallow-catboost-v1/findings.md), [completion evidence](reports/baf-shallow-catboost-v1/completion-matrix.md) and [reproduction guide](reports/baf-shallow-catboost-v1/reproduction.md). Completing this finite study does not achieve the broader performance goal.
+
+The read-only [planning evidence](openspec/changes/archive/2026-10-13-test-shallow-catboost-f2/planning-evidence.json) enumerates 54 strategies, 162 winner/policy cases, 1728 contrasts and exact output identities. It verifies 1860 mandatory historical paths, eighteen matching original/exported selections, 4848 currently present ignored historical files, the Base checksum and 27 dependency pins. Cache presence is distinct from saved-model inference verification; the complete development audit passed. Native/blended winners have twenty-two predetermined transfer roles and five required CatBoost recipes; reference winners have eight roles and no new CatBoost fit. All eighteen completed studies remain frozen, month 7 remains consumed and the broader performance goal remains active. See the [design](openspec/changes/archive/2026-10-13-test-shallow-catboost-f2/design.md) and [implementation tasks](openspec/changes/archive/2026-10-13-test-shallow-catboost-f2/tasks.md); the complete ordered commands and checked setup are below. Original planning files are retained under `reports/baf-shallow-catboost-v1/planning-original/` before task updates. Codex assisted with this design, implementation, independent auditing and methodological tests, using the official CatBoost API references linked in the design; no public notebook was copied.
+
+The [reproduction guide](reports/baf-shallow-catboost-v1/reproduction.md) provides pinned environment/data setup, the exact eighteen-selection restore block, individual absent-source handling and the complete ordered commands. Its documented Python setup block passed in the cache-free disposable copy. Use a separate checkout for replay, fresh ledger/log paths and the original frozen settings; never remove an existing selection to rerun tuning.
+
+Checked execution order after setup:
+
+```bash
+.venv/bin/python -m baf.shallow_catboost_study verify_declaration
+.venv/bin/python scripts/check_shallow_catboost.py --junit reports/baf-shallow-catboost-v1/replay-tests.xml --ledger reports/baf-shallow-catboost-v1/replay-fits.json
+# After the complete suite passes, preserve originals and copy to tests.xml/test_model_fits.json as documented.
+.venv/bin/python -m baf.shallow_catboost_study record_checks
+.venv/bin/python -m baf.shallow_catboost_study preflight
+.venv/bin/python -m baf.shallow_catboost_study miniature
+.venv/bin/python -m baf.shallow_catboost_study prepare_development
+.venv/bin/python -m baf.shallow_catboost_study validate
+.venv/bin/python -m baf.shallow_catboost_report audit_development
+.venv/bin/python -m baf.shallow_catboost_study freeze
+.venv/bin/python -m baf.shallow_catboost_study exploratory
+.venv/bin/python -m baf.shallow_catboost_report report
+```
+
+Both primary and clean suites passed 2136 tests (221 current), with eighteen current and 85 historical tiny fits per full invocation. Seven closed invocations, including failed/focused histories, total 126 current and 255 historical fits; default evidence copies add no invocations. These differ from fourteen production miniature fits and 36 full native development fits. The resource proxy is 12.31 GiB on this 32-GiB host, not a guaranteed peak. The 61-source/config/protocol/software identity is frozen. Development audits and selection passed; eight frozen roles transferred with eight base/five derived reuses, thirteen scores and zero new fits. Selected consumed F2 0.372239748 trails unweighted 0.376884422. Final independent report auditing passed, including all 1500 draws/28 intervals. The six-panel actual scientific image was regenerated identically, checked against exported numeric values and visually inspected. The clean replay shared the existing pinned runtime and a verified Base symlink; fresh dependency installation and full-size clean-copy retraining are not claimed.
+
+Model work keeps native training measurements and original reference measurements separate. Tree row-rounds describe logical training exposure, not exact sampled-row or inference-call counts; spline solver iterations are reported separately. Missing historical RSS measurements remain explicitly unavailable. The new saved-model auditor reconstructs original category vocabularies/medians, native inputs and SciPy spline bases before checking inference.
+
+## OpenSpec workflow
+
+OpenSpec is initialized with the standard `spec-driven` schema and Codex integration, generated using CLI **1.10.0**. Node.js is needed for this planning tool; modelling uses the pinned Python environment below.
+
+For another machine, install Node.js 20.19.0 or newer and the same CLI version:
+
+```sh
+npm install -g @fission-ai/openspec@1.10.0
+openspec --version
+```
+
+The generated skills are included in this repository setup. Commit them with the specs. To regenerate them:
+
+```sh
+openspec init --tools codex --profile core --no-animation
+```
+
+The workflow is: explore an idea, propose a change, review its artifacts, apply its tasks, verify the outcome, then archive it. In Codex chat, use:
+
+```text
+$openspec-explore Help refine our BAF experiment design using the proposal and feedback.
+$openspec-propose Add a reproducible BAF data profiling pipeline.
+$openspec-apply-change <change-name>
+$openspec-archive-change <change-name>
+```
+
+`$openspec-update-change` revises an existing plan; `$openspec-sync-specs` merges its requirements into the main specs. Normally, sync requirements when the work is complete, as part of archiving. Keep future behaviour in change specs until it is implemented or, for a research protocol, documented and checked.
+
+The initial change, [`define-baf-experiment-protocol`](openspec/changes/define-baf-experiment-protocol/proposal.md), defines the documented protocol. [`run-baf-eda-and-hypothesis-tests`](openspec/changes/run-baf-eda-and-hypothesis-tests/proposal.md) tracks its empirical implementation. Task checklists record actual completion separately from the existence of planning files.
+
+Useful terminal checks:
+
+```sh
+openspec list
+openspec list --specs
+openspec status --change define-baf-experiment-protocol
+openspec validate --all --strict --no-interactive
+```
+
+Artifact status reports whether planning files exist. Check `tasks.md` and actual outputs to establish implementation completion. Start a fresh Codex chat in this repo if newly installed skills are not discovered. See the [official OpenSpec documentation](https://openspec.dev/docs/quickstart) for the workflow.
+
+## Deliverables
+
+Both deliverables are due **20 November 2026, 23:59 (Singapore time)**:
+
+| Deliverable | Requirements | Course weight |
+|---|---|---|
+| Final report | 8-12 PDF pages, excluding references and appendices | 20% |
+| Presentation | Slides and video of no more than 15 minutes; meaningful participation by every member | 15% |
+
+Report structure: Problem Description -> Data Overview -> Methodology -> Experiments and Results -> Conclusion. Include the GitHub repository URL and reproduction instructions. Submission filenames use the group number: `reportXX.pdf`, `presentationXX.pptx`, `videoXX.mp4`.
+
+The full course brief is available locally at `archive/BT4012 Project Guidelines and Grading Criteria.pdf`; it is not included in a fresh clone.
+
+## Reproducing results
+
+Run from the repository root using Python 3.12 and [uv](https://docs.astral.sh/uv/). The pinned package versions were used for this study:
+
+```sh
+uv venv --python 3.12 .venv
+uv pip install --python .venv/bin/python -r requirements.txt
+.venv/bin/python -m pytest -q
+.venv/bin/python -m baf.eda
+.venv/bin/python -m baf.study validate
+.venv/bin/python -m baf.study freeze
+.venv/bin/python -m baf.study final
+.venv/bin/python -m baf.study diagnostic
+.venv/bin/python -m baf.report
+```
+
+Download the dataset first using the commands below. Validation fits use months 4, 5 and 6; month 7 is excluded from development EDA and scoring until choices are frozen. `freeze` creates a manifest with source/config/data hashes; `final` rejects missing or stale choices. Validation refuses to run after a freeze, and freeze refuses to overwrite decisions. For a revised study, copy the config, choose a new `output_dir` and pass `--config <path>` to every command. Once month 7 is scored it is an already-consumed holdout; a new directory does not restore independent evidence.
+
+Model fits run sequentially with at most six threads and checkpoint individually. Resume interrupted validation with the same command and unchanged source/config. `outputs/baf-study-v1/` holds run JSONs, predictions, logs, audits and metrics; `reports/baf-study-v1/` holds small shareable summaries and figures. A full study includes 90 validation, 14 final and three diagnostic fits. Raw inputs and bulky outputs remain ignored.
+
+Dataset sources: [official BAF repository](https://github.com/feedzai/bank-account-fraud), [download](https://www.kaggle.com/datasets/sgpjesus/bank-account-fraud-dataset-neurips-2022), [paper](https://arxiv.org/abs/2211.13358).
+
+### Exploratory improvement experiments
+
+The completed [improvement protocol](docs/improvement-protocol.md) extends the first study with model capacity, native categorical handling, 36 engineered features, positive/recency weights, undersampling and ensembles. It evaluates AP, ROC AUC, F1, F2, precision, recall, MCC, balanced accuracy, Brier score, confusion counts and review capacities. Threshold-dependent validation uses thresholds fitted on earlier prediction months. The finite search completed 17 base presets across three folds (51 fits), nine validation blend comparisons and three adaptive diagnostic fits. Five selected/dependency models and two selected blends were evaluated on consumed month 7. The [findings](reports/baf-improvements-v1/findings.md) and OpenSpec task checklist record verified outputs; 25 methodological tests pass.
+
+After downloading the CSV and installing the first-study environment, run:
+
+```sh
+uv pip install --python .venv/bin/python -r requirements-improvements.txt
+.venv/bin/python -m pytest -q
+.venv/bin/python -m baf.improvements validate
+.venv/bin/python -m baf.logistic_ablation
+.venv/bin/python -m baf.improvements freeze
+.venv/bin/python -m baf.improvements exploratory
+.venv/bin/python -m baf.improvement_report
+```
+
+Results go to ignored `outputs/baf-improvements-v1/`; small checked artifacts go to `reports/baf-improvements-v1/`. The new config contains preservation checksums for the original study files. The original study's exported selection is included in the repository, so it need not be rerun first. An existing ignored local selection is also snapshotted and preserved if present. Resume interrupted validation with the same command and unchanged source/config/software. Selection refuses missing/incomplete or stale validation, and later scoring rejects stale selections. To revise experiments, use a new configuration/output directory and pass `--config <path>` to each command.
+
+The adaptive logistic diagnostic adds three development-only raw-C=0.1 fits to separate regularization from feature effects. It uses `configs/logistic-ablation.json` and `outputs/baf-logistic-ablation-v1/`, is excluded from the main model selection and has no month-7 evaluation. If revising the main config, also copy/update the diagnostic config's `main_config`/`output_dir`, pass its path as `--config` to the diagnostic command, and use `--diagnostic-config <path>` with the report command. The report's preset/count checks target this documented study design.
+
+Month 7 is already consumed. This study's month-7 comparisons are exploratory and cannot establish fresh confirmation. A new output directory does not reset that limitation. Precision/recall policy targets are fitted on development predictions and can fail on future cases; higher recall may require more reviews and false positives.
+
+### Recall-weighted F2 study
+
+The [separate protocol](docs/recall-weighted-protocol.md) optimizes positive-class F2, giving missed fraud four times the denominator penalty of false alarms. It does not impose the earlier 1% review quota. Development uses forward models for months 4/5/6 and policies fitted on earlier prediction months; selection uses macro F2 on months 5/6. The declared search is complete and audited: it did not improve the previous 0.3278 macro F2 benchmark. See [findings](reports/baf-recall-weighted-v1/findings.md); completion of this search does not satisfy the performance-improvement goal.
+
+Use the existing Python 3.12.9 environment and `requirements-improvements.txt`. From a fresh clone, download Base v2 and install the pinned dependencies first. Restore the small exported frozen records below if the ignored local runs are absent; `cp -n` preserves any existing records. The runner reuses only eligible verified predictions and refits missing predictions into the new output directory. With this workspace's completed caches, the search needs 30 new development fits and 15 verified reuses; without them it needs 45 fits.
+
+```sh
+mkdir -p outputs/baf-study-v1 outputs/baf-improvements-v1
+cp -n reports/baf-study-v1/selection.json outputs/baf-study-v1/selection.json
+cp -n reports/baf-improvements-v1/selection.json outputs/baf-improvements-v1/selection.json
+cp -n reports/baf-improvements-v1/validation_summary.csv outputs/baf-improvements-v1/validation_summary.csv
+.venv/bin/python -m pytest -q
+.venv/bin/python -m baf.recall_weighted validate
+.venv/bin/python -m baf.recall_weighted freeze
+.venv/bin/python -m baf.recall_weighted exploratory
+.venv/bin/python -m baf.recall_weighted_report
+```
+
+Run these stages in order. Resume unfinished validation with unchanged source/config/software; freeze refuses to overwrite a selection and validation refuses a frozen study. Selected-model transfer on month 7 is exploratory on an already-consumed holdout. New bulk artifacts remain in ignored `outputs/baf-recall-weighted-v1/`; checked findings are exported to `reports/baf-recall-weighted-v1/`. Policy changes, modelling changes, precision/recall, false positives, missed fraud, workload and conditional F2 uncertainty are reported separately. Use a new configuration/output directory for any further search.
+
+### Adaptive F2 extension
+
+The completed [extension protocol](docs/recall-weighted-extension-protocol.md) declares 48 strategies: 12 new native LightGBM presets, 15 previous F2 references, 12 original recent/historical-window recipes, three historical-seed averages and six earlier-selected batch rank ensembles. It retains beta=2, uses policies fitted on earlier prediction months and does not impose a review quota. The [findings](reports/baf-recall-weighted-extension-v1/findings.md) retain the failed weight/window/ensemble comparisons: balanced LightGBM remains selected at macro F2 0.3278. Its exploratory transfer reused the two baseline predictions; no new month-7 model was fitted.
+
+Use Python 3.12.9 and `requirements-improvements.txt`. A fresh clone needs the verified Base CSV and these small exported freeze records. Existing files are preserved by `cp -n`; incompatible identities are rejected. Missing model predictions are refitted into extension outputs, including exact original-window recipes, without writing old study directories.
+
+```sh
+mkdir -p outputs/baf-study-v1 outputs/baf-improvements-v1 outputs/baf-recall-weighted-v1
+cp -n reports/baf-study-v1/selection.json outputs/baf-study-v1/selection.json
+cp -n reports/baf-improvements-v1/selection.json outputs/baf-improvements-v1/selection.json
+cp -n reports/baf-recall-weighted-v1/selection.json outputs/baf-recall-weighted-v1/selection.json
+.venv/bin/python -m pytest -q
+.venv/bin/python -m baf.recall_extension validate
+.venv/bin/python -m baf.recall_extension freeze
+.venv/bin/python -m baf.recall_extension exploratory
+.venv/bin/python -m baf.recall_extension_report
+```
+
+Run stages sequentially and wait for each to finish. With existing caches the search needs 36 new development fits and 81 verified reuses; without caches it refits 117 base candidate/month combinations. Re-run unfinished validation with unchanged config/source/software to resume. A frozen study refuses further validation or selection overwrite. Final transfer uses only selected dependencies and the two baselines on already-consumed month 7, so it remains exploratory. Ignored bulk outputs go to `outputs/baf-recall-weighted-extension-v1/`; small checked reports go to `reports/baf-recall-weighted-extension-v1/`.
+
+### Chronological score stacking
+
+The completed [stacking protocol](docs/chronological-stacking-protocol.md) tests learned score combinations with matched balanced-model-only controls. Its [findings](reports/baf-chronological-stacking-v1/findings.md) retain the negative result: 12 new early base fits, 15 verified reuses, 72 combiner/control fits and 156 forward policy evaluations did not improve F2 0.3278. The best learned control scored 0.3271 and the best four-member stack 0.3268. The stack improved macro average precision to 0.1894 versus 0.1832, but that is not the F2 objective. Balanced LightGBM remains selected, with two exploratory baseline reuses and no final combiner or new month-7 fit. The performance goal remains unachieved. This study retains F2 with beta=2 and no imposed review quota.
+
+Use Python 3.12.9 and the pinned `requirements-improvements.txt` environment. Download the verified Base v2 data first. From a fresh clone, restore the four small exported freeze records; missing predictions are fitted into the new output directory, preserving all old studies:
+
+```sh
+mkdir -p outputs/baf-study-v1 outputs/baf-improvements-v1 outputs/baf-recall-weighted-v1 outputs/baf-recall-weighted-extension-v1
+cp -n reports/baf-study-v1/selection.json outputs/baf-study-v1/selection.json
+cp -n reports/baf-improvements-v1/selection.json outputs/baf-improvements-v1/selection.json
+cp -n reports/baf-recall-weighted-v1/selection.json outputs/baf-recall-weighted-v1/selection.json
+cp -n reports/baf-recall-weighted-extension-v1/selection.json outputs/baf-recall-weighted-extension-v1/selection.json
+.venv/bin/python -m pytest -q
+.venv/bin/python -m baf.stacking validate
+.venv/bin/python -m baf.stacking freeze
+.venv/bin/python -m baf.stacking exploratory
+.venv/bin/python -m baf.stacking_report
+```
+
+Run stages in order and wait for each to finish. Four fixed base members produce out-of-time scores for months 1-6; the unweighted reference is additionally scored for 4-6. With current caches this needs 12 early base fits and 15 verified reuses; without caches it needs 27 base fits. Twenty-four combiner/control presets produce 72 fits for months 4/5/6. Their preprocessing and training use only earlier out-of-time base scores, and policies use still-earlier out-of-time combiner scores. There are 156 forward policy rows. Score ranks use the unlabeled application batch, so the percentile variants require batch inference.
+
+Unfinished validation resumes with unchanged source/config/software. A frozen study refuses retuning or selection overwrite. Freeze fits any selected final combiner and matched control on out-of-time scores from 1-6 before further month-7 access. Transfer evaluates only frozen selected/control dependencies and both old baselines on consumed month 7. Bulk outputs remain ignored at `outputs/baf-chronological-stacking-v1/`; checked reports go to `reports/baf-chronological-stacking-v1/`. Further tuning needs another configuration/output identity.
+
+### Calibrated F2 batch policies
+
+The separate [calibration protocol](docs/calibrated-f2-policy-protocol.md) tests sigmoid-logit/isotonic probability calibration and a label-free batch decision rule against the three existing empirical F2 policies. It retains beta=2 with no quota or precision floor. Three fixed score sources produce 24 earlier-only development calibrator fits and 42 chronological operating rows. A smoother estimated F2 is a policy hypothesis; only actual evaluated F2 counts as performance improvement. The source models and all five earlier studies remain frozen. The completed [findings](reports/baf-calibrated-f2-policy-v1/findings.md) show no F2 gain: best calibrated macro F2 0.32715 versus baseline 0.32780. The run verified 27 base and three combiner dependency reuses, fitted 24 calibrators and evaluated 42 forward policies. Balanced LightGBM remains selected; consumed month-7 results are unchanged. The performance goal remains unachieved.
+
+Use Python 3.12.9 and `requirements-improvements.txt` in `.venv`, then obtain verified Base v2 as below. A fresh clone restores five small exported freeze records; missing score caches are reproduced under the frozen recipes in the new destination:
+
+```sh
+mkdir -p outputs/baf-study-v1 outputs/baf-improvements-v1 outputs/baf-recall-weighted-v1 outputs/baf-recall-weighted-extension-v1 outputs/baf-chronological-stacking-v1
+cp -n reports/baf-study-v1/selection.json outputs/baf-study-v1/selection.json
+cp -n reports/baf-improvements-v1/selection.json outputs/baf-improvements-v1/selection.json
+cp -n reports/baf-recall-weighted-v1/selection.json outputs/baf-recall-weighted-v1/selection.json
+cp -n reports/baf-recall-weighted-extension-v1/selection.json outputs/baf-recall-weighted-extension-v1/selection.json
+cp -n reports/baf-chronological-stacking-v1/selection.json outputs/baf-chronological-stacking-v1/selection.json
+.venv/bin/python -m pytest -q
+.venv/bin/python -m baf.calibrated_policy validate
+.venv/bin/python -m baf.calibrated_policy freeze
+.venv/bin/python -m baf.calibrated_policy diagnostics
+.venv/bin/python -m baf.calibrated_policy exploratory
+.venv/bin/python -m baf.calibrated_policy_report
+```
+
+Run stages sequentially. Current caches supply nine fixed source predictions without new base/combiner fits; dependencies are separately verified. With no caches, up to 27 frozen-recipe base results and three fits of the one fixed stack are needed. These go only to `outputs/baf-calibrated-f2-policy-v1/`, never old study directories. Unfinished validation resumes with unchanged sources/config/software; frozen selection refuses retuning. Calibration uses only earlier out-of-time predictions, and the chooser uses the current unlabeled batch. The surrogate is a ratio of estimated counts, not exact expected or achieved F2. Equal calibrated probabilities use raw score and then stable ID to break ties.
+
+Freeze stores the selected final calibrator and any necessary final stack before further month-7 access. The six label-aware development prefix optima are generated only after freeze and excluded from selection; no month-7 hindsight optimum is computed. Consumed-period transfer evaluates only the selected policy, its same-model pooled comparator and both old raw baselines, not every losing calibration policy. Conditional bootstrap intervals keep realized batch decisions fixed and exclude model/calibration/selection/time uncertainty. Checked reports go to `reports/baf-calibrated-f2-policy-v1/` after all stages pass.
+
+### Focal-loss score learning
+
+The completed [focal-loss study](reports/baf-focal-loss-v1/findings.md), under its separate [protocol](docs/focal-loss-protocol.md), did not improve actual F2. Its 24 new development fits, nine verified reference reuses and 66 forward policy comparisons retained the balanced baseline at macro F2 **0.327802**; best focal F2 was **0.323007**, and the best added ordinary control scored **0.323783**. Four miniature integration fits passed separately. The finite grid matches native inputs, tree settings, positive weights and zero initialization across four focal, two custom logistic and two built-in logistic presets. Beta remains 2, with no quota or precision floor. All seven completed studies are frozen; the performance goal remains unachieved.
+
+Use Python 3.12.9 and the pinned `requirements-improvements.txt` environment, and download verified Base v2 as below. A fresh clone restores six small exported selection records; absent scores are reproduced in the new destination under frozen recipes:
+
+```sh
+mkdir -p outputs/baf-study-v1 outputs/baf-improvements-v1 outputs/baf-recall-weighted-v1 outputs/baf-recall-weighted-extension-v1 outputs/baf-chronological-stacking-v1 outputs/baf-calibrated-f2-policy-v1
+cp -n reports/baf-study-v1/selection.json outputs/baf-study-v1/selection.json
+cp -n reports/baf-improvements-v1/selection.json outputs/baf-improvements-v1/selection.json
+cp -n reports/baf-recall-weighted-v1/selection.json outputs/baf-recall-weighted-v1/selection.json
+cp -n reports/baf-recall-weighted-extension-v1/selection.json outputs/baf-recall-weighted-extension-v1/selection.json
+cp -n reports/baf-chronological-stacking-v1/selection.json outputs/baf-chronological-stacking-v1/selection.json
+cp -n reports/baf-calibrated-f2-policy-v1/selection.json outputs/baf-calibrated-f2-policy-v1/selection.json
+.venv/bin/python -m pytest -q
+.venv/bin/python -m baf.focal_study validate
+.venv/bin/python -m baf.focal_study freeze
+.venv/bin/python -m baf.focal_study exploratory
+.venv/bin/python -m baf.focal_report
+```
+
+Run commands sequentially and wait for completion. Validation checkpoints each saved model/adapter, raw margin, sigmoid score, numeric trace and prediction population; resuming requires unchanged code/config/software. Four miniature integration fits verify custom/built-in ordinary-loss equivalence before the 24 full development fits; they are reported separately. The loss callback receives raw margins, and inference applies exactly one sigmoid. Focal negative/small Hessians receive an explicit 1e-6 curvature floor, with per-call statistics. This is approximate curvature optimization; ordinary gamma=0 controls use actual logistic Hessians. Objective calls and fitted tree counts are recorded separately because a boosting attempt may add no tree. Scores are not assumed calibrated.
+
+Model/preprocessing fitting uses strictly earlier months; month-5 policies use month 4 predictions and month-6 policies use earlier 4/5 or 5. Selection uses actual macro F2. Freeze records selected/control recipes and policies before further consumed-month access. Transfer includes only selected/required ordinary controls, same-model pooled policy and both old pooled references; losing focal presets and month-7 hindsight thresholds are not swept. This run required two exploratory baseline reuses and no new month-7 model fits. Selected F2 remains **0.364409**, below the unweighted reference's **0.376884**. Bootstrap draws keep realized decisions fixed and exclude model-selection, retraining and time uncertainty. Outputs remain ignored in `outputs/baf-focal-loss-v1/`; the checked report includes 106 contrasts, 14,400 numerical trace rows, inspected figures and a [verification record](reports/baf-focal-loss-v1/verification.md). All six earlier studies remain frozen, and further tuning needs another identity.
+
+### Direct fraud-ranking study
+
+The completed [direct-ranking study](reports/baf-direct-ranking-v1/findings.md), under its separate [protocol](docs/direct-ranking-protocol.md), did not improve F2. Its 18 new development fits, nine verified reference reuses, 54 forward policy rows and 27 macro summaries retained balanced LightGBM at **0.327802**. The best ranker scored **0.321311** and the best new binary control **0.323151**. Selection remains actual F2 beta=2, without a quota or precision floor. Artificial queries use eligible training months/IDs/seed only; they retain all rows and all-negative groups and are not observed bank sessions. Ranking scores remain finite raw scores, not probabilities; no sigmoid, Brier or log loss is applied. All eight completed studies are frozen; the performance goal remains unachieved.
+
+Use Python 3.12.9, the pinned `requirements-improvements.txt` environment and verified Base v2 below. Restore the six exported selection records using the focal-study instructions above, then restore the seventh and run stages sequentially:
+
+```sh
+mkdir -p outputs/baf-focal-loss-v1
+cp -n reports/baf-focal-loss-v1/selection.json outputs/baf-focal-loss-v1/selection.json
+.venv/bin/python -m pytest -q
+.venv/bin/python -m baf.direct_ranking validate
+.venv/bin/python -m baf.direct_ranking freeze
+.venv/bin/python -m baf.direct_ranking exploratory
+.venv/bin/python -m baf.direct_ranking_report
+```
+
+Wait for each command to finish. Validation checkpoints models, adapters, training/group metadata, raw predictions and exact identities; resuming requires unchanged code/config/software. Four miniature fits verify installed initialization/repeatability before the 18 full fits. The group seed and model/objective seed are 2026; paired bootstrap seed is 1027 with 500 draws. Current reference caches are verified before reuse; absent scores are refitted under frozen recipes only in `outputs/baf-direct-ranking-v1/`. Never rerun earlier validate/freeze commands to populate old directories. After selection freezes, only its selected/matched dependencies and old references reach already-consumed month 7, with no losing-preset sweep or hindsight threshold optimum. Conditional intervals keep decisions fixed and exclude selection, retraining, temporal/generative uncertainty and multiplicity correction. Checked exports go to `reports/baf-direct-ranking-v1/`; all seven earlier studies remain frozen.
+
+The [verification record](reports/baf-direct-ranking-v1/verification.md) covers all 99 contrasts, 35,532 query rows, 18 group summaries, 27 score diagnostics, independently reconstructed operating metrics and all 12 paired interval summaries. The figure was visually inspected. Transfer needed two old baseline reuses and zero new month-7 fits: selected F2 remains **0.364409**, versus unweighted **0.376884**. The consumed period cannot provide independent confirmation, and further tuning requires another study identity.
+
+### XGBoost and rank ensembles
+
+The completed [XGBoost and rank-ensemble study](reports/baf-xgboost-rank-ensembles-v1/findings.md), under its separate [protocol](docs/xgboost-rank-ensembles-protocol.md), did not improve F2. Its 12 new full development fits and nine verified reference reuses produced 75 score results across 25 strategies, 150 forward rows and 75 macro summaries. Best new raw XGBoost F2 was **0.326484**; best blend F2 was **0.325311**, versus balanced **0.327802**. Eight miniature integration fits are counted separately. Selection retains positive-class F2 beta=2 with no quota or precision floor. All nine completed studies are frozen; the performance goal remains unachieved.
+
+Use Python 3.12.9 and the pinned requirements-xgboost.txt environment, verified Base v2 below and the same existing dependencies. For the existing .venv, `uv pip install --python .venv/bin/python --no-deps xgboost==3.4.1` adds only the new package; `uv pip check --python .venv/bin/python` verifies compatibility. A fresh environment can use `uv pip install --python .venv/bin/python -r requirements-xgboost.txt`. Existing versions must match the frozen identities. Restore all eight small exported selections, then run commands sequentially:
+
+```sh
+mkdir -p outputs/baf-study-v1 outputs/baf-improvements-v1 outputs/baf-recall-weighted-v1 outputs/baf-recall-weighted-extension-v1 outputs/baf-chronological-stacking-v1 outputs/baf-calibrated-f2-policy-v1 outputs/baf-focal-loss-v1 outputs/baf-direct-ranking-v1
+cp -n reports/baf-study-v1/selection.json outputs/baf-study-v1/selection.json
+cp -n reports/baf-improvements-v1/selection.json outputs/baf-improvements-v1/selection.json
+cp -n reports/baf-recall-weighted-v1/selection.json outputs/baf-recall-weighted-v1/selection.json
+cp -n reports/baf-recall-weighted-extension-v1/selection.json outputs/baf-recall-weighted-extension-v1/selection.json
+cp -n reports/baf-chronological-stacking-v1/selection.json outputs/baf-chronological-stacking-v1/selection.json
+cp -n reports/baf-calibrated-f2-policy-v1/selection.json outputs/baf-calibrated-f2-policy-v1/selection.json
+cp -n reports/baf-focal-loss-v1/selection.json outputs/baf-focal-loss-v1/selection.json
+cp -n reports/baf-direct-ranking-v1/selection.json outputs/baf-direct-ranking-v1/selection.json
+.venv/bin/python -m pytest -q
+.venv/bin/python -m baf.xgboost_ensemble validate
+.venv/bin/python -m baf.xgboost_ensemble freeze
+.venv/bin/python -m baf.xgboost_ensemble exploratory
+.venv/bin/python -m baf.xgboost_ensemble_report
+```
+
+Wait for every stage to finish. Missing old reference caches are reproduced under frozen recipes only in outputs/baf-xgboost-rank-ensembles-v1/, without rerunning earlier studies' fitting stages. Model checkpoints save native UBJSON, training-fitted categorical adapters, feature/parameter identities, fitted rounds, warnings and predictions. Exact unchanged source/config/software is required for resumption. Seeds are 2026 for models and 1027 for 500 paired uncertainty draws; models use at most six threads. Percentiles use average ascending rank/n within the current unlabeled batch, and blends have fixed weights 0.25/0.5/0.75. These representations require batch inference and are not calibrated fraud probabilities.
+
+Freeze includes exactly the selected strategy, same-strategy pooled policy, both old pooled references and the specified raw/percentile/member controls. Only those dependencies reach already-consumed month 7, requiring at most one new XGBoost final fit. No losing-setting sweep or hindsight cutoff is permitted. Exported 302 contrasts distinguish model, representation, blending and policy effects. Conditional draws keep realized batches and decisions fixed, excluding adaptive selection, retraining, batch-composition, temporal/generative uncertainty and multiplicity correction. Checked reports go to reports/baf-xgboost-rank-ensembles-v1/ after actual verification.
+
+The [verification record](reports/baf-xgboost-rank-ensembles-v1/verification.md) covers all 302 factor-controlled contrasts, 75 pooled-confusion summaries, 75 score diagnostics, 12 diversity rows, 16 interval summaries and 55 composed-score dependency records. The figure was inspected. The frozen winner used two baseline reuses and no new month-7 model fits: selected F2 remains **0.364409** versus unweighted **0.376884**. Its declared percentile control scored **0.365259** on the consumed period, but was not the development winner and did not beat unweighted. This is no new selected-policy gain or independent confirmation.
+
+### Fixed raw-score and log-odds fusion
+
+The completed [score-fusion study](reports/baf-xgboost-score-fusion-v1/findings.md) selected a fixed 50/50 log-odds blend of depth-4 unweighted XGBoost and balanced LightGBM. Macro development F2 increased from **0.327802 to 0.328907**; its paired conditional interval against balanced includes zero. Consumed-month F2 increased from **0.364409 to 0.372694**, with 695 frauds detected in each model and 212 fewer legitimate applications flagged by the blend. The detected fraud sets differ. The blend still trails the unweighted reference at **0.376884**, so the broader performance goal remains unachieved. Month 7 is already consumed and cannot provide independent confirmation.
+
+The separate [score-fusion protocol](docs/xgboost-score-fusion-protocol.md) evaluates seven raw singles, six clipped-logit singles and 48 fixed fusions under the unchanged forward F2 policies. Its objective is positive-class F2, beta=2, without a fixed review quota or precision floor. Four frozen XGBoost members are combined with balanced/unweighted baseline LightGBM at fixed weights 0.25/0.5/0.75. Logits use epsilon 1e-6 and remain finite real-valued scores; these fusions are not asserted to be calibrated probabilities. This study has a separate identity and preserves all nine earlier studies.
+
+Use Python 3.12.9 and the unchanged pinned `requirements-xgboost.txt`; a fresh environment can use `uv venv --python 3.12.9 .venv` followed by `uv pip install --python .venv/bin/python -r requirements-xgboost.txt`. Run `uv pip check --python .venv/bin/python` and verify frozen versions before reuse. Download and verify Base v2 using the data instructions below. Restore all nine small selections, then run stages sequentially from the repository root:
+
+```sh
+mkdir -p outputs/baf-study-v1 outputs/baf-improvements-v1 outputs/baf-recall-weighted-v1 outputs/baf-recall-weighted-extension-v1 outputs/baf-chronological-stacking-v1 outputs/baf-calibrated-f2-policy-v1 outputs/baf-focal-loss-v1 outputs/baf-direct-ranking-v1 outputs/baf-xgboost-rank-ensembles-v1
+cp -n reports/baf-study-v1/selection.json outputs/baf-study-v1/selection.json
+cp -n reports/baf-improvements-v1/selection.json outputs/baf-improvements-v1/selection.json
+cp -n reports/baf-recall-weighted-v1/selection.json outputs/baf-recall-weighted-v1/selection.json
+cp -n reports/baf-recall-weighted-extension-v1/selection.json outputs/baf-recall-weighted-extension-v1/selection.json
+cp -n reports/baf-chronological-stacking-v1/selection.json outputs/baf-chronological-stacking-v1/selection.json
+cp -n reports/baf-calibrated-f2-policy-v1/selection.json outputs/baf-calibrated-f2-policy-v1/selection.json
+cp -n reports/baf-focal-loss-v1/selection.json outputs/baf-focal-loss-v1/selection.json
+cp -n reports/baf-direct-ranking-v1/selection.json outputs/baf-direct-ranking-v1/selection.json
+cp -n reports/baf-xgboost-rank-ensembles-v1/selection.json outputs/baf-xgboost-rank-ensembles-v1/selection.json
+.venv/bin/python -m pytest -q
+.venv/bin/python -m baf.score_fusion_study validate
+.venv/bin/python -m baf.score_fusion_study freeze
+.venv/bin/python -m baf.score_fusion_study exploratory
+.venv/bin/python -m baf.score_fusion_report
+```
+
+Wait for every stage to finish. Verify complete existing model/prediction caches before copying; reject partial or incompatible ones. Wholly absent caches are reproduced only in ignored `outputs/baf-xgboost-score-fusion-v1/` under exact frozen recipes, without rerunning older studies' fitting commands. Existing reference development predictions have no saved models: separately counted exact-recipe verification fits must match those predictions and save the missing models. A wholly absent reference prediction/model pair is fitted together once. Actual fits, reuses, warnings, timings and provenance remain recorded.
+
+Validation produces 183 strategy/month results, 366 forward operating rows, 183 macro and pooled summaries, 866 factor-matched contrasts, 183 score diagnostics and 18 clipping rows. Models use earlier training months; month-5 policies use month 4 and month-6 policies use months 4/5 or latest month 5. Composition uses no labels or batch ranks. The learned rank-fraction policy optimizes F2 and is not a 1% quota. Selection uses actual macro F2, then recall/precision and deterministic IDs. Model seed is 2026, threads six, bootstrap seed 1027 with 500 paired fixed-decision draws.
+
+Freeze includes the actual winner, its pooled-policy control, both original pooled references and predetermined member/representation controls. Only their dependencies may reach already-consumed month 7. Never sweep losing settings or compute a hindsight cutoff. Exact source/config/software is required to resume; frozen selections cannot be overwritten. Checked small exports go to `reports/baf-xgboost-score-fusion-v1/`. Conditional uncertainty excludes adaptive search/selection, retraining, temporal/generative uncertainty and multiplicity correction. Consumed month 7 cannot provide independent confirmation, and completing a search alone does not achieve the performance goal. The [verification record](reports/baf-xgboost-score-fusion-v1/verification.md) covers all 366 operating rows, 866 contrasts, 165 derived dependency records, 28 interval summaries and all 1,500 paired draws. The figure was inspected. The run reused 12 development XGBoost models and nine reference predictions, fitted nine absent reference models for verification, and needed one final XGBoost fit plus two final reference reuses. All ten studies are now frozen; further tuning requires another study identity.
+
+### Download the starting dataset
+
+The first-study dataset is `data/raw/baf/Base.csv`, from [Kaggle dataset version 2](https://www.kaggle.com/datasets/sgpjesus/bank-account-fraud-dataset-neurips-2022/versions/2). Version 2's release notes state that it removes the relationship between the row index and label. The Base file was verified on 10 October 2026: **1,000,000 rows, 32 columns including `fraud_bool` and `month`, months 0-7, 213,427,735 bytes**.
+
+From the repository root, reproduce the download using `curl` and `unzip` (no Python packages or Kaggle credentials were required):
+
+```sh
+mkdir -p data/raw/baf
+curl --fail --location --retry 3 \
+  'https://www.kaggle.com/api/v1/datasets/download/sgpjesus/bank-account-fraud-dataset-neurips-2022/Base.csv?datasetVersionNumber=2' \
+  --output data/raw/baf/Base.csv.zip
+unzip -n data/raw/baf/Base.csv.zip -d data/raw/baf
+shasum -a 256 data/raw/baf/Base.csv
+```
+
+Expected CSV SHA-256:
+
+```text
+7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809
+```
+
+The local `data/raw/baf/download-manifest.json` records the retrieval time, source/version, archive and CSV checksums, column names and monthly row counts. All downloaded files remain ignored by git. The other five BAF variants have not been downloaded.
+
+### Additive spline-logistic attempt (stopped at convergence gate)
+
+The separate [protocol](docs/spline-logistic-protocol.md) and `configs/spline-logistic.json` declare twelve paired spline/linear logistic recipes, three existing references and actual F2 beta=2 without a review quota or precision floor. This implementation passed 192 methodological tests and a separate 24-fit numerical preflight, but the full run stopped after nine successful fits when weighted spline C=0.1 reached the declared 2,000-iteration L-BFGS limit. No complete chronological comparison, selection or month-7 access occurred. See [stopped findings](reports/baf-spline-logistic-v1/findings.md); no performance gain is claimed. Models and operating rules learn only from earlier months. Month 7 remains consumed.
+
+Use Python 3.12.9 and the unchanged pinned environment: `uv venv --python 3.12.9 .venv`, then `uv pip install --python .venv/bin/python -r requirements-xgboost.txt` and `uv pip check --python .venv/bin/python`. Download Base v2 using the data-access instructions in this README and check its declared checksum. The commands below reproduce the stopped attempt under its original recipe. They are not an instruction to bypass the failed gate. Restore the ten small frozen selections and run stages sequentially from the repository root:
+
+```bash
+mkdir -p outputs/baf-calibrated-f2-policy-v1 outputs/baf-chronological-stacking-v1 outputs/baf-direct-ranking-v1 outputs/baf-focal-loss-v1 outputs/baf-improvements-v1 outputs/baf-recall-weighted-extension-v1 outputs/baf-recall-weighted-v1 outputs/baf-study-v1 outputs/baf-xgboost-rank-ensembles-v1 outputs/baf-xgboost-score-fusion-v1
+cp -n reports/baf-calibrated-f2-policy-v1/selection.json outputs/baf-calibrated-f2-policy-v1/selection.json
+cp -n reports/baf-chronological-stacking-v1/selection.json outputs/baf-chronological-stacking-v1/selection.json
+cp -n reports/baf-direct-ranking-v1/selection.json outputs/baf-direct-ranking-v1/selection.json
+cp -n reports/baf-focal-loss-v1/selection.json outputs/baf-focal-loss-v1/selection.json
+cp -n reports/baf-improvements-v1/selection.json outputs/baf-improvements-v1/selection.json
+cp -n reports/baf-recall-weighted-extension-v1/selection.json outputs/baf-recall-weighted-extension-v1/selection.json
+cp -n reports/baf-recall-weighted-v1/selection.json outputs/baf-recall-weighted-v1/selection.json
+cp -n reports/baf-study-v1/selection.json outputs/baf-study-v1/selection.json
+cp -n reports/baf-xgboost-rank-ensembles-v1/selection.json outputs/baf-xgboost-rank-ensembles-v1/selection.json
+cp -n reports/baf-xgboost-score-fusion-v1/selection.json outputs/baf-xgboost-score-fusion-v1/selection.json
+.venv/bin/python -m baf.spline_study miniature
+.venv/bin/python -m baf.spline_study validate
+.venv/bin/python -m baf.spline_study freeze
+.venv/bin/python -m baf.spline_study exploratory
+.venv/bin/python -m baf.spline_report
+```
+
+Development declares 36 new full fits, nine verified reference model/prediction reuses and three fixed fusion scores. With no old caches, exact frozen recipes are reproduced only in the new destination; partial or incompatible caches are rejected. Outputs use ignored `outputs/baf-spline-logistic-v1/` and tracked `reports/baf-spline-logistic-v1/`. Twelve new plus three reference strategies produce 45 selectable prediction records and three extra dependency records, 90 forward policy rows, 45 macro/pooled summaries and 237 contrasts. Model seed is 2026, thread count six and bootstrap seed 1027 with 500 paired fixed-decision draws per month.
+
+The miniature gate checks convergence, deterministic repeats and saved inference on a synthetic fixture, separately from BAF fits. Full-data convergence warnings or invalid inference stop execution before selection; do not silently change iterations, C, solver or representation. Failures are retained under the new output root and cannot be treated as a completed search. Any protocol remedy needs a separate study identity. Freeze is immutable; only the predetermined five/seven roles can reach consumed month 7. Never delete an existing selection to rerun tuning.
+
+### Newton spline-logistic successor (complete)
+
+The separate [protocol](docs/newton-spline-logistic-protocol.md), `configs/newton-spline-logistic.json` and [OpenSpec tasks](openspec/changes/archive/2026-10-11-test-newton-spline-logistic-f2/tasks.md) retain twelve paired representation/C/weight recipes, three references and chronological F2 without quota or precision floor. All 236 methodological tests, the separate 24-fit numerical preflight and both complete development audits passed. The run completed 36 new development fits, nine reference base reuses, three fixed fusions, 90 operating rows and 237 contrasts. Splines improved all 18 matched linear comparisons, but the best new policy scored 0.322264 against the existing fusion's 0.328907. The existing fusion/pooled rule remained selected. Its five frozen roles transferred with three reference base reuses and zero new model fits; consumed F2 remains 0.372694, below unweighted 0.376884. The performance goal remains unachieved. The [findings](reports/baf-newton-spline-logistic-v1/findings.md) and [verification](reports/baf-newton-spline-logistic-v1/verification.md) contain the completed uncertainty, figures and checks. All 1,500 paired draws were independently reconstructed, both figures were inspected and 35 report hashes were checked. The finite study is complete; no new F2 gain is claimed.
+
+The first audit stopped on a Pandas index-comparison bug before selection. Corrected analysis entry points preserve original fit code/models/scores and 35-source fit fingerprints, with separate 37-source analysis fingerprints and an explicit repair/access history. The stopped L-BFGS attempt and all ten earlier completed studies remain intact. Preserve this eleventh completed study's original fit and corrected analysis identities, configuration, software, models, selections and report evidence; further tuning requires a separate study. These are analyst-selected settings; consumed month 7 supplies no independent confirmation.
+
+Use Python 3.12.9 and the unchanged environment/data setup above. From the repository root restore the ten small selections, then run stages sequentially; do not run freeze unless validate has completed successfully:
+
+```bash
+mkdir -p outputs/baf-calibrated-f2-policy-v1 outputs/baf-chronological-stacking-v1 outputs/baf-direct-ranking-v1 outputs/baf-focal-loss-v1 outputs/baf-improvements-v1 outputs/baf-recall-weighted-extension-v1 outputs/baf-recall-weighted-v1 outputs/baf-study-v1 outputs/baf-xgboost-rank-ensembles-v1 outputs/baf-xgboost-score-fusion-v1
+cp -n reports/baf-calibrated-f2-policy-v1/selection.json outputs/baf-calibrated-f2-policy-v1/selection.json
+cp -n reports/baf-chronological-stacking-v1/selection.json outputs/baf-chronological-stacking-v1/selection.json
+cp -n reports/baf-direct-ranking-v1/selection.json outputs/baf-direct-ranking-v1/selection.json
+cp -n reports/baf-focal-loss-v1/selection.json outputs/baf-focal-loss-v1/selection.json
+cp -n reports/baf-improvements-v1/selection.json outputs/baf-improvements-v1/selection.json
+cp -n reports/baf-recall-weighted-extension-v1/selection.json outputs/baf-recall-weighted-extension-v1/selection.json
+cp -n reports/baf-recall-weighted-v1/selection.json outputs/baf-recall-weighted-v1/selection.json
+cp -n reports/baf-study-v1/selection.json outputs/baf-study-v1/selection.json
+cp -n reports/baf-xgboost-rank-ensembles-v1/selection.json outputs/baf-xgboost-rank-ensembles-v1/selection.json
+cp -n reports/baf-xgboost-score-fusion-v1/selection.json outputs/baf-xgboost-score-fusion-v1/selection.json
+.venv/bin/python -m baf.newton_spline_audit miniature
+.venv/bin/python -m baf.newton_spline_audit validate
+.venv/bin/python -m baf.newton_spline_audit freeze
+.venv/bin/python -m baf.newton_spline_audit exploratory
+.venv/bin/python -m baf.newton_spline_audit_report
+```
+
+Outputs use ignored `outputs/baf-newton-spline-logistic-v1/` and tracked `reports/baf-newton-spline-logistic-v1/`. Development declares 36 new fits, nine checked reference base results and three derived fusions: 48 total scores, 45 selectable results, 90 forward rows and 237 matched contrasts. All original predictors, earlier-only preprocessing and policies are retained. The fixed representation changes smooth columns to additive cubic bases with observed-training knots, without interactions. Model seed is 2026, threads six, bootstrap seed 1027 and 500 paired fixed-decision draws per evaluation month.
+
+Wholly absent required reference caches are reproduced under their original frozen recipes only in this destination; partial/incompatible required caches are rejected. Ignored stopped L-BFGS model caches are optional: verify any available artifacts against the recorded stopped hashes, snapshot their presence and retain them. A fresh clone need not rerun the failed attempt; unavailable old-solver training-objective diagnostics are disclosed. They do not enter F2 selection. New predictions always require genuine Newton fits.
+
+A full-data gate failure retains numerical evidence and stops completion without changing the recipe. A successful development run freezes only the predetermined five/seven transfer roles; month 7 remains already consumed and cannot provide independent confirmation. Completing this study alone does not achieve the broader performance goal. All settings remain analyst-selected and open to group review.
+
+### Spline-score fusion study
+
+The separate [protocol](docs/spline-score-fusion-protocol.md) and [configuration](configs/spline-score-fusion.json) test whether four frozen C=0.1 Newton scores complement the existing tree fusion. The [findings](reports/baf-spline-score-fusion-v1/findings.md) and [verification](reports/baf-spline-score-fusion-v1/verification.md) record 21 verified development base reuses, zero development fits, 51 derived scores, 138 forward rows and 433 contrasts. The 23-strategy grid tests Newton weights 0.1/0.25/0.5. A 25% unweighted-spline blend with the latest-month policy leads development narrowly (F2 0.329010 versus fusion 0.328907), with a conditional interval spanning zero. It fails consumed transfer (0.370248 versus fusion 0.372694 and unweighted 0.376884). The goal remains unachieved. Ten frozen roles used three Newton fits and three reference reuses. All 1,500 paired draws, 85 score artifacts and 433 independent contrast factors were checked; both figure panels were inspected. The full suite passed 288 tests. Transform only Newton scores with the clipped logit: the existing fusion is already a margin. F2 retains beta=2 without a quota or precision floor. Month 7 remains consumed.
+
+Use Python 3.12.9 and the unchanged pinned requirements in `requirements.txt`, `requirements-improvements.txt` and `requirements-xgboost.txt`; the existing environment suffices. Download Base v2 to `data/raw/baf/Base.csv` and check SHA-256 `7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809`. Model seed 2026, six threads, bootstrap seed 1027, 500 paired fixed-decision draws per month. On a fresh clone restore these eleven small frozen selections before running the stages in order:
+
+```bash
+mkdir -p outputs/baf-calibrated-f2-policy-v1 outputs/baf-chronological-stacking-v1 outputs/baf-direct-ranking-v1 outputs/baf-focal-loss-v1 outputs/baf-improvements-v1 outputs/baf-recall-weighted-extension-v1 outputs/baf-recall-weighted-v1 outputs/baf-study-v1 outputs/baf-xgboost-rank-ensembles-v1 outputs/baf-xgboost-score-fusion-v1 outputs/baf-newton-spline-logistic-v1
+cp -n reports/baf-calibrated-f2-policy-v1/selection.json outputs/baf-calibrated-f2-policy-v1/selection.json
+cp -n reports/baf-chronological-stacking-v1/selection.json outputs/baf-chronological-stacking-v1/selection.json
+cp -n reports/baf-direct-ranking-v1/selection.json outputs/baf-direct-ranking-v1/selection.json
+cp -n reports/baf-focal-loss-v1/selection.json outputs/baf-focal-loss-v1/selection.json
+cp -n reports/baf-improvements-v1/selection.json outputs/baf-improvements-v1/selection.json
+cp -n reports/baf-recall-weighted-extension-v1/selection.json outputs/baf-recall-weighted-extension-v1/selection.json
+cp -n reports/baf-recall-weighted-v1/selection.json outputs/baf-recall-weighted-v1/selection.json
+cp -n reports/baf-study-v1/selection.json outputs/baf-study-v1/selection.json
+cp -n reports/baf-xgboost-rank-ensembles-v1/selection.json outputs/baf-xgboost-rank-ensembles-v1/selection.json
+cp -n reports/baf-xgboost-score-fusion-v1/selection.json outputs/baf-xgboost-score-fusion-v1/selection.json
+cp -n reports/baf-newton-spline-logistic-v1/selection.json outputs/baf-newton-spline-logistic-v1/selection.json
+.venv/bin/python -m baf.spline_fusion_study initialize
+.venv/bin/python -m pytest -q tests/test_spline_fusion.py
+.venv/bin/python -m baf.spline_fusion_study validate
+.venv/bin/python -m baf.spline_fusion_report audit
+.venv/bin/python -m baf.spline_fusion_study freeze
+.venv/bin/python -m baf.spline_fusion_study exploratory
+PYTHONPATH=. .venv/bin/python reports/baf-spline-score-fusion-v1/independent_score_audit.py
+.venv/bin/python -m baf.spline_fusion_report report
+```
+
+Wait for every stage to finish. Existing required caches are verified individually, including saved inference and Newton objective/gradient/fallback evidence. Local development verified twelve Newton and nine tree base reuses and zero new fits. Wholly absent required caches reproduce only their exact frozen recipes in the new destination, up to twelve Newton and nine tree development fits; reject partial/incompatible caches. Optional historical bulk outputs are not required on fresh clones, but their initial presence is captured and available files must remain unchanged. Never rerun unrelated old full-grid loaders or the stopped L-BFGS attempt. Composition fixtures fit zero models. Two tiny reference-cache recipe fixtures were tested separately (two fits per targeted/full-suite run, four test-only fits total), outside the full-study fit counts.
+
+New destinations are ignored `outputs/baf-spline-score-fusion-v1/` and exported `reports/baf-spline-score-fusion-v1/`. The independent audit checked all 72 development score artifacts and 433 contrasts before freeze; the supplementary auditor checked all 85 development/transfer scores, including 15 coefficient-to-sigmoid reconstructions, and all contrast factor sets. Only the predeclared five/seven/eight/ten winner-type roles may transfer, with deduplicated work and at most three new Newton fits plus required exact reference bases. Freeze/access records remain immutable. Findings and conditional intervals must disclose adaptive source/C choice and repeated search; the consumed month cannot restore independent confirmation. Preserve all eleven completed identities and the stopped attempt. Settings remain analyst-selected.
+
+All 13 tasks are verified and [archived](openspec/changes/archive/2026-10-11-test-spline-score-fusion/tasks.md); the [main specification](openspec/specs/baf-spline-score-fusion-study/spec.md) is synchronized. Preserve all twelve completed study identities and the stopped L-BFGS attempt; further tuning requires a separate study.
+
+### Fixed spline interactions
+
+The [proposal](openspec/changes/archive/2026-10-11-test-spline-interactions-f2/proposal.md), [specification](openspec/changes/archive/2026-10-11-test-spline-interactions-f2/specs/baf-spline-interaction-study/spec.md), [design](openspec/changes/archive/2026-10-11-test-spline-interactions-f2/design.md) and [task checklist](openspec/changes/archive/2026-10-11-test-spline-interactions-f2/tasks.md) track three fixed nonlinear pair surfaces under matched additive/C/weight controls. The [findings](reports/baf-interaction-spline-logistic-v1/findings.md) show no new best policy: best interaction F2 is **0.322976**, below the existing selected fusion's **0.329010**. Seven of twelve interaction-minus-additive contrasts are positive and five are negative. The unchanged selected fusion scores consumed-month F2 **0.370248**, below tree fusion **0.372694** and unweighted **0.376884**. The broader performance goal remains unachieved. F2 keeps beta=2 without review quota or precision floor, and consumed month 7 provides no independent confirmation.
+
+The [configuration](configs/interaction-spline-logistic.json), [prospective protocol](docs/interaction-spline-logistic-protocol.md) and 43-source execution identity remain frozen. Actual execution made twelve new full interaction development fits, 21 verified base reuses, three recent-fusion derived reuses and zero missing-base reproduction fits. Six frozen transfer roles used four base reuses and zero new final fits. Eight miniature fits and ten tiny cache-test fits across recorded invocations are counted separately. All 379 tests pass, including 91 interaction checks; the host resource preflight passed. Independent audits checked all 33 development models, 39 scores, 72 operating rows, 204 contrasts, 1,392 original-feature diagnostics, 72 pair diagnostics, 5,016 coefficients, 1,500 paired draws and 20 interval summaries. Both figures and all 1,323 pair-surface rows were checked. See [development verification](reports/baf-interaction-spline-logistic-v1/development_audit_verification.json), [transfer verification](reports/baf-interaction-spline-logistic-v1/transfer_verification.json) and [reporting verification](reports/baf-interaction-spline-logistic-v1/reporting_verification.json). All fourteen tasks are verified; the final completion audit passed and the change is archived. Earlier implementation/preflight checkpoints in the report directory describe their original execution stages.
+
+Use Python 3.12.9, the unchanged pinned requirements-xgboost.txt environment and the verified Base v2 access/checksum instructions above for a clean reproduction in a fresh checkout. In a fresh clone, restore all twelve small original selection records before initializing; the new config's mandatory hashes identify the exact required files. Reproduce only wholly absent required individual model recipes in the new destination; partial/incompatible sets fail. Do not rerun or modify any historical grid. Keep this completed local run and its published reports intact: do not rerun fitting, audit-writing, freeze or reporting stages over it, because frozen selections reference the exact audit/report identities. The ordered commands below are for a clean reproduction. A retained numerical failure must not be bypassed.
+
+Restore exactly those twelve selections, refusing any changed existing record:
+
+```bash
+.venv/bin/python - <<'PY'
+from pathlib import Path
+import shutil
+from baf.common import read_config, digest
+c = read_config('configs/interaction-spline-logistic.json')
+records = {p: h for p, h in c['preserve_sha256'].items()
+           if p.startswith('outputs/') and p.endswith('/selection.json')}
+assert len(records) == 12
+for name, expected in records.items():
+    target = Path(name)
+    source = Path('reports') / target.relative_to('outputs')
+    assert digest(source) == expected, source
+    if target.exists():
+        assert digest(target) == expected, target
+    else:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+PY
+```
+
+```bash
+.venv/bin/python -m pytest -q tests --junitxml=reports/baf-interaction-spline-logistic-v1/tests.xml > reports/baf-interaction-spline-logistic-v1/tests.log 2>&1
+.venv/bin/python -m baf.interaction_study record_checks
+.venv/bin/python -m baf.interaction_study miniature
+.venv/bin/python -m baf.interaction_study preflight
+.venv/bin/python -m baf.interaction_study prepare_references
+.venv/bin/python -m baf.interaction_study validate
+.venv/bin/python -m baf.interaction_report audit
+.venv/bin/python -m baf.interaction_study freeze
+.venv/bin/python -m baf.interaction_study exploratory
+.venv/bin/python -m baf.interaction_report report
+```
+
+All declared execution, reporting and completion-audit stages have finished. `freeze` requires the complete independent development audit and refuses an existing selection. Transfer uses only the frozen six/nine roles and cache/type-specific fit bounds. Reporting requires the full passing test receipt for the exact frozen source/config/software identity. Independent two-pass moments use the host's actual `longdouble` width (64 bits on this Mac); this does not imply extra precision over float64.
+
+### Fixed interaction-score fusion
+
+The completed finite study ([OpenSpec change](openspec/changes/archive/2026-10-11-test-interaction-score-fusion-f2/proposal.md)), [configuration](configs/interaction-score-fusion.json) and [prospective protocol](docs/interaction-score-fusion-protocol.md) test whether fixed interaction scores complement the existing tree fusion under actual chronological F2. The independently audited development winner is **interaction_blend_spline_c1p0_balanced_a10 / latest**, macro F2 **0.330793**, versus the recent reference **0.329010**. Its policy and fourteen comparison roles were frozen before transfer. On already-consumed month 7, selected F2 is **0.371534**, versus recent fusion **0.370248**, tree fusion **0.372694**, balanced LightGBM **0.364409** and unweighted LightGBM **0.376884**. The selected policy detects **686 frauds**, misses **742** and flags **2,834 legitimate applications** (precision **19.49%**, recall **48.04%**). It fails two required reference comparisons, so the broader goal remains unachieved; the checked [findings](reports/baf-interaction-score-fusion-v1/findings.md) and [interpretation](reports/baf-interaction-score-fusion-v1/verification.md) retain this failure. The development interval against the recent reference includes zero; all four consumed-reference intervals include zero. The finite union has 51 strategies: eight native logistic members, eight clipped-log-odds singles, 32 fixed blends and three tree references. The already-tested 25% additive blend keeps its original ID and reference precedence. Four logistic weights are 0.10/0.25/0.50/0.75; beta remains 2 without a review quota or precision floor. Every original reference, representation, training-weight, C, alpha and policy comparison remains visible.
+
+The 46-source identity extends the frozen interaction study by only three new modules. Preserve all fourteen completed studies and the stopped attempt; this run checks 451 mandatory historical paths and 2,671 available historical output files; do not rerun historical grids. All 33 required development models passed independent saved-model verification and were reused with zero new full development fits. The 156 score artifacts and complete operating/diagnostic tables passed the independent development audit. The completed bounded transfer has eight unique bases and eighteen score dependencies: one new interaction fit, two additive reproductions and five cached base reuses, exactly within the frozen bounds. All **619 tests pass**, including **240 new checks** and all 153 winner/policy cases. The focused and full invocations made **eight new tiny cache-test fits in total**, separate from production and historical tests. The predictor-only resource gate passed for **903,157 rows**, **259 transformed features** and a conservative **15,552,456,976-byte workspace** on a 32-GiB host. See [implementation verification](reports/baf-interaction-score-fusion-v1/implementation_verification.json) and [execution checkpoint](reports/baf-interaction-score-fusion-v1/execution_checkpoint.json); all fourteen tasks are verified, the final completion audit passed and the change is archived. Earlier implementation/preflight checkpoints retain their original stage-specific scope. All 1,500 paired draws and 52 interval summaries passed independent checks, and the three-panel figure was inspected and its plotted values verified.
+
+On a clean reproduction, wholly absent required individual caches use only exact frozen recipes in the new destination; partial/incompatible caches fail. The mandatory exported eight-fit miniature receipt is checked, and ignored historical miniature models are verified if present without being recreated. Four genuine tiny cache-format fits per full test invocation are counted separately from production fits and historical tests. Required new production fitting must pass the actual-host predictor-only preflight for all months-0–6 training rows and the unchanged numerical gates.
+
+Use Python 3.12.9, the unchanged pinned requirements files and the Base v2 data-access/checksum instructions above. On a fresh clone, restore exactly thirteen original selection records, rejecting changed existing records:
+
+```bash
+.venv/bin/python - <<'PY'
+from pathlib import Path
+import shutil
+from baf.common import read_config, digest
+c = read_config('configs/interaction-score-fusion.json')
+records = {p: h for p, h in c['preserve_sha256'].items()
+           if p.startswith('outputs/') and p.endswith('/selection.json')}
+assert len(records) == 13
+for name, expected in records.items():
+    target = Path(name)
+    source = Path('reports') / target.relative_to('outputs')
+    assert digest(source) == expected, source
+    if target.exists():
+        assert digest(target) == expected, target
+    else:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+PY
+```
+
+Run these stages in order only in a clean reproduction destination. After a selection exists, do not overwrite its audit-writing, freeze or reporting stages; frozen records reference their exact hashes. Preserve any failure evidence and do not relax a recipe or gate after outcomes.
+
+```bash
+mkdir -p reports/baf-interaction-score-fusion-v1
+.venv/bin/python -m pytest -q tests --junitxml=reports/baf-interaction-score-fusion-v1/tests.xml > reports/baf-interaction-score-fusion-v1/tests.log 2>&1
+.venv/bin/python -m baf.interaction_fusion_study record_checks
+.venv/bin/python -m baf.interaction_fusion_study preflight
+.venv/bin/python -m baf.interaction_fusion_study prepare_development
+.venv/bin/python -m baf.interaction_fusion_study validate
+.venv/bin/python -m baf.interaction_fusion_study freeze
+.venv/bin/python -m baf.interaction_fusion_study exploratory
+.venv/bin/python -m baf.interaction_fusion_report report
+```
+
+`validate` includes the full independent development audit before freeze. A separate audit command, `.venv/bin/python -m baf.interaction_fusion_report audit_development`, is available only before selection. The complete development outputs are 156 physical scores, 153 selectable scores, 306 forward rows, 153 macro/pooled/score summaries, 1,386 contrasts, 33 clipping rows and 48 diversity rows. Transfer retains only six/eleven/fourteen predetermined winner-type roles with exact deduplicated dependencies and tighter cache-specific fit bounds. Source/score provenance, independent features/inference/gradients, operating decisions/metrics, all paired draws and figure values have passed independent checks. Month 7 remains consumed and cannot provide independent confirmation; completing the finite search alone does not establish improvement.
+
+### Unweighted-reference fusion
+
+The [protocol](docs/unweighted-reference-fusion-protocol.md), [configuration](configs/unweighted-reference-fusion.json), [findings](reports/baf-unweighted-reference-fusion-v1/findings.md) and [matched effects](reports/baf-unweighted-reference-fusion-v1/matched-effects.md) describe the finite 40-strategy study. **All 14 tasks are verified; the completed change is archived at `openspec/changes/archive/2026-10-12-test-unweighted-reference-fusion-f2/`.** It found no new development gain: the existing latest-policy anchor remains selected at macro F2 **0.3307932537**. Its consumed-month F2 **0.3715337955** trails tree fusion **0.3726941227** and unweighted LightGBM **0.3768844221**. The five-reference acceptance criterion fails and the broader performance goal remains active. Month 7 is already consumed and supplies no independent confirmation.
+
+Development used 18 individually checked base reuses, zero new full fits, 15 historical derived-score reuses and 99 new calculations, producing 132 physical scores, 120 selectable scores, 240 forward rows and 1199 matched contrasts. Independent reconstruction checked every source statistic/inference/gradient, score, earlier-only policy, metric, diagnostic and factor. Seven frozen roles transferred with five base reuses, eight scores and zero new full fits. All 1500 paired draws and 24 interval summaries were reconstructed. The six-panel figure was visually inspected and its 120 operating points/twelve curves independently checked; regeneration was identical. The selected-versus-latest difference is exactly zero; all five consumed-reference intervals include zero.
+
+The 49-source/config/software/protocol/selection/access identities are frozen. All 529 mandatory historical paths, fourteen original/exported selections and 3092 available historical ignored files remain unchanged, alongside fourteen completed predecessors and the stopped attempt. A first source-format preparation attempt stopped after six month-4 base reuse checks, before derived-score persistence or operating evaluation; its source/config/gate/artifact bytes remain checked under the new output root. The adapter repair changed no recipe or gate. The original 922-test selection source/receipt is preserved separately from later test-only archive/cache portability fixtures. The current complete suite and clean-copy suite each passed 941 tests (322 current-study checks); twenty-eight new tiny cache-test fits across seven invocations, including a failed legacy-fixture clean run, are recorded separately from historical tests. No new production miniature fits were required; the source eight-fit gate remains checked. See [implementation history](reports/baf-unweighted-reference-fusion-v1/implementation-history.md), [test portability](reports/baf-unweighted-reference-fusion-v1/reproduction-verification.md) and their receipts.
+
+Use Python 3.12.9 and the unchanged `requirements.txt`, `requirements-improvements.txt` and `requirements-xgboost.txt`; all 27 pins were verified. Obtain Base v2 using the data-access instructions above, with SHA256 `7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809`. Model seed is 2026, numerical threads six, bootstrap seed 1027 with 500 paired draws per month. Required individual caches reproduce only exact frozen recipes when wholly absent; partial or changed sets fail. No unrelated historical grid is required. Actual-host predictor-only preflight checked 903157 rows/259 features and the unchanged 70%-of-host-RAM allowance.
+
+Preserve existing frozen audit/selection/report evidence. To reproduce, work in a disposable filesystem copy excluding ignored outputs, then move that copy's tracked report export aside before running commands. The original checkout and report remain untouched. The following uses the already-verified environment/data; a new environment instead needs the pinned setup above:
+
+```bash
+set -e
+baf_original_root="$PWD"
+baf_replay_root="$(mktemp -d "${TMPDIR:-/tmp}/baf-fusion-replay.XXXXXX")"
+rsync -a --exclude=.git --exclude=.venv --exclude=data --exclude=outputs --exclude=.pytest_cache --exclude=__pycache__ ./ "$baf_replay_root/"
+ln -s "$baf_original_root/.venv" "$baf_replay_root/.venv"
+mkdir -p "$baf_replay_root/data/raw/baf" "$baf_replay_root/replay-evidence"
+ln -s "$baf_original_root/data/raw/baf/Base.csv" "$baf_replay_root/data/raw/baf/Base.csv"
+mv "$baf_replay_root/reports/baf-unweighted-reference-fusion-v1" "$baf_replay_root/replay-evidence/"
+cd "$baf_replay_root"
+```
+
+Restore exactly fourteen ancestor selections from their checked exports; this rejects changed existing records before copying missing ones:
+
+```bash
+.venv/bin/python - <<'PYTHON'
+from pathlib import Path
+import shutil
+from baf.common import read_config, digest
+c = read_config('configs/unweighted-reference-fusion.json')
+pairs = [(Path(p), Path(p.replace('outputs/', 'reports/', 1)), h)
+         for p, h in c['preserve_sha256'].items()
+         if p.startswith('outputs/') and p.endswith('/selection.json')]
+assert len(pairs) == 14
+for original, exported, expected in pairs:
+    assert exported.is_file() and digest(exported) == expected, str(exported)
+    if original.exists():
+        assert digest(original) == expected, str(original)
+for original, exported, expected in pairs:
+    if not original.exists():
+        original.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(exported, original)
+PYTHON
+```
+
+Then run the ordered stages. `validate` includes this grid's complete independent development audit before freeze. The full methodological suite includes four genuine tiny absent-cache formats and all 120 winner/policy cases; source miniature history is verified without production miniature refitting.
+
+```bash
+set -e
+.venv/bin/python -m pytest -q --junitxml=reports/baf-unweighted-reference-fusion-v1/tests.xml
+.venv/bin/python -m baf.unweighted_fusion_study record_checks
+.venv/bin/python -m baf.unweighted_fusion_study preflight
+.venv/bin/python -m baf.unweighted_fusion_study prepare_development
+.venv/bin/python -m baf.unweighted_fusion_study validate
+.venv/bin/python -m baf.unweighted_fusion_study freeze
+.venv/bin/python -m baf.unweighted_fusion_study exploratory
+.venv/bin/python -m baf.unweighted_fusion_report report
+```
+
+The exact restore block, data/pins and complete 941-test suite were checked in a separate copy with zero prior models or prediction caches. This is not a claim that every full-size model was retrained in that copy; four source formats were genuinely reproduced by tiny tests. Fresh production reproduction can need 18 development fits and, for the frozen winner, five final fits; numerical/resource failures retain evidence and stop completion. Transfer remains bounded to predetermined roles with deduplicated work and tighter actual cache/type bounds. Further model/policy tuning requires a new study. Settings remain analyst-selected and open to group review; F2 beta=2 has no review quota or precision floor.
+
+### Bagged LightGBM seed study
+
+The separate [protocol](docs/bagged-lightgbm-seeds-protocol.md), [configuration](configs/bagged-lightgbm-seeds.json) and [OpenSpec tasks](openspec/changes/archive/2026-10-12-test-bagged-lightgbm-seed-ensembles-f2/tasks.md) define effective uniform row sampling in the original balanced/unweighted LightGBM pipeline. It uses fraction 0.8, frequency 1 and bagging seeds 17/29/43, retaining the original 200-round/15-leaf settings and training-only preprocessing. Each weighting contributes three individual models and equal probability/logit means. These settings are analyst-selected, not group-approved.
+
+All 14 tasks are verified, the seven requirements are synchronized to main specs, and the change is archived at `openspec/changes/archive/2026-10-12-test-bagged-lightgbm-seed-ensembles-f2/`. The best new strategy, `bagged_unweighted_s43 / rank_fraction`, scored macro F2 **0.327885**, below the existing latest-policy winner's **0.330793**. The winner remains unchanged, with consumed F2 **0.371534**, recall **48.04%** and precision **19.49%**, versus unweighted-reference F2 **0.376884**. The five-reference improvement criterion fails and the broader goal remains active. See [findings](reports/baf-bagged-lightgbm-seeds-v1/findings.md), [complete matched effects](reports/baf-bagged-lightgbm-seeds-v1/matched-effects.md) and [execution history](reports/baf-bagged-lightgbm-seeds-v1/execution-history.md).
+
+Development made 18 new full fits and 15 exact current-parent reference reuses, with zero reference reproductions. All new fits used 200 rounds without warnings. Seven frozen roles transferred using five reference reuses/eight scores and zero new fits; no losing-grid bagged model was evaluated on month 7. All 1500 paired draws and 24 interval summaries were independently reconstructed. The inspected three-panel figure contains 45 operating points, four matched curves and four unbagged reference lines; values and pixel-identical regeneration were verified. Aggregation improves on individual seeds in 26/36 matched comparisons, but no strategy beats the strongest existing development reference.
+
+The primary and disposable-copy methodological suites each passed 1070 tests (129 current-study cases). Six tiny current-study cache-format fits across focused/full/clean invocations are recorded separately from historical test-module fits. The separate nine-fit synthetic gate passed active/inactive sampling, repeatability, diversity and serialization. Actual-host predictor-only preflight covered 903157 eligible rows / 157 maximum required features, with workspace 11,130,259,216 bytes below 70% of host RAM. The exact 15-selection restore/rejection block, 27 dependency pins, dataset checksum and no-historical-cache test/receipt commands were checked in the disposable copy. This does not claim every full-size production recipe was retrained there.
+
+The finite declaration contains 18 new development fits, 15 individually prepared reference-base results, 54 physical/45 selectable scores, 90 forward operating rows, 342 matched contrasts, 18 seed-diversity rows and 36 decision-overlap rows. Five fixed operating references remain visible. Selection uses actual macro month-5/6 positive-class F2, beta=2, without a review quota or precision floor. Month 7 remains already consumed and cannot provide independent confirmation. The broader improvement goal remains active.
+
+The 52-source/config/software/protocol identity and 634 mandatory historical paths are isolated from all fifteen completed studies and the stopped attempt. Fifteen original/exported selection pairs and 3522 available historical ignored files are preserved. Required references use current-parent-first cache precedence and only exact individual recipes when wholly absent; partial or changed caches fail. No unrelated historical grid is required. New caches/reports use `outputs/baf-bagged-lightgbm-seeds-v1/` and `reports/baf-bagged-lightgbm-seeds-v1/`.
+
+For reproduction use Python 3.12.9 and unchanged `requirements.txt`, `requirements-improvements.txt` and `requirements-xgboost.txt` (27 dependency pins). Obtain Base v2 with the data-access instructions above, verifying SHA256 `7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809`. Model seed is 2026, threads six, bootstrap seed 1027 and 500 paired fixed-decision draws per month. Keep existing frozen evidence intact; run in a disposable copy excluding ignored outputs and move only that copy's current-study report export aside. The following links the already-verified environment and read-only dataset; a new environment instead uses the pinned installation above:
+
+```bash
+set -e
+baf_original_root="$PWD"
+baf_replay_root="$(mktemp -d "${TMPDIR:-/tmp}/baf-bagged-replay.XXXXXX")"
+rsync -a --exclude=.git --exclude=.venv --exclude=data --exclude=outputs --exclude=.pytest_cache --exclude=__pycache__ ./ "$baf_replay_root/"
+ln -s "$baf_original_root/.venv" "$baf_replay_root/.venv"
+mkdir -p "$baf_replay_root/data/raw/baf" "$baf_replay_root/replay-evidence"
+ln -s "$baf_original_root/data/raw/baf/Base.csv" "$baf_replay_root/data/raw/baf/Base.csv"
+mv "$baf_replay_root/reports/baf-bagged-lightgbm-seeds-v1" "$baf_replay_root/replay-evidence/"
+mkdir -p "$baf_replay_root/reports/baf-bagged-lightgbm-seeds-v1"
+cd "$baf_replay_root"
+```
+
+Restore exactly fifteen ancestor selections; reject changed records before copying missing ones:
+
+```bash
+.venv/bin/python - <<'PYTHON'
+from pathlib import Path
+import shutil
+from baf.common import read_config, digest
+c = read_config('configs/bagged-lightgbm-seeds.json')
+pairs = [(Path(p), Path(p.replace('outputs/', 'reports/', 1)), h)
+         for p, h in c['preserve_sha256'].items()
+         if p.startswith('outputs/') and p.endswith('/selection.json')]
+assert len(pairs) == 15
+for original, exported, expected in pairs:
+    assert exported.is_file() and digest(exported) == expected, str(exported)
+    if original.exists():
+        assert digest(original) == expected, str(original)
+for original, exported, expected in pairs:
+    if not original.exists():
+        original.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(exported, original)
+PYTHON
+```
+
+Run stages sequentially. `validate` includes the complete grid-specific independent development audit before freeze; the explicit `audit_development` entry point is available before selection. The methodological suite verifies all 45 winner/policy cases and includes two genuine tiny new-format fits per full invocation. `preflight` checks preserved source-miniature ancestry without rerunning old gates; `miniature` runs nine new synthetic fits.
+
+```bash
+set -e
+.venv/bin/python -m pytest -q tests --junitxml=reports/baf-bagged-lightgbm-seeds-v1/tests.xml
+.venv/bin/python -m baf.bagged_boosting record_checks
+.venv/bin/python -m baf.bagged_boosting preflight
+.venv/bin/python -m baf.bagged_boosting miniature
+.venv/bin/python -m baf.bagged_boosting prepare_development
+.venv/bin/python -m baf.bagged_boosting validate
+.venv/bin/python -m baf.bagged_boosting freeze
+.venv/bin/python -m baf.bagged_boosting exploratory
+.venv/bin/python -m baf.bagged_boosting_report report
+```
+
+Wholly absent references can require 15 development reproductions in addition to 18 new bagged fits. Frozen transfer permits seven reference-winner or fourteen new-winner roles, with at most eleven bases/seventeen scores/six new bagged fits and tighter cache/type-specific bounds. Missing final references can require two additive and three tree reproductions, counted separately. Numerical/resource failures retain evidence and stop completion. Conditional row intervals exclude training-seed/retraining, repeated search/selection, temporal/generative uncertainty and multiplicity correction. Further model or policy tuning requires a separate study.
+
+
+### Bagged-ensemble additions to the anchor (complete)
+
+The separate [proposal](openspec/changes/archive/2026-10-12-test-bagged-anchor-fusion-f2/proposal.md), [design](openspec/changes/archive/2026-10-12-test-bagged-anchor-fusion-f2/design.md), delta specification and [tasks](openspec/changes/archive/2026-10-12-test-bagged-anchor-fusion-f2/tasks.md) document the completed finite experiment. It keeps every source model fixed and adds balanced/unweighted seed ensembles to the existing anchor at weights 0.1/0.25/0.5, comparing logit of the probability mean with mean of logits. The prospective grid contains 37 strategies, 120 physical development scores, 222 forward operating rows and 947 matched comparisons. Five fixed references and all constituent/representation/weighting/aggregation controls remain visible.
+
+The fixed bagged-anchor experiment has completed its scientific work and verification. Both primary preliminary and exact-source no-prior-cache suites passed **1501 tests** (431 current-study). Development reused all 33 saved models (18 bagged, 15 references), reused 21 derived scores and calculated 66 new ones, with zero new full development fits. Independent auditing reconstructed 120 physical scores, 222 forward operating rows, 947 matched contrasts and every diagnostic before selection.
+
+The selected **bagged_anchor_balanced_logit_a25 / pooled** scores macro development F2 **0.330880962**, versus the previous strongest **0.330793254**: a tiny +0.000087708 difference. Its frozen 26 roles used 11 unique bases/27 scores on consumed month 7, with six new bagged fits, five reference reuses and zero additive/tree reproductions. Consumed F2 is **0.372240**, recall **49.58%**, precision **18.64%** and workload **3.92%**. It trails tree fusion **0.372694** and unweighted **0.376884**, so the five-reference improvement criterion fails and the broader goal remains active. See [findings](reports/baf-bagged-anchor-fusion-v1/findings.md), [matched effects](reports/baf-bagged-anchor-fusion-v1/matched_effect_summary.csv) and [execution verification](reports/baf-bagged-anchor-fusion-v1/execution_verification.json).
+
+All 1500 paired draws and 75 development/25 consumed intervals were independently reconstructed. The figure's 111 operating points, twelve matched curves, canonical endpoints and legends passed value and pixel-identical regeneration checks. Thirty cumulative current-study tiny fits (18 prior checkpoint, 6 primary preliminary, 6 clean-copy) are separate from historical-module tests and the six full-size transfer fits. The accepted execution receipt comes from the clean copy at the identical source/config/software identity; its ledger records six current-study plus 69 historical-module fits. Earlier fixtures, retries and the supplementary check corrected to use the actual 27 scores rather than the across-case maximum of 28 are retained without changing scientific sources.
+
+The 55-source/config/software/protocol/selection/access identities are frozen. Actual-host predictor-only preflight passed for 903157 rows/157 maximum features and an 11,130,259,216-byte workspace bound on this 32-GiB host. Preserved nine-fit sampling and eight-fit ancestry evidence passed, including present optional files, with zero new production miniature fits. Sixteen exact selection restores/rejection, the Base checksum, Python 3.12.9 and 27 pins passed in the disposable copy with no prior model/prediction caches. The clean-copy run covers setup, restoration and tiny-format integration; production fits ran in the primary destination. Preserve all sixteen completed predecessors, separate Newton identities, 735 mandatory paths, 3732 historical files and the stopped attempt. Original implementation-status.md remains a 3/14 historical checkpoint; see the later verified outputs for current status. All 14 tasks, seven requirements and eleven scenarios are verified; requirements are synchronized and the change is archived. This is the seventeenth completed study. F2 beta=2 has no quota or precision floor; settings are analyst-selected and month 7 remains consumed.
+
+For reproduction use Python 3.12.9 and the same 27 dependency pins in the three requirements files. Verify Base v2 SHA256 `7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809` using the data-access instructions above. Model seed is 2026, threads six, bootstrap seed 1027 and 500 paired fixed-decision draws per month. Keep existing frozen evidence intact. Set up a disposable copy without ignored outputs; the following links the pinned environment and read-only dataset. A new environment instead uses the pinned installation above:
+
+```bash
+set -e
+baf_original_root="$PWD"
+baf_replay_root="$(mktemp -d "${TMPDIR:-/tmp}/baf-bagged-anchor-replay.XXXXXX")"
+rsync -a --exclude=.git --exclude=.venv --exclude=data --exclude=outputs --exclude=.pytest_cache --exclude=__pycache__ ./ "$baf_replay_root/"
+ln -s "$baf_original_root/.venv" "$baf_replay_root/.venv"
+mkdir -p "$baf_replay_root/data/raw/baf" "$baf_replay_root/replay-evidence"
+ln -s "$baf_original_root/data/raw/baf/Base.csv" "$baf_replay_root/data/raw/baf/Base.csv"
+mv "$baf_replay_root/reports/baf-bagged-anchor-fusion-v1" "$baf_replay_root/replay-evidence/"
+mkdir -p "$baf_replay_root/reports/baf-bagged-anchor-fusion-v1"
+cd "$baf_replay_root"
+```
+
+Restore exactly sixteen ancestor selections, rejecting changed records before copying missing ones:
+
+```bash
+.venv/bin/python - <<'PYTHON'
+from pathlib import Path
+import shutil
+from baf.common import read_config, digest
+c = read_config('configs/bagged-anchor-fusion.json')
+pairs = [(Path(p), Path(p.replace('outputs/', 'reports/', 1)), h)
+         for p, h in c['preserve_sha256'].items()
+         if p.startswith('outputs/') and p.endswith('/selection.json')]
+assert len(pairs) == 16
+for original, exported, expected in pairs:
+    assert exported.is_file() and digest(exported) == expected, str(exported)
+    if original.exists():
+        assert digest(original) == expected, str(original)
+for original, exported, expected in pairs:
+    if not original.exists():
+        original.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(exported, original)
+PYTHON
+```
+
+Run stages in order. The test runner records actual classifier-fit calls, separating six current-study tiny format fits from historical test-module fits. `validate` performs the full independent development audit; the standalone `audit_development` entry point is also available. Preflight verifies preserved nine-fit and older miniature ancestry with zero new production miniature fits. Wholly absent required caches reproduce only their exact individual source recipes; partial/incompatible caches fail without fallback. Fresh development reproduction can require eighteen bagged, six additive and nine tree fits. Actual final bounds depend on the selected roles and source availability, with at most six bagged, two additive and three old-tree fits. No unrelated grid is rerun.
+
+```bash
+set -e
+.venv/bin/python -m baf.bagged_anchor_study verify_declaration
+.venv/bin/python scripts/check_bagged_anchor.py
+.venv/bin/python -m baf.bagged_anchor_study record_checks
+.venv/bin/python -m baf.bagged_anchor_study preflight
+.venv/bin/python -m baf.bagged_anchor_study prepare_development
+.venv/bin/python -m baf.bagged_anchor_study validate
+.venv/bin/python -m baf.bagged_anchor_study freeze
+.venv/bin/python -m baf.bagged_anchor_study exploratory
+.venv/bin/python -m baf.bagged_anchor_report report
+```
+
+The setup/restore blocks and full methodological command/receipt passed in the disposable copy. Full scientific execution and independent verification are complete in the primary destination. Conditional row intervals exclude training-seed/retraining, adaptive search/selection, temporal/generative and multiplicity uncertainty. Full-size production retraining in a disposable copy must not be claimed unless actually performed. Failed gates retain evidence and stop completion; frozen execution/test/selection/access/report records must not be overwritten. Further tuning needs a separate study.
+
+## Acknowledging assistance
+
+Codex assisted with the conditional-model declaration, global-weight/preprocessing implementation, fixed routing/blending, chronological evaluation and independent score/table audits. The [official LightGBM classifier API](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.LGBMClassifier.html) informs class/sample-weight handling; executable equivalence gates remain required. No public notebook was copied. The independently checked finite experiment found no new F2 gain; the broader performance goal remains active.
+
+Acknowledge generative AI tools, external code and public notebooks in the final report. All group members must be able to explain and justify submitted work.
+
+Codex assisted with the separate bagged-anchor declaration, isolated implementation, individual source/cache audits, fixed arithmetic, chronological F2 selection, bounded exploratory transfer, conditional uncertainty, figure checks and reproducible execution. The code uses preserved NumPy/SciPy/pandas/scikit-learn/LightGBM/XGBoost/joblib APIs and copies no public notebook. The failed five-reference comparison and consumed-holdout limitations are retained.
+
+Codex assisted with the bagged LightGBM declaration, isolated implementation, sampling and serialization gates, grid-specific audits, methodological tests and reproduction instructions, using preserved repository interfaces and pinned APIs including the official [LightGBM parameter definitions](https://lightgbm.readthedocs.io/en/stable/Parameters.html). No public notebook was copied. Scientific execution, independent audits, uncertainty, figure verification and isolated reproduction checks are complete; the failed performance comparison remains explicit.
+
+Codex assisted with the unweighted-reference fusion declaration, isolated implementation, historical arithmetic/provenance adapter, independent audits, full chronological execution, conditional uncertainty, figures and clean-replay verification. Test-only portability fixes preserve the exact selection-gate source/receipts and original legacy fixture. Pinned scikit-learn/SciPy/XGBoost/LightGBM APIs and preserved repository interfaces were used; no public notebook was copied. The finite experiment's negative result is explicit, and the broader improvement goal remains unachieved.
+
+Codex assisted with the separate interaction-score fusion declaration, canonical strategy identity, fixed score arithmetic, individual cache reuse/reproduction, independent feature/metric/factor audits, methodological tests and reproduction instructions. It uses preserved repository interfaces and pinned scikit-learn/SciPy/XGBoost/LightGBM APIs; no public notebook was copied. Development, bounded transfer, reporting, uncertainty reconstruction and figure verification are complete; the failed performance comparison remains explicit.
+
+Codex assisted with the interaction study's finite declaration, training-only centered tensor features, bounded CSR construction, execution, frozen numerical interfaces, independent SciPy/two-pass feature audits, paired uncertainty, figures and interpretation of the negative performance result. No public notebook was copied; the group should acknowledge this assistance and the existing scikit-learn/SciPy software in the eventual course report.
+
+Codex assisted with protocol design, implementation, execution, methodological checks, figures and interpretation for the studies above, including the unsuccessful F2 extension, stacking, calibrated-policy, focal-loss, direct-ranking and XGBoost ensemble studies. The focal work includes algebraic derivative checks and curvature diagnostics; direct ranking includes target-independent query construction, raw-score semantics and matched controls. Both include saved-model reconstruction and paired uncertainty verification. The direct-ranking protocol credits the official LightGBM documentation and Bruch ranking paper; the XGBoost protocol credits the official categorical/parameter documentation and pinned package. XGBoost work includes saved native-model inference, label-free score composition, matched controls and paired uncertainty. No public notebook was copied for these studies. The findings record frozen inputs, supporting software and uncertainty limitations. These experiment exports are supporting material for the eventual course report.
+
+Codex also assisted with fixed raw-score/log-odds fusion, provenance-preserving model reuse, exact-recipe reference-model verification and independent reconstruction of the chronological policies and metrics. The [official SciPy logit documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.logit.html) supplies the transform definition and endpoint behavior; clipping epsilon, fusion weights and experimental settings are analyst-selected. This work reuses frozen model interfaces and copies no public notebook.
+
+Codex also assisted with the additive spline-logistic study planning, train-only features, solver/persistence gates and independent verification. The official scikit-learn [SplineTransformer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.SplineTransformer.html) and [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) APIs supply the basis and solver definitions. Settings are analyst-selected; no public notebook was copied.
+
+Codex also assisted with Newton objective/gradient checks, warning-free fallback observation and the analysis-only verifier repair. Separate fit and analysis identities preserve the actual execution history. The official scikit-learn APIs provide solver and representation definitions; no public notebook was copied.
+
+Codex also assisted with common-margin spline/tree composition, isolated required-cache reuse/reproduction, independent chronological rule and metric reconstruction, complete matched controls and methodological tests. No public notebook was copied.
+
+The shallow CatBoost focused run exposed native parameter-metadata decimal serialization. Both fitted and reloaded effective dictionaries are retained and compared by their represented float32 values. The raw-score persistence/invariance tolerance remains absolute 1e-12, relative zero; model recipes are unchanged. Failed and passing focused fit ledgers are retained.
+
+The shallow CatBoost disposable copy passed 2136 tests with the same frozen scientific/software identity. It restored all eighteen original selections exactly, rejected alterations, verified all 27 pins and the Base checksum, and resolved the planning evidence through a simulated archived path. It copied no prior model/prediction caches. It reused the existing pinned virtual environment and a verified dataset symlink; fresh dependency installation and full-size clean-copy training are not claimed. Checked receipts, logs and actual-fit accounting are under `reports/baf-shallow-catboost-v1/clean-copy/`. Main development preparation completed 36 new native fits and all 183 scores; chronological validation, independent development/transfer auditing and final reporting passed.

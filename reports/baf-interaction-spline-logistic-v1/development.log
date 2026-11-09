@@ -1,0 +1,27 @@
+Fitting validation-m4-interaction_c0p1_unweighted: rows=547,975 dim=259
+Fitting validation-m4-interaction_c0p1_balanced: rows=547,975 dim=259
+Fitting validation-m4-interaction_c1p0_unweighted: rows=547,975 dim=259
+Fitting validation-m4-interaction_c1p0_balanced: rows=547,975 dim=259
+Fitting validation-m5-interaction_c0p1_unweighted: rows=675,666 dim=259
+Fitting validation-m5-interaction_c0p1_balanced: rows=675,666 dim=259
+Fitting validation-m5-interaction_c1p0_unweighted: rows=675,666 dim=259
+Fitting validation-m5-interaction_c1p0_balanced: rows=675,666 dim=259
+Fitting validation-m6-interaction_c0p1_unweighted: rows=794,989 dim=259
+Fitting validation-m6-interaction_c0p1_balanced: rows=794,989 dim=259
+Fitting validation-m6-interaction_c1p0_unweighted: rows=794,989 dim=259
+Fitting validation-m6-interaction_c1p0_balanced: rows=794,989 dim=259
+Independent development audit passed {'scores': 39, 'selectable_scores': 36, 'operating_rows': 72, 'macro_rows': 36, 'contrasts': 204, 'feature_rows': 1392, 'pair_rows': 72, 'coefficient_rows': 5016, 'winner': 'margin_blend_spline_c0p1_unweighted_a25', 'policy': 'latest', 'development_f2': 0.3290099447918403}
+                                 candidate        policy       f2       f1       f3  precision   recall  flagged_fraction  average_precision    tp     fp    fn
+   margin_blend_spline_c0p1_unweighted_a25        latest 0.329010 0.231593 0.383368   0.155537 0.460249          0.038074           0.190366 659.0 3628.5 771.5
+logit_mean_xgb_d4_w1_baseline_balanced_a50        pooled 0.328907 0.240464 0.375839   0.166891 0.439609          0.034181           0.188626 629.5 3214.0 801.0
+   margin_blend_spline_c0p1_unweighted_a25        pooled 0.328205 0.230378 0.383125   0.154440 0.461284          0.038527           0.190366 660.5 3676.0 770.0
+                         baseline_balanced        pooled 0.327802 0.240101 0.373971   0.166693 0.436170          0.033753           0.183160 624.5 3175.0 806.0
+logit_mean_xgb_d4_w1_baseline_balanced_a50        latest 0.327582 0.233693 0.380469   0.159761 0.456850          0.038092           0.188626 654.5 3612.0 776.0
+                         baseline_balanced        latest 0.327170 0.240096 0.372824   0.166913 0.434101          0.033512           0.183160 621.5 3152.0 809.0
+logit_mean_xgb_d4_w1_baseline_balanced_a50 rank_fraction 0.323872 0.229227 0.376356   0.154697 0.450255          0.036859           0.188626 643.5 3568.0 787.0
+   margin_blend_spline_c0p1_unweighted_a25 rank_fraction 0.323057 0.220998 0.382889   0.145341 0.471623          0.041219           0.190366 674.0 4040.0 756.5
+                 interaction_c1p0_balanced        pooled 0.322976 0.229474 0.375518   0.156041 0.450988          0.038152           0.184803 646.0 3632.5 784.5
+                             baseline_lgbm        pooled 0.322654 0.221162 0.381897   0.145630 0.469348          0.041789           0.182014 672.0 4028.5 758.5
+                    spline_c0p1_unweighted rank_fraction 0.322264 0.225502 0.376415   0.150523 0.452966          0.037916           0.186404 647.5 3674.0 783.0
+                 interaction_c1p0_balanced        latest 0.321936 0.226660 0.376749   0.153336 0.457540          0.039853           0.184803 655.5 3807.0 775.0
+Completed validate

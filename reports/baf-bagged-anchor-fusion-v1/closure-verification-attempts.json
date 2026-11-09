@@ -1,0 +1,10 @@
+{
+  "attempts": [
+    {
+      "result": "supplementary archive assertion rejected the string0 failed",
+      "reason": "Initial assertion searched for any occurrence of failed instead of the failure count; both actual CLI validations had zero failures. No archive movement or scientific mutation occurred.",
+      "new_fits": 0
+    }
+  ],
+  "corrected_assertion": "CLI summary must report zero failures"
+}

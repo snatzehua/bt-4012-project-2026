@@ -1,0 +1,5 @@
+# Supplementary strict-sign reader correction
+
+The frozen production report correctly records zero development gain against the selected anchor itself. A later supplementary reader subtracted the separately serialized frozen selection value from a pandas-read summary value. Their CSV round trips differed by one floating-point unit, producing an approximately 1e-16 positive self-difference and failing the strict pass-flag check. Its prior numeric closeness check passed, which is insufficient for a strict sign decision.
+
+The corrected supplementary reader subtracts both values from the same exported macro table, as the original production reporter does. Canonical self/alias differences are exactly zero. All six original pass flags, selection, scores, metrics and uncertainty remain unchanged. The initial helper/log and original generated manifest stay intact; the corrected helper and numeric receipt are separate analysis evidence. No production source, configuration, model, prediction or selection changed, and no fit or bootstrap draw was repeated.

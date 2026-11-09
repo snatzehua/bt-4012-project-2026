@@ -1,0 +1,22 @@
+{
+  "data_path": "data/raw/baf/Base.csv",
+  "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+  "output_dir": "outputs/baf-study-v1",
+  "validation_months": [4, 5, 6],
+  "test_month": 7,
+  "sample_sizes": [100000, 250000, 500000],
+  "sampling_seeds": [17, 29, 43],
+  "tie_seed": 2026,
+  "model_seed": 2026,
+  "models": ["logistic", "lightgbm"],
+  "review_fractions": [0.005, 0.01, 0.02, 0.05],
+  "primary_fraction": 0.01,
+  "bootstrap_replicates": 500,
+  "bootstrap_seed": 1026,
+  "threads": 6,
+  "model_parameters": {
+    "logistic": {"C": 1.0, "max_iter": 1000, "tol": 0.0001, "solver": "lbfgs"},
+    "lightgbm": {"n_estimators": 200, "learning_rate": 0.05, "num_leaves": 15, "min_child_samples": 100, "verbosity": -1, "deterministic": true, "force_col_wise": true},
+    "random_forest": {"n_estimators": 150, "max_depth": 14, "min_samples_leaf": 20, "max_samples": 0.5}
+  }
+}

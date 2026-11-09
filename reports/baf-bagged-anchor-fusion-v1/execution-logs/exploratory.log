@@ -1,0 +1,213 @@
+Preparing exploratory 7 bagged_balanced_s17
+Preparing exploratory 7 bagged_balanced_s29
+Preparing exploratory 7 bagged_balanced_s43
+Preparing exploratory 7 bagged_unweighted_s17
+Preparing exploratory 7 bagged_unweighted_s29
+Preparing exploratory 7 bagged_unweighted_s43
+Preparing exploratory 7 baseline_balanced
+Preparing exploratory 7 baseline_lgbm
+Preparing exploratory 7 spline_c0p1_unweighted
+Preparing exploratory 7 spline_c1p0_balanced
+Preparing exploratory 7 xgb_d4_w1
+                  role                                  candidate policy  eval_month                                                                                   parameters  precision   recall       f1       f2      mcc  balanced_accuracy      fpr  accuracy  flagged  tp   fp  fn    tn       f3  flagged_fraction     n  fraud  average_precision  roc_auc
+              selected           bagged_anchor_balanced_logit_a25 pooled           7  {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.12296562209473805}   0.186414 0.495798 0.270953 0.372240 0.287751           0.731707 0.032385  0.960658     3798 708 3090 720 92325 0.425225          0.039218 96843   1428           0.223096 0.898914
+         latest_fusion interaction_blend_spline_c1p0_balanced_a10 latest           7       {"beta": 2, "kind": "latest", "source_months": [6], "threshold": -0.31412114828661464}   0.194886 0.480392 0.277284 0.371534 0.290259           0.725345 0.029702  0.963074     3520 686 2834 742 92581 0.419008          0.036347 96843   1428           0.223937 0.899297
+         recent_fusion    margin_blend_spline_c0p1_unweighted_a25 latest           7        {"beta": 2, "kind": "latest", "source_months": [6], "threshold": -1.1092238992049697}   0.200839 0.469188 0.281276 0.370248 0.291621           0.720623 0.027941  0.964644     3336 670 2666 758 92749 0.413887          0.034448 96843   1428           0.224617 0.899573
+                fusion logit_mean_xgb_d4_w1_baseline_balanced_a50 pooled           7  {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": -0.5732084408730248}   0.192414 0.486695 0.275794 0.372694 0.290135           0.728061 0.030572  0.962310     3612 695 2917 733 92498 0.422133          0.037297 96843   1428           0.223147 0.898990
+              balanced                          baseline_balanced pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.8395293330571296}   0.181747 0.486695 0.264661 0.364409 0.280924           0.726951 0.032794  0.960121     3824 695 3129 733 92286 0.416767          0.039487 96843   1428           0.212249 0.896604
+            unweighted                              baseline_lgbm pooled           7 {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.046095701655237555}   0.168248 0.546218 0.257256 0.376884 0.285563           0.752903 0.040413  0.953492     4636 780 3856 648 91559 0.446020          0.047871 96843   1428           0.218553 0.897189
+         same_strategy           bagged_anchor_balanced_logit_a25 pooled           7  {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.12296562209473805}   0.186414 0.495798 0.270953 0.372240 0.287751           0.731707 0.032385  0.960658     3798 708 3090 720 92325 0.425225          0.039218 96843   1428           0.223096 0.898914
+            member_s17                        bagged_balanced_s17 pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.8374901741879699}   0.178141 0.496499 0.262204 0.365766 0.280644           0.731108 0.034282  0.958799     3980 709 3271 719 92144 0.421221          0.041097 96843   1428           0.213669 0.896918
+      member_logit_s17                  logit_bagged_balanced_s17 pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 1.6396710648401909}   0.178141 0.496499 0.262204 0.365766 0.280644           0.731108 0.034282  0.958799     3980 709 3271 719 92144 0.421221          0.041097 96843   1428           0.213669 0.896918
+            member_s29                        bagged_balanced_s29 pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.8353750819950623}   0.180180 0.504202 0.265487 0.370828 0.284742           0.734934 0.034334  0.958861     3996 720 3276 708 92139 0.427350          0.041263 96843   1428           0.213916 0.896068
+      member_logit_s29                  logit_bagged_balanced_s29 pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 1.6242111619932593}   0.180180 0.504202 0.265487 0.370828 0.284742           0.734934 0.034334  0.958861     3996 720 3276 708 92139 0.427350          0.041263 96843   1428           0.213916 0.896068
+            member_s43                        bagged_balanced_s43 pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.8326610983787651}   0.179063 0.492297 0.262607 0.364702 0.280225           0.729259 0.033779  0.959233     3926 703 3223 725 92192 0.419001          0.040540 96843   1428           0.216889 0.896574
+      member_logit_s43                  logit_bagged_balanced_s43 pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 1.6046056076088446}   0.179063 0.492297 0.262607 0.364702 0.280225           0.729259 0.033779  0.959233     3926 703 3223 725 92192 0.419001          0.040540 96843   1428           0.216889 0.896574
+      probability_mean                  bagged_balanced_prob_mean pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.8384431561588226}   0.183625 0.491597 0.267378 0.368117 0.284045           0.729443 0.032710  0.960276     3823 702 3121 726 92294 0.420990          0.039476 96843   1428           0.215883 0.896869
+probability_mean_logit            logit_bagged_balanced_prob_mean pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 1.6466897316850084}   0.183625 0.491597 0.267378 0.368117 0.284045           0.729443 0.032710  0.960276     3823 702 3121 726 92294 0.420990          0.039476 96843   1428           0.215883 0.896869
+            logit_mean                 bagged_balanced_logit_mean pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 1.6528429132611875}   0.183851 0.489496 0.267304 0.367353 0.283610           0.728487 0.032521  0.960431     3802 699 3103 729 92312 0.419719          0.039259 96843   1428           0.215839 0.896879
+       unbagged_member                          baseline_balanced pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.8395293330571296}   0.181747 0.486695 0.264661 0.364409 0.280924           0.726951 0.032794  0.960121     3824 695 3129 733 92286 0.416767          0.039487 96843   1428           0.212249 0.896604
+        unbagged_logit                    logit_baseline_balanced pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 1.6547302516247722}   0.181747 0.486695 0.264661 0.364409 0.280924           0.726951 0.032794  0.960121     3824 695 3129 733 92286 0.416767          0.039487 96843   1428           0.212249 0.896604
+      anchor_at_policy interaction_blend_spline_c1p0_balanced_a10 pooled           7  {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": -0.4073009575036898}   0.184777 0.504902 0.270544 0.374974 0.289045           0.735782 0.033339  0.959853     3902 721 3181 707 92234 0.430345          0.040292 96843   1428           0.223937 0.899297
+   added_member_native                 bagged_balanced_logit_mean pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 1.6528429132611875}   0.183851 0.489496 0.267304 0.367353 0.283610           0.728487 0.032521  0.960431     3802 699 3103 729 92312 0.419719          0.039259 96843   1428           0.215839 0.896879
+   added_member_margin                 bagged_balanced_logit_mean pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 1.6528429132611875}   0.183851 0.489496 0.267304 0.367353 0.283610           0.728487 0.032521  0.960431     3802 699 3103 729 92312 0.419719          0.039259 96843   1428           0.215839 0.896879
+        matched_weight         bagged_anchor_unweighted_logit_a25 pooled           7  {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": -1.0152907427027498}   0.186865 0.502101 0.272365 0.375432 0.290045           0.734701 0.032699  0.960441     3837 717 3120 711 92295 0.429624          0.039621 96843   1428           0.222960 0.899308
+          matched_form            bagged_anchor_balanced_prob_a25 pooled           7  {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.12242643262747038}   0.186414 0.495798 0.270953 0.372240 0.287751           0.731707 0.032385  0.960658     3798 708 3090 720 92325 0.425225          0.039218 96843   1428           0.223103 0.898913
+             alpha_a10           bagged_anchor_balanced_logit_a10 pooled           7 {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": -0.19915098087062605}   0.184956 0.502801 0.270433 0.374192 0.288576           0.734820 0.033160  0.959997     3882 718 3164 710 92251 0.429067          0.040085 96843   1428           0.223676 0.899163
+             alpha_a25           bagged_anchor_balanced_logit_a25 pooled           7  {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.12296562209473805}   0.186414 0.495798 0.270953 0.372240 0.287751           0.731707 0.032385  0.960658     3798 708 3090 720 92325 0.425225          0.039218 96843   1428           0.223096 0.898914
+             alpha_a50           bagged_anchor_balanced_logit_a50 pooled           7   {"beta": 2, "kind": "pooled", "source_months": [4, 5, 6], "threshold": 0.5875066453219537}   0.180955 0.507003 0.266716 0.372696 0.286262           0.736329 0.034345  0.958892     4001 724 3277 704 92138 0.429597          0.041314 96843   1428           0.221518 0.898397
+{
+  "base_results": 11,
+  "bagged_reuses": 0,
+  "new_bagged_fits": 6,
+  "reference_reuses": 5,
+  "reproduced_additive_fits": 0,
+  "reproduced_tree_fits": 0,
+  "derived_results": 16,
+  "derived_reuses": 3,
+  "new_derived_computations": 13,
+  "invocation_work": [
+    {
+      "candidate": "bagged_balanced_s17",
+      "eval_month": 7,
+      "kind": "bagged",
+      "work": "fit exact recipe"
+    },
+    {
+      "candidate": "bagged_balanced_s29",
+      "eval_month": 7,
+      "kind": "bagged",
+      "work": "fit exact recipe"
+    },
+    {
+      "candidate": "bagged_balanced_s43",
+      "eval_month": 7,
+      "kind": "bagged",
+      "work": "fit exact recipe"
+    },
+    {
+      "candidate": "bagged_unweighted_s17",
+      "eval_month": 7,
+      "kind": "bagged",
+      "work": "fit exact recipe"
+    },
+    {
+      "candidate": "bagged_unweighted_s29",
+      "eval_month": 7,
+      "kind": "bagged",
+      "work": "fit exact recipe"
+    },
+    {
+      "candidate": "bagged_unweighted_s43",
+      "eval_month": 7,
+      "kind": "bagged",
+      "work": "fit exact recipe"
+    },
+    {
+      "candidate": "baseline_balanced",
+      "eval_month": 7,
+      "kind": "reference",
+      "work": "reuse origin"
+    },
+    {
+      "candidate": "baseline_lgbm",
+      "eval_month": 7,
+      "kind": "reference",
+      "work": "reuse origin"
+    },
+    {
+      "candidate": "spline_c0p1_unweighted",
+      "eval_month": 7,
+      "kind": "reference",
+      "work": "reuse origin"
+    },
+    {
+      "candidate": "spline_c1p0_balanced",
+      "eval_month": 7,
+      "kind": "reference",
+      "work": "reuse origin"
+    },
+    {
+      "candidate": "xgb_d4_w1",
+      "eval_month": 7,
+      "kind": "reference",
+      "work": "reuse origin"
+    },
+    {
+      "candidate": "bagged_balanced_logit_mean",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "bagged_balanced_prob_mean",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "bagged_unweighted_logit_mean",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "logit_bagged_balanced_s17",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "logit_bagged_balanced_s29",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "logit_bagged_balanced_s43",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "logit_baseline_balanced",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "reuse origin"
+    },
+    {
+      "candidate": "interaction_blend_spline_c1p0_balanced_a10",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "reuse origin"
+    },
+    {
+      "candidate": "logit_bagged_balanced_prob_mean",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "margin_blend_spline_c0p1_unweighted_a25",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "reuse origin"
+    },
+    {
+      "candidate": "bagged_anchor_balanced_logit_a10",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "bagged_anchor_balanced_logit_a25",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "bagged_anchor_balanced_logit_a50",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "bagged_anchor_balanced_prob_a25",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    },
+    {
+      "candidate": "bagged_anchor_unweighted_logit_a25",
+      "eval_month": 7,
+      "kind": "derived",
+      "work": "calculate"
+    }
+  ]
+}

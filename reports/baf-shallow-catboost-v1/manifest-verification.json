@@ -1,0 +1,8 @@
+{
+  "checked_at_utc": "2026-10-13T03:38:06.343541+00:00",
+  "closed_log_entries": 56,
+  "run_entries": 713,
+  "all_closed_logs_and_run_entries_verified": true,
+  "report_index_excludes_itself": true,
+  "report_index_verified_by_successful_command_exit": true
+}

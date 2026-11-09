@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-conditional-lightgbm-experts-f2/planning-enumeration.py", line 22, in <module>
+    S=[dict(id=n,kind='reference') for n,k in REFS.values()]+[dict(id=capacity(w),kind='capacity',weighting=w) for w in W]
+                                       ^^^
+ValueError: too many values to unpack (expected 2)

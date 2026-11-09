@@ -1,0 +1,703 @@
+{
+  "created_at_utc": "2026-10-11T05:45:23.802258+00:00",
+  "fingerprint": {
+    "config": "45311327a661a429a2a851e2d6a90462fb12794bbdeca28a80ba2f7004c64225",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+      "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+      "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+      "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+      "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+      "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+      "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+      "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082",
+      "baf/direct_grouping.py": "77337d8d6e9c2d1fd25822f7b2c3f50dc10b86a714fd51cc685799786ffe6b54",
+      "baf/direct_ranking.py": "db724fc4f2368ce2f010f5c9a3b0e3fa0ec5b07acccb0b3a1bc25111c99ac9ce",
+      "baf/direct_ranking_report.py": "8973e57aefd0986d19351082a4b75661999be3392169ad6eb9477a2c8c4a6015",
+      "baf/xgboost_inputs.py": "fa9125b8f2f20f65308f0965b5218860d2459c95fdf00f35c33d3c23267fc1e5",
+      "baf/rank_ensemble_scores.py": "0ce961c991b27794505f77f69385d11cdcc9971ef49c8b889bfe4fc462d89cf8",
+      "baf/xgboost_ensemble.py": "286bc961095330d01d560bbfbe62e1ff2f3f75b090b172525cd64448325fec50",
+      "baf/xgboost_ensemble_report.py": "0d24b0b1352068bb54af308eeb01fb1803fd7ec08a4182ee37862716a7878679",
+      "requirements.txt": "7054110540fe08cc44b48b36c5c947c61772a827a1a8b4c2310dcf4ee6f25c3b",
+      "requirements-improvements.txt": "5a385cefb4081e5d49e539ffb624226f08c39bff6202036716be579c76d8828b",
+      "requirements-xgboost.txt": "cc162a3642eb36209185f28a2ea649eb9b98b58f2e5367898b6022b85a1dccd7"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0",
+      "xgboost": "3.4.1"
+    },
+    "python": "3.12.9"
+  },
+  "config": {
+    "data_path": "data/raw/baf/Base.csv",
+    "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+    "validation_months": [
+      4,
+      5,
+      6
+    ],
+    "test_month": 7,
+    "beta": 2,
+    "seed": 2026,
+    "threads": 6,
+    "policies": [
+      "pooled",
+      "latest",
+      "rank_fraction"
+    ],
+    "references": [
+      {
+        "id": "baseline_balanced",
+        "family": "baseline",
+        "model": "lightgbm",
+        "engineered": false,
+        "weighted": true
+      },
+      {
+        "id": "baseline_lgbm",
+        "family": "baseline",
+        "model": "lightgbm",
+        "engineered": false,
+        "weighted": false
+      },
+      {
+        "id": "native31",
+        "family": "lightgbm",
+        "engineered": false,
+        "params": {
+          "n_estimators": 800,
+          "learning_rate": 0.03,
+          "num_leaves": 31,
+          "min_child_samples": 100,
+          "reg_lambda": 5,
+          "colsample_bytree": 0.9
+        }
+      }
+    ],
+    "bootstrap_replicates": 500,
+    "bootstrap_seed": 1027,
+    "output_dir": "outputs/baf-xgboost-rank-ensembles-v1",
+    "report_dir": "reports/baf-xgboost-rank-ensembles-v1",
+    "source_config": "configs/direct-ranking.json",
+    "reference_source_config": "configs/calibrated-f2-policy.json",
+    "source_fingerprint": {
+      "config": "80bcfc3a82c61a5b1fbb6042c92463033c32b4e22f8ed4194377cc4bebf1ef0c",
+      "sources": {
+        "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+        "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+        "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+        "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+        "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+        "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+        "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+        "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+        "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+        "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+        "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+        "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+        "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+        "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+        "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+        "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+        "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082",
+        "baf/direct_grouping.py": "77337d8d6e9c2d1fd25822f7b2c3f50dc10b86a714fd51cc685799786ffe6b54",
+        "baf/direct_ranking.py": "db724fc4f2368ce2f010f5c9a3b0e3fa0ec5b07acccb0b3a1bc25111c99ac9ce",
+        "baf/direct_ranking_report.py": "8973e57aefd0986d19351082a4b75661999be3392169ad6eb9477a2c8c4a6015"
+      },
+      "software": {
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "lightgbm": "4.7.0",
+        "catboost": "1.2.10",
+        "joblib": "1.6.0",
+        "threadpoolctl": "3.7.0"
+      },
+      "python": "3.12.9"
+    },
+    "preserve_sha256": {
+      "outputs/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+      "reports/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+      "outputs/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+      "reports/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+      "outputs/baf-recall-weighted-v1/selection.json": "b7058cf1dd2111473f953ecdc478e75418f38e2bf0b1e70b85319fff23d30b16",
+      "reports/baf-recall-weighted-v1/selection.json": "b7058cf1dd2111473f953ecdc478e75418f38e2bf0b1e70b85319fff23d30b16",
+      "outputs/baf-recall-weighted-extension-v1/selection.json": "17507207fb9aed254d5ca7c44ab19ce3ac1c0a191c9007f1b9bbaa8681d905c6",
+      "reports/baf-recall-weighted-extension-v1/selection.json": "17507207fb9aed254d5ca7c44ab19ce3ac1c0a191c9007f1b9bbaa8681d905c6",
+      "outputs/baf-chronological-stacking-v1/selection.json": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+      "reports/baf-chronological-stacking-v1/selection.json": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+      "outputs/baf-calibrated-f2-policy-v1/selection.json": "89625d5162533a487c65feeb7fceae0084b980a7e2fffa74627f88c2c9de0089",
+      "reports/baf-calibrated-f2-policy-v1/selection.json": "89625d5162533a487c65feeb7fceae0084b980a7e2fffa74627f88c2c9de0089",
+      "configs/calibrated-f2-policy.json": "d7eca424381b86cb5c6b6f40dfe4fa1a7d267f7fa0fadc3dde8238fe2c131d4c",
+      "configs/focal-loss.json": "4b2d742c49cd3c395afdc4dde65365d5f6ba949568273f1f12aa2c4f0c642390",
+      "outputs/baf-focal-loss-v1/selection.json": "a8817aa2f2398c87dc8f55e4cf71b34ed49891c3dc69c1b67846b285b8a0653a",
+      "reports/baf-focal-loss-v1/selection.json": "a8817aa2f2398c87dc8f55e4cf71b34ed49891c3dc69c1b67846b285b8a0653a",
+      "configs/direct-ranking.json": "80bcfc3a82c61a5b1fbb6042c92463033c32b4e22f8ed4194377cc4bebf1ef0c",
+      "outputs/baf-direct-ranking-v1/selection.json": "186391cd2936986dfa7f176c29ca01e043a5dde1782dd9073f3e8b91394060e1",
+      "reports/baf-direct-ranking-v1/selection.json": "186391cd2936986dfa7f176c29ca01e043a5dde1782dd9073f3e8b91394060e1"
+    },
+    "presets": [
+      {
+        "id": "xgb_d4_w1",
+        "max_depth": 4,
+        "scale_pos_weight": 1
+      },
+      {
+        "id": "xgb_d4_w5",
+        "max_depth": 4,
+        "scale_pos_weight": 5
+      },
+      {
+        "id": "xgb_d6_w1",
+        "max_depth": 6,
+        "scale_pos_weight": 1
+      },
+      {
+        "id": "xgb_d6_w5",
+        "max_depth": 6,
+        "scale_pos_weight": 5
+      }
+    ],
+    "tree_params": {
+      "n_estimators": 800,
+      "learning_rate": 0.03,
+      "min_child_weight": 10,
+      "reg_lambda": 5,
+      "reg_alpha": 0,
+      "gamma": 0,
+      "subsample": 0.8,
+      "colsample_bytree": 0.9,
+      "tree_method": "hist",
+      "grow_policy": "depthwise",
+      "max_bin": 256,
+      "max_cat_to_onehot": 4,
+      "max_cat_threshold": 64,
+      "enable_categorical": true,
+      "device": "cpu",
+      "objective": "binary:logistic",
+      "base_score": 0.5,
+      "eval_metric": "logloss"
+    },
+    "strategies": [
+      {
+        "id": "xgb_d4_w1",
+        "kind": "raw",
+        "members": [
+          "xgb_d4_w1"
+        ]
+      },
+      {
+        "id": "xgb_d4_w5",
+        "kind": "raw",
+        "members": [
+          "xgb_d4_w5"
+        ]
+      },
+      {
+        "id": "xgb_d6_w1",
+        "kind": "raw",
+        "members": [
+          "xgb_d6_w1"
+        ]
+      },
+      {
+        "id": "xgb_d6_w5",
+        "kind": "raw",
+        "members": [
+          "xgb_d6_w5"
+        ]
+      },
+      {
+        "id": "baseline_balanced",
+        "kind": "raw",
+        "members": [
+          "baseline_balanced"
+        ]
+      },
+      {
+        "id": "baseline_lgbm",
+        "kind": "raw",
+        "members": [
+          "baseline_lgbm"
+        ]
+      },
+      {
+        "id": "native31",
+        "kind": "raw",
+        "members": [
+          "native31"
+        ]
+      },
+      {
+        "id": "pct_xgb_d4_w1",
+        "kind": "percentile",
+        "members": [
+          "xgb_d4_w1"
+        ]
+      },
+      {
+        "id": "pct_xgb_d4_w5",
+        "kind": "percentile",
+        "members": [
+          "xgb_d4_w5"
+        ]
+      },
+      {
+        "id": "pct_xgb_d6_w1",
+        "kind": "percentile",
+        "members": [
+          "xgb_d6_w1"
+        ]
+      },
+      {
+        "id": "pct_xgb_d6_w5",
+        "kind": "percentile",
+        "members": [
+          "xgb_d6_w5"
+        ]
+      },
+      {
+        "id": "pct_baseline_balanced",
+        "kind": "percentile",
+        "members": [
+          "baseline_balanced"
+        ]
+      },
+      {
+        "id": "pct_baseline_lgbm",
+        "kind": "percentile",
+        "members": [
+          "baseline_lgbm"
+        ]
+      },
+      {
+        "id": "blend_xgb_d4_w1_a25",
+        "kind": "blend",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "blend_xgb_d4_w1_a50",
+        "kind": "blend",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "blend_xgb_d4_w1_a75",
+        "kind": "blend",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "blend_xgb_d4_w5_a25",
+        "kind": "blend",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "blend_xgb_d4_w5_a50",
+        "kind": "blend",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "blend_xgb_d4_w5_a75",
+        "kind": "blend",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "blend_xgb_d6_w1_a25",
+        "kind": "blend",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "blend_xgb_d6_w1_a50",
+        "kind": "blend",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "blend_xgb_d6_w1_a75",
+        "kind": "blend",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "blend_xgb_d6_w5_a25",
+        "kind": "blend",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "blend_xgb_d6_w5_a50",
+        "kind": "blend",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "blend_xgb_d6_w5_a75",
+        "kind": "blend",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      }
+    ]
+  },
+  "selected_candidate": "baseline_balanced",
+  "selected_policy": "pooled",
+  "selected_development_f2": 0.32780157809618937,
+  "choices": {
+    "selected": [
+      "baseline_balanced",
+      "pooled"
+    ],
+    "balanced": [
+      "baseline_balanced",
+      "pooled"
+    ],
+    "unweighted": [
+      "baseline_lgbm",
+      "pooled"
+    ],
+    "same_model": [
+      "baseline_balanced",
+      "pooled"
+    ],
+    "rank_member": [
+      "pct_baseline_balanced",
+      "pooled"
+    ]
+  },
+  "rules": {
+    "selected": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "balanced": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "unweighted": {
+      "kind": "pooled",
+      "threshold": 0.046095701655237555,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "same_model": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "rank_member": {
+      "kind": "pooled",
+      "threshold": 0.9594713508711649,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  "score_specs": [
+    {
+      "id": "baseline_balanced",
+      "kind": "raw",
+      "members": [
+        "baseline_balanced"
+      ]
+    },
+    {
+      "id": "baseline_lgbm",
+      "kind": "raw",
+      "members": [
+        "baseline_lgbm"
+      ]
+    },
+    {
+      "id": "pct_baseline_balanced",
+      "kind": "percentile",
+      "members": [
+        "baseline_balanced"
+      ]
+    }
+  ],
+  "fit_specs": [
+    {
+      "id": "baseline_balanced",
+      "family": "baseline",
+      "model": "lightgbm",
+      "engineered": false,
+      "weighted": true
+    },
+    {
+      "id": "baseline_lgbm",
+      "family": "baseline",
+      "model": "lightgbm",
+      "engineered": false,
+      "weighted": false
+    }
+  ],
+  "validation_files": {
+    "integration_gate.json": "b4f42087ad868f95b461f12ca7b4485ca036e86f88ed724f215f094b6723d568",
+    "crossfit.csv": "8c7330b75ec7fc04964e76bf6aa7427abaff90facb399775128fd228b245578d",
+    "summary.csv": "8d7f754ee14170fc20fa54b3b1fcfca1a51baa89a537d4b948c177c3e410a79e",
+    "contrasts.csv": "05cbad181e903579a336f5c68d4f78349c4867fa321e2405991ba22286f7fbba",
+    "pooled.csv": "d7d062687f2ad28c9ac317bda6c1ff96decffaea642cd1054632d95bdc7278c1",
+    "score_diagnostics.csv": "24cfe6d31512797931c5b52e8665818fa4be70218e3aa352192e27175978a8eb",
+    "diversity.csv": "858dd0430028db55f8a844ae8014d732187b8773c531f137d904b6c5193a4c80"
+  },
+  "artifacts": {
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-xgb_d4_w1.json": "aaae2727be097219856d5835e07fc61e3a0e659497aaf9cb35a87fc1edf47fa6",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d6_w5_a25.json": "5475525f6516799a6fc9bb97ffd94cf8b2b9e538c9d718eda0b41fbe71739d66",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-pct_xgb_d6_w1.json": "db3b6bb729b2e84ad874ed5c32e26c46d3fd273dfc82094802f5a70990ee2a73",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d6_w1_a50.json": "ebda3123517f1bf00f077f3e6f69340ba3339f8b00d282b45ac104aa6d441c9c",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d6_w5_a50.json": "c925dad53ebc309f40ac271ae08918154eeb62e36143d22845ca002bbc97e367",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d6_w1_a75.json": "fa7978a3f2e7707f4e45902cced240218e8f36b67fd44c0faf4f894dae7fbb7b",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-pct_baseline_lgbm.json": "e2b01f1e7d959b077c565bb6e86c6c1c95d4cd95d571880b3b0059119a0d8158",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d6_w1_a25.json": "73f47a2100039bd2d21f81ab548e77736d73cd5eea6ec3914092f01f3411b497",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-native31.json": "185481cd9582ab7d2b21e138c7169e3f5bc2dea3525d0ce0add9f1064d03b414",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-xgb_d6_w1.json": "9e0146a796ffff6114b567b889a78369ba405a3e5421c389f7bc333b40a79f38",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d4_w1_a25.json": "445734ca7c7c0baa013657f8083a4a43e90e254027488c054ce20dac1ef5744c",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d4_w5_a50.json": "5518d2875bcc6679e1e0e858cc188c2a5f7edc9773a015f6085b66f28c12edcb",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d4_w1_a50.json": "f85f64a14ce845e78f4fa1df3734c2547fa7e08d957309121b473eff94a6a6e1",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d4_w5_a75.json": "17bcc5dbfc6c08835b658673cf52a21cf06ff4d034d09a1fe3e719802de7a7e6",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d4_w5_a25.json": "74700b7d54431e6b9c204d5abd6cf909fdac139954e39ee5945da4943563f2c3",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-baseline_balanced.json": "06ffb77b7ff5bbbe1d6d8272a9b348c6ee1b840f0652844b27abbbf1455cf51a",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-pct_xgb_d4_w5.json": "7b2bdb7fd38786e8ea34b8f9c7f7229bc5bb9d03b10f56e6d6b8f5725737b2de",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-xgb_d4_w1.json": "674d045bfd9b532e5d0d555f94615b7fa2ea98415af3cbf5dde0038f3f404fd6",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-pct_baseline_balanced.json": "135331d843243c98519406efa2d4c22594433618e46ad249c134e5ac373237f7",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-pct_baseline_lgbm.json": "2743fc9940f502bfb815ef6467cfd0f8d6ae464d2ff32d93c112a14127445afc",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-pct_xgb_d6_w1.json": "a41c3c49ade5c16df48c2e74b78f528228557a194346674fe778ffe73345b06a",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-pct_xgb_d6_w5.json": "6705c4f77f4766b461a5eb56a0eed5f430f5e6a088ccfb1d3d81697533f569fa",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-baseline_lgbm.json": "c6a07caff5e4f9d494703feeb5817b686b01b7320db115e29354b3247e2041d6",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-baseline_balanced.json": "7ffb2ec751e04eeb55655f9cf43dd38bf992130ac253086a826df795c8216c42",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-pct_xgb_d4_w1.json": "82e2a2b94c4cbd9b36b169c66554b3828ca34c088a36ca90e47a978f9fcfddee",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-xgb_d6_w1.json": "94c283b6aa0cebc1c4b4058a773d5f1d0c24127aefbf949ca9048215cc0b4865",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-pct_baseline_balanced.json": "fa648606d44ebc4fb4b7cb22a90aad20af540789456eda64420fc2d235842ee0",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-baseline_balanced.json": "124653c7018ee0ffeace781ce237f4e894cbd5c8c98af5d221424d3b0cf2c5b3",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-pct_xgb_d4_w1.json": "76ccd5380831e8a78f8c9d4442fc6ca586a9c85de8d9c9586fab346e32ab76d1",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d6_w1_a25.json": "eda540b290cc2a8e60f64d2a83f9930895b3eed7847a3a4d299c86afc260b9d9",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-xgb_d6_w1.json": "b3628bb30f98047b9db160d7c5dca1a98907f6e450a70b0454e984c44b4596ba",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d6_w5_a50.json": "3eb1fb2c30b789bbace16ebba1f37cf23969b503c5807832cd8afcc54137a311",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d6_w1_a75.json": "640afaae0fe9659f1cbd03809be27a2c457a57a7254f9044a2be4698527e0674",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d6_w5_a75.json": "a22ccc823b11bad8703bfbdcaa28c18f6c70afe75cea9de00e136560f37f4589",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d4_w5_a25.json": "0c18cf52d5c806743207b703fc0e33959438b705883002728bf4a8b36865968b",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d4_w1_a50.json": "c7cc499a6d08c86db97c845e1eae75ab253ab151266722092c75513fc607ea0a",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d4_w5_a75.json": "86646b3554a5274e1d80882f83992602aa69cdb8e8ded79086f2e3100926a07a",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-xgb_d4_w1.json": "4c51a552175ef0d3491b57dd87546e6d8fe3844d6ad391e9632c97f21b876675",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-baseline_lgbm.json": "b1ea1826cc2004208416c02174bdd14ca106964d68181092bcb014fafb72359c",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-pct_baseline_lgbm.json": "f3ab60d19eced45398d11173c5ed080d18277f9bf253775bf1d6eb10543bf7e7",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d4_w1_a75.json": "a07eb03f41281f61228e0b4c0b7540e9662b860623aa4b956ad6a082ae15ab59",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-xgb_d6_w5.json": "e2eab3e5d214cc39b83e74973e131d6a99ccd04d0af998db96826b4f8d4db2fa",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-pct_xgb_d6_w5.json": "233330d3d116f697565f84a62f5b30d03ede7bc2088d691cb2fcd1755158b84b",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-xgb_d4_w5.json": "fe97c987814b9c9181d84ac7e28eb22277e2102c948cd092eaa9d654692380b0",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-baseline_lgbm.json": "92e0bc0bd8ddb44dd2c90555f08beb0c2d9b8ba727c819b698ffd0345bd70eb4",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d4_w1_a75.json": "9da7410228773669676f5a15eed59fe257bda2d7ad83d1cccf079131c7ef3b67",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d4_w5_a50.json": "030c018ed4a5d6651a13ac72820876909f6d85b006b37e37465b8efb68da9a6f",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-pct_xgb_d6_w5.json": "8ff942391487a263185896ac649e136c9155cbc3259166d2e5831ec881ae840a",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d4_w1_a25.json": "c359264806636958211471c747b435b80d60f6a4e24926b46750e7e69bf8aed7",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-xgb_d4_w5.json": "c09e7ff93bf5751ad51a4325ef5e2f9d4aa43c81fd82026bb1ed475a399f5a6d",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d4_w5_a75.json": "fe0b20a0f9c5ec1d164c4834d310a79e2fbe87802fa477b0aa62e318a6de6c2a",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-pct_xgb_d4_w1.json": "8cf164af578b9bf8ff5c90ab09311bacb1a25de176db3670ce20fbd997b66865",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d6_w5_a75.json": "b3b016f594935c483e7c7cd99a877eee112606c777d26c70eae66bb984221450",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d6_w1_a50.json": "12f90525c746316332510888834949b29806cad5edcfbe2aef0f0c06ffc4da1d",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d6_w5_a25.json": "cd644c202a396ba5e8a162a0c753cfc019c3f2d435202746de6d80851eb9c5c5",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d6_w1_a75.json": "eefe08a854c935f977d4b44dcaccbc7635991e116b4da5bd064ef0e5253ca661",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d4_w1_a50.json": "f99d506149665d28a02e6ef9597d3140be3cacc35aa9f49a8ee2096b667fc6a6",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-xgb_d6_w5.json": "d69dc0855cfc8999bc52f72d5a2e89d07b254231fa8541f00137f2a94191e7c5",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d4_w5_a25.json": "38176f6c08619e3c4d050d5ffffd50e346c98a87d0bc6b885b43537166047dd3",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-pct_xgb_d4_w5.json": "c1821219013ad8747071af9abbb571fde672b4d92d26866d5de063edf26840b1",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d4_w1_a25.json": "5b9e6e992bcc1176490b10a0589f805423984d6e668f687d11243a6b311cb8ca",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d4_w1_a75.json": "7268f2089ff9ac659689b80854b26689ef4f130926cfa12ba3af151990ef034e",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d4_w5_a50.json": "8b98143ae4c08d0b77ca7edfdaf2bf7e8d33af42d9c73dc6e475bae6a6a6ee4d",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-native31.json": "fcafce8f406e12c5d3f7389f6fdc2632d6ac390d2469338eee00459bd0268045",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d6_w5_a50.json": "f0d0d2ff94521f0009f9409b64a31ce00a6eccf2cc6ca8176bdbd8a21dc8ca36",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-pct_xgb_d6_w1.json": "11494a36112be93a8b3820ee055187f50f608dedae258a7507827744b259ccde",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-blend_xgb_d6_w1_a25.json": "a4411f2c75f7508261fe80221d8a9e1b85007bef5f27cc423720f683e986dd2e",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d6_w5_a25.json": "9cc22b95ded5564f99ee4b175d23d1a90f3b227cf810fc73288636789ffeb4f4",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-blend_xgb_d6_w5_a75.json": "c0f51b6898c46839d069e53f57928f8b0b28e79804aa92f5acf26245173cfe67",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-blend_xgb_d6_w1_a50.json": "52477d7d25cd25797efc001fa9499dae96a6c2700046908cfe9b9d4bf40e3eb1",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m5-native31.json": "c5bef1a221970742c5c0e3501b6d8cce21112627ba25681ac7a056cc92e69d65",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-xgb_d4_w5.json": "36be64c5d2442a7a33edde8df7484cdddab022e64e54fa522a1a340b66a406b3",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-pct_baseline_balanced.json": "12a50f9b805c159d21a8c64ab3b1bd32552790e5643fa6c2e7d1e7a3025a99a4",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m4-xgb_d6_w5.json": "e5b3ce996545402b8f3d8ccf2873eb22f1d0efb8d79b2769342f01fbfbe1be0a",
+    "outputs/baf-xgboost-rank-ensembles-v1/runs/validation-m6-pct_xgb_d4_w5.json": "9f705da8a6f281a0426976f94dcb2a18309b474dde27b81d2337183b58e2a605",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d4_w5_a75.npz": "886d875c06e99f0e10a3ab071c8d943bac677f7da633c0bd4353f38f25422e38",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d6_w5_a50.npz": "6de0819532e2d4ce9457761540dd0ea4fd93ee71eaf9fac1d4f5e293e250d7c3",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-native31.npz": "97b8aecb1a6625d2c9d3b5921db37d130ad398542c071bbcc2ae4a47ee1e91c9",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d6_w1_a50.npz": "58506dc68fd135aa844a682e21859207bb73add38d04697e0e0e375cd6ab1b40",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d4_w1_a25.npz": "909bcbd10efaf15d1217d7b520e8fb8db00e5fc30ce23bee10159d43493f765f",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d4_w5_a25.npz": "8107654836ccb400605998eecc0c27e702cc13316ef2323894481f6a70b734e9",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-native31.npz": "ac7613374e84dd32a04a6d7dda57d4c874bb501dbdb9f283eea07777e62b8a1b",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d6_w1_a25.npz": "7021ee1783c274aa69ca32a35d03ec1c92b744523f5b188f1bedee118a0c6edb",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d4_w1_a50.npz": "8a43b117cb385848058014dd57877e5310a0d8252150ea33e8602592514d97e1",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d6_w5_a75.npz": "50a00f8b11da8e332da0acc161076b1644b65c6b5b7fb20859e38c7e69cd51b2",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d6_w1_a75.npz": "7ec55d30ffb04e0924a1c33895e9e8da2ade4e1a11792ddbb7702765887ceb5a",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d4_w5_a50.npz": "531a28b1eea442f7b2c111a93f9a9595bc192ab3f952fa569defc27b55aa7caa",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-xgb_d4_w1.npz": "7af9ee81286424c2ba34fc594537a5f598f851dc109dca68dfd9ea39218b4dae",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d4_w1_a50.npz": "d78f13525d7e5b765613523ec85a22752b0f270b019aee17459e72fcefe9bb00",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-xgb_d6_w1.npz": "a40ba85a695ed0afcec54e2b48e3aa3883ddbecd5a9c6fd9ece13a2f4efa11b8",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d6_w5_a75.npz": "084dcd51cca797e01fa6d6d2855bcd039339d9ff7d99454cc7ff7e82d85ef79c",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-xgb_d6_w5.npz": "910b2b173a0d3c757a9651d2b291b11b04eae4b3ad67340293f4fa29ada7847b",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-xgb_d4_w5.npz": "2e92bdc6503811ab218c8ad1bbfc5a27f0fc6e0731d23e4c8d032cad0edfcd27",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d6_w1_a25.npz": "de4b179b7d0207afb03884c495730d45f616a50cb7374d98c2552db51a3158ef",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-pct_baseline_lgbm.npz": "c599d010cd9a1fdc2c253fcf0315c50c9c1a9c9448f0f74824e701f477bf0f85",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d6_w5_a25.npz": "f231617d3cbfd3725e63f9bbe4c9034acb86e97822b01f77b9ce8a2f32837010",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-baseline_balanced.npz": "ec9fb57ca64b8dfc636d9c6ca317d981af916ac78a2acd4ac53620f914c8ec0e",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d4_w1_a25.npz": "37b89af6323fe83225789b7d2bb73bddffb7464458df5dd96868d3c7eb91bb57",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-xgb_d4_w1.npz": "dbf1ecc1828ea9e4e138f30ef1065bc2d6a067b8603998b0c5c12aa1d6358da5",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d4_w5_a75.npz": "cb0286c20d0da41d9cbfe54fad846da09d909cc4a99f11de4261fca6b6918386",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-xgb_d6_w1.npz": "4acc48ff0f53c89a03d8a8bf9986239e696c787889430833c0b1f0cd622d5a51",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d4_w1_a75.npz": "1d6c65d0eb356646acd20a27c1ad41be6f82ea11e927aee2cf581a17e308faac",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-xgb_d6_w5.npz": "0c4e97637c640ba4d2cf20894c64408e4c8f865583cdc21dd972442d7d13d88e",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-pct_baseline_lgbm.npz": "b6131f5a49cd01d04000d974fde3eda578c2616636d28258bd3cf049183a5f22",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-pct_baseline_balanced.npz": "874b1016a65918bb371b4eee98deb35b5906584009617fa8482785c92bfc39cf",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d6_w1_a50.npz": "6640e180ac04dad935ed4bf8d29410eadb5cfd1af24223553283dcbc4abd8ec5",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-xgb_d4_w5.npz": "214e254b17f3a113d0c74b96988690e1172abce75d4184dfb2a50b98c91666f8",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d6_w1_a75.npz": "03a3d6527a7cf3ffa64212688da8e53e4cc11541dbf9e38b635e560cffec22de",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-pct_baseline_balanced.npz": "791e11e5375dbb5af8b26e1fe05cf1b90d1ffa4f0b376e4f6485b5e4d15af949",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-baseline_lgbm.npz": "5efeda574d591987f0b815beb9b8d99db3b029f801b68b0b448482a933ca5944",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d4_w1_a50.npz": "fa41af17de8b99611a7a9b64508662f6d0dde268ad3e863cf879c87ce00e6b20",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d4_w5_a50.npz": "873c385551d886069882eb85352a4e7fadf381f8ff49ba83eeadd38624d4a9cb",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-pct_xgb_d4_w5.npz": "c8ce97c0c03ea2a8d888f34cb470c6d07493cb4e1a3cbe4c5df8e8715d4935aa",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-xgb_d4_w5.npz": "6f1fd3136a85e3d74f861fd9061ae9796bd591ef241f882488963c3fead64270",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-pct_xgb_d6_w1.npz": "3434891837e6f628d15294aba789be01dcc2099efe123030df17ec357501c61f",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-xgb_d6_w1.npz": "a51087d581403b9b5b0bec0131eaa34e7b0aefbaad01814e5ef239b134a6b1e3",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d6_w5_a25.npz": "e8eac542b9a7ea171275e9d5771382be65f25cf719ef42f4a7f143b9e9a2a149",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d6_w1_a25.npz": "3b470bc8bc1eca6e907948cb42845ba26b0bda81d52e2beb60942c5cb611482b",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d4_w5_a25.npz": "8001590cb100e6869810fc5f4ae0b66add474d9f4ce35c8aa1faf0938d820745",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-xgb_d6_w5.npz": "7fe37d3e2c6c969b298bba060b21c74d5cb7a825739e9d1a5523788df19d8d43",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-pct_xgb_d6_w5.npz": "75e966b5ccf7fdc377dcd5c2ea1832e465cd3f7ea449808038f838be2de1c3a1",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-baseline_lgbm.npz": "9f573069c67dd4ab7393ae978c8d923158f94dc4ff259d32808c2b265f49f668",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-xgb_d4_w1.npz": "05a80e99f918d6c3aeb455d83c737700fab820ec997fe620e3b4240323762b54",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-pct_xgb_d4_w1.npz": "6b6996903b812efca1e88bf87fa7606d148f748061d4b064b06ce0bef2867324",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d6_w5_a50.npz": "518b9caab34335b137cace56eb95fe91aa3305651acf0cbd1f288ec1acaed68c",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d4_w1_a75.npz": "25761f25e7b6a2ca2209464b71b2847bf83f95d41ede08f0bb634e60cff04d64",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d4_w5_a75.npz": "98ee5bd2100668dd956334881e3f85e091f17e43c5b8c6269219b5ae071502af",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-pct_baseline_lgbm.npz": "47e81e1c50712d7ad5aaa80ddb890940fc8621b7f493390afbe210d05271a2e5",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d6_w1_a50.npz": "4970382c6d1c9418be243216b18e832318cdbabe7b0fb0c99245db91c6d31a31",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d6_w5_a50.npz": "c0fb6b864234ee2e940cf441661f39f60e2b766827dd6a714c5174a739fccdd5",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-pct_baseline_balanced.npz": "da60a2dfa78d04d510dfd6f1c95bde451518e942d2260848b8359a5a35d303c9",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-native31.npz": "fb904d711eb6742c377ee5d88435e8fd16c4376c3e22d44079cb5d3802a4f365",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-pct_xgb_d6_w5.npz": "f142037479aef3dfe87eda7b613525f9f6f9e198ea520528b6c432edb20e688d",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d4_w1_a75.npz": "37e575cc9662d288c039b34217d48ab45a50a3fc16b0ebe2c214cc12a98adfd9",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-pct_xgb_d4_w1.npz": "04325f8301fc6419fa42c93090c9c2a86d30985e0d5fa30a5a3224d39cf6afc6",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-pct_xgb_d4_w5.npz": "e188ac88c99e6f8b70414aa5136c5bb01d9a196e49036c681eb17305727071d1",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d4_w5_a25.npz": "8c1a682b867c1ebd68fc748c96081b5a71067703a8aa195a35d63c96ba38f9b5",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d4_w1_a25.npz": "60a9880d010c45c438ac1d095ec74e03b9a3fe0f66768fafc7dce59df42d7872",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-pct_xgb_d6_w1.npz": "daa02ff21151be53fd5ed83a1c3bc55dabcf01b130e7731ae09457664f84fedb",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-baseline_balanced.npz": "f6ed6f494e0050a31b140d2ae2e213fcc9d05f8e8276615cdbe93325ac0aa816",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-pct_xgb_d6_w5.npz": "5bdb4865bd9e3db2704ad0240be3e5aabc6b8872b49adacee41e971a7f26d026",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-baseline_lgbm.npz": "c0781e9e8a2ec655bd9bfdd95469e1d33e4aceb8231504d130963924464c631d",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d6_w5_a25.npz": "3d9a00c830a9e0e9f9dec204247cc8c8559fff101c24124797f0a732d3772334",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-pct_xgb_d4_w1.npz": "a63d84d5f81c1f3514c8a0bc6e1f29a783b916277cb5bbb3b3e36277e73b6c86",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-baseline_balanced.npz": "4bc78321ed490014179988b80c0decd829396af529d66154585a95071b4196a0",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-pct_xgb_d4_w5.npz": "72dbcf81512e61d740ee71043845065a89e073d8e811b165034bbb9046897d2c",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m6-blend_xgb_d6_w1_a75.npz": "64ec42c4263c6172d4969c44a93309252f279202bd128c1192f61cdc90a29fb4",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m4-blend_xgb_d6_w5_a75.npz": "14ff3bff3d08945d4bb4c2aff8d9bc8df622aa258696e5226f01cddda460cf60",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-pct_xgb_d6_w1.npz": "7c771093e6cc5c6e3119d989082d363d8ea28b84cc434758995a5adaaf8b3a02",
+    "outputs/baf-xgboost-rank-ensembles-v1/predictions/validation-m5-blend_xgb_d4_w5_a50.npz": "fd4a36bafa4f86d0e87ac1204c02cc5be6e97b06cd578d298cbe4afa3cdaa67d",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m4-xgb_d6_w1.joblib": "13ac2e50fe1e0e0c89d705f82f489f0c8186fca27eba93c3b963178c22737c8a",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m6-xgb_d4_w1.joblib": "35c9f477c6f3dc696f5272a9f057e53746e6bd63a34defd28795a3bd4561d67d",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m5-xgb_d6_w5.joblib": "cf04b492f74f87aaeb42a6853c0dba01c42c312cbf3eab9485687ddff335a12e",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m5-xgb_d6_w1.joblib": "def35611a5f10d593d6374c64ea20cfc88bc74e46528138423aa396b04dc9eb4",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m4-xgb_d6_w1.ubj": "ab88f1dda3440a8bb9d7cd37edb98ddc4dde30bcd562590a9736613f00209107",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m4-xgb_d4_w5.ubj": "1dd1221955f50b3a8cf70afa35690c7b8d8787011137a20ae354c90681608426",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m4-xgb_d4_w1.ubj": "2046fae71b4c19cb9f9c9d1ac2f418ee3ef730dadded5d2a34b8b5fa3926cd6f",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m4-xgb_d6_w5.joblib": "8236d4b6448977882fb86ed1189866f6af6d8c96b537e2b130f9bb55e99fea3e",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m4-xgb_d6_w5.ubj": "d9e9f1f759971acc1529567afdbb4d34473d05bbea616203167fca451c457e21",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m6-xgb_d4_w5.joblib": "7fa1c3e6a30bbb5feb85de6101d9c13387f62bac50bad1b0f4ca3a061c92659b",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m6-xgb_d4_w5.ubj": "9d47771dce79d2f942ea269ba0855f0285a1cffac2d0ee08bb7e2d88647afd0a",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m4-xgb_d4_w1.joblib": "e8b99344f05825cd20c7c61da1c1fac2672427cae47efeb06124c013c29de3c4",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m5-xgb_d6_w5.ubj": "4d41e9c43d61d7831a1513aa6d9f021c528817ad924506bff33c9b67946ecc21",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m6-xgb_d6_w1.ubj": "581a2fe8d199a4aaf1e03f24d886d638f6ea1e7fe0fe8068600f08c0c02df267",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m5-xgb_d4_w1.ubj": "f62ed97f1750442254cce1e4db6cfda6aee514f40e2a0fd8fe4293e4024976f7",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m6-xgb_d6_w1.joblib": "21378dbe9f27fc116b82a483cad4757144a6bf97eb18d0990b46fe61ef9caf8c",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m5-xgb_d4_w5.joblib": "7ddadb9d163d9ecab219e3ed1646156066901262d7d7598394ff410522bd6009",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m5-xgb_d4_w5.ubj": "375616799dd0e08f4d4a65b7ad2744dbd001e62e0915828ccb69d0a7e87879c3",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m6-xgb_d6_w5.ubj": "990152cf3869db571db1c5797cc19ee49e1e61bf06fd6265629eec453f3ca220",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m5-xgb_d6_w1.ubj": "e6f6b265c89bb440fa46048c7cc312d9574eb4e8af9f2370870eddd7cc5635d9",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m6-xgb_d4_w1.ubj": "691da9ba9fa30d4adfa9f4706e16e89f808f8ef93cb9eb3944070bb31c387b91",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m5-xgb_d4_w1.joblib": "c5374e2002619e81c6ede9a5066ec654a8d92d4c4b48dcc4ea84e6908d4fbfed",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m4-xgb_d4_w5.joblib": "3c0b2dc19b1b78c04c559c248d735fb7ae85e5d8da6ab61188004e4f09535e18",
+    "outputs/baf-xgboost-rank-ensembles-v1/models/validation-m6-xgb_d6_w5.joblib": "3f70184ebc9ffa572e47e0fdad9c7ab8c59a030de605d934e06fe9ca77141fe0"
+  },
+  "month7_previously_consumed": true,
+  "exploratory": true
+}

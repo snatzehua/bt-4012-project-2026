@@ -1,0 +1,12 @@
+{
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/pre-execution-update/lifecycle.log": "7d2221fb5ad92575e20aba4654f12986b2a0c220b3f04f11bf6a0dcfe3c4a572",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/pre-execution-update/test_fit_counts.json": "e0360d645cd49e9744b47c6a90b50267ff05e5f7a8630cc1123312153f311c07",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/pre-execution-update/new-gates-fits.json": "a9fe9882c1c56701c7877beea901957eaf5c97fb2f0ca3bd5e6ca7430b6f1f11",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/pre-execution-update/new-gates.xml": "fdf52888ce5af7de9e7c34af7f5a04989ba6ab576e700e0a8d48096c16042075",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/pre-execution-update/tests.xml": "f6fb1a28f63859d38567ae0f93e005db147a8b65a98b6428d2d0a93cb97f3fb5",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/pre-execution-update/checks.json": "76bbf738610c2bc0986bf7322772562c78c3ac0c528e2f10e386d7266242f7a5",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/pre-execution-update/lifecycle.xml": "b75fc6ebf8dd4be0d1bd1d6983550bba2de0d1dcc2781b646589646236da0408",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/pre-execution-update/lifecycle-fits.json": "0b93e1eb858f04ef15aadafb32f92f1ef42b27fb1450c1e8c52722f7caf76a9e",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/pre-execution-update/new-gates.log": "bd8eb0bcfb901d1fb724eae8e3d14a0667b207849eef7da5bd14766409b592b6",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/pre-execution-update/tests.log": "6ab5c0bd7f334c3e6469463797158834e35ebb29e6774434cefe9fe10717e68d"
+}

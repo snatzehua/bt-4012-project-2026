@@ -1,0 +1,9 @@
+{
+  "checked_new_models": 36,
+  "checked_forward_rows": 90,
+  "checked_score_artifacts": 48,
+  "maximum_independent_gradient": 9.968959345592707e-07,
+  "optional_old_solver_models": 9,
+  "numerical_and_score_reconstruction": true,
+  "source_sha256": "53d69df2b9d51251a2fd9a75cb1147dc78457e9c6d9c4ac08bdf098c269a54c7"
+}

@@ -1,0 +1,7 @@
+{
+  "baf/shallow_catboost.py": "fbfbb2532e9da019eeda2148ebabcab80712b940f43817dc7f387c3eb886cfb9",
+  "baf/shallow_catboost_study.py": "98b4e737b39a92faea7190ba2f7506e48b76824d5ee8560f652f9d7c712b2891",
+  "baf/shallow_catboost_report.py": "efbb8a50c60c0cac27903a5242ba268cb6617a142fd3859d9352b6cba88278d6",
+  "tests/test_shallow_catboost.py": "aafb9be86b856ddf6cd8d37ff1ce5a33d8f530d3b6f8bc529df4e8bd8e2c3ce0",
+  "scripts/check_shallow_catboost.py": "5926332728e4739c746f6b40fea8616440c43cd02607b7f7c228087021f9703e"
+}

@@ -1,0 +1,8 @@
+{
+  "fixture": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "candidate": "xgb_d4_w1",
+  "eval_month": 4,
+  "prediction_sha256": "269c1ef02120778c46169a60e50d47ddc6673970f27f2b6ad9abef677abe1f15"
+}

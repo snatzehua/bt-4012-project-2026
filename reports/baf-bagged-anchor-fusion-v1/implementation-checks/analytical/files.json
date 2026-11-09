@@ -1,0 +1,15 @@
+{
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/summary.csv": "51e18e630ea8d099b606348ac47e5bbf851cec3c2cd62715f1ed4381b8cef68d",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/score_diagnostics.csv": "413b7f2709869fc011779fdff3ea9d26323d9fc4c1d5bb96cac86cf03cc9c261",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/audit.json": "74a213af379a51cd7f1e5df7d876034a90368c5864be62aaf2385437c3703249",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/decision_overlap.csv": "1f9e613916ab4a5ff48dd4cdf87949d32c56eaea9c090b6d5ec64826214bbbaf",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/expressions.csv": "ca9db110bf26b3582ae2dfcceaa43da2c70c9ee6eb1ba12981e6315087d9bab3",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/reference_diagnostics.json": "f642b48795b61a239ff51380b83a474e64d095cf6e2f82991f2a7a57ef87dccc",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/diversity.csv": "70fcebd9b7e7c8ec2625ae668f1240b75a085d66de1ce2b52d43fecfef8da01a",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/pooled.csv": "69819b0901f75cac9c77fbafcfc4d55488170e287f2f235deed84710815b0a25",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/contrasts.csv": "1ee2b25b9e4f1cfbfcdaadeef39304d0d95033e9ea261f0a0c096f040a0c9324",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/clipping.csv": "f16bbd1b332a669257e80744d5150bdfffd72bb81040b3075dfdb02f91eea3b5",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/model_diagnostics.csv": "6542b82128ef70a60b3863a6a1fa84e8f860a3461cc1c5199652a22979e42020",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/preprocessing.json": "ce96ecc8be28d8f14332cb392d1e805a92a058e699ab7f4b2ffc23f32f8026eb",
+  "reports/baf-bagged-anchor-fusion-v1/implementation-checks/analytical/crossfit.csv": "f4a5bf4716fd3d5740dddbf3efa27c596694ee92bbe6530747e11ac73ea4686e"
+}

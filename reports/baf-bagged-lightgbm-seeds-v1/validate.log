@@ -1,0 +1,49 @@
+Preparing validation 4 baseline_balanced
+Preparing validation 4 baseline_lgbm
+Preparing validation 4 spline_c0p1_unweighted
+Preparing validation 4 spline_c1p0_balanced
+Preparing validation 4 xgb_d4_w1
+Preparing validation 4 bagged_balanced_s17
+Preparing validation 4 bagged_balanced_s29
+Preparing validation 4 bagged_balanced_s43
+Preparing validation 4 bagged_unweighted_s17
+Preparing validation 4 bagged_unweighted_s29
+Preparing validation 4 bagged_unweighted_s43
+Preparing validation 5 baseline_balanced
+Preparing validation 5 baseline_lgbm
+Preparing validation 5 spline_c0p1_unweighted
+Preparing validation 5 spline_c1p0_balanced
+Preparing validation 5 xgb_d4_w1
+Preparing validation 5 bagged_balanced_s17
+Preparing validation 5 bagged_balanced_s29
+Preparing validation 5 bagged_balanced_s43
+Preparing validation 5 bagged_unweighted_s17
+Preparing validation 5 bagged_unweighted_s29
+Preparing validation 5 bagged_unweighted_s43
+Preparing validation 6 baseline_balanced
+Preparing validation 6 baseline_lgbm
+Preparing validation 6 spline_c0p1_unweighted
+Preparing validation 6 spline_c1p0_balanced
+Preparing validation 6 xgb_d4_w1
+Preparing validation 6 bagged_balanced_s17
+Preparing validation 6 bagged_balanced_s29
+Preparing validation 6 bagged_balanced_s43
+Preparing validation 6 bagged_unweighted_s17
+Preparing validation 6 bagged_unweighted_s29
+Preparing validation 6 bagged_unweighted_s43
+                                 candidate        policy       f2       f1       f3  precision   recall  flagged_fraction  average_precision    tp     fp    fn  roc_auc
+interaction_blend_spline_c1p0_balanced_a10        latest 0.330793 0.234529 0.384271   0.158659 0.459837          0.037598           0.189693 658.5 3569.0 772.0 0.896985
+interaction_blend_spline_c1p0_balanced_a10        pooled 0.330716 0.234546 0.384105   0.158702 0.459493          0.037552           0.189693 658.0 3564.5 772.5 0.896985
+   margin_blend_spline_c0p1_unweighted_a25        latest 0.329010 0.231593 0.383368   0.155537 0.460249          0.038074           0.190366 659.0 3628.5 771.5 0.897179
+logit_mean_xgb_d4_w1_baseline_balanced_a50        pooled 0.328907 0.240464 0.375839   0.166891 0.439609          0.034181           0.188626 629.5 3214.0 801.0 0.896716
+   margin_blend_spline_c0p1_unweighted_a25        pooled 0.328205 0.230378 0.383125   0.154440 0.461284          0.038527           0.190366 660.5 3676.0 770.0 0.897179
+                     bagged_unweighted_s43 rank_fraction 0.327885 0.225554 0.386424   0.148442 0.470590          0.039936           0.184906 673.0 3868.5 757.5 0.894816
+                         baseline_balanced        pooled 0.327802 0.240101 0.373971   0.166693 0.436170          0.033753           0.183160 624.5 3175.0 806.0 0.894612
+logit_mean_xgb_d4_w1_baseline_balanced_a50        latest 0.327582 0.233693 0.380469   0.159761 0.456850          0.038092           0.188626 654.5 3612.0 776.0 0.896716
+                         baseline_balanced        latest 0.327170 0.240096 0.372824   0.166913 0.434101          0.033512           0.183160 621.5 3152.0 809.0 0.894612
+                 bagged_balanced_prob_mean        latest 0.326831 0.234532 0.377440   0.160427 0.448287          0.036477           0.185577 642.0 3455.5 788.5 0.895228
+                bagged_balanced_logit_mean        pooled 0.326742 0.238137 0.373769   0.164658 0.437568          0.034318           0.185526 626.5 3236.0 804.0 0.895229
+              bagged_unweighted_logit_mean rank_fraction 0.326588 0.225655 0.383899   0.148989 0.465734          0.039359           0.185907 666.0 3808.0 764.5 0.895179
+                 bagged_balanced_prob_mean        pooled 0.326556 0.237394 0.374039   0.163773 0.438631          0.034582           0.185577 628.0 3264.5 802.5 0.895228
+                bagged_balanced_logit_mean        latest 0.326200 0.234535 0.376373   0.160732 0.446534          0.036315           0.185526 639.5 3439.0 791.0 0.895229
+                       bagged_balanced_s29        pooled 0.325981 0.235318 0.374693   0.161325 0.441400          0.035221           0.184499 632.0 3334.0 798.5 0.894571

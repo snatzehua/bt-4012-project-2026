@@ -1,0 +1,32 @@
+{
+  "verified_at_utc": "2026-10-12T01:58:34.064307+00:00",
+  "tasks_complete": [
+    "1.1",
+    "2.1",
+    "2.2"
+  ],
+  "tasks_pending": 11,
+  "tests_passed": 1367,
+  "current_tests": 297,
+  "current_tiny_cache_fits": 18,
+  "historical_test_fits_separate": true,
+  "source_paths": 55,
+  "mandatory_historical_paths": 735,
+  "historical_files_preserved": 3732,
+  "selection_pairs": 16,
+  "post_test_historical_preservation_verified": true,
+  "new_full_fits": 0,
+  "new_production_miniature_fits": 0,
+  "full_data_blends_evaluated": false,
+  "new_month7_scores_evaluated": false,
+  "execution_or_selection_frozen": false,
+  "performance_goal_achieved": false,
+  "full_suite_receipt_sha256": "76bbf738610c2bc0986bf7322772562c78c3ac0c528e2f10e386d7266242f7a5",
+  "openspec_progress": {
+    "total": 14,
+    "complete": 3,
+    "remaining": 11
+  },
+  "openspec_strict_items_passed": 24,
+  "openspec_validation_sha256": "c1db5cafbd569831ef0e6181a0cb57b095ce6ca0517882f652247a8db8eea420"
+}

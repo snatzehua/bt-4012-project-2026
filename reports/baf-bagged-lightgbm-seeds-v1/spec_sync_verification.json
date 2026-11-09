@@ -1,0 +1,10 @@
+{
+  "main_path": "openspec/specs/baf-bagged-lightgbm-seed-study/spec.md",
+  "main_sha256": "89c1662a0a610837239df81fff0b86942a66368c1c15497b578181797f235f56",
+  "delta_path": "openspec/changes/test-bagged-lightgbm-seed-ensembles-f2/specs/baf-bagged-lightgbm-seed-study/spec.md",
+  "delta_sha256": "32bc4718d7dfe3f7da35065280e761353baceba52e15f86619ef212b2a0ef9e8",
+  "requirements": 7,
+  "scenarios": 10,
+  "canonical_main_format": true,
+  "rule_snapshot_sha256": "1b9c231b93d0621d0a4bec636b21589179ec7d478c8b0c3e86f397de31123518"
+}

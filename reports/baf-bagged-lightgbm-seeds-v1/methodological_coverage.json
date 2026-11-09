@@ -1,0 +1,28 @@
+{
+  "test_source_sha256": "6aa2ea22d7b4be906d9878c4892e4b2dd9aa78ea02a47bdf908e6b4e4b2a5168",
+  "receipt_sha256": "8fca4cb2dfb0b7ce1ecc1d7d73ef83e3f981df95c283771c92ed3eb714cfb5e2",
+  "current_study_test_families": [
+    "test_absent_reference_delegates_exact_individual_recipe",
+    "test_bagged_failure_evidence_blocks_retry",
+    "test_complete_analytical_grid_and_independent_audit",
+    "test_conditional_draws_keep_all_roles_and_aliases",
+    "test_constant_correlations_and_complete_overlap",
+    "test_declared_counts_and_preserved_contract",
+    "test_every_winner_policy",
+    "test_fixed_aggregate_arithmetic_and_label_row_invariance",
+    "test_independent_audit_checks_exact_table_keys",
+    "test_independent_audit_rejects_numeric_corruption",
+    "test_independent_composition_provenance_corruption",
+    "test_independent_json_evidence_corruption",
+    "test_invalid_aggregates_rejected",
+    "test_new_bagged_cache_format",
+    "test_partial_derived_cache_is_not_overwritten",
+    "test_partial_original_reference_margin_is_rejected",
+    "test_partial_reference_never_falls_back",
+    "test_sampling_factory_changes_only_effective_declared_parameters",
+    "test_wholly_absent_derived_score_rebuilds_exactly"
+  ],
+  "test_count": 129,
+  "winner_policy_cases": 45,
+  "full_suite_count": 1070
+}

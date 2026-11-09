@@ -1,0 +1,403 @@
+{
+  "created_at_utc": "2026-10-11T04:48:01.195453+00:00",
+  "fingerprint": {
+    "config": "4b2d742c49cd3c395afdc4dde65365d5f6ba949568273f1f12aa2c4f0c642390",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+      "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+      "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+      "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+      "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+      "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+      "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+      "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.12.9"
+  },
+  "config": {
+    "data_path": "data/raw/baf/Base.csv",
+    "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+    "output_dir": "outputs/baf-focal-loss-v1",
+    "report_dir": "reports/baf-focal-loss-v1",
+    "source_config": "configs/calibrated-f2-policy.json",
+    "source_fingerprint": {
+      "config": "d7eca424381b86cb5c6b6f40dfe4fa1a7d267f7fa0fadc3dde8238fe2c131d4c",
+      "sources": {
+        "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+        "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+        "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+        "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+        "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+        "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+        "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+        "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+        "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+        "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+        "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+        "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+        "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+        "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519"
+      },
+      "software": {
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "lightgbm": "4.7.0",
+        "catboost": "1.2.10",
+        "joblib": "1.6.0",
+        "threadpoolctl": "3.7.0"
+      },
+      "python": "3.12.9"
+    },
+    "preserve_sha256": {
+      "outputs/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+      "reports/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+      "outputs/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+      "reports/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+      "outputs/baf-recall-weighted-v1/selection.json": "b7058cf1dd2111473f953ecdc478e75418f38e2bf0b1e70b85319fff23d30b16",
+      "reports/baf-recall-weighted-v1/selection.json": "b7058cf1dd2111473f953ecdc478e75418f38e2bf0b1e70b85319fff23d30b16",
+      "outputs/baf-recall-weighted-extension-v1/selection.json": "17507207fb9aed254d5ca7c44ab19ce3ac1c0a191c9007f1b9bbaa8681d905c6",
+      "reports/baf-recall-weighted-extension-v1/selection.json": "17507207fb9aed254d5ca7c44ab19ce3ac1c0a191c9007f1b9bbaa8681d905c6",
+      "outputs/baf-chronological-stacking-v1/selection.json": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+      "reports/baf-chronological-stacking-v1/selection.json": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+      "outputs/baf-calibrated-f2-policy-v1/selection.json": "89625d5162533a487c65feeb7fceae0084b980a7e2fffa74627f88c2c9de0089",
+      "reports/baf-calibrated-f2-policy-v1/selection.json": "89625d5162533a487c65feeb7fceae0084b980a7e2fffa74627f88c2c9de0089",
+      "configs/calibrated-f2-policy.json": "d7eca424381b86cb5c6b6f40dfe4fa1a7d267f7fa0fadc3dde8238fe2c131d4c"
+    },
+    "validation_months": [
+      4,
+      5,
+      6
+    ],
+    "test_month": 7,
+    "beta": 2,
+    "seed": 2026,
+    "threads": 6,
+    "hessian_floor": 1e-06,
+    "policies": [
+      "pooled",
+      "latest",
+      "rank_fraction"
+    ],
+    "presets": [
+      {
+        "id": "custom_g0_w1",
+        "kind": "custom",
+        "gamma": 0,
+        "positive_weight": 1
+      },
+      {
+        "id": "custom_g0_w3",
+        "kind": "custom",
+        "gamma": 0,
+        "positive_weight": 3
+      },
+      {
+        "id": "custom_g1_w1",
+        "kind": "custom",
+        "gamma": 1,
+        "positive_weight": 1
+      },
+      {
+        "id": "custom_g1_w3",
+        "kind": "custom",
+        "gamma": 1,
+        "positive_weight": 3
+      },
+      {
+        "id": "custom_g2_w1",
+        "kind": "custom",
+        "gamma": 2,
+        "positive_weight": 1
+      },
+      {
+        "id": "custom_g2_w3",
+        "kind": "custom",
+        "gamma": 2,
+        "positive_weight": 3
+      },
+      {
+        "id": "builtin_w1",
+        "kind": "builtin",
+        "gamma": 0,
+        "positive_weight": 1
+      },
+      {
+        "id": "builtin_w3",
+        "kind": "builtin",
+        "gamma": 0,
+        "positive_weight": 3
+      }
+    ],
+    "references": [
+      {
+        "id": "baseline_balanced",
+        "family": "baseline",
+        "model": "lightgbm",
+        "engineered": false,
+        "weighted": true
+      },
+      {
+        "id": "baseline_lgbm",
+        "family": "baseline",
+        "model": "lightgbm",
+        "engineered": false,
+        "weighted": false
+      },
+      {
+        "id": "native31",
+        "family": "lightgbm",
+        "engineered": false,
+        "params": {
+          "n_estimators": 800,
+          "learning_rate": 0.03,
+          "num_leaves": 31,
+          "min_child_samples": 100,
+          "reg_lambda": 5,
+          "colsample_bytree": 0.9
+        }
+      }
+    ],
+    "tree_params": {
+      "n_estimators": 800,
+      "learning_rate": 0.03,
+      "num_leaves": 31,
+      "min_child_samples": 100,
+      "reg_lambda": 5,
+      "colsample_bytree": 0.9,
+      "deterministic": true,
+      "force_col_wise": true,
+      "boost_from_average": false
+    },
+    "bootstrap_replicates": 500,
+    "bootstrap_seed": 1027,
+    "expected_new_fits": 24,
+    "expected_reference_results": 9,
+    "expected_crossfit_rows": 66
+  },
+  "selected_candidate": "baseline_balanced",
+  "selected_policy": "pooled",
+  "selected_development_f2": 0.32780157809618937,
+  "choices": {
+    "selected": [
+      "baseline_balanced",
+      "pooled"
+    ],
+    "balanced": [
+      "baseline_balanced",
+      "pooled"
+    ],
+    "unweighted": [
+      "baseline_lgbm",
+      "pooled"
+    ],
+    "same_model": [
+      "baseline_balanced",
+      "pooled"
+    ]
+  },
+  "rules": {
+    "selected": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "balanced": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "unweighted": {
+      "kind": "pooled",
+      "threshold": 0.046095701655237555,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "same_model": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  "fit_specs": [
+    {
+      "id": "baseline_balanced",
+      "family": "baseline",
+      "model": "lightgbm",
+      "engineered": false,
+      "weighted": true
+    },
+    {
+      "id": "baseline_lgbm",
+      "family": "baseline",
+      "model": "lightgbm",
+      "engineered": false,
+      "weighted": false
+    }
+  ],
+  "validation_files": {
+    "integration_gate.json": "e03b238b26f04aad4e7c1e4b2a7e475ec54b9ef8856224882eeb7015207aaacd",
+    "crossfit.csv": "7e1d8ba086b1e9a0c5063f9b848fbce4e13eb3b3b645fc6af3af5fc5af8ae350",
+    "summary.csv": "714bb4f25ac62588aebe30124b554ae6332a291cbd908e8d1ed3a7d8a15fa25b",
+    "contrasts.csv": "902b84b853cca52d4e44ebeab2e72da720b6fee5ca14f8c671f3331604e5939d",
+    "pooled.csv": "3de2ee058f2c4031e59e0fbfff3559d8f287a32e62d028742f0ad5c8a8a948c0",
+    "ordinary_score_diagnostics.csv": "504f275340921c09ac178b2334bf5cb9c8a9af5151ffd1308bdc1c8f411721ce"
+  },
+  "artifacts": {
+    "outputs/baf-focal-loss-v1/runs/validation-m4-custom_g2_w1.json": "b9351a70fb046b33f14d13ed718f454eed6a52ba50f95f48cb906e6e29eaac02",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-builtin_w1.json": "746de47afb0bd208b965adf2d582a5feb451434ba96311af3fb5f6fdb2b3bc45",
+    "outputs/baf-focal-loss-v1/runs/validation-m4-builtin_w3.json": "1cbddeee0f8f1e6ec511c281cbde5dbc8d9451d2c139a61b516caa502a29620a",
+    "outputs/baf-focal-loss-v1/runs/validation-m4-native31.json": "a8ce16c5835070a59abbfaa10ce8cfd1a638ef11751ff4db85c77712ba8106f2",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-custom_g1_w1.json": "bec1eea9113bbc7e79619573db87fe62c75e2dfe72762b3b23baae962312b41e",
+    "outputs/baf-focal-loss-v1/runs/validation-m4-baseline_balanced.json": "56899b0f0970c2532c68dd3805dd2e5665d5cc85433f5daf12d4abb3e2e5ecab",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-custom_g2_w1.json": "52ab7261a170d178e9c38a6403313acda6e4d790a0518ed20cfee968faf0ebb0",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-custom_g0_w1.json": "376481cdc40796ff56f9841e2e251ff3ff99ea4d05d77d129b1d2ef1a82a7f6a",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-custom_g2_w1.json": "6fc2b80c7c14e0f23d5b5ca759d0f0d15a42c01cef7396cb62bed3433f1882e8",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-custom_g0_w1.json": "ce195e08cb26de2d5774b082c6dc23273449f8f6e279586261b20e549924091f",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-baseline_lgbm.json": "d8502ea76d291a165006b72b93576b7b567692238f25747a51b33e3eac592e74",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-baseline_balanced.json": "48a861928f0c16034bdf45c42f19cf308e488586f85ec224de88e5e698f4c338",
+    "outputs/baf-focal-loss-v1/runs/validation-m4-custom_g1_w1.json": "cfef168db07ee410fbcfb3e2705e77846240b17104c4ed0afe61a61e432e8fd3",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-builtin_w3.json": "2495b5cb7d7b079dce89fe6341d05891cf0f1e1fa2adbded27a65dc2fd59ac6c",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-baseline_balanced.json": "b5c097fe6a01d3f63ac8eb7fbbda85447de9c7536cb5a02de2b61b82684130d3",
+    "outputs/baf-focal-loss-v1/runs/validation-m4-custom_g0_w1.json": "7445db1e8490f1677b2d831aa4fc58b0f069c4dac24ddebe600fcc54da13336a",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-baseline_lgbm.json": "1ec924d0a6804fb1824947ddc5ca0a7939f213769fe6f35620f903734539fe4d",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-custom_g1_w1.json": "36ba93620dbaa8738a0180d57e45bd03bf1526a910ca47b2c436def8d68f96af",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-custom_g0_w3.json": "a39d3dc33e6f7a9d4502909e1332f01f33e3f2d0681d5f3e22d0c65411c60a87",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-custom_g2_w3.json": "a3fc44f70c81134b37ce2e9dca006436abe3ed45987f0b75fcbe4b535fca7de5",
+    "outputs/baf-focal-loss-v1/runs/validation-m4-custom_g1_w3.json": "481e6110d844adc539fdddf26a71510aa1e3b1c98be0d2415f2a8834c7d2f79d",
+    "outputs/baf-focal-loss-v1/runs/validation-m4-baseline_lgbm.json": "5b1377c689e30115f81df3f66c739a382880e4a2e449d1d117c9facef65c8031",
+    "outputs/baf-focal-loss-v1/runs/validation-m4-custom_g0_w3.json": "6ecbbef4e1c0342c667f9c9d09964a1d5f518e2f405ae83fe831be934f518f1a",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-builtin_w1.json": "9ebe1cde3e3faddcb59360bb222b843cb344c1300dee618121593ccd997abe37",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-custom_g1_w3.json": "7f0cf76513d476a0dd65d74aa0d8b9bd9b247df360d7fd8749167becaf49f716",
+    "outputs/baf-focal-loss-v1/runs/validation-m4-builtin_w1.json": "6a1214d46e7880f3244d7ecfd146a373139b8ab3c12ee0acc4d2c623524c3001",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-builtin_w3.json": "fe36dff328159ef21977f2d94e450a93dd10378b54e36f518e05a3bc492e2cba",
+    "outputs/baf-focal-loss-v1/runs/validation-m4-custom_g2_w3.json": "94d0c2881472f9ae85649bc8c1e455cc38b8e13b545fe9065fef5a9e18117a48",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-native31.json": "bf9e94d678d750ee525ba3a2059404849f0b77b6c05ff75edd7188d6e673ab34",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-custom_g1_w3.json": "9f6e80706db368010ed243874f6e1c3f680482456ddd1d76f660f1a733f9230b",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-native31.json": "09c4fdb2424d7484312896e5df875f2e66efef5675cdb1fbc7feb45b8999d89e",
+    "outputs/baf-focal-loss-v1/runs/validation-m6-custom_g0_w3.json": "615a74298cfeae5a7d6cf823395c6c12f0ee5e5eb769fc8f4654b0458e086ba8",
+    "outputs/baf-focal-loss-v1/runs/validation-m5-custom_g2_w3.json": "8a4216417558a86a73ace659e44f9c438ea48795b4448d0471c2378d08ed9972",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-custom_g0_w1.npz": "768fd05c286506d165687dfebd0fde040f66a2633812e8565ec972cee5bb3cf0",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-native31.npz": "97b8aecb1a6625d2c9d3b5921db37d130ad398542c071bbcc2ae4a47ee1e91c9",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-custom_g0_w3.npz": "f800805e0123b6dd5fb06e61a980c3b31ee4300508246fe4521b1ef1899341a0",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-custom_g2_w3.npz": "c17aca59da2962d8d437ea69939b1eb78836f596e6fc209b113a9d395af3830e",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-native31.npz": "ac7613374e84dd32a04a6d7dda57d4c874bb501dbdb9f283eea07777e62b8a1b",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-custom_g2_w1.npz": "d153a8808961a22122d495e1258e173f069b7e935ecd496184bcf297a9ac346c",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-custom_g1_w1.npz": "2d8c3855113a06b658950209c4925fed61b8338b1630b7faf815d40eaca02a54",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-custom_g0_w1.npz": "be56a4c196291af121901d16b1a4f5722d4636cbd09efd1120617ab846801310",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-custom_g0_w3.npz": "8ec61a8ffc0f86ea791f87b15824004a049221e717f5553150054043ee3979bf",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-custom_g1_w3.npz": "bc25c806fa3297d3271d28e66d89b5d0b710f4390d2d985d9a356dfd9090d5f7",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-baseline_balanced.npz": "ec9fb57ca64b8dfc636d9c6ca317d981af916ac78a2acd4ac53620f914c8ec0e",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-custom_g2_w3.npz": "7fbc4d891a7825e251c0e2f4d6aa221f834ee5013c1b414906ab95b4051e4b41",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-custom_g2_w1.npz": "09e00f1ff00c8bb8b726485a5785843bb9f499a1630f513f134f657f7f83f09a",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-builtin_w3.npz": "8ef62a83161e8d4ce194e9f128dcc3bc6d7b1bc974ec7c2dd5909c760e0d3c75",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-baseline_lgbm.npz": "5efeda574d591987f0b815beb9b8d99db3b029f801b68b0b448482a933ca5944",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-custom_g1_w3.npz": "ee7afd3a7fc897d945f796c8fac76c89b5f0c1faea92f78f9831a89fd3b031b6",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-custom_g1_w1.npz": "8f62be96bac09c3cfc9979bb4e0f562cb2863a28085d8c19462bc1a87972a204",
+    "outputs/baf-focal-loss-v1/predictions/validation-m5-builtin_w1.npz": "c72b5baf36086df53f54ffc243e1f35b107518cf8527f4b4d515fdc3db05e56b",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-builtin_w1.npz": "77cfc283a2195b2efe780af291c32c06a4b83e9fb07f48676647fa29ae1b2c06",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-baseline_lgbm.npz": "9f573069c67dd4ab7393ae978c8d923158f94dc4ff259d32808c2b265f49f668",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-builtin_w3.npz": "3ab33b3def57453b4f62584bf1d96b7a4c2f4397cec3b056251eb3fe846fd995",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-custom_g1_w3.npz": "98e5582adad52a5448010b2200dffb2da971627727259814fffdca00dba8a27e",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-custom_g0_w3.npz": "9a4ab222d67b522a0aed41aeb067f5749c13cbb3d31e85d2e97478524073085e",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-native31.npz": "fb904d711eb6742c377ee5d88435e8fd16c4376c3e22d44079cb5d3802a4f365",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-builtin_w3.npz": "b32395ce2c0ae2893c073f3b0de8f258bac3536ace3462011b4decca409364d9",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-builtin_w1.npz": "e5d4254d383df8f7965e6134a1be7a96f37b049849eaf1ecb5c3e17f6f9456ff",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-baseline_balanced.npz": "f6ed6f494e0050a31b140d2ae2e213fcc9d05f8e8276615cdbe93325ac0aa816",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-custom_g0_w1.npz": "5978c9326b42722c386b8a1028e0e0040db3c87dd5efd20e51d011b3e5220112",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-custom_g1_w1.npz": "dab34ed9ed99c9f642dfa52e3e47787dd7ca51b0aa5081fc84193dfd56d60de8",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-baseline_lgbm.npz": "c0781e9e8a2ec655bd9bfdd95469e1d33e4aceb8231504d130963924464c631d",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-custom_g2_w1.npz": "a7ad970fd85cd92188f2f7e10b24672e354a9c04c685e8892c19f86343c50ebd",
+    "outputs/baf-focal-loss-v1/predictions/validation-m4-baseline_balanced.npz": "4bc78321ed490014179988b80c0decd829396af529d66154585a95071b4196a0",
+    "outputs/baf-focal-loss-v1/predictions/validation-m6-custom_g2_w3.npz": "63d0bb8bbf5b107e2060d254fa120a64a9699876c04eac192b7119e83e37862a",
+    "outputs/baf-focal-loss-v1/models/validation-m5-custom_g0_w3.joblib": "0d6aaa2a19ea9c10d0eafb2674e9731a7ff23a289f4e5f43ef9556a538e7b3fb",
+    "outputs/baf-focal-loss-v1/models/validation-m4-custom_g0_w3.joblib": "32b177b6b19ab631d559c0e9e8e2d991057bd96b5e033d39cb7135d563385c02",
+    "outputs/baf-focal-loss-v1/models/validation-m6-builtin_w1.joblib": "ced8f9368a8aeead930a6b48b489535732fcad263f0785000a7fab4d68a8d9d9",
+    "outputs/baf-focal-loss-v1/models/validation-m6-custom_g0_w3.joblib": "fb392204f8e8c91ef16952d9ceb252b05ae57270bbd0dbc8fcf719fdc22123bb",
+    "outputs/baf-focal-loss-v1/models/validation-m6-custom_g0_w1.joblib": "620ff396ded1d19de6a820d09eff725e268ec6d2a36085c98af3079f265693d4",
+    "outputs/baf-focal-loss-v1/models/validation-m5-custom_g0_w1.joblib": "7ccd37bf81f10a774606047c6c30fbeb92be25ac9f1a395bc89ee4c51300b4e9",
+    "outputs/baf-focal-loss-v1/models/validation-m6-builtin_w3.joblib": "5e0a66c6e30641e14a01e69585f1eeb29be210b7d9e736398a30dc0734aefd7a",
+    "outputs/baf-focal-loss-v1/models/validation-m4-custom_g0_w1.joblib": "3f275901444137cf2627725e29ba4f59edb51acbea8b489fe50d3e9dc2a74b80",
+    "outputs/baf-focal-loss-v1/models/validation-m5-custom_g1_w3.joblib": "bf48e657331af935fe216bf58edd8a253a072767306205c98c1a1f084d403f2c",
+    "outputs/baf-focal-loss-v1/models/validation-m4-builtin_w1.joblib": "6fe6dda3a9abcaca5737b51710b2b35220577ff044b4f6e3b8552de117d20aad",
+    "outputs/baf-focal-loss-v1/models/validation-m4-custom_g1_w3.joblib": "d53e181c20573897e468976be06ced531046c0a5c3cef72e22dac4bec91c7a07",
+    "outputs/baf-focal-loss-v1/models/validation-m5-builtin_w3.joblib": "2672f0963b7440904a5dff8fe1cee7f1541709a808e88869c08302c0ebbf9bdd",
+    "outputs/baf-focal-loss-v1/models/validation-m6-custom_g1_w3.joblib": "4e616be632449d66d2290d62f93f304b6a2a27537b040873db7e14b5cb06ad69",
+    "outputs/baf-focal-loss-v1/models/validation-m5-builtin_w1.joblib": "83dcbe19f3a3d18c14e5b00f42221324df7330b425cc2bed56707e90ed559f73",
+    "outputs/baf-focal-loss-v1/models/validation-m6-custom_g1_w1.joblib": "5aef039ebf8d48cf024fd6310be5ef6c19cd59c5ff0d1bc006472c17099bd04c",
+    "outputs/baf-focal-loss-v1/models/validation-m5-custom_g1_w1.joblib": "87423606e4dc9f60eb52fc2202e21562f1ea3d51322955c1a5148466394b1c75",
+    "outputs/baf-focal-loss-v1/models/validation-m4-builtin_w3.joblib": "102e9276155c07387aca61a8d057a5d4fb0cd8692f81e4733e5a6c59b90c0168",
+    "outputs/baf-focal-loss-v1/models/validation-m4-custom_g1_w1.joblib": "4e94c90239d6c65fbc65f6f984f7fe6be4273d75ed6915284ffc1e797bb59ae8",
+    "outputs/baf-focal-loss-v1/models/validation-m4-custom_g2_w3.joblib": "9adc49cc7affe041ca5c392b7a23ef85824c9a34557707ff6a149804c59f1465",
+    "outputs/baf-focal-loss-v1/models/validation-m5-custom_g2_w3.joblib": "b058a937bdd84e59062f1678e532687f38624b980ca3eae052c7a21b99fea9a4",
+    "outputs/baf-focal-loss-v1/models/validation-m6-custom_g2_w3.joblib": "b3abd8a32e53dfcf87acb8bafacc0151eb26c00ecc76e02bd7ba8e01ab78a52a",
+    "outputs/baf-focal-loss-v1/models/validation-m6-custom_g2_w1.joblib": "c0db997483f84e2d8ff9daae16a9676c04518fd74e32c19cba4ea8cf35760fe5",
+    "outputs/baf-focal-loss-v1/models/validation-m4-custom_g2_w1.joblib": "9684c4cd5cc8a07333963ea9abdf0d5026468d2e764e9086efe2ed9fe5710628",
+    "outputs/baf-focal-loss-v1/models/validation-m5-custom_g2_w1.joblib": "8f3a4d6a10d4c0ee18b69a85ed3964e8798ee44cdb6939c27a2cdcf4515023c1",
+    "outputs/baf-focal-loss-v1/numeric/validation-m4-custom_g2_w1.json": "83678d2e39eb1320464cf3b19d1fdc77ab7d042def4fd2cda82de3403f9c901f",
+    "outputs/baf-focal-loss-v1/numeric/validation-m6-builtin_w1.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outputs/baf-focal-loss-v1/numeric/validation-m4-builtin_w3.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outputs/baf-focal-loss-v1/numeric/validation-m6-custom_g1_w1.json": "8bd6fefd2f9dddc524547ea9b408b055bc0523f81ff9d6b04e6bd28d0cacb443",
+    "outputs/baf-focal-loss-v1/numeric/validation-m5-custom_g2_w1.json": "5550a611fee252d4859e54199559d6c44a9b0b69d52109812db8e3ef6378407b",
+    "outputs/baf-focal-loss-v1/numeric/validation-m6-custom_g0_w1.json": "5d27ccec20dcd0d1ff9d7844b038a0341d1107e9ef55b79ceb62f8675fbae059",
+    "outputs/baf-focal-loss-v1/numeric/validation-m6-custom_g2_w1.json": "32d42388ee3d569c4949423e54484bce0fd208c515d0facf4206b0e3d879a321",
+    "outputs/baf-focal-loss-v1/numeric/validation-m5-custom_g0_w1.json": "69945c526ff6db630ad13b22e53f4e86cb9981694916caa9ddd63dcdc64efb13",
+    "outputs/baf-focal-loss-v1/numeric/validation-m4-custom_g1_w1.json": "c6f7bacea3805580fc64901237bed8c776075ae2bfac1a40046886ff6c378f00",
+    "outputs/baf-focal-loss-v1/numeric/validation-m5-builtin_w3.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outputs/baf-focal-loss-v1/numeric/validation-m4-custom_g0_w1.json": "237e0ad1a8c320e9a50d6a9cf0ad92a926792b3eb4037b7a43b02e4e4a832b37",
+    "outputs/baf-focal-loss-v1/numeric/validation-m5-custom_g1_w1.json": "c4717dfafdcf3dd7df8a4c6dba54ee6d12d98b27884f966fe6bac83323b115c9",
+    "outputs/baf-focal-loss-v1/numeric/validation-m5-custom_g0_w3.json": "68003c215e4dd400eb9e1e0f267196bec5883a459517a38b650886659b3b361b",
+    "outputs/baf-focal-loss-v1/numeric/validation-m6-custom_g2_w3.json": "a0a0103e76cc959aeaf84154a5d50763ae68fb5d85e6e6d46c4816fdd79cfe09",
+    "outputs/baf-focal-loss-v1/numeric/validation-m4-custom_g1_w3.json": "bb56b48699e1452a052f7bdbc4476621d93e89b82c578c00411c116287fc0fbd",
+    "outputs/baf-focal-loss-v1/numeric/validation-m4-custom_g0_w3.json": "a10a4a55bb85397541e04ede65cf9fb19bc6a8cd040b2e3dcecab001fc789982",
+    "outputs/baf-focal-loss-v1/numeric/validation-m5-builtin_w1.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outputs/baf-focal-loss-v1/numeric/validation-m5-custom_g1_w3.json": "0f9e6d30ec385ec055ea4b4ec10328705382b0595f6c8990a340a49873b307f4",
+    "outputs/baf-focal-loss-v1/numeric/validation-m4-builtin_w1.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outputs/baf-focal-loss-v1/numeric/validation-m6-builtin_w3.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outputs/baf-focal-loss-v1/numeric/validation-m4-custom_g2_w3.json": "f048f4985ee49dd9e5a6cab20c4c3ced43869f66d3ee06fc2987cb3f84e2d152",
+    "outputs/baf-focal-loss-v1/numeric/validation-m6-custom_g1_w3.json": "a650dfe0f55ef2b5aa71325639ffd306913eb3aa9a93023e62736b3d6e3d6a08",
+    "outputs/baf-focal-loss-v1/numeric/validation-m6-custom_g0_w3.json": "dba93b7ec7f2209186a71d6875d4691c0cf841981e920eb4e4e8f8475ee0fa14",
+    "outputs/baf-focal-loss-v1/numeric/validation-m5-custom_g2_w3.json": "dcd2f51ff3523d51241a8ce06c197fc914e20839383032c17d55cd7a8f71fbb9"
+  },
+  "month7_previously_consumed": true,
+  "exploratory": true
+}

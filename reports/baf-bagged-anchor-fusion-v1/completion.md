@@ -1,0 +1,13 @@
+# Verified completion: fixed bagged-anchor fusion
+
+The seventeenth finite study is complete:14/14 tasks,seven requirements and eleven scenarios verified. Its requirements are synchronized and the change is archived at `openspec/changes/archive/2026-10-12-test-bagged-anchor-fusion-f2/`. The broader performance objective remains active.
+
+The development-selected balanced mean-logit addition at25% with pooled policy scores macro F2 **0.330880962**, versus the previous best **0.330793254**. The difference **+0.000087708** has conditional95% interval **[-0.002631,0.002345]**, which includes zero. This is a tiny measured lead,not convincing improvement.
+
+On already-consumed month7,the frozen choice scores F2 **0.372240**, recall **49.58%**, precision **18.64%** and flags **3.92%** of applications:708 frauds and3090 legitimate applications,with720 frauds missed. It trails tree fusion **0.372694** and unweighted **0.376884**. The required all-five-reference gain in both scopes therefore fails. Consumed results provide no independent confirmation; no hindsight winner or threshold replaced the frozen choice.
+
+All33 development and11 final saved models,120 development scores,222 operating rows,947 contrasts,1500 paired fixed-decision draws and100 interval rows passed independent reconstruction. The four-panel figure shows111 operating points/twelve matched curves with checked canonical endpoints,values,legends,pixel-identical regeneration and visual inspection. Conditional intervals exclude training-seed/retraining,adaptive search/selection,temporal/generative and multiplicity uncertainty.
+
+Primary preliminary and exact-source no-prior-cache suites each passed1501 tests,including431 current-study cases. Thirty cumulative current-study tiny fits are separate from historical-module tests and six full-size bagged transfer fits. Development used zero full fits,18 bagged/15 reference reuses,21 derived reuses and66 new calculations. Transfer obeyed its26-role/11-base/27-score freeze,six new bagged-fit bound and five reference reuses. Resource and preserved9/8-fit ancestry gates passed with zero new production miniature fits.
+
+All16 exact selection restores/rejection,27 pins,Python3.12.9 and the Base checksum passed in the disposable copy. Full-size production retraining in that copy is not claimed. All predecessor identities and stopped-attempt evidence remain preserved. Frozen sources/config/protocol/selection/access,JUnits/actual fit ledgers,closed scientific logs,run/report hashes,compile and strict OpenSpec checks passed. See findings.md,completion-requirements.json,archive_verification.json and final_documentation_verification.json for evidence. Settings remain analyst-selected and open to group review.

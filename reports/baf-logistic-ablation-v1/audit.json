@@ -1,0 +1,31 @@
+{
+  "fingerprint": {
+    "config": "69ce021f440b840327127b6faada39fe89df7b0f4a870c8eaf7c0739c9a6e13d",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.12.9",
+    "diagnostic_config_sha256": "020e43be9c470c87000ee009ddbcc999ddf170a92e63d23ef504feee5974e823",
+    "diagnostic_source_sha256": "a96058d8dd9824c23c826d2fe467d1a2cd6073e7bb41dadd013153ea70e50467"
+  },
+  "adaptive_development_only": true,
+  "fits": 3,
+  "same_cases_and_labels_verified": true,
+  "metrics_recomputed": true,
+  "test_month_excluded": true,
+  "no_promotion_into_main_selection": true,
+  "original_study_preserved": true
+}

@@ -1,0 +1,7 @@
+reference,development_difference,consumed_difference,development_pass,consumed_pass
+bagged_anchor,0.0,0.0,False,False
+latest_fusion,8.770812773950531e-05,0.0007059521401353019,True,True
+recent_fusion,0.0018710170083764965,0.0019921791106388143,True,True
+fusion,0.001974391622696914,-0.0004543750600533025,True,False
+balanced,0.003079383704027494,0.007831190587089532,True,True
+unweighted,0.008227276878920609,-0.004644674476483368,True,False

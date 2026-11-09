@@ -1,0 +1,8 @@
+{
+  "resource_sha256": "283c8486be0a9dd5675d337be51e360b50a0b86c70c7c3a888258d7e521c4d07",
+  "miniature_sha256": "979e5a2977433de53d61a972f83bbd322c634529c65df50c03b3867578be913e",
+  "integration_fits": 9,
+  "new_cache_test_fits": 4,
+  "full_suite_passed": 1070,
+  "active_sampling_repeatability_persistence": true
+}

@@ -1,0 +1,8 @@
+{
+  "fixture": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "candidate": "bagged_anchor_balanced_logit_a25",
+  "eval_month": 5,
+  "prediction_sha256": "94e76bab857f531cbba17a7666bea568eb5cc82af7d6e70ee866c3861b52c0d3"
+}

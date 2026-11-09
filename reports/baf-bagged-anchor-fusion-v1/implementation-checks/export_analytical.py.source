@@ -1,0 +1,28 @@
+"""Reproduce ONLY the synthetic analytical fixture; never fit/source real models."""
+import importlib.util
+import shutil
+import sys
+from pathlib import Path
+from types import SimpleNamespace
+repo=Path(__file__).resolve().parents[3]
+sys.path.insert(0,str(repo))
+from baf.common import read_config,write_json,digest
+from baf import bagged_anchor_study as run, bagged_anchor_report as report
+spec=importlib.util.spec_from_file_location('bagged_anchor_analytical_export',repo/'tests/test_bagged_anchor.py')
+module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+c=read_config(run.CONFIG)
+root=Path(c['output_dir'])/'analytical-fixture'
+if root.exists():raise ValueError('Existing fixture retained; choose a fresh destination before replay')
+root.mkdir(parents=True)
+fixture=module._analytical_grid.__wrapped__(SimpleNamespace(mktemp=lambda _:root))
+c,fp,frame,snapshot=fixture
+result=report.audit_tables(c,fp,frame)
+dest=Path(run.read_config(run.CONFIG)['report_dir'])/'implementation-checks'/'analytical'
+dest.mkdir(parents=True,exist_ok=True)
+for name in run.TABLES:shutil.copyfile(Path(c['output_dir'])/name,dest/name)
+write_json(dest/'audit.json',dict(scope='synthetic analytical fixture only; zero source-model fits',
+    fingerprint=fp,actual_source_models_audited=False,results=result,
+    fixture_artifacts={str(p):digest(p) for p in Path(c['output_dir']).rglob('*') if p.is_file()},
+    export_script_sha256=digest(__file__),test_source_sha256=digest(repo/'tests/test_bagged_anchor.py')))
+write_json(dest/'files.json',{str(p):digest(p) for p in dest.iterdir() if p.is_file()})
+print('Synthetic fixture independently checked:120scores,222operatingrows,947contrasts; no real-model performance claim.')

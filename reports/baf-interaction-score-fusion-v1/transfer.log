@@ -1,0 +1,29 @@
+Checking exploratory 7 baseline_balanced
+Checking exploratory 7 baseline_lgbm
+Checking exploratory 7 interaction_c1p0_balanced
+Fitting exploratory-m7-interaction_c1p0_balanced: rows=903,157 dim=259
+Checking exploratory 7 spline_c0p1_balanced
+Checking exploratory 7 spline_c0p1_unweighted
+Checking exploratory 7 spline_c1p0_balanced
+Fitting exploratory-m7-spline_c1p0_balanced rows=903,157 dim=157
+Finished exploratory-m7-spline_c1p0_balanced iterations=8 seconds=33.2
+Checking exploratory 7 spline_c1p0_unweighted
+Fitting exploratory-m7-spline_c1p0_unweighted rows=903,157 dim=157
+Finished exploratory-m7-spline_c1p0_unweighted iterations=9 seconds=37.3
+Checking exploratory 7 xgb_d4_w1
+                  role                                       candidate policy       f2  precision   recall  tp   fp  fn
+              selected      interaction_blend_spline_c1p0_balanced_a10 latest 0.371534   0.194886 0.480392 686 2834 742
+         recent_fusion         margin_blend_spline_c0p1_unweighted_a25 latest 0.370248   0.200839 0.469188 670 2666 758
+                fusion      logit_mean_xgb_d4_w1_baseline_balanced_a50 pooled 0.372694   0.192414 0.486695 695 2917 733
+              balanced                               baseline_balanced pooled 0.364409   0.181747 0.486695 695 3129 733
+            unweighted                                   baseline_lgbm pooled 0.376884   0.168248 0.546218 780 3856 648
+         same_strategy      interaction_blend_spline_c1p0_balanced_a10 pooled 0.374974   0.184777 0.504902 721 3181 707
+       original_member                            spline_c1p0_balanced latest 0.358045   0.192160 0.456583 652 2741 776
+    transformed_member                      logit_spline_c1p0_balanced latest 0.358045   0.192160 0.456583 652 2741 776
+matched_representation interaction_blend_interaction_c1p0_balanced_a10 latest 0.374132   0.187599 0.497899 711 3079 717
+        matched_weight    interaction_blend_spline_c1p0_unweighted_a10 latest 0.372889   0.189678 0.491597 702 2999 726
+             matched_C      interaction_blend_spline_c0p1_balanced_a10 latest 0.374658   0.187863 0.498599 712 3078 716
+        other_alpha_25      interaction_blend_spline_c1p0_balanced_a25 latest 0.370696   0.199467 0.471989 674 2705 754
+        other_alpha_50      interaction_blend_spline_c1p0_balanced_a50 latest 0.368272   0.195038 0.473389 676 2790 752
+        other_alpha_75      interaction_blend_spline_c1p0_balanced_a75 latest 0.365603   0.191339 0.473389 676 2857 752
+Completed exploratory

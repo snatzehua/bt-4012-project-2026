@@ -1,0 +1,7 @@
+weighting,policy,candidate,f2
+balanced,pooled,capacity400_balanced,0.3238595263003765
+balanced,latest,capacity400_balanced,0.3166346541201713
+balanced,rank_fraction,capacity400_balanced,0.324248046883315
+unweighted,pooled,capacity400_unweighted,0.3188135478015409
+unweighted,latest,capacity400_unweighted,0.3189472945728938
+unweighted,rank_fraction,capacity400_unweighted,0.3185261316853024

@@ -1,0 +1,5 @@
+scope,reference,difference,ci_low,ci_high,replicates
+7_consumed,balanced,0.0,0.0,0.0,500
+7_consumed,unweighted,-0.0124758650635729,-0.022196928356154423,-0.004001763688668752,500
+7_consumed,same_model,0.0,0.0,0.0,500
+7_consumed,rank_member,-0.0008503409503221593,-0.0034273522824687665,0.0021402496222823336,500

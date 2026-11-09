@@ -1,0 +1,3 @@
+# Final archive portability check
+
+The archive was performed on 12 October 2026. A further test-only change replaces the date-specific archive lookup with discovery of exactly one matching archived change (active evidence retains precedence; ambiguous archives fail). The prior complete 941-test receipt/source remains preserved; the changed helper and all relevant 155 no-fit checks are exported separately. This path-only verification adds zero estimator fits, so new tiny-cache-test accounting remains twenty-eight. Production sources/configuration/protocol/models/scores/selection remain unchanged.

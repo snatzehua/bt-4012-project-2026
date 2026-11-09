@@ -1,0 +1,14 @@
+{
+  "selection_sha256": "ec308166981ad973ab0fa6bee693e21d7bc8fe0e351bed32f4cb8b02eb8b8d0c",
+  "selected_candidate": "bagged_anchor_balanced_logit_a25",
+  "selected_policy": "pooled",
+  "development_f2": 0.3308809618002168,
+  "roles": 26,
+  "base_bound": 11,
+  "score_bound": 27,
+  "max_new_bagged_fits": 6,
+  "max_additive_reproductions": 0,
+  "max_tree_reproductions": 0,
+  "all_winner_policy_cases_tested": 111,
+  "reference_precedence_and_aliases_checked": true
+}

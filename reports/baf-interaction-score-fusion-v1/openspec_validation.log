@@ -1,0 +1,22 @@
+✓ spec/baf-calibrated-f2-policy
+✓ spec/baf-chronological-stacking
+✓ spec/baf-direct-ranking-study
+✓ spec/baf-experiment-protocol
+✓ spec/baf-focal-loss-study
+✓ spec/baf-improvements
+✓ spec/baf-newton-spline-logistic-study
+✓ spec/baf-recall-weighted-extension
+✓ spec/baf-recall-weighted-study
+✓ spec/baf-spline-interaction-study
+✓ spec/baf-spline-score-fusion-study
+✓ spec/baf-study
+✓ spec/baf-xgboost-rank-ensemble-study
+✓ spec/baf-xgboost-score-fusion-study
+✓ change/define-baf-experiment-protocol
+✓ change/improve-baf-detection
+✓ change/optimize-recall-weighted-fbeta
+✓ spec/project-workflow
+✓ change/run-baf-eda-and-hypothesis-tests
+✓ change/test-interaction-score-fusion-f2
+✓ change/test-spline-logistic-f2
+Totals: 21 passed, 0 failed (21 items)

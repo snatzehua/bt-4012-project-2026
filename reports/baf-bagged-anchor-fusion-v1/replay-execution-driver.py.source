@@ -1,0 +1,34 @@
+from pathlib import Path
+import subprocess,shutil,os,sys
+from baf.common import read_config,write_json,digest
+from baf import bagged_anchor_study as run
+root=Path.cwd();dest=root/'reports/baf-bagged-anchor-fusion-v1';replay=Path(read_config(dest/'replay_setup.json')['replay_root'])
+log=dest/'implementation-checks/clean-suite.log'
+with log.open('x') as f:
+ result=subprocess.run([str(replay/'.venv/bin/python'),'scripts/check_bagged_anchor.py'],cwd=replay,stdout=f,stderr=subprocess.STDOUT)
+print('Clean suite exit:',result.returncode,flush=True)
+if result.returncode:
+ print(log.read_text()[-7000:],flush=True);sys.exit(result.returncode)
+r=read_config(replay/'reports/baf-bagged-anchor-fusion-v1/test_model_fits.json')
+assert r['exit_code']==0 and not r['deselected_nodes']
+for n in ['tests.xml','test_model_fits.json']:
+ shutil.copyfile(replay/'reports/baf-bagged-anchor-fusion-v1'/n,dest/n)
+shutil.copyfile(log,dest/'tests.log')
+# This accepted execution receipt is the fresh-copy full suite at the exact
+# same relative source/config/software identity. Retain both original runs.
+with (dest/'implementation-checks/clean-receipt.log').open('x') as f:
+ receipt=subprocess.run([str(replay/'.venv/bin/python'),'-m','baf.bagged_anchor_study','record_checks'],cwd=replay,stdout=f,stderr=subprocess.STDOUT)
+if receipt.returncode:
+ print((dest/'implementation-checks/clean-receipt.log').read_text()[-6000:]);sys.exit(receipt.returncode)
+for n in ['checks.json']:
+ shutil.copyfile(replay/'outputs/baf-bagged-anchor-fusion-v1'/n,dest/('clean-'+n))
+write_json(dest/'reproduction_verification.json',dict(full_suite_passed=len(r['collected_nodes']),current_study_tiny_fits=sum(v['nodeid'].startswith('tests/test_bagged_anchor.py::') for v in r['fits']),actual_fit_attempts=len(r['fits']),clean_receipt_accepted=True,prior_model_prediction_caches=0,full_size_retraining_claimed=False,selection_pairs=16,changed_selection_rejected=True,execution_receipt_origin='isolated no-prior-cache copy',test_fit_ledger_sha256=digest(dest/'test_model_fits.json')))
+source=dest/'execution-source-final';source.mkdir(exist_ok=False)
+files=run.SOURCES+[run.CONFIG,'docs/bagged-anchor-fusion-protocol.md','scripts/check_bagged_anchor.py']+[str(p) for p in sorted(Path('tests').glob('test_*.py'))]
+for name in files:
+ p=source/(name+'.source');p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(name,p)
+write_json(source/'source_hashes.json',{p:digest(p) for p in files})
+print('Accepted exact fresh-copy receipt; starting scientific stages.',flush=True)
+env=dict(os.environ,PYTHONPATH=str(root))
+result=subprocess.run([str(root/'.venv/bin/python'),'/tmp/run-bagged-anchor-stages.py'],env=env)
+sys.exit(result.returncode)

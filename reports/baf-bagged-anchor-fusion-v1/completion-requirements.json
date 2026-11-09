@@ -1,0 +1,324 @@
+{
+  "requirements": [
+    {
+      "requirement": "Prospective isolated preserved study",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/declaration_verification.json": "370f2fd8d76dcd07531923d651068e462f9d8b5a60c3c50d18dc125927eb3521",
+        "reports/baf-bagged-anchor-fusion-v1/source_cache_inventory.json": "3f4e090d25e14fd69e7d1b5159526c7742b51701ed1aa297d59bf973ae52a80b",
+        "reports/baf-bagged-anchor-fusion-v1/preparation_verification.json": "8efa312cbd7ddd2087f3adc89dc3efd6c7d02b79999f551053b544fd34e993a6",
+        "reports/baf-bagged-anchor-fusion-v1/reproduction_verification.json": "040426abc6633517867815eda0b1eec8782a9e8fe4e8f5886401894f5ec18012",
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b"
+      },
+      "scope": "Exact recipes and frozen identities; six genuine absent-cache fits with audited reuse/partial rejection; actual33-model source preparation and16 ancestor restores."
+    },
+    {
+      "requirement": "Fixed domain-correct label-free addition",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/independent_development_audit.json": "17a039ee12dbaf497a993e2773b970629b43bfd1c7d868ada137950fb9aad768",
+        "reports/baf-bagged-anchor-fusion-v1/expressions.csv": "ca9db110bf26b3582ae2dfcceaa43da2c70c9ee6eb1ba12981e6315087d9bab3",
+        "reports/baf-bagged-anchor-fusion-v1/run_provenance.json": "222389d07fff585b2a1e97e8f91a041119dae335d78f9d595edd11bf41c6ebe5",
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b"
+      },
+      "scope": "Full actual120-score association/provenance audit plus domain,nonfinite,member,row/label and unrelated-row corruption fixtures."
+    },
+    {
+      "requirement": "Canonical controls and visible aliases",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/selection.json": "ec308166981ad973ab0fa6bee693e21d7bc8fe0e351bed32f4cb8b02eb8b8d0c",
+        "reports/baf-bagged-anchor-fusion-v1/freeze_verification.json": "80a17c9b859e147a81f6e0556f35dbfd9544ac497ef93caceffd42930106158e",
+        "reports/baf-bagged-anchor-fusion-v1/figure_verification.json": "c6e98694eef6cd0b2db3de47bea7c0f272095393ae45b6d9a264750e754c9867",
+        "reports/baf-bagged-anchor-fusion-v1/consumed_intervals.csv": "716632c0716798395bee5be01000af4bf07806a522950428c79405a6b51cf0a6",
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b"
+      },
+      "scope": "111 prospective role cases,actual26 visible roles sharing27-score dependencies,canonical endpoints and zero-difference aliases."
+    },
+    {
+      "requirement": "Comparable chronological actual-F2 selection",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/crossfit.csv": "2a632ce450d3161e4674aecd7a8d432d15237e96d12e79172f889400551706c2",
+        "reports/baf-bagged-anchor-fusion-v1/summary.csv": "10f6e8afada75830f94e8dc14142861436e15778cc5ee3e3e90eb9dcb09e7084",
+        "reports/baf-bagged-anchor-fusion-v1/independent_development_audit.json": "17a039ee12dbaf497a993e2773b970629b43bfd1c7d868ada137950fb9aad768",
+        "reports/baf-bagged-anchor-fusion-v1/selection.json": "ec308166981ad973ab0fa6bee693e21d7bc8fe0e351bed32f4cb8b02eb8b8d0c",
+        "reports/baf-bagged-anchor-fusion-v1/run_provenance.json": "222389d07fff585b2a1e97e8f91a041119dae335d78f9d595edd11bf41c6ebe5"
+      },
+      "scope": "All222 actual earlier-only operating rules/masks/metrics and deterministic macro winner independently reconstructed on identical populations."
+    },
+    {
+      "requirement": "Complete matched ensemble and addition effects",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/contrasts.csv": "6b988297417733970b651d3c1fef16fe03c593945f22537756fb2982f7bacddb",
+        "reports/baf-bagged-anchor-fusion-v1/matched_effect_summary.csv": "788d61f0819180daad02e67b4a420507179d43798d2683e14e8bbc26f235b0ca",
+        "reports/baf-bagged-anchor-fusion-v1/diversity.csv": "4bf2a36e7de29017ce65acc5392301f4d4d7a458dca142a1a13174cef52cc343",
+        "reports/baf-bagged-anchor-fusion-v1/decision_overlap.csv": "5b5b826bd3237de5d9e4f515541545a0d559fcb40a0a0059c88829e21079b64c",
+        "reports/baf-bagged-anchor-fusion-v1/clipping.csv": "54d5b169f043226b73018f79a93dafda39e71c6b471c8581a04a64f5a1da040c",
+        "reports/baf-bagged-anchor-fusion-v1/expressions.csv": "ca9db110bf26b3582ae2dfcceaa43da2c70c9ee6eb1ba12981e6315087d9bab3",
+        "reports/baf-bagged-anchor-fusion-v1/independent_development_audit.json": "17a039ee12dbaf497a993e2773b970629b43bfd1c7d868ada137950fb9aad768"
+      },
+      "scope": "Every947 exact factor and numerical effect plus18 diversity,36 overlap,39 clipping and60 expression rows; ties and negatives retained."
+    },
+    {
+      "requirement": "Frozen bounded transfer and honest acceptance",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/selection.json": "ec308166981ad973ab0fa6bee693e21d7bc8fe0e351bed32f4cb8b02eb8b8d0c",
+        "reports/baf-bagged-anchor-fusion-v1/freeze_verification.json": "80a17c9b859e147a81f6e0556f35dbfd9544ac497ef93caceffd42930106158e",
+        "reports/baf-bagged-anchor-fusion-v1/exploratory_access.json": "22a8db6af7a2d78a3d157537b5545ce645d2e10b77f15e327b7a7bc62e21d0f2",
+        "reports/baf-bagged-anchor-fusion-v1/transfer_complete.json": "4603478ae7f3c442c0772e2de1d72631b6ff4b2cf23b7f0201545cc558a4d478",
+        "reports/baf-bagged-anchor-fusion-v1/transfer_provenance.json": "fd61855db02da9ca29f794ec94ca143ffb6e4d0b438621a125e9b29e4eaf283d",
+        "reports/baf-bagged-anchor-fusion-v1/audit.json": "e2303674b9b3222e939de0148bdf2a66271ca7c8097ff20e27f1f0f1e8f35940",
+        "reports/baf-bagged-anchor-fusion-v1/findings.md": "e19a7ae1955ee8dbc21145c01bb46a7c79d55266962dcd135986a3896773b67e"
+      },
+      "scope": "Frozen26 roles/11 bases/27 scores and tighter6/0/0 fit bounds precede access; independent saved-inference/exact-artifact/rule/metric audit. Two required consumed comparisons fail; objective remains active."
+    },
+    {
+      "requirement": "Independently verified reproducible completion",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/execution_verification.json": "327dc610583c6a4289cee6779548749752704aafd79a9037bba8315c2e4d0a15",
+        "reports/baf-bagged-anchor-fusion-v1/figure_verification.json": "c6e98694eef6cd0b2db3de47bea7c0f272095393ae45b6d9a264750e754c9867",
+        "reports/baf-bagged-anchor-fusion-v1/reproduction_verification.json": "040426abc6633517867815eda0b1eec8782a9e8fe4e8f5886401894f5ec18012",
+        "reports/baf-bagged-anchor-fusion-v1/documentation_verification.json": "3e7603cc1414ae5f75d5cf6639ced11426865febcd2ca6c6cf35de9713b06bb1",
+        "reports/baf-bagged-anchor-fusion-v1/execution-history.md": "e3411f128b432d78f95be4b3806ddc2370304299255b162a070a79c0a8aa6677",
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b",
+        "reports/baf-bagged-anchor-fusion-v1/audit.json": "e2303674b9b3222e939de0148bdf2a66271ca7c8097ff20e27f1f0f1e8f35940"
+      },
+      "scope": "Direct reconstruction of1500 paired draws and100 intervals; inspected/pixel-identical figure,closed logs,exact source/JUnit/fit receipt,pins/data/restores,clean no-prior-cache suite and explicit uncertainty exclusions."
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario": "Encounter an incomplete required cache",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b"
+      },
+      "scope": "Real tiny source-format fixture partial/corrupt cases reject in place without refit/fallback."
+    },
+    {
+      "scenario": "Reproduce a wholly absent required source",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b",
+        "reports/baf-bagged-anchor-fusion-v1/reproduction_verification.json": "040426abc6633517867815eda0b1eec8782a9e8fe4e8f5886401894f5ec18012"
+      },
+      "scope": "Six genuinely fitted exact tiny formats,then audited-cache no-fit reuse; no prior-cache clean copy."
+    },
+    {
+      "scenario": "Add an ensemble to an unbounded anchor",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b",
+        "reports/baf-bagged-anchor-fusion-v1/independent_development_audit.json": "17a039ee12dbaf497a993e2773b970629b43bfd1c7d868ada137950fb9aad768"
+      },
+      "scope": "Margins outside0..1 retained; actual source/composition domain audit."
+    },
+    {
+      "scenario": "Change current labels or unrelated applications",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b"
+      },
+      "scope": "Per-strategy row/label mutation invariance and singleton composition fixtures."
+    },
+    {
+      "scenario": "Display a unit-weight endpoint",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/figure_verification.json": "c6e98694eef6cd0b2db3de47bea7c0f272095393ae45b6d9a264750e754c9867",
+        "reports/baf-bagged-anchor-fusion-v1/plotted_alpha_curves.csv": "e193267670e16674a7275b191f7d16d7c2f776c5415d43a82d41024ae93d8f25"
+      },
+      "scope": "Canonical original G control identities and endpoint values; no extra evaluated strategies."
+    },
+    {
+      "scenario": "Decide for month 6",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/crossfit.csv": "2a632ce450d3161e4674aecd7a8d432d15237e96d12e79172f889400551706c2",
+        "reports/baf-bagged-anchor-fusion-v1/independent_development_audit.json": "17a039ee12dbaf497a993e2773b970629b43bfd1c7d868ada137950fb9aad768"
+      },
+      "scope": "Actual train0..5 and earlier4/5-or-latest5 rules independently rebuilt."
+    },
+    {
+      "scenario": "Attribute a blend gain",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/contrasts.csv": "6b988297417733970b651d3c1fef16fe03c593945f22537756fb2982f7bacddb",
+        "reports/baf-bagged-anchor-fusion-v1/matched_effect_summary.csv": "788d61f0819180daad02e67b4a420507179d43798d2683e14e8bbc26f235b0ca"
+      },
+      "scope": "All fixed anchor/member/seed/weight/form/weighting/control factors retained,including negative/tied effects."
+    },
+    {
+      "scenario": "Transfer a blend winner",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/freeze_verification.json": "80a17c9b859e147a81f6e0556f35dbfd9544ac497ef93caceffd42930106158e",
+        "reports/baf-bagged-anchor-fusion-v1/selection.json": "ec308166981ad973ab0fa6bee693e21d7bc8fe0e351bed32f4cb8b02eb8b8d0c",
+        "reports/baf-bagged-anchor-fusion-v1/exploratory_access.json": "22a8db6af7a2d78a3d157537b5545ce645d2e10b77f15e327b7a7bc62e21d0f2",
+        "reports/baf-bagged-anchor-fusion-v1/transfer_complete.json": "4603478ae7f3c442c0772e2de1d72631b6ff4b2cf23b7f0201545cc558a4d478",
+        "reports/baf-bagged-anchor-fusion-v1/audit.json": "e2303674b9b3222e939de0148bdf2a66271ca7c8097ff20e27f1f0f1e8f35940"
+      },
+      "scope": "Actual blend winner26 roles,exact11-base/27-score DAG frozen before bounded access;6 new bagged fits,5 reference reuses."
+    },
+    {
+      "scenario": "Fail a required reference comparison",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/audit.json": "e2303674b9b3222e939de0148bdf2a66271ca7c8097ff20e27f1f0f1e8f35940",
+        "reports/baf-bagged-anchor-fusion-v1/findings.md": "e19a7ae1955ee8dbc21145c01bb46a7c79d55266962dcd135986a3896773b67e"
+      },
+      "scope": "Actual failures versus tree fusion and unweighted recorded; objective remains active."
+    },
+    {
+      "scenario": "Fail an exact required source gate",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b",
+        "reports/baf-bagged-anchor-fusion-v1/verification-attempts.json": "4a5d6b626509435ecc397513894b6f954143b2268c3cc4d070de78413e4e6ba5",
+        "reports/baf-bagged-anchor-fusion-v1/execution-history.md": "e3411f128b432d78f95be4b3806ddc2370304299255b162a070a79c0a8aa6677"
+      },
+      "scope": "Retained failure/no-retry fixtures; full scientific run had no failed source gate. Supplementary maximum-versus-actual assertion is retained separately and changed no science."
+    },
+    {
+      "scenario": "Complete a negative finite experiment",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/audit.json": "e2303674b9b3222e939de0148bdf2a66271ca7c8097ff20e27f1f0f1e8f35940",
+        "reports/baf-bagged-anchor-fusion-v1/findings.md": "e19a7ae1955ee8dbc21145c01bb46a7c79d55266962dcd135986a3896773b67e",
+        "reports/baf-bagged-anchor-fusion-v1/execution_verification.json": "327dc610583c6a4289cee6779548749752704aafd79a9037bba8315c2e4d0a15"
+      },
+      "scope": "Scientific output complete and criterion false; completion of finite work does not mark broader objective achieved."
+    }
+  ],
+  "tasks": [
+    {
+      "task": "1.1",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/declaration_verification.json": "370f2fd8d76dcd07531923d651068e462f9d8b5a60c3c50d18dc125927eb3521"
+      }
+    },
+    {
+      "task": "1.2",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/preparation_verification.json": "8efa312cbd7ddd2087f3adc89dc3efd6c7d02b79999f551053b544fd34e993a6",
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b"
+      }
+    },
+    {
+      "task": "2.1",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/expressions.csv": "ca9db110bf26b3582ae2dfcceaa43da2c70c9ee6eb1ba12981e6315087d9bab3",
+        "reports/baf-bagged-anchor-fusion-v1/independent_development_audit.json": "17a039ee12dbaf497a993e2773b970629b43bfd1c7d868ada137950fb9aad768",
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b"
+      }
+    },
+    {
+      "task": "2.2",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/independent_development_audit.json": "17a039ee12dbaf497a993e2773b970629b43bfd1c7d868ada137950fb9aad768",
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b"
+      }
+    },
+    {
+      "task": "2.3",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/test_model_fits.json": "6a6a16fe67e089424aa44dd298b21f78e36b697fed85833e16b1a00581f559ec",
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b",
+        "reports/baf-bagged-anchor-fusion-v1/methodological-invocations.json": "c0986723d4135df45823dd4c9d08b6b2f23d380e4e3829713865bd583b0efaf4"
+      }
+    },
+    {
+      "task": "3.1",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/resource_preflight.json": "0aa2e315da11981d4284e756babbf448236165fe1ae5a2ff0f0c3059224f5271",
+        "reports/baf-bagged-anchor-fusion-v1/source_miniature_gate.json": "c5e874fede4737c6fa4ad0afd8268734368ad1010c3f038ff4a2acac6b64210e",
+        "reports/baf-bagged-anchor-fusion-v1/execution_gates_verification.json": "ccabb2e8df5c22956b9703d90fb9c267a1fea3befb00193aa0717d9753bb86c4"
+      }
+    },
+    {
+      "task": "3.2",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/preparation_verification.json": "8efa312cbd7ddd2087f3adc89dc3efd6c7d02b79999f551053b544fd34e993a6",
+        "reports/baf-bagged-anchor-fusion-v1/run_provenance.json": "222389d07fff585b2a1e97e8f91a041119dae335d78f9d595edd11bf41c6ebe5"
+      }
+    },
+    {
+      "task": "3.3",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/independent_development_audit.json": "17a039ee12dbaf497a993e2773b970629b43bfd1c7d868ada137950fb9aad768"
+      }
+    },
+    {
+      "task": "4.1",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/selection.json": "ec308166981ad973ab0fa6bee693e21d7bc8fe0e351bed32f4cb8b02eb8b8d0c",
+        "reports/baf-bagged-anchor-fusion-v1/freeze_verification.json": "80a17c9b859e147a81f6e0556f35dbfd9544ac497ef93caceffd42930106158e",
+        "reports/baf-bagged-anchor-fusion-v1/tests.xml": "1ad54b7a6b829ebc06d712d2a3b1dc966d3b37694eb400222e4fa52c7b700b9b"
+      }
+    },
+    {
+      "task": "4.2",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/audit.json": "e2303674b9b3222e939de0148bdf2a66271ca7c8097ff20e27f1f0f1e8f35940",
+        "reports/baf-bagged-anchor-fusion-v1/transfer_provenance.json": "fd61855db02da9ca29f794ec94ca143ffb6e4d0b438621a125e9b29e4eaf283d",
+        "reports/baf-bagged-anchor-fusion-v1/execution_verification.json": "327dc610583c6a4289cee6779548749752704aafd79a9037bba8315c2e4d0a15"
+      }
+    },
+    {
+      "task": "5.1",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/audit.json": "e2303674b9b3222e939de0148bdf2a66271ca7c8097ff20e27f1f0f1e8f35940",
+        "reports/baf-bagged-anchor-fusion-v1/development_draws.csv": "14aab1785772b5584703daba2279c3d8c06ac01c6bf036127fb0c581b3e79ec7",
+        "reports/baf-bagged-anchor-fusion-v1/consumed_draws.csv": "edb48eff62bd66dae64c2ac1889e099ecaac082d4d847957c056780790defc2d",
+        "reports/baf-bagged-anchor-fusion-v1/development_intervals.csv": "4aa92293c1bc302b1db985c2b12faa509e80a016db19b95b44e2a24454ac8cff",
+        "reports/baf-bagged-anchor-fusion-v1/consumed_intervals.csv": "716632c0716798395bee5be01000af4bf07806a522950428c79405a6b51cf0a6"
+      }
+    },
+    {
+      "task": "5.2",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/findings.md": "e19a7ae1955ee8dbc21145c01bb46a7c79d55266962dcd135986a3896773b67e",
+        "reports/baf-bagged-anchor-fusion-v1/matched_effect_summary.csv": "788d61f0819180daad02e67b4a420507179d43798d2683e14e8bbc26f235b0ca",
+        "reports/baf-bagged-anchor-fusion-v1/figure_verification.json": "c6e98694eef6cd0b2db3de47bea7c0f272095393ae45b6d9a264750e754c9867"
+      }
+    },
+    {
+      "task": "5.3",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/reproduction_verification.json": "040426abc6633517867815eda0b1eec8782a9e8fe4e8f5886401894f5ec18012",
+        "reports/baf-bagged-anchor-fusion-v1/documentation_verification.json": "3e7603cc1414ae5f75d5cf6639ced11426865febcd2ca6c6cf35de9713b06bb1",
+        "reports/baf-bagged-anchor-fusion-v1/replay_setup.json": "48840ac99cd8d81dc15f839b2dc248363e2d39a33d8d48ef868964722f140ced",
+        "reports/baf-bagged-anchor-fusion-v1/execution-history.md": "e3411f128b432d78f95be4b3806ddc2370304299255b162a070a79c0a8aa6677"
+      }
+    },
+    {
+      "task": "5.4",
+      "status": "verified",
+      "evidence": {
+        "reports/baf-bagged-anchor-fusion-v1/execution_verification.json": "327dc610583c6a4289cee6779548749752704aafd79a9037bba8315c2e4d0a15",
+        "reports/baf-bagged-anchor-fusion-v1/prearchive-openspec-validation.log": "c1db5cafbd569831ef0e6181a0cb57b095ce6ca0517882f652247a8db8eea420"
+      }
+    }
+  ],
+  "requirements_verified": 7,
+  "scenarios_verified": 11,
+  "tasks_verified": 14,
+  "broader_goal_achieved": false
+}

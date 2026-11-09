@@ -1,0 +1,19 @@
+{
+  "base_validation_fits": 51,
+  "adaptive_logistic_diagnostic_fits": 3,
+  "validation_blend_comparisons": 9,
+  "exploratory_base_fits": 5,
+  "exploratory_blends": 2,
+  "selected_comparators": 5,
+  "all_run_identities_match": true,
+  "temporal_boundaries_and_same_cases": true,
+  "training_sampling_counts_pass": true,
+  "baseline_metrics_match_original_study": true,
+  "original_files_and_selection_preserved": true,
+  "crossfit_threshold_sources_and_metrics_verified": true,
+  "frozen_thresholds_recomputed_from_development": true,
+  "exploratory_metrics_recomputed_from_predictions": true,
+  "freeze_precedes_exploratory_access": true,
+  "convergence_warnings": 0,
+  "month7_previously_consumed": true
+}

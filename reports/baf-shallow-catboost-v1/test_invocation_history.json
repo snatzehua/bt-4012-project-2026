@@ -1,0 +1,81 @@
+{
+  "closed_invocations": [
+    {
+      "ledger": "reports/baf-shallow-catboost-v1/clean-copy-fits.json",
+      "sha256": "3313210b707721644f521bcc58b805450b2166726b13e52a3e9435cec9b63c00",
+      "started_at_utc": "2026-10-12T08:26:07.821984+00:00",
+      "exit_code": 0,
+      "current_fit_attempts": 18,
+      "current_fit_completions": 18,
+      "historical_fit_attempts": 85,
+      "historical_fit_completions": 85
+    },
+    {
+      "ledger": "reports/baf-shallow-catboost-v1/focused-01-fits.json",
+      "sha256": "92707e47cff419a3dae4b59fc92f6b117eb931f93e895840c2857060b08639e0",
+      "started_at_utc": "2026-10-12T07:48:54.949787+00:00",
+      "exit_code": 1,
+      "current_fit_attempts": 18,
+      "current_fit_completions": 18,
+      "historical_fit_attempts": 0,
+      "historical_fit_completions": 0
+    },
+    {
+      "ledger": "reports/baf-shallow-catboost-v1/focused-02-fits.json",
+      "sha256": "64f02970c16be0e9c459543020587d5fa6a96caf147a804546b73c13d4c32a2d",
+      "started_at_utc": "2026-10-12T07:50:21.239881+00:00",
+      "exit_code": 0,
+      "current_fit_attempts": 18,
+      "current_fit_completions": 18,
+      "historical_fit_attempts": 0,
+      "historical_fit_completions": 0
+    },
+    {
+      "ledger": "reports/baf-shallow-catboost-v1/focused-03-fits.json",
+      "sha256": "9a67fbbb5ee8a8629bc372fa20306581bf9f113add5d650b5a00416779029ca8",
+      "started_at_utc": "2026-10-12T08:10:01.027138+00:00",
+      "exit_code": 1,
+      "current_fit_attempts": 18,
+      "current_fit_completions": 18,
+      "historical_fit_attempts": 0,
+      "historical_fit_completions": 0
+    },
+    {
+      "ledger": "reports/baf-shallow-catboost-v1/focused-04-fits.json",
+      "sha256": "14e631796d6222df8f4decc311e86008e6e38b750a414dd373f6ffd11312c1af",
+      "started_at_utc": "2026-10-12T08:11:11.047104+00:00",
+      "exit_code": 0,
+      "current_fit_attempts": 18,
+      "current_fit_completions": 18,
+      "historical_fit_attempts": 0,
+      "historical_fit_completions": 0
+    },
+    {
+      "ledger": "reports/baf-shallow-catboost-v1/full-01-fits.json",
+      "sha256": "5586ff953716057668275b35f780c52401d1a534775446bf77d7a4c9ac62d2f4",
+      "started_at_utc": "2026-10-12T07:52:54.408556+00:00",
+      "exit_code": 0,
+      "current_fit_attempts": 18,
+      "current_fit_completions": 18,
+      "historical_fit_attempts": 85,
+      "historical_fit_completions": 85
+    },
+    {
+      "ledger": "reports/baf-shallow-catboost-v1/full-02-fits.json",
+      "sha256": "f17bf9a1b44c1da90369807cc45bec8bed2e5ac7d64177154b44813b0cea6c7a",
+      "started_at_utc": "2026-10-12T08:12:28.389833+00:00",
+      "exit_code": 0,
+      "current_fit_attempts": 18,
+      "current_fit_completions": 18,
+      "historical_fit_attempts": 85,
+      "historical_fit_completions": 85
+    }
+  ],
+  "current_tiny_fit_attempts": 126,
+  "historical_fit_attempts": 255,
+  "production_work_records": [
+    "outputs/baf-shallow-catboost-v1/miniature_gate.json",
+    "outputs/baf-shallow-catboost-v1/preparation.json",
+    "outputs/baf-shallow-catboost-v1/transfer_complete.json"
+  ]
+}

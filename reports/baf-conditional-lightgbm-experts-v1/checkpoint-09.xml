@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="13" time="0.864" timestamp="2026-10-12T11:52:53.117810+08:00" hostname="Kierans-MacBook-Pro-2.local"><testcase classname="tests.test_conditional_experts" name="test_prospective_declaration_matches_independent_enumeration" time="0.007" /><testcase classname="tests.test_conditional_experts" name="test_planning_evidence_resolves_after_archive_without_config_changes[False]" time="0.006" /><testcase classname="tests.test_conditional_experts" name="test_planning_evidence_resolves_after_archive_without_config_changes[True]" time="0.001" /><testcase classname="tests.test_conditional_experts" name="test_preserved_source_gates_audit_present_models_without_fits" time="0.573" /><testcase classname="tests.test_conditional_experts" name="test_source_gate_failure_retained_and_retry_rejected" time="0.001" /><testcase classname="tests.test_conditional_experts" name="test_source_gates_use_exports_when_optional_caches_are_wholly_absent[absent]" time="0.004" /><testcase classname="tests.test_conditional_experts" name="test_source_gates_use_exports_when_optional_caches_are_wholly_absent[partial_sampling]" time="0.004" /><testcase classname="tests.test_conditional_experts" name="test_source_gates_use_exports_when_optional_caches_are_wholly_absent[partial_older]" time="0.005" /><testcase classname="tests.test_conditional_experts" name="test_source_gates_use_exports_when_optional_caches_are_wholly_absent[changed_original_receipt]" time="0.001"><failure message="FileExistsError: [Errno 17] File exists: 'reports/baf-interaction-spline-logistic-v1'">tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-94/test_source_gates_use_exports_3')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x12252f410&gt;
+change = 'changed_original_receipt'
+
+    @pytest.mark.parametrize('change',['absent','partial_sampling','partial_older','changed_original_receipt'])
+    def test_source_gates_use_exports_when_optional_caches_are_wholly_absent(tmp_path,monkeypatch,change):
+        root=Path.cwd();c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'))
+        (tmp_path/'configs').symlink_to(root/'configs',target_is_directory=True)
+        (tmp_path/'reports').symlink_to(root/'reports',target_is_directory=True)
+        monkeypatch.chdir(tmp_path)
+        if change=='partial_sampling':
+            ancestor=read_config(c['parent_config']);seed=read_config(ancestor['parent_config'])
+            p=Path(next(iter(read_config(Path(seed['report_dir'])/'miniature_gate.json')['files'])))
+            p.parent.mkdir(parents=True);p.write_bytes(b'partial fixture')
+        elif change in ['partial_older','changed_original_receipt']:
+            fusion=read_config(c['fusion_source_config']);receipt=read_config(Path(fusion['report_dir'])/'source_miniature_gate.json')
+            p=Path(receipt['source'])
+            if change=='partial_older':
+                exported=read_config(str(p).replace('outputs/','reports/',1));p=Path(exported['results'][0]['artifact'])
+&gt;           p.parent.mkdir(parents=True);p.write_bytes(b'changed or partial fixture')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/tests/test_conditional_experts.py:620: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('reports/baf-interaction-spline-logistic-v1'), mode = 511
+parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileExistsError: [Errno 17] File exists: 'reports/baf-interaction-spline-logistic-v1'
+
+/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py:1311: FileExistsError</failure></testcase><testcase classname="tests.test_conditional_experts" name="test_historical_snapshot_accepts_whole_absence_and_checks_all_present_files[absent]" time="0.001" /><testcase classname="tests.test_conditional_experts" name="test_historical_snapshot_accepts_whole_absence_and_checks_all_present_files[present]" time="0.001" /><testcase classname="tests.test_conditional_experts" name="test_historical_snapshot_accepts_whole_absence_and_checks_all_present_files[changed]" time="0.001" /><testcase classname="tests.test_conditional_experts" name="test_historical_snapshot_accepts_whole_absence_and_checks_all_present_files[extra]" time="0.001" /></testsuite></testsuites>

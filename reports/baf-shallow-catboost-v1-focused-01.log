@@ -1,0 +1,488 @@
+FFFFFFFFFFFF............................................................ [ 33%]
+........................................................................ [ 66%]
+........................................................................ [ 99%]
+..                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r200_w1] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit0')
+spec = {'id': 'cb_d3_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=3, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d3_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r200_w100] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit1')
+spec = {'id': 'cb_d3_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=3...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d3_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r400_w1] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit2')
+spec = {'id': 'cb_d3_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=3, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d3_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r400_w100] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit3')
+spec = {'id': 'cb_d3_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=3...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d3_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 3, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r200_w1] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit4')
+spec = {'id': 'cb_d4_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=4, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d4_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r200_w100] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit5')
+spec = {'id': 'cb_d4_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=4...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d4_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r400_w1] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit6')
+spec = {'id': 'cb_d4_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=4, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d4_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r400_w100] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit7')
+spec = {'id': 'cb_d4_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=4...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d4_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 4, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r200_w1] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit8')
+spec = {'id': 'cb_d6_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=6, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d6_r200_w1', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r200_w100] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit9')
+spec = {'id': 'cb_d6_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=6...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d6_r200_w100', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r400_w1] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit10')
+spec = {'id': 'cb_d6_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 1], depth=6, ...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d6_r400_w1', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+_ test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r400_w100] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-98/test_twelve_native_formats_fit11')
+spec = {'id': 'cb_d6_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+
+    @pytest.mark.parametrize('spec',models.recipes(),ids=lambda s:s['id'])
+    def test_twelve_native_formats_fit_audit_reuse_and_reject_corruption(tmp_path,spec):
+        c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'));fp={'fixture':'native tiny format'}
+        columns=pd.read_csv(c['data_path'],nrows=0).drop(columns=['fraud_bool','month','device_fraud_count']).columns
+>       frame,base=run.miniature_data(columns);r=models.fit_model(c,fp,frame,base,spec,2);ps=models.model_paths(c,'validation',2,spec['id'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shallow_catboost.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/shallow_catboost.py:243: in fit_model
+    return audit_model(c,fp,frame,base,spec,month,phase)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/shallow_catboost.py:196: in audit_model
+    model=CatBoostClassifier();model.load_model(str(ps[2]));effective=effective_parameters(model,spec,base.columns)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = CatBoostClassifier(allow_writing_files=False, boosting_type='Plain', border_count=128, class_weights=[1, 100], depth=6...on='Logloss', max_ctr_complexity=1, random_seed=2026, task_type='CPU', thread_count=6, use_best_model=False, verbose=0)
+spec = {'id': 'cb_d6_r400_w100', 'family': 'catboost', 'engineered': False, 'depth': 6, ...}
+columns = Index(['income', 'name_email_similarity', 'prev_address_months_count',
+       'current_address_months_count', 'custome...'session_length_in_minutes', 'device_os', 'keep_alive_session',
+       'device_distinct_emails_8w'],
+      dtype='str')
+
+    def effective_parameters(model,spec,columns):
+        requested=validate_recipe(spec);effective=detached(model.get_all_params())
+        for key in ['depth','iterations','l2_leaf_reg','border_count','max_ctr_complexity','loss_function',
+                    'task_type','boosting_type','grow_policy','random_seed','class_weights','use_best_model']:
+            if effective.get(key)!=requested[key]:raise ValueError('Effective native recipe differs: '+key)
+        if effective.get('learning_rate')!=float(np.float32(requested['learning_rate'])):
+>           raise ValueError('Effective native learning rate differs')
+E           ValueError: Effective native learning rate differs
+
+baf/shallow_catboost.py:150: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r200_w1]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r200_w100]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r400_w1]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d3_r400_w100]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r200_w1]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r200_w100]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r400_w1]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d4_r400_w100]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r200_w1]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r200_w100]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r400_w1]
+FAILED tests/test_shallow_catboost.py::test_twelve_native_formats_fit_audit_reuse_and_reject_corruption[cb_d6_r400_w100]
+12 failed, 206 passed, 1915 deselected in 30.57s
+Actual classifier-fit calls: 18

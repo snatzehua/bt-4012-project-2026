@@ -1,0 +1,30 @@
+{
+  "candidate": "expert_blend_housing_status_unweighted_a75",
+  "phase": "validation",
+  "eval_month": 4,
+  "spec": {
+    "id": "expert_blend_housing_status_unweighted_a75",
+    "kind": "blend",
+    "partition": "housing_status",
+    "weighting": "unweighted",
+    "alpha_numerator": 75,
+    "alpha_denominator": 100
+  },
+  "fingerprint": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "dependencies": {
+    "baseline_lgbm": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m4-baseline_lgbm.json": "0f61e535e454039f66a793df9d0e169f71fae8b600b07102b42b325527ef216f",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m4-baseline_lgbm.npz": "a6c6c55de8de364fbf7140a19238a474e173445ab8883ce24ea0e2c04cac46d4"
+    },
+    "expert_housing_status_unweighted": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m4-expert_housing_status_unweighted.json": "35f35e753fb3302a2245e416cce43e1d1bf040954b57ea8ebd92bba26b07e513",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m4-expert_housing_status_unweighted.npz": "f80f1815ec58febc0ac7bc12a4f6aa1181b864a1bff2aa0f065f1704b9060481"
+    }
+  },
+  "arithmetic": "(1-alpha)*global200+alpha*stitched_expert in float64",
+  "routing": [],
+  "prediction_sha256": "fb0def0d92a34ce9570ef76ff042d430b4477775d6c53d35c5e4fb48fc1530ac",
+  "reused": false
+}

@@ -1,0 +1,16 @@
+{
+  "archived_at_utc": "2026-10-11T11:53:18.016653+00:00",
+  "archive_path": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/archive/2026-10-11-test-interaction-score-fusion-f2",
+  "all_tasks_verified": 14,
+  "all_planning_artifacts_complete": true,
+  "specs_synced_and_exact": true,
+  "all_archived_file_hashes_preserved": {
+    ".openspec.yaml": "3ae9e70fc0101b2a700cedadfa7b02caa5799fdfd1db033999469c527448c6b2",
+    "tasks.md": "785cca4f5610b9200e708496e8125cd5ca7d9d1d028c1e26880454201d1af460",
+    "design.md": "0073aee2df6adf36989857b484c87b39b72ac8ecdf3410bdade8759f989ebb85",
+    "proposal.md": "3dd23e04be36c0a77946c0ebd842dc09abd1e515ef9ee36381cad879a3c363f2",
+    "specs/baf-interaction-score-fusion-study/spec.md": "ac37fd4b5f65dab55a0817fd0feb985769342cb2203a871be0e625b2414b13f1"
+  },
+  "stopped_attempt_untouched": true,
+  "broader_goal_achieved": false
+}

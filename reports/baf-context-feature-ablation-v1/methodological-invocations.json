@@ -1,0 +1,70 @@
+{
+  "closed_invocations": [
+    {
+      "ledger": "reports/baf-context-feature-ablation-v1/core-focused-01-fits.json",
+      "sha256": "d9acd2a1eccde293adfb4ba037b5d4519af15ae5183779316ad9fd2cb844accd",
+      "exit_code": 0,
+      "tests": 132,
+      "actual_current_tiny_fits": 6,
+      "actual_historical_tiny_fits": 0
+    },
+    {
+      "ledger": "reports/baf-context-feature-ablation-v1/core-focused-02-fits.json",
+      "sha256": "34482fb565db5a23d1f5e031cff3bfdb41b94d62af8541408e19a7a5b3dd7934",
+      "exit_code": 0,
+      "tests": 132,
+      "actual_current_tiny_fits": 6,
+      "actual_historical_tiny_fits": 0
+    },
+    {
+      "ledger": "reports/baf-context-feature-ablation-v1/core-focused-03-fits.json",
+      "sha256": "bb39fcd1bdb8b4ab7c7b85e40b24eb6e90799090ad8d217e5a7bf73245c12359",
+      "exit_code": 0,
+      "tests": 138,
+      "actual_current_tiny_fits": 12,
+      "actual_historical_tiny_fits": 0
+    },
+    {
+      "ledger": "reports/baf-context-feature-ablation-v1/core-focused-04-fits.json",
+      "sha256": "f6789cac95928fef5e0837b4e134d4a132a9b4a43fb81496eb2c4f75c86f93b5",
+      "exit_code": 0,
+      "tests": 140,
+      "actual_current_tiny_fits": 12,
+      "actual_historical_tiny_fits": 0
+    },
+    {
+      "ledger": "reports/baf-context-feature-ablation-v1/runner-current-01-fits.json",
+      "sha256": "6ecc9b5b57184f26ea2403773dec11786bea5052a456277e90012d37e361bba4",
+      "exit_code": 0,
+      "tests": 140,
+      "scope": "current",
+      "actual_current_tiny_fits": 12,
+      "actual_historical_tiny_fits": 0
+    },
+    {
+      "ledger": "reports/baf-context-feature-ablation-v1/analytical-01-fits.json",
+      "sha256": "2a73f3f3988a83407725bbac1a23606276d67adc95a7d64f70915ae2c62cb184",
+      "exit_code": 0,
+      "tests": 32,
+      "scope": "current",
+      "deselected": 140,
+      "actual_current_tiny_fits": 0,
+      "actual_historical_tiny_fits": 0
+    },
+    {
+      "ledger": "reports/baf-context-feature-ablation-v1/current-complete-01-fits.json",
+      "sha256": "3cdd77b39d63170be74525be63d2d9e897bc9068129e13303a79f2575b567e03",
+      "exit_code": 0,
+      "tests": 173,
+      "scope": "current",
+      "deselected": 0,
+      "actual_current_tiny_fits": 12,
+      "actual_historical_tiny_fits": 0
+    }
+  ],
+  "actual_current_tiny_fits": 60,
+  "actual_historical_tiny_fits": 0,
+  "complete_methodological_suite_executed": false,
+  "production_miniature_fits": 0,
+  "full_baf_fits": 0
+}

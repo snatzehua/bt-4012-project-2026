@@ -1,0 +1,12 @@
+{
+  "archive_path": "openspec/changes/archive/2026-10-13-test-shallow-catboost-f2",
+  "date_source": "User environment context: 2026-10-13 Asia/Singapore",
+  "tasks": 14,
+  "requirements": 9,
+  "scenarios": 12,
+  "main_spec_sha256": "a6503813d502dbeb1431b7e53cda4711659f3e06141dac240a2b0450b64ffbea",
+  "delta_spec_sha256": "8cae375c6ce42ef7fdb5af23d3d2cbf9a6bcde1e0d64913964fdeeee23896e11",
+  "planning_evidence_sha256": "6719338ce01e0fe36d7060eee2d3dfad1c8275591076a60302d51c2f7d39a5dd",
+  "preserved_prearchive_report_manifest_sha256": "cc99769f15edc44b346a9c7dfa27c3f1bb176c657ea98de9059ef97dde588139",
+  "broader_goal_achieved": false
+}

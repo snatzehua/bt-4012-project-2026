@@ -1,0 +1,7 @@
+{
+  "step": "preflight",
+  "module": "baf.bagged_anchor_study",
+  "returncode": 0,
+  "elapsed_seconds": 18.88388375006616,
+  "closed_log_sha256": "0aa2e315da11981d4284e756babbf448236165fe1ae5a2ff0f0c3059224f5271"
+}

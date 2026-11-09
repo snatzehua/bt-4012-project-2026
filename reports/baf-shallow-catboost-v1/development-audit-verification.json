@@ -1,0 +1,19 @@
+{
+  "audit_sha256": "ca5e8a4d4533e26778420a5bb11718d658e66f3d1d19c788aa7aa4fe74eba128",
+  "validation_sha256": "32e8c2bf7acdf7faca99a6c362ccf41185a8d50af1d936ed290f151051ef013b",
+  "winner": "bagged_anchor_balanced_logit_a25",
+  "policy": "pooled",
+  "macro_f2": 0.33088096180021687,
+  "all_60_saved_models_audited": true,
+  "counts": {
+    "crossfit": 324,
+    "summary": 162,
+    "pooled": 162,
+    "contrasts": 1728,
+    "physical_score_diagnostics": 183,
+    "score_diagnostics": 162,
+    "diversity": 36,
+    "decision_overlap": 504
+  },
+  "performance_goal_achieved": false
+}

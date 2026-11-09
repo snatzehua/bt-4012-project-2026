@@ -1,0 +1,8 @@
+{
+  "fixture": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "candidate": "expert_model_payment_type_balanced_AA",
+  "eval_month": 4,
+  "prediction_sha256": "94050591d60f69e16e6a848465050e70c51ae17f48b7875f5dcb408c0ac3db36"
+}

@@ -1,0 +1,16 @@
+✓ spec/baf-calibrated-f2-policy
+✓ spec/baf-chronological-stacking
+✓ spec/baf-direct-ranking-study
+✓ spec/baf-experiment-protocol
+✓ spec/baf-focal-loss-study
+✓ spec/baf-improvements
+✓ spec/baf-newton-spline-logistic-study
+✓ spec/baf-recall-weighted-extension
+✓ spec/baf-recall-weighted-study
+✓ spec/baf-spline-interaction-study
+✓ spec/baf-spline-score-fusion-study
+✓ spec/baf-study
+✓ spec/baf-xgboost-rank-ensemble-study
+✓ spec/baf-xgboost-score-fusion-study
+✓ spec/project-workflow
+Totals: 15 passed, 0 failed (15 items)

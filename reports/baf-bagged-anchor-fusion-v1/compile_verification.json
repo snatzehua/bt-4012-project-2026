@@ -1,0 +1,5 @@
+{
+  "command": ".venv/bin/python -m compileall -q baf tests scripts/check_bagged_anchor.py",
+  "exit_code": 0,
+  "execution_sources_unchanged": true
+}

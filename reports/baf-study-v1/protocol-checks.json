@@ -1,0 +1,116 @@
+{
+  "real_data_sampling_checks": [
+    {
+      "validation_month": 4,
+      "eligible_rows": 547975,
+      "k": 100000,
+      "recent_fraud": 907,
+      "recent_month_min": 3,
+      "matched_seeds_checked": [
+        17,
+        29,
+        43
+      ]
+    },
+    {
+      "validation_month": 4,
+      "eligible_rows": 547975,
+      "k": 250000,
+      "recent_fraud": 2243,
+      "recent_month_min": 2,
+      "matched_seeds_checked": [
+        17,
+        29,
+        43
+      ]
+    },
+    {
+      "validation_month": 4,
+      "eligible_rows": 547975,
+      "k": 500000,
+      "recent_fraud": 4782,
+      "recent_month_min": 0,
+      "matched_seeds_checked": [
+        17,
+        29,
+        43
+      ]
+    },
+    {
+      "validation_month": 5,
+      "eligible_rows": 675666,
+      "k": 100000,
+      "recent_fraud": 1148,
+      "recent_month_min": 4,
+      "matched_seeds_checked": [
+        17,
+        29,
+        43
+      ]
+    },
+    {
+      "validation_month": 5,
+      "eligible_rows": 675666,
+      "k": 250000,
+      "recent_fraud": 2542,
+      "recent_month_min": 3,
+      "matched_seeds_checked": [
+        17,
+        29,
+        43
+      ]
+    },
+    {
+      "validation_month": 5,
+      "eligible_rows": 675666,
+      "k": 500000,
+      "recent_fraud": 4821,
+      "recent_month_min": 1,
+      "matched_seeds_checked": [
+        17,
+        29,
+        43
+      ]
+    },
+    {
+      "validation_month": 6,
+      "eligible_rows": 794989,
+      "k": 100000,
+      "recent_fraud": 1191,
+      "recent_month_min": 5,
+      "matched_seeds_checked": [
+        17,
+        29,
+        43
+      ]
+    },
+    {
+      "validation_month": 6,
+      "eligible_rows": 794989,
+      "k": 250000,
+      "recent_fraud": 2890,
+      "recent_month_min": 3,
+      "matched_seeds_checked": [
+        17,
+        29,
+        43
+      ]
+    },
+    {
+      "validation_month": 6,
+      "eligible_rows": 794989,
+      "k": 500000,
+      "recent_fraud": 5124,
+      "recent_month_min": 2,
+      "matched_seeds_checked": [
+        17,
+        29,
+        43
+      ]
+    }
+  ],
+  "test_month_used": false,
+  "methodological_tests_passed": 8,
+  "protocol": "docs/experiment-protocol.md",
+  "settings": "configs/study.json"
+}

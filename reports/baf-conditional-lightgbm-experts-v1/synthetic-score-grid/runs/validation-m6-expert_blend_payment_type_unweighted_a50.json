@@ -1,0 +1,30 @@
+{
+  "candidate": "expert_blend_payment_type_unweighted_a50",
+  "phase": "validation",
+  "eval_month": 6,
+  "spec": {
+    "id": "expert_blend_payment_type_unweighted_a50",
+    "kind": "blend",
+    "partition": "payment_type",
+    "weighting": "unweighted",
+    "alpha_numerator": 50,
+    "alpha_denominator": 100
+  },
+  "fingerprint": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "dependencies": {
+    "baseline_lgbm": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m6-baseline_lgbm.json": "278a86895deaa06ed3c0e4294f2dbd13e4f4caa0a78d53f20a6b8dce6e4a287e",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m6-baseline_lgbm.npz": "f344020a1fe20221d1c9275ee4ad04fb2fd164f4460043e080d24545bedc4cce"
+    },
+    "expert_payment_type_unweighted": {
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/runs/validation-m6-expert_payment_type_unweighted.json": "428855b0e111321c6141f2e934758f481068b76916eb5c5b14ab182244edcb6b",
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/synthetic-score-grid/predictions/validation-m6-expert_payment_type_unweighted.npz": "caba55c0c5d89702a1a401f16a1f29b39abc625daa1baad56e7385fc1266c0df"
+    }
+  },
+  "arithmetic": "(1-alpha)*global200+alpha*stitched_expert in float64",
+  "routing": [],
+  "prediction_sha256": "02e517f7761f4f9b9b94c0e9105c886b54a686011362b9567f7894c0bd37dbed",
+  "reused": false
+}

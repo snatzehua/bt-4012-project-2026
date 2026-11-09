@@ -1,0 +1,58 @@
+{
+  "status": "four_tasks_verified_study_execution_pending",
+  "progress": {
+    "total": 14,
+    "complete": 4,
+    "remaining": 10
+  },
+  "configuration_sha256": "6a95616379a1082711bfb41b1f1c8df647b757e2f39390d329cad1bf6dbcffb5",
+  "full_checkpoint_tests": 1723,
+  "full_checkpoint_own_tests": 222,
+  "current_nonfitting_tests": 214,
+  "full_checkpoint_current_classifier_fits": 10,
+  "full_checkpoint_historical_classifier_fits": 75,
+  "cumulative_current_tiny_classifier_fits": 30,
+  "full_checkpoint_status_counts": {
+    "completed": 85
+  },
+  "full_checkpoint_source_changes": [
+    "baf/conditional_expert_study.py",
+    "baf/conditional_expert_report.py",
+    "tests/test_conditional_experts.py"
+  ],
+  "original_source_snapshot_files": 80,
+  "mandatory_preserved_paths": 1053,
+  "original_exported_selection_pairs": 17,
+  "historical_preserved_files": 4369,
+  "pins_verified": 27,
+  "python": "3.12.9",
+  "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+  "current_synthetic_score_reaudit": {
+    "new_full_compositions": 48,
+    "member_subsets": 54,
+    "actual_source_models_audited": false
+  },
+  "current_synthetic_table_reaudit": {
+    "counts": {
+      "crossfit": 144,
+      "summary": 72,
+      "pooled": 72,
+      "contrasts": 738,
+      "eligibility": 72,
+      "routing": 96,
+      "stratum_errors": 2304,
+      "physical_score_diagnostics": 93,
+      "score_diagnostics": 72
+    },
+    "winner": "expert_blend_payment_type_unweighted_a25",
+    "policy": "pooled",
+    "development_f2": 0.484375,
+    "actual_source_models_audited": false
+  },
+  "actual_new_full_study_fits": 0,
+  "actual_new_baf_policy_evaluations": 0,
+  "new_month7_evaluations": 0,
+  "production_execution_identity_frozen": false,
+  "goal_achieved": false,
+  "pending": "final orchestration/checks, resource/source/16-fit miniature gates, full fits and audits, freeze/transfer, uncertainty/figures, clean-copy reproduction and completion"
+}

@@ -1,0 +1,20 @@
+✓ spec/baf-bagged-anchor-fusion-study
+✓ spec/baf-bagged-lightgbm-seed-study
+✓ spec/baf-calibrated-f2-policy
+✓ spec/baf-chronological-stacking
+✓ spec/baf-direct-ranking-study
+✓ spec/baf-experiment-protocol
+✓ spec/baf-focal-loss-study
+✓ spec/baf-improvements
+✓ spec/baf-interaction-score-fusion-study
+✓ spec/baf-newton-spline-logistic-study
+✓ spec/baf-recall-weighted-extension
+✓ spec/baf-recall-weighted-study
+✓ spec/baf-spline-interaction-study
+✓ spec/baf-spline-score-fusion-study
+✓ spec/baf-study
+✓ spec/baf-unweighted-reference-fusion-study
+✓ spec/baf-xgboost-rank-ensemble-study
+✓ spec/baf-xgboost-score-fusion-study
+✓ spec/project-workflow
+Totals: 19 passed, 0 failed (19 items)

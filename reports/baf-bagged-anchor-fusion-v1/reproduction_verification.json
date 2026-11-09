@@ -1,0 +1,12 @@
+{
+  "full_suite_passed": 1501,
+  "current_study_tiny_fits": 6,
+  "actual_fit_attempts": 75,
+  "clean_receipt_accepted": true,
+  "prior_model_prediction_caches": 0,
+  "full_size_retraining_claimed": false,
+  "selection_pairs": 16,
+  "changed_selection_rejected": true,
+  "execution_receipt_origin": "isolated no-prior-cache copy",
+  "test_fit_ledger_sha256": "6a6a16fe67e089424aa44dd298b21f78e36b697fed85833e16b1a00581f559ec"
+}

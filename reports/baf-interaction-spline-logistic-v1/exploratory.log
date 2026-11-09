@@ -1,0 +1,8 @@
+         role                                  candidate policy       f2  precision   recall  tp   fp  fn
+     selected    margin_blend_spline_c0p1_unweighted_a25 latest 0.370248   0.200839 0.469188 670 2666 758
+recent_fusion    margin_blend_spline_c0p1_unweighted_a25 latest 0.370248   0.200839 0.469188 670 2666 758
+       fusion logit_mean_xgb_d4_w1_baseline_balanced_a50 pooled 0.372694   0.192414 0.486695 695 2917 733
+     balanced                          baseline_balanced pooled 0.364409   0.181747 0.486695 695 3129 733
+   unweighted                              baseline_lgbm pooled 0.376884   0.168248 0.546218 780 3856 648
+   same_model    margin_blend_spline_c0p1_unweighted_a25 pooled 0.370833   0.195310 0.478291 683 2814 745
+Completed exploratory

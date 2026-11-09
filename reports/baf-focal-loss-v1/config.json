@@ -1,0 +1,162 @@
+{
+  "data_path": "data/raw/baf/Base.csv",
+  "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+  "output_dir": "outputs/baf-focal-loss-v1",
+  "report_dir": "reports/baf-focal-loss-v1",
+  "source_config": "configs/calibrated-f2-policy.json",
+  "source_fingerprint": {
+    "config": "d7eca424381b86cb5c6b6f40dfe4fa1a7d267f7fa0fadc3dde8238fe2c131d4c",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+      "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+      "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+      "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+      "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.12.9"
+  },
+  "preserve_sha256": {
+    "outputs/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+    "reports/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+    "outputs/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+    "reports/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+    "outputs/baf-recall-weighted-v1/selection.json": "b7058cf1dd2111473f953ecdc478e75418f38e2bf0b1e70b85319fff23d30b16",
+    "reports/baf-recall-weighted-v1/selection.json": "b7058cf1dd2111473f953ecdc478e75418f38e2bf0b1e70b85319fff23d30b16",
+    "outputs/baf-recall-weighted-extension-v1/selection.json": "17507207fb9aed254d5ca7c44ab19ce3ac1c0a191c9007f1b9bbaa8681d905c6",
+    "reports/baf-recall-weighted-extension-v1/selection.json": "17507207fb9aed254d5ca7c44ab19ce3ac1c0a191c9007f1b9bbaa8681d905c6",
+    "outputs/baf-chronological-stacking-v1/selection.json": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+    "reports/baf-chronological-stacking-v1/selection.json": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+    "outputs/baf-calibrated-f2-policy-v1/selection.json": "89625d5162533a487c65feeb7fceae0084b980a7e2fffa74627f88c2c9de0089",
+    "reports/baf-calibrated-f2-policy-v1/selection.json": "89625d5162533a487c65feeb7fceae0084b980a7e2fffa74627f88c2c9de0089",
+    "configs/calibrated-f2-policy.json": "d7eca424381b86cb5c6b6f40dfe4fa1a7d267f7fa0fadc3dde8238fe2c131d4c"
+  },
+  "validation_months": [
+    4,
+    5,
+    6
+  ],
+  "test_month": 7,
+  "beta": 2,
+  "seed": 2026,
+  "threads": 6,
+  "hessian_floor": 1e-06,
+  "policies": [
+    "pooled",
+    "latest",
+    "rank_fraction"
+  ],
+  "presets": [
+    {
+      "id": "custom_g0_w1",
+      "kind": "custom",
+      "gamma": 0,
+      "positive_weight": 1
+    },
+    {
+      "id": "custom_g0_w3",
+      "kind": "custom",
+      "gamma": 0,
+      "positive_weight": 3
+    },
+    {
+      "id": "custom_g1_w1",
+      "kind": "custom",
+      "gamma": 1,
+      "positive_weight": 1
+    },
+    {
+      "id": "custom_g1_w3",
+      "kind": "custom",
+      "gamma": 1,
+      "positive_weight": 3
+    },
+    {
+      "id": "custom_g2_w1",
+      "kind": "custom",
+      "gamma": 2,
+      "positive_weight": 1
+    },
+    {
+      "id": "custom_g2_w3",
+      "kind": "custom",
+      "gamma": 2,
+      "positive_weight": 3
+    },
+    {
+      "id": "builtin_w1",
+      "kind": "builtin",
+      "gamma": 0,
+      "positive_weight": 1
+    },
+    {
+      "id": "builtin_w3",
+      "kind": "builtin",
+      "gamma": 0,
+      "positive_weight": 3
+    }
+  ],
+  "references": [
+    {
+      "id": "baseline_balanced",
+      "family": "baseline",
+      "model": "lightgbm",
+      "engineered": false,
+      "weighted": true
+    },
+    {
+      "id": "baseline_lgbm",
+      "family": "baseline",
+      "model": "lightgbm",
+      "engineered": false,
+      "weighted": false
+    },
+    {
+      "id": "native31",
+      "family": "lightgbm",
+      "engineered": false,
+      "params": {
+        "n_estimators": 800,
+        "learning_rate": 0.03,
+        "num_leaves": 31,
+        "min_child_samples": 100,
+        "reg_lambda": 5,
+        "colsample_bytree": 0.9
+      }
+    }
+  ],
+  "tree_params": {
+    "n_estimators": 800,
+    "learning_rate": 0.03,
+    "num_leaves": 31,
+    "min_child_samples": 100,
+    "reg_lambda": 5,
+    "colsample_bytree": 0.9,
+    "deterministic": true,
+    "force_col_wise": true,
+    "boost_from_average": false
+  },
+  "bootstrap_replicates": 500,
+  "bootstrap_seed": 1027,
+  "expected_new_fits": 24,
+  "expected_reference_results": 9,
+  "expected_crossfit_rows": 66
+}

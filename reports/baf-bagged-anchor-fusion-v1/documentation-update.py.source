@@ -1,0 +1,65 @@
+from pathlib import Path
+import re,sys,shutil
+from baf.common import read_config,write_json,digest
+root=Path.cwd();d=Path('reports/baf-bagged-anchor-fusion-v1');o=Path('outputs/baf-bagged-anchor-fusion-v1')
+a=read_config(d/'audit.json');s=read_config(o/'selection.json');assert not a['measured_gain_on_both_scopes']
+body='''The fixed bagged-anchor experiment has completed its scientific work and verification. Both primary preliminary and exact-source no-prior-cache suites passed **1501 tests** (431 current-study). Development reused all33 saved models (18 bagged,15 references), reused21 derived scores and calculated66 new ones, with zero new full development fits. Independent auditing reconstructed120 physical scores,222 forward operating rows,947 matched contrasts and every diagnostic before selection.
+
+The selected **bagged_anchor_balanced_logit_a25 / pooled** scores macro development F2 **0.330880962**, versus the previous strongest **0.330793254**: a tiny +0.000087708 difference. Its frozen26 roles used11 unique bases/27 scores on consumed month7, with six new bagged fits,five reference reuses and zero additive/tree reproductions. Consumed F2 is **0.372240**, recall **49.58%**, precision **18.64%** and workload **3.92%**. It trails tree fusion **0.372694** and unweighted **0.376884**, so the five-reference improvement criterion fails and the broader goal remains active. See [findings](reports/baf-bagged-anchor-fusion-v1/findings.md), [matched effects](reports/baf-bagged-anchor-fusion-v1/matched_effect_summary.csv) and [execution verification](reports/baf-bagged-anchor-fusion-v1/execution_verification.json).
+
+All1500 paired draws and75 development/25 consumed intervals were independently reconstructed. The figure's111 operating points,twelve matched curves,canonical endpoints and legends passed value and pixel-identical regeneration checks. Thirty cumulative current-study tiny fits (18 prior checkpoint,6 primary preliminary,6 clean-copy) are separate from historical-module tests and the six full-size transfer fits. The accepted execution receipt comes from the clean copy at the identical source/config/software identity; its ledger records six current-study plus69 historical-module fits. Earlier fixtures,retries and the supplementary27-versus28 score-count assertion correction are retained without changing scientific sources.
+
+The55-source/config/software/protocol/selection/access identities are frozen. Actual-host predictor-only preflight passed for903157 rows/157 maximum features and an11,130,259,216-byte workspace bound on this32-GiB host. Preserved nine-fit sampling and eight-fit ancestry evidence passed,including present optional files,with zero new production miniature fits. Sixteen exact selection restores/rejection,the Base checksum,Python3.12.9 and27 pins passed in the disposable copy with no prior model/prediction caches. This is no claim of full-size production retraining there. Preserve all sixteen completed predecessors,separate Newton identities,735 mandatory paths,3732 historical files and the stopped attempt. Original implementation-status.md remains a3/14 historical checkpoint; see the later verified outputs for current status. Final closure/synchronization/archive is pending. F2 beta=2 has no quota or precision floor; settings are analyst-selected and month7 remains consumed.
+
+'''
+# Plain spacing for prose without changing any frozen scientific source.
+body=re.sub(r'\b[A-Za-z]{3,}(?=\d)', lambda m:m.group()+' ',body);body=re.sub(r'(?<=\d)(?=[A-Za-z])',' ',body);body=re.sub(r',(?=[A-Za-z]|\d{1,2}\b)',', ',body).replace("'s111","'s 111")
+p=Path('README.md');text=p.read_text();start=text.index('The isolated [configuration](configs/bagged-anchor-fusion.json)');end=text.index('For reproduction use Python 3.12.9',start)
+text=text[:start]+body+text[end:]
+text=text.replace('Full scientific execution is in progress in the primary destination.','Full scientific execution and independent verification are complete in the primary destination.')
+old='Codex assisted with the separate bagged-anchor declaration,';start=text.index(old);end=text.index('\n\n',start)
+text=text[:start]+'''Codex assisted with the separate bagged-anchor declaration, isolated implementation, individual source/cache audits, fixed arithmetic, chronological F2 selection, bounded exploratory transfer, conditional uncertainty, figure checks and reproducible execution. The code uses preserved NumPy/SciPy/pandas/scikit-learn/LightGBM/XGBoost/joblib APIs and copies no public notebook. The failed five-reference comparison and consumed-holdout limitations are retained.''' +text[end:];text=text.replace('.venv/bin/python -m baf.bagged_anchor_report audit_development\n','').replace('the explicit audit command repeats that verification before freeze.','the standalone `audit_development` entry point is also available.')
+p.write_text(text)
+current='''`test-bagged-anchor-fusion-f2` has13/14 verified tasks; final closure is pending. Scientific execution and independent checks are complete. Both primary preliminary and no-prior-cache suites passed1501 tests (431 current-study); cumulative current tiny fits30 are separate from historical tests. Development reused33 models and21 derived scores,calculated66 new scores and made zero full fits;120 scores/222 operating rows/947 contrasts passed independent audit. Selected bagged_anchor_balanced_logit_a25/pooled scores macro F2 0.330880962 versus latest anchor0.330793254. Frozen26 roles/11 bases/27 scores used six new bagged fits and five reference reuses; consumed F2 0.372240 trails tree fusion0.372694 and unweighted0.376884. The broader goal remains active. All1500 draws/100 interval rows,figure values/regeneration and saved inference passed. Preserve the frozen55-source/config/software/protocol/selection/access identities,all sixteen completed predecessors,735 mandatory paths,3732 historical files,separate Newton histories and stopped attempt. Resource and preserved9/8-fit ancestry gates passed with zero new production miniature fits. Sixteen exact selection restores/rejection,Base SHA and27 pins passed in the disposable copy; no full-size retraining there is claimed. Findings/verification are in reports/baf-bagged-anchor-fusion-v1/. Further tuning needs a separate study; F2 beta=2 has no quota/floor and month7 remains consumed. Settings remain analyst-selected.'''
+current=re.sub(r'\b[A-Za-z]{3,}(?=\d)',lambda m:m.group()+' ',current);current=re.sub(r',(?=[A-Za-z]|\d{1,2}\b)',', ',current)
+p=Path('AGENTS.md');text=p.read_text();start=text.index('`test-bagged-anchor-fusion-f2`');end=text.index('\n\n',start);p.write_text(text[:start]+current+text[end:])
+p=Path('openspec/config.yaml');text=p.read_text();start=text.index('  The separate test-bagged-anchor-fusion-f2 has five');end=text.index('  First-study settings',start)
+ctx='''  The separate test-bagged-anchor-fusion-f2 has13/14 verified tasks; final closure
+  remains pending. Scientific execution and independent checks are complete.
+  Both primary preliminary and fresh-copy suites passed1501 tests (431 own).
+  Thirty cumulative current tiny fits are separate from historical tests.
+  Development reused33 models/21 derived scores and calculated66 new scores,
+  with zero full fits. All120 scores/222 operating rows/947 contrasts passed.
+  Selected bagged_anchor_balanced_logit_a25/pooled has macro F2 0.330880962
+  versus latest anchor0.330793254. Frozen26 roles/11 bases/27 scores used six
+  new bagged fits/five reference reuses; consumed F2 0.372240 trails tree fusion
+  0.372694 and unweighted0.376884. The broader goal remains active. All1500
+  draws/100 interval rows,figure values/regeneration and saved inference passed.
+  Preserve its55-source/config/software/protocol/selection/access identities,
+  all sixteen predecessors,735 mandatory paths,3732 historical files,separate
+  Newton histories and stopped attempt. Resource and preserved9/8-fit ancestry
+  gates pass with zero new production miniature fits. Sixteen restores/rejection,
+  Base SHA and27 pins pass in the no-prior-cache copy; no full-size retraining
+  there is claimed. Findings are in reports/baf-bagged-anchor-fusion-v1/.
+  Further tuning needs a separate study. No quota/floor; month7 is consumed;
+  settings remain analyst-selected.
+'''
+ctx=re.sub(r'\b[A-Za-z]{3,}(?=\d)',lambda m:m.group()+' ',ctx);ctx=re.sub(r',(?=[A-Za-z]|\d{1,2}\b)',', ',ctx);p.write_text(text[:start]+ctx+text[end:])
+text=Path('README.md').read_text().split('### Bagged-ensemble additions',1)[1].split('## Acknowledging assistance',1)[0]
+executed=(d/'executed-replay-instructions.md').read_text()
+assert re.findall(r'```bash\n(.*?)\n```',text,re.S)[:2]==re.findall(r'```bash\n(.*?)\n```',executed,re.S)[:2]
+write_json(d/'documentation_verification.json',dict(setup_restore_blocks_identical_to_executed=True,full_clean_suite=1501,selection_pairs=16,changed_selection_rejected=True,pins=27,data_sha256=read_config('configs/bagged-anchor-fusion.json')['data_sha256'],full_production_retraining_in_clean_copy_claimed=False,scientific_commands_implemented_and_run=True,readme_sha256=digest('README.md'),agents_sha256=digest('AGENTS.md'),openspec_context_sha256=digest('openspec/config.yaml')))
+(d/'execution-history.md').write_text('''# Execution and verification history
+
+The original implementation-status.md and implementation-checks/ preserve the 3/14 checkpoint and earlier source/test identities. Eighteen current-study tiny format fits occurred through that checkpoint. The later primary preliminary full suite passed1501 tests and made six current-study plus69 historical-module fits. It predates the test-only optional-cache assertion correction; its exact sources and receipts remain preserved. The exact-source fresh-copy suite also passed1501 tests with six current-study plus69 historical fits. Its complete receipt is the accepted execution receipt in the primary run. Cumulative current-study tiny fits are30. Focused125 gate checks and nine lifecycle checks made zero fits.
+
+Sixteen ancestor selections were restored exactly; a changed record was rejected before copying. The clean copy had no prior model/prediction caches, used the verified Base-v2 checksum/Python3.12.9/27 pins and did not retrain all full-size production recipes. Optional historical caches are verified when present. Source/test copies retain both pre-portability and final identities.
+
+Actual-host predictor-only resource and preserved nine/eight-fit source ancestry passed with zero new production miniature fits. Development used18 bagged/15 reference reuses,21 derived reuses and66 new calculations with zero full fits. Independent audit reconstructed all33 saved models,120 scores,222 operating rows,947 contrasts and diagnostics before freeze. Selection froze26 roles,11 bases and27 scores before further consumed-month access. The supplementary first check incorrectly assumed the across-case maximum28 scores; it failed before writing verification and was corrected to compare the actual prospective winner case27. Scientific sources/settings/freeze were unchanged.
+
+Bounded transfer used six new full bagged fits,five reference reuses,three derived reuses and13 calculations. Independent reporting checked all33 development and11 final saved models,1500 paired draws and100 interval summaries. The selected development gain is tiny; two consumed reference comparisons fail. No winner replacement or hindsight cutoff was made. All predecessor identities and the stopped attempt remain intact. Final closure records verify closed logs,figures,source identities,OpenSpec and hashes; the broader goal remains active.
+''')
+p=Path('openspec/changes/test-bagged-anchor-fusion-f2/tasks.md');t=p.read_text()
+for n in ['4.2','5.1','5.2','5.3']:t=t.replace('- [ ] '+n+' ','- [x] '+n+' ')
+t=t.split('Verification through 12 October 2026:',1)[0]+'''Verification through12 October2026:13/14 tasks verified; final closure5.4 remains. Scientific execution passed with33 development model reuses,120 scores,222 forward rows,947 contrasts and zero full development fits. Selected bagged_anchor_balanced_logit_a25/pooled macro F2 0.330880962; its26 roles/11 bases/27 scores transferred using six new bagged fits/five reference reuses. Consumed F2 0.372240 trails tree fusion0.372694 and unweighted0.376884,so the broader goal remains active. All1500 draws/100 interval rows and figure values/legends/pixel regeneration passed independent verification. Both primary preliminary and no-prior-cache suites passed1501 tests (431 own),with30 cumulative current tiny fits; historical fits remain separate. Exact-source fresh-copy receipt,16 selection restores/rejection,Base SHA,27 pins and predictor-only/preserved9/8 ancestry gates passed. Current source/config/software/protocol/selection/access identities and all sixteen histories/stopped attempt are preserved. See findings.md,execution_verification.json,figure_verification.json,documentation_verification.json and execution-history.md. Original implementation-status.md remains the3/14 checkpoint.
+''';p.write_text(t)

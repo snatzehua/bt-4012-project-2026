@@ -1,0 +1,66 @@
+{
+  "openspec/changes/test-context-feature-ablation-f2/.openspec.yaml": {
+    "original_sha256": "010447270992e8e9533b7bbfb4dbdecda78eab560f05c50428c80463aa9e0ec1",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/.openspec.yaml"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/design.md": {
+    "original_sha256": "156a7fa940967e31fb06aeda7eb848722951bb9c07e91f3b92933738edc311e0",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/design.md"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/planning-completion-check.py": {
+    "original_sha256": "bbf4d66e58139a3c9ada1ea4c614beaecd93885ed16fa1606fde661dc483d80b",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/planning-completion-check.py"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/planning-completion.json": {
+    "original_sha256": "b498e520aeaa71267073f865b89173fa92d6dac2db2537bf95f4857b96922930",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/planning-completion.json"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/planning-completion.log": {
+    "original_sha256": "da51ce2cdabc0867c7fe62b046e5af7b4d98ca6fa1e67827665689622c69858a",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/planning-completion.log"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/planning-enumeration.log": {
+    "original_sha256": "8b77ccf5d780641e7f3c4ae5a42f8f924ebbdb99fd1928638294906e151e1a03",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/planning-enumeration.log"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/planning-enumeration.py": {
+    "original_sha256": "aeb32af2faefe4fdb05d63746b05ad42e0176d160e4830fd65cd7dd649854475",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/planning-enumeration.py"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/planning-evidence.json": {
+    "original_sha256": "34f8183906134dc44d14bd1d2e3948594f426f186e97a63b5c0a61cf586a6637",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/planning-evidence.json"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/planning-status.json": {
+    "original_sha256": "136fb101517ea6db52686f842a6dce6c1757ac00b0ff121b3297304503371f8e",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/planning-status.json"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/planning-validation.log": {
+    "original_sha256": "30780df056cf6329f158ca887be3b33244d22244494b23e90f628a9acfee41b7",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/planning-validation.log"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/project-context-snapshot/AGENTS.md": {
+    "original_sha256": "2724287a60981e0f30f54062ddb8262c58756ae33a7676c4fb0b1e091c3996ba",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/project-context-snapshot/AGENTS.md"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/project-context-snapshot/README.md": {
+    "original_sha256": "60c8ea9da46e7688f13503deb18b8cf1d3377d1adfca668cbd8c1f742839d601",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/project-context-snapshot/README.md"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/project-context-snapshot/openspec/config.yaml": {
+    "original_sha256": "f0e6e07e5b4d13b32d514952d62451add3a31e04ea1048233e61d52173bd6798",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/project-context-snapshot/openspec/config.yaml"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/proposal.md": {
+    "original_sha256": "4a20fcfaf0919fc4700bda7bb30312440518b0301086028da0b9fe33dc27914e",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/proposal.md"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/specs/baf-context-feature-ablation-study/spec.md": {
+    "original_sha256": "5b7022943d41a32839d71f4fefec01329cb02ad63b770420c7347b5d0c24363a",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/specs/baf-context-feature-ablation-study/spec.md"
+  },
+  "openspec/changes/test-context-feature-ablation-f2/tasks.md": {
+    "original_sha256": "5547998e0ed87d94dd89edf24eb642beb01cad9ed32e5ac054f964e5c11a3550",
+    "preserved_at": "reports/baf-context-feature-ablation-v1/planning-original/tasks.md"
+  }
+}

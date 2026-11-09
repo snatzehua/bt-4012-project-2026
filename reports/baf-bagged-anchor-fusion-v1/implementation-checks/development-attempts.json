@@ -1,0 +1,68 @@
+{
+  "recorded_at_utc": "2026-10-12T01:50:08.896558+00:00",
+  "invocations": [
+    {
+      "label": "no-fit-initial",
+      "cache_test_fits": 0,
+      "files": {
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/no-fit-initial.log": "e1e8cfea31f1987717619669a69cb6f855239e1b3fc677ddffe8934f3ed995f9",
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/no-fit-initial.xml": "ef16d41846b4188ebfc7ea52f9a8e03d59db6eb90de7ead265554852ad7a2057"
+      }
+    },
+    {
+      "label": "six-formats-initial",
+      "cache_test_fits": 6,
+      "files": {
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/six-formats-initial.log": "71998ab0b41a11e8bf6bf391bae24bdc0e10850868c30cbce3c4c2aed16943df",
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/six-formats-initial.xml": "03ae2886278b6c203708230c8b5a0bdaeb595fb7c482cc4f84cededf41d536b5"
+      }
+    },
+    {
+      "label": "no-fit-v2",
+      "cache_test_fits": 0,
+      "files": {
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/no-fit-v2.log": "2d5ac0108384022f91a03a56b58bf427af1c5de4177b3a7b49c3e41fdfde7b50",
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/no-fit-v2.xml": "d9e922d7fa8eb6bbba940987da5a56ccb2ee3b740f9c5aed2b75d6a33f96fa3e"
+      }
+    },
+    {
+      "label": "current-291",
+      "cache_test_fits": 6,
+      "files": {
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/current-291.log": "6f4c4072aad69e38218c1faa7706f490d7ee4f453eb73bc65e61422a97bed016",
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/current-291.xml": "1352b72f4fcaf97b269e2993932fc8b7f8ec67d1fe4f3a20829b5092c99b1054"
+      }
+    },
+    {
+      "label": "full-collection-first",
+      "cache_test_fits": 0,
+      "reason": "Collection stopped before tests because a copied test source under reports matched pytest discovery.",
+      "files": {
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-collection-first.log": "35a3f856185da831a8fd1cdc10211b00268199ab2869c420fcc06576ad9a6694",
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-collection-first.xml": "dcfe5a506b0351dbb990fb626d4d978f694d65d7098094f60424c5305c3a2af8"
+      }
+    },
+    {
+      "label": "full-suite-1367",
+      "cache_test_fits": 6,
+      "tests_passed": 1367,
+      "own_tests": 297,
+      "historical_module_fits_separate": true,
+      "files": {
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-1367.log": "6ab5c0bd7f334c3e6469463797158834e35ebb29e6774434cefe9fe10717e68d",
+        "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-1367.xml": "f6fb1a28f63859d38567ae0f93e005db147a8b65a98b6428d2d0a93cb97f3fb5"
+      }
+    },
+    {
+      "label": "single-canonical-helper-diagnostic",
+      "cache_test_fits": 0,
+      "tests_failed": 1,
+      "error": "AttributeError: baf.bagged_boosting has no attribute unbagged",
+      "notes": "The observed one-test diagnostic had no fitting; its helper name was corrected before the passing suites."
+    }
+  ],
+  "total_current_tiny_cache_fits": 18,
+  "new_full_model_fits": 0,
+  "new_production_miniature_fits": 0,
+  "notes": "Full suite passed1367/1367; current-study297. Eighteen current-study tiny cache fits are separate from historical-module tests. No new full-size fits or production miniature fits; no full-data blends or month7 scores evaluated. Failed focused fixtures and the zero-fit collection failure are retained. No execution declaration or selection freeze exists."
+}

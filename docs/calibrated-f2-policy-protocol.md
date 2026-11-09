@@ -1,0 +1,35 @@
+# Calibrated F2 batch-policy protocol
+
+This separate adaptive follow-up tests actual positive-class F2 (beta=2), with no imposed review quota or precision floor. F2=5TP/(5TP+4FN+FP). Settings are analyst-selected, not group-approved. Five completed studies and their negative results remain frozen; month 7 is already consumed. Configuration: configs/calibrated-f2-policy.json. Code: baf/calibrated_policy*.py. Development outputs: outputs/baf-calibrated-f2-policy-v1/; checked exports: reports/baf-calibrated-f2-policy-v1/.
+
+## Data, model inputs and controls
+
+Use the verified BAF Base v2 checksum and development months 0-6. Fixed score sources are balanced LightGBM, unweighted LightGBM and stack_logit_percentile_c0p01_w1. Their recipes retain original training-only feature/preprocessing choices: baseline LightGBM uses original predictors with its original encoding/imputation; the four-member stack uses balanced LightGBM, native31, engineered CatBoost and engineered logistic scores. Native LightGBM handles numeric NaNs and training categorical levels; CatBoost retains categorical strings/training numeric medians; logistic uses its frozen numeric transformations, imputation, scaling and categorical encoding. No new applicant features or model hyperparameters are selected here.
+
+Each stack prediction is out of time at both base and combiner stages. Its fixed logit/percentile features, C=.01, positive weight=1 and StandardScaler remain unchanged. Batch percentiles use scores only. Compatible reuse checks exact IDs/labels, training histories/class counts, data/source/config/software identity and saved model/prediction hashes. All five frozen selection records are preserved, as is the stacking report source. Altered caches are rejected. Missing scores are reproduced under frozen recipes in new directories: up to four members × months 1-6 plus unweighted × 4-6 = 27 base results and three fixed combiner fits. With current caches, nine model/month source predictions require no new base/combiner development fits; dependency audit/reuse counts are separate.
+
+## Earlier-only calibration and operating decisions
+
+For each of three sources, evaluate months 5/6 with sigmoid-logit/isotonic × pooled/latest histories: 24 development calibrator fits. Month 5 uses prediction month 4; month 6 uses 4/5 pooled or 5 latest. Identical month-5 populations still retain both declared histories. Empty calibration populations are rejected; one-class populations produce their observed constant probability. Warnings require inspection; negative sigmoid slopes are rejected.
+
+Sigmoid-logit clips probabilities to [1e-6,1-1e-6], applies logit, training-only StandardScaler, then unweighted LogisticRegression(C=1e6, lbfgs, max_iter=1000, tol=1e-8, seed=2026). Isotonic is increasing=True, out_of_bounds='clip' on raw scores. No new dependencies or calibration tuning are introduced. Raw/calibrated forward Brier/log-loss and ten equal-frequency reliability bins assess calibration rather than assume it holds under drift.
+
+The batch chooser accepts calibrated probabilities, raw scores and stable IDs only. Sort calibrated probability descending, then raw score descending, then ID ascending. For k=0..n compute S(k)=5*sum(top-k p)/(4*sum(all p)+k), with S(0)=0. Choose maximum S, smallest k in a tie. All-zero p flags none. Record chosen k, estimated total fraud, estimated TP and S. This ratio of estimated counts is a plug-in surrogate, not exact expected F2, Bayes optimality or measured F2. Sorting/cumulative sums take O(n log n); the full unlabeled batch is required.
+
+Each score source also retains the existing pooled/latest maximum-F2 threshold and learned rank-fraction policies, fitted on earlier prediction months with unchanged ties and exact ceiling. There are 3 × 7 × 2 = 42 forward rows. Select by actual macro month-5/6 F2, then recall, precision and deterministic candidate/policy ID. Reproduce balanced pooled macro F2 .32780157809618937 and unweighted .3226536849. Report same-model pooled controls and both old references, pooled confusion-count F2 separately, F1/F3, AP/ROC, precision/recall, MCC, balanced accuracy, confusion counts and workload. No proxy metric can satisfy the F2 objective.
+
+## Freeze, diagnostic boundary and exploratory transfer
+
+Stages: validate -> freeze -> diagnostics -> exploratory -> report. Freeze selected identity, source dependencies, rules and any final calibrator (pooled 4/5/6 or latest 6) before further month-7 access. If the stack wins, fit its single final combiner from out-of-time base rows 1-6 in the new destination before access. Record all artifact hashes. Selection is immutable; source changes need a new study.
+
+Only after freeze, compute six label-aware best deterministic ranking-prefix F2 diagnostics (three sources × development months 5/6), with generation timestamp and exclusion from selection. These are optimistic optima for fixed rankings, not deployable gains or general model ceilings. Never compute a month-7 hindsight optimum.
+
+Further consumed-month evaluation includes only the frozen selected policy/model, its raw pooled same-model comparator and both old raw baselines. Only selected dependencies are scored, and only one final calibrator is fitted if selected; losing calibrated policies are not swept. Keep the consumed-holdout caveat even when transfer improves.
+
+## Uncertainty, evidence and reproduction
+
+Use 500 paired row-bootstrap draws, seed 1027, on fixed realized masks. Resample within each development month and average F2 differences for macro intervals. Do not refit/recalibrate/reselect or recompute unlabeled batch choices within draws. Compare selected versus both old references and its same-model pooled control. Intervals exclude selection, between-month/generative uncertainty and multiplicity correction; overlap with zero precludes clear-gain claims.
+
+Audit every decision and metric from saved source scores and calibrator artifacts, plus independent sklearn confusion/F2 checks. Verify monotonicity, ties, clipping, empty/one-class cases, label-independent chooser, chronological scaler/calibration populations, cache tampering, new-destination missing-cache reproduction, diagnostic ordering, immutable selection/access hashes and prior preservation. Inspect exported figures. Keep failed policies and development gains that do not transfer visible. A finite experiment's completion is not goal achievement.
+
+README supplies Python 3.12.9/pinned requirements-improvements.txt, Base access, five exported-record restoration steps and sequential commands. Large data, saved models and predictions stay ignored. Codex assisted with design, implementation, execution, verification and interpretation; acknowledge assistance in the eventual report. No public notebook was copied. Method background: the scikit-learn calibration guide and Ye et al. ICML 2012, linked in this change's design; the count plug-in surrogate is explicitly distinct from their exact expected-utility algorithm.

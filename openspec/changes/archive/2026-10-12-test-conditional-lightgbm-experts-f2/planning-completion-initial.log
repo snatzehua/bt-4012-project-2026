@@ -1,0 +1,11 @@
+Supplementary planning audit, first invocation: terminal exit 1.
+mandatory_preservation_sha256: 1053 verified
+historical_ignored_file_sha256: 4369 verified
+All historical root file sets, implementation absence, strategy/case/contrast identities,
+role bounds, no-new-fit fields, source count, package pins and dataset SHA passed.
+Failed assertion: status['isPlanningComplete'] is True and status['isComplete'] is False
+Observed: both fields are True. CLI status describes artifact completeness, not
+implementation task completion. Actual tasks.md has fourteen unchecked tasks.
+Correction: verify artifact completion from status and implementation completion
+directly from task checkboxes and absence of proposed implementation destinations.
+No project model/config/protocol was written and no model fit occurred in this audit.

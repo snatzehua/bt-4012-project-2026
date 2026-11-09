@@ -1,0 +1,3 @@
+# Test portability verification
+
+After selection, a test-only portability correction resolves planning evidence from either its active or archived path. The exact original selection-test source remains exported and matches the frozen execution receipt. Four path-resolution scenarios were added; the new full suite passed 926 tests, including 307 current-study checks and all 120 winner/policy cases. Its four additional tiny cache fits bring completed-invocation new test fits to sixteen; prior receipts remain unchanged. Source/config/protocol/software/model/score/selection identities are unchanged.

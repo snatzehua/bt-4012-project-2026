@@ -1,0 +1,13 @@
+
+==================================== ERRORS ====================================
+_________________ ERROR collecting tests/test_bagged_anchor.py _________________
+import file mismatch:
+imported module 'test_bagged_anchor' has this __file__ attribute:
+  /Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-start/tests/test_bagged_anchor.py
+which is not the same as the test file we want to collect:
+  /Users/snatzehua/Documents/GitHub/bt-4012-project-2026/tests/test_bagged_anchor.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+=========================== short test summary info ============================
+ERROR tests/test_bagged_anchor.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 1.78s

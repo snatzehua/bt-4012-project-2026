@@ -1,0 +1,18 @@
+{
+  "openspec/changes/test-conditional-lightgbm-experts-f2/.openspec.yaml": "1dfdca412094f24473d8b842866201ec26f200b29b17064b03f1e4982c35a7b9",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/design.md": "ef621a48ce2b6175e17a369a156dde5ba3c63d5c57838a940708b128965c7eba",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-completion-check.py": "e84bac3504b049bb73a5c4d402b018b0e80d6c0ec0b9e85ca2c826729d665f46",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-completion-initial.log": "25be3bfd602d20fc7407d35e4e9650b21866ddb578f9fe6d5f4df88029a9c5cd",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-completion-verification.json": "811babc77fb6eea3127597f7347c0a0ede5a090a9ded24e57e3210f1ccf29ea0",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-completion-verification.log": "93f2476e4e1f30f664c747876541922697bd33e3729c0ab07f2f934e6e55f8ba",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-enumeration.py": "ecb2580194d64d5405620f975763aef7a9859bcc168a1deee044e954a648e594",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-evidence.json": "0fd22004d5a943e2e82bcdc22c0998d0d2470232dc0a659ed6adb97b0cfbbb54",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-initial.log": "8342a8adb99b781599110b220edf7a42288604da6a2391b25d20e0f815e0c891",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-initial.py.source": "385ccf252e2ae9b1c2fe07ed5bc4e84e7d13942166fc8087fe66478d484e4af7",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-openspec-validation.log": "ff20561e739942ad7dc59db6a16894b49a49ed0594e0231486eefe4e599e60a6",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-status.json": "cb912b251dc37d3fd840dcbe06ad18784d55b2b6b68b98ebf1f0c667a65c5a4c",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/planning-verification.log": "cac442230bffb671f803458aca991ab2b2c607780f9bf2a0740419d3adf7e09f",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/proposal.md": "957953075700d343af994fd08991b463347339769bfebb8bd2450f2cea50b116",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/specs/baf-conditional-lightgbm-expert-study/spec.md": "b3367cd039436ef0ab0a06478c00186e39ca6f250c2357bbfed9dcab79bc7fac",
+  "openspec/changes/test-conditional-lightgbm-experts-f2/tasks.md": "fc6658c1019a9fc1b2f434773886cd0627806374209cc57a26a2df5626bdb7a2"
+}

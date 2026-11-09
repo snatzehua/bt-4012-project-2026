@@ -1,0 +1,5 @@
+# Pre-execution implementation checks
+
+The initial no-fit analytical run passed83 cases and failed39 because the shared legacy summary helper omitted ROC AUC, which the new independent auditor required. The new study now explicitly exports macro ROC AUC without changing F2 ordering, policies or any model recipe. The revised no-fit suite passed122 cases. Both runs made zero estimator fits. A pytest iterator deprecation was fixed in the test declaration.
+
+The separate exact new-format check passed both balanced/unweighted cases, with exactly two genuine tiny model fits. It verifies persistence/inference, train-only numeric/categorical statistics, effective sampling parameters, whole-training class weights, corruption rejection, cache reuse without fitting and partial-cache rejection. These are test-only fits, separate from the prospective nine-fit integration gate and eighteen full development fits. No production fit or new real-data study score evaluation has occurred. Full methodological testing and production gates follow; these preliminary receipts are not the execution gate.

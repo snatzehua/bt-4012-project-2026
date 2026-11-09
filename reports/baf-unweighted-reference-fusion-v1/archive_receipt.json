@@ -1,0 +1,21 @@
+{
+  "created_at_utc": "2026-10-11T22:59:05.051442+00:00",
+  "archive_path": "openspec/changes/archive/2026-10-12-test-unweighted-reference-fusion-f2",
+  "files": {
+    ".openspec.yaml": "3ae9e70fc0101b2a700cedadfa7b02caa5799fdfd1db033999469c527448c6b2",
+    "planning-status.json": "2cb11245e7e4dbf9b7ae9b35cce4d340e860e889780d7918432c232438494351",
+    "tasks.md": "d4d4e1631de56f330e772f6e35d868899e4264553e8d0af4c09dbacdf3ba2334",
+    "planning-evidence.json": "0e073c862e0a563e11878379895231abc5ae41bbc765311aef8792d03466f893",
+    "design.md": "3e315c26e5ddd65634bf261ac5311d23de892c951510796d9306f924b0200f30",
+    "proposal.md": "24b9461a9b62551e2195da259c79e87e0d97db228bd51300a2c3e187f7df7c3c",
+    "planning-validation.log": "c5191244e0d3861cf19cc4f7dbbfd7b1788ce385cdbce6f233830ec86adf3dc3",
+    "specs/baf-unweighted-reference-fusion-study/spec.md": "d4716a2b2059e17d594d3a9b878ad8315afa4d869fdab5350f9a477947f587d2"
+  },
+  "requirements": 7,
+  "scenarios": 11,
+  "tasks": 14,
+  "spec_sync_exact": true,
+  "prearchive_report_files": 88,
+  "prearchive_manifest_sha256": "ace071ea5d5e8baa6a05270b591687dd75ae767319cb0f5cad5fce1233bacc1c",
+  "production_source_modules_changed": false
+}

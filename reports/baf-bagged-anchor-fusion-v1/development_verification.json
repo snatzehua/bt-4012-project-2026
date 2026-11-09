@@ -1,0 +1,11 @@
+{
+  "independent_audit_sha256": "17a039ee12dbaf497a993e2773b970629b43bfd1c7d868ada137950fb9aad768",
+  "validation_sha256": "7b31c485cbaacd052608d92c3c03de685f1412bb70be5ceb0248167d97f41d61",
+  "winner": "bagged_anchor_balanced_logit_a25",
+  "policy": "pooled",
+  "development_f2": 0.3308809618002168,
+  "actual_models": 33,
+  "physical_scores": 120,
+  "forward_rows": 222,
+  "contrasts": 947
+}

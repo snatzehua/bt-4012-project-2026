@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "delta": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-conditional-lightgbm-experts-f2/specs/baf-conditional-lightgbm-expert-study/spec.md",
+  "main": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/specs/baf-conditional-lightgbm-expert-study/spec.md",
+  "delta_sha256": "b3367cd039436ef0ab0a06478c00186e39ca6f250c2357bbfed9dcab79bc7fac",
+  "main_sha256": "2d300da6e61a722445b7f31581ed01564f61d0461b960751e4b08fcb1cfe4218",
+  "requirements": 8,
+  "scenarios": 12,
+  "rules_snapshot_sha256": "aec6f1c2905ab4362ec8feea8dd04a61dd8795b86574f1c1cf78e57e73f3b39c",
+  "all_returned_rules_applied": true
+}

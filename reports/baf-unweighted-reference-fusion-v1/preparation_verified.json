@@ -1,0 +1,264 @@
+{
+  "fingerprint": {
+    "config": "71a602d4993cd680b6ac17ac39bbb28941a076ea326ce9c59b39fc7a2086b595",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+      "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+      "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+      "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+      "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+      "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+      "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+      "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082",
+      "baf/direct_grouping.py": "77337d8d6e9c2d1fd25822f7b2c3f50dc10b86a714fd51cc685799786ffe6b54",
+      "baf/direct_ranking.py": "db724fc4f2368ce2f010f5c9a3b0e3fa0ec5b07acccb0b3a1bc25111c99ac9ce",
+      "baf/direct_ranking_report.py": "8973e57aefd0986d19351082a4b75661999be3392169ad6eb9477a2c8c4a6015",
+      "baf/xgboost_inputs.py": "fa9125b8f2f20f65308f0965b5218860d2459c95fdf00f35c33d3c23267fc1e5",
+      "baf/rank_ensemble_scores.py": "0ce961c991b27794505f77f69385d11cdcc9971ef49c8b889bfe4fc462d89cf8",
+      "baf/xgboost_ensemble.py": "286bc961095330d01d560bbfbe62e1ff2f3f75b090b172525cd64448325fec50",
+      "baf/xgboost_ensemble_report.py": "0d24b0b1352068bb54af308eeb01fb1803fd7ec08a4182ee37862716a7878679",
+      "requirements.txt": "7054110540fe08cc44b48b36c5c947c61772a827a1a8b4c2310dcf4ee6f25c3b",
+      "requirements-improvements.txt": "5a385cefb4081e5d49e539ffb624226f08c39bff6202036716be579c76d8828b",
+      "requirements-xgboost.txt": "cc162a3642eb36209185f28a2ea649eb9b98b58f2e5367898b6022b85a1dccd7",
+      "baf/score_fusion.py": "712e99139ee05f46aa542cd1e8544479cb65440a709ee10ad2d3f99142843baf",
+      "baf/score_fusion_study.py": "33c49d74dba17ad71060b90db5114b541180434f5677e7e6ff20d5b8d027502a",
+      "baf/score_fusion_report.py": "4f2409e44b84a3ffded3ef9e3bce4f659ab38cb0f25d17c76ad7742d899a31cc",
+      "baf/spline_inputs.py": "ddf567258dc514f118d86d06f526dde03973ea9e966057c07f38577f9314cf57",
+      "baf/spline_study.py": "1c23ce1f580f34d46f95f2401b5acf4e1b222b71db383d320f3c1043b4809bd8",
+      "baf/spline_report.py": "bf7034ca379981bba2016b652be3183e8f2a799ceb08c6bd7e84e83c9fb880d5",
+      "baf/newton_spline_study.py": "4b61a403da52c608b07f72bb60e1d18212f3be4f51a891812a2ebaf3631bd4b1",
+      "baf/newton_spline_report.py": "14e82677c746279164639153af97443e41fd94e7f08dff2efc85399f8225e3ab",
+      "baf/newton_spline_audit.py": "7511c3a9459c97f37c11c7c19b32f2a9056de31fa46b668185fcd9b4b445924d",
+      "baf/newton_spline_audit_report.py": "95cd301dcfdcf3a50f9259ace623464f1469e8909ae24684368fd1def80def34",
+      "baf/spline_fusion_scores.py": "ab3a45a1492cbb1b9f233b8acf9e3788587e6e4302c47f55edfda6b823009d1f",
+      "baf/spline_fusion_study.py": "42b237f147ff3acb9285e03ba94fbb006faf50867fd83256ac99d2e1baaa15bb",
+      "baf/spline_fusion_report.py": "d6887ba143009dd853d8767921d7dc4dbab3208e96405cd82ffbb0a3daced87c",
+      "baf/interaction_inputs.py": "e6aa9f4ea2cf21e27f6c66ff82c0faa425d87ede7f5fed59c5ee2ef49951204f",
+      "baf/interaction_study.py": "5ed46c36981ea505ba6e3098150e6f665d33873fe7211f007f83e34512aaac60",
+      "baf/interaction_report.py": "7fb490cb5144f8b868c3a9e029cb0c7f92b267a1e646a5e56ff1178a72d55078",
+      "baf/interaction_fusion_scores.py": "36a04d4d049b7cd82b83db29e7f408a1abd40695fcebe2016a746de0bfc5f2aa",
+      "baf/interaction_fusion_study.py": "d4bfe8e50ea1f5bef5ef1d7478465d5f406e5a4849ac8cc1472280c1d0e14ee9",
+      "baf/interaction_fusion_report.py": "ddc2ede8d883eb865e77c85e446d0c303724a1a8f839720c634cf997681957bf",
+      "baf/unweighted_fusion_scores.py": "7ee2a9468fec66ba77c8eba48300be8e112f2da5fd16680ed339db1aace1aff7",
+      "baf/unweighted_fusion_study.py": "908288c9f7fe70fc961ec4b5cb3d421ef4df8db5001b7d1b4e9ed11ef66e4f49",
+      "baf/unweighted_fusion_report.py": "3f89b64d4a08b039f2c9976bdde3c7ac08d9322c306303f4d6a9e1b719413e3d"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0",
+      "xgboost": "3.4.1"
+    },
+    "python": "3.12.9"
+  },
+  "created_at_utc": "2026-10-11T13:06:18.791450+00:00",
+  "physical_scores": 132,
+  "bases": 18,
+  "logistic_checks": 9,
+  "tree_checks": 9,
+  "base_reuses": 18,
+  "new_fits": 0,
+  "derived_reuses": 15,
+  "new_derived_computations": 99,
+  "source_records": [
+    {
+      "month": 4,
+      "candidate": "spline_c0p1_unweighted",
+      "record_sha256": "3ace6cf6afbe2ad68198c00ae40d175d1df2d40fc0e187c870959fec567bab52",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m4-spline_c0p1_unweighted.json": "790557a1df5b7e527a2228cea3b602d79184c401579983019099ee1a86ce3e09",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m4-spline_c0p1_unweighted.npz": "22f5acc85b52ca9e14963d49e5c0714684001829668934286b4a7d1691b0a761",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m4-spline_c0p1_unweighted.joblib": "ea946afbab4c87624bfbcb31a4727e6a019fb01ec1a74e14826e7057f82e2353"
+      }
+    },
+    {
+      "month": 4,
+      "candidate": "spline_c1p0_balanced",
+      "record_sha256": "1f50d2ab457c991215f9345bc9c00102aee4899a0aafd5d0d4955ec76452fb95",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m4-spline_c1p0_balanced.json": "44403f094ddc09ffb40fc93f28e18338a9a3ee9a39ef405e875375ea82eb2979",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m4-spline_c1p0_balanced.npz": "bbbf640557ea8bbeea36b561ef86dbfbaba99e6109e1f7db125b2c46ba8b3cee",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m4-spline_c1p0_balanced.joblib": "4c56eced3e0c35300932de5e48fd3b5a9200de18f7cb9ec07d17d6d8da7c53e4"
+      }
+    },
+    {
+      "month": 4,
+      "candidate": "interaction_c1p0_balanced",
+      "record_sha256": "0d36a5fb85084928b87e2652777710ebf1a003d59fc5b9e4a1de6acdafacee8a",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m4-interaction_c1p0_balanced.json": "44ff77a1dd2999523d00379fa0639e6fa8c111bee7a7bc233bb12804853efe1b",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m4-interaction_c1p0_balanced.npz": "638eb3ef808671c2ddb28026056b0440ee921b19197a43aaabee5d2f6cd9605a",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m4-interaction_c1p0_balanced.joblib": "5e35a6eea9420c38bf1643df2e6294a032e4bfd563ead6c7076d2dc66fbb7b8b"
+      }
+    },
+    {
+      "month": 4,
+      "candidate": "baseline_balanced",
+      "record_sha256": "bc6e38e7fed2e2aaef65392225bba860c34f6326d9a2d87395a3fac0a76c51e7",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m4-baseline_balanced.json": "4b94e982a2f40a32e046d9eb84c72f13239c99c3802bb7b498c26dc4e09c7f11",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m4-baseline_balanced.npz": "4bc78321ed490014179988b80c0decd829396af529d66154585a95071b4196a0",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m4-baseline_balanced-reference.joblib": "0213c5b3397f080b6ea2d124b6e993aca9845653db5d8cc163825e17b18209c7"
+      }
+    },
+    {
+      "month": 4,
+      "candidate": "baseline_lgbm",
+      "record_sha256": "b6c781f5f09c1dc5dba3ae9f1c37aa9609a3b8491995e67d5005bbdd5364ff46",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m4-baseline_lgbm.json": "e9bd8ddac3752c14434876cd68245624e71bbb05f4ca31f6692c407b7330258b",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m4-baseline_lgbm.npz": "9f573069c67dd4ab7393ae978c8d923158f94dc4ff259d32808c2b265f49f668",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m4-baseline_lgbm-reference.joblib": "be05c0cdf9e5ac9e9df73b6a93779cf467c8612ab164176b525095ba8f0589f1"
+      }
+    },
+    {
+      "month": 4,
+      "candidate": "xgb_d4_w1",
+      "record_sha256": "f275ac55342cb7b6ae61b8e0b63169869dc1338e48ffcd5ffa39b1f59e714bb8",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m4-xgb_d4_w1.json": "30d5b8b01d8fe79df6707757645a014e66e21cc51b0a3d8e9691141d9804a150",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m4-xgb_d4_w1.npz": "05a80e99f918d6c3aeb455d83c737700fab820ec997fe620e3b4240323762b54",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m4-xgb_d4_w1.ubj": "2046fae71b4c19cb9f9c9d1ac2f418ee3ef730dadded5d2a34b8b5fa3926cd6f",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m4-xgb_d4_w1.joblib": "e8b99344f05825cd20c7c61da1c1fac2672427cae47efeb06124c013c29de3c4"
+      }
+    },
+    {
+      "month": 5,
+      "candidate": "spline_c0p1_unweighted",
+      "record_sha256": "15bcbf4d060ac2d5ad2131c7c047ea0907e9221072be9090ec6766f5298d3b79",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m5-spline_c0p1_unweighted.json": "f72747ac0991e30ac0d09e6c07b9aa61247bb0290c3d7aceeffdc23f8585f099",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m5-spline_c0p1_unweighted.npz": "7b1e9222b77b0b0fa4ceb0e4b13a2d68546942342f3d42075d526de0fff06776",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m5-spline_c0p1_unweighted.joblib": "20db686c8ddcd58d78c5be1b0a7a2359cc74ae9aecb699ca2d231199a9052c94"
+      }
+    },
+    {
+      "month": 5,
+      "candidate": "spline_c1p0_balanced",
+      "record_sha256": "6c42bdab90b5220d6bbaed5afa1a898bfc97b655c1b3a6e9a4b2a98189de6add",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m5-spline_c1p0_balanced.json": "b9c0be3a97a8466061d8eb44e1b100d8b6cf04c3a90c83039742d71b1c6a21ee",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m5-spline_c1p0_balanced.npz": "414b920de941d08612398a9d7809bf0449f3ae6b3c0adb89fdd701ec8e8a0fd5",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m5-spline_c1p0_balanced.joblib": "873aa9ef1dc7785fed5902819510c4bc63e920b35ffaf6563053baaf9b501a0a"
+      }
+    },
+    {
+      "month": 5,
+      "candidate": "interaction_c1p0_balanced",
+      "record_sha256": "856376cf06837d8950128b9e689b362cea4d5eaad14a57fc7bb0b707df6cfaf2",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m5-interaction_c1p0_balanced.json": "6813debb39d0a0368125f5f3699517a314c57a5edb589d77916b6f17c6b151a3",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m5-interaction_c1p0_balanced.npz": "c0ea9c66b1782d82f8f4a522129542335560e2c5311ba7165079fe18e4b99e31",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m5-interaction_c1p0_balanced.joblib": "fc9657be8f5dd91231b654feb92694d28684ba65ccddff76b0334d0ca96bf4df"
+      }
+    },
+    {
+      "month": 5,
+      "candidate": "baseline_balanced",
+      "record_sha256": "06b611d11a9673134901d2ec7da4702c6e0a922bcc8dbdcaab4b65c7c5caffa4",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m5-baseline_balanced.json": "0f3540bea251c7ef04ae88c2b3a896ddfc4bff86161daa633856a4b88de070e5",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m5-baseline_balanced.npz": "ec9fb57ca64b8dfc636d9c6ca317d981af916ac78a2acd4ac53620f914c8ec0e",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m5-baseline_balanced-reference.joblib": "519bbd087558216c9711ca6ee8bbbd4799e03f760e59cbfd3a3aec4c053b6030"
+      }
+    },
+    {
+      "month": 5,
+      "candidate": "baseline_lgbm",
+      "record_sha256": "f42d56c7a1087f2b3f640a46dcb7e349eacb75b73f29f50e329b83752e087c65",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m5-baseline_lgbm.json": "db00ce74987d9377e57bd0267d0a265e5ea73eef9c6d9f1ae373c04f762a0666",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m5-baseline_lgbm.npz": "5efeda574d591987f0b815beb9b8d99db3b029f801b68b0b448482a933ca5944",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m5-baseline_lgbm-reference.joblib": "dd6938d0087fea30d91507b778c7d42a5ee53780db2c2eb7e4917e3af724f6c1"
+      }
+    },
+    {
+      "month": 5,
+      "candidate": "xgb_d4_w1",
+      "record_sha256": "237d1e3fdb94fa022aade7035fe67850be9f17f53a04a76f89e39463a99e9855",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m5-xgb_d4_w1.json": "72f93a6cedac34b55adf2f31a7dacdbd73dc17a137cc9d49d035e849de7c3827",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m5-xgb_d4_w1.npz": "7af9ee81286424c2ba34fc594537a5f598f851dc109dca68dfd9ea39218b4dae",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m5-xgb_d4_w1.ubj": "f62ed97f1750442254cce1e4db6cfda6aee514f40e2a0fd8fe4293e4024976f7",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m5-xgb_d4_w1.joblib": "c5374e2002619e81c6ede9a5066ec654a8d92d4c4b48dcc4ea84e6908d4fbfed"
+      }
+    },
+    {
+      "month": 6,
+      "candidate": "spline_c0p1_unweighted",
+      "record_sha256": "7f5e02c016efbb6b95ce1dda4701df75242b2d88c4d374c9fade5ab4d9a2256d",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m6-spline_c0p1_unweighted.json": "6a874e4ff7f51e9bef696bd4c33beeb83a311c72eaebc3f51a771ffd13a5ad9e",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m6-spline_c0p1_unweighted.npz": "005865700238a43df8d6222078fde0d207579140ac0ab60d7dbd12c99b319f38",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m6-spline_c0p1_unweighted.joblib": "4a67a78083db54c5502d23a0478489d8bb355e55ec14661df1a67c38a4171277"
+      }
+    },
+    {
+      "month": 6,
+      "candidate": "spline_c1p0_balanced",
+      "record_sha256": "4bb4d20517adcf55693c90a311823bcce4c1c9b361305a3341c40aa9582f6cfb",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m6-spline_c1p0_balanced.json": "5a511a38014eedae1f848a1295b875f115033136540d60df4e3d44d1fe7c010c",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m6-spline_c1p0_balanced.npz": "6d5816f885a546b98f4a70781fbd198e49975d820574b30e60730dd289082288",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m6-spline_c1p0_balanced.joblib": "03090d66cb4c1b1163808ba66bd7b0234c128f474f6aaeb50ab6fc9efe76c44e"
+      }
+    },
+    {
+      "month": 6,
+      "candidate": "interaction_c1p0_balanced",
+      "record_sha256": "08ded2f37737e36d78eb98dae8ece1375c0b32b4cd8a9cdf1bead43e428aba68",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m6-interaction_c1p0_balanced.json": "e4e0f879f66a6bc77914418d3c0cae15cb022e46d986199f0e79b280ea678bac",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m6-interaction_c1p0_balanced.npz": "7c747a5e4370b37ed743a0c6148a7f01eb438309af7f79825f7aef2a294f851c",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m6-interaction_c1p0_balanced.joblib": "de67ff12a6e8d0fb6c1ddadd6ffd739714275fbdf538bd9c90ecab525a4a8680"
+      }
+    },
+    {
+      "month": 6,
+      "candidate": "baseline_balanced",
+      "record_sha256": "e1db04a5b56f8de6d07dd4cea79cd3a90beafd5c70451ad0392b73a4e79010a8",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m6-baseline_balanced.json": "feb2a2600e9aaf0a38598c5eb3fcecce764cafbd168720502c9a1c6bb8762636",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m6-baseline_balanced.npz": "f6ed6f494e0050a31b140d2ae2e213fcc9d05f8e8276615cdbe93325ac0aa816",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m6-baseline_balanced-reference.joblib": "53406896cdcc54a14afebfe241f3dcb06293f071bb2ac9e11582e8defc748466"
+      }
+    },
+    {
+      "month": 6,
+      "candidate": "baseline_lgbm",
+      "record_sha256": "a35d585b5ad625f9bd859b9c32dccdbf9daf0808b179ed28229f87227707a1ff",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m6-baseline_lgbm.json": "e4923bcf81264b45db0c1055343f9627c476c1028814ed1e378c1ee0e4cd2d10",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m6-baseline_lgbm.npz": "c0781e9e8a2ec655bd9bfdd95469e1d33e4aceb8231504d130963924464c631d",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m6-baseline_lgbm-reference.joblib": "15e8ba08aa981acda2285ec4c552a506e3a3b6be8942d717a1ec3c07f0357a12"
+      }
+    },
+    {
+      "month": 6,
+      "candidate": "xgb_d4_w1",
+      "record_sha256": "714a03a06ebd0d76a021dcc75868d8503ded6ef9e6c07d25117782907987de35",
+      "origin_artifacts": {
+        "outputs/baf-interaction-score-fusion-v1/runs/validation-m6-xgb_d4_w1.json": "fabafc3e54114eac9cf58f6891e720867af1a5cd5e35a1d28d5e05349c0140d3",
+        "outputs/baf-interaction-score-fusion-v1/predictions/validation-m6-xgb_d4_w1.npz": "dbf1ecc1828ea9e4e138f30ef1065bc2d6a067b8603998b0c5c12aa1d6358da5",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m6-xgb_d4_w1.ubj": "691da9ba9fa30d4adfa9f4706e16e89f808f8ef93cb9eb3944070bb31c387b91",
+        "outputs/baf-interaction-score-fusion-v1/models/validation-m6-xgb_d4_w1.joblib": "35c9f477c6f3dc696f5272a9f057e53746e6bd63a34defd28795a3bd4561d67d"
+      }
+    }
+  ],
+  "preservation_verified": true,
+  "source_statistics_inference_and_objective_checks": true
+}

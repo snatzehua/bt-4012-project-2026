@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="1.779" timestamp="2026-10-12T09:50:09.114747+08:00" hostname="Kierans-MacBook-Pro-2.local"><testcase classname="" name="tests.test_bagged_anchor" time="0.000"><error message="collection failure">import file mismatch:
+imported module 'test_bagged_anchor' has this __file__ attribute:
+  /Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-start/tests/test_bagged_anchor.py
+which is not the same as the test file we want to collect:
+  /Users/snatzehua/Documents/GitHub/bt-4012-project-2026/tests/test_bagged_anchor.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules</error></testcase></testsuite></testsuites>

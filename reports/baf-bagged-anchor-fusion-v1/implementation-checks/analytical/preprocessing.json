@@ -1,0 +1,56 @@
+{
+  "4:bagged_balanced_s17": {
+    "transformed_dimension": 42
+  },
+  "4:bagged_balanced_s29": {
+    "transformed_dimension": 42
+  },
+  "4:bagged_balanced_s43": {
+    "transformed_dimension": 42
+  },
+  "4:bagged_unweighted_s17": {
+    "transformed_dimension": 42
+  },
+  "4:bagged_unweighted_s29": {
+    "transformed_dimension": 42
+  },
+  "4:bagged_unweighted_s43": {
+    "transformed_dimension": 42
+  },
+  "5:bagged_balanced_s17": {
+    "transformed_dimension": 42
+  },
+  "5:bagged_balanced_s29": {
+    "transformed_dimension": 42
+  },
+  "5:bagged_balanced_s43": {
+    "transformed_dimension": 42
+  },
+  "5:bagged_unweighted_s17": {
+    "transformed_dimension": 42
+  },
+  "5:bagged_unweighted_s29": {
+    "transformed_dimension": 42
+  },
+  "5:bagged_unweighted_s43": {
+    "transformed_dimension": 42
+  },
+  "6:bagged_balanced_s17": {
+    "transformed_dimension": 42
+  },
+  "6:bagged_balanced_s29": {
+    "transformed_dimension": 42
+  },
+  "6:bagged_balanced_s43": {
+    "transformed_dimension": 42
+  },
+  "6:bagged_unweighted_s17": {
+    "transformed_dimension": 42
+  },
+  "6:bagged_unweighted_s29": {
+    "transformed_dimension": 42
+  },
+  "6:bagged_unweighted_s43": {
+    "transformed_dimension": 42
+  }
+}

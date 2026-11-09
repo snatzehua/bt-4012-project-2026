@@ -1,0 +1,8 @@
+{
+  "fixture": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "candidate": "baseline_lgbm",
+  "eval_month": 6,
+  "prediction_sha256": "f344020a1fe20221d1c9275ee4ad04fb2fd164f4460043e080d24545bedc4cce"
+}

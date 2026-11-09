@@ -1,0 +1,298 @@
+schema: spec-driven
+
+context: |
+  BT4012 Fraud Analytics group project at NUS, AY2026/2027 Semester 1.
+  Current sources: BT4012_Proposal_BAF_Revised.pdf and feedback.md.
+  The BAF proposal covers training recency, class imbalance, model choice and
+  chronological evaluation. Feedback asks for recent K versus historical K
+  comparisons to separate size from recency, and model-specific feature justification.
+  BAF Base (Kaggle version 2) is downloaded locally at data/raw/baf/Base.csv,
+  with checksums and a provenance manifest; 1M rows, 32 columns, months 0-7.
+  The first study uses Base under docs/experiment-protocol.md and configs/study.json.
+  Modules under baf/ implement development-only EDA and controlled experiments.
+  OpenSpec tasks and reports/baf-study-v1/ track verified completion and findings.
+  The first study completed 107 fits; month 7 is an already-consumed holdout.
+  A separate completed improvement study uses configs/improvements.json and
+  docs/improvement-protocol.md: 54 development fits (including 3 adaptive
+  logistic diagnostic fits), 9 validation blends, 5 exploratory month-7 fits
+  and 2 selected blends. See reports/baf-improvements-v1/findings.md for
+  measured gains, multi-metric policies, ablations and conditional uncertainty.
+  Preserve both completed studies' frozen identities; new tuning is exploratory.
+  The completed optimize-recall-weighted-fbeta study made 30 new development fits,
+  15 verified reuses and 108 cross-fitted evaluations; it did not improve macro
+  development F2 of 0.3278. Its sources/config/software/selection are frozen.
+  The completed extend-recall-weighted-search adds 36 new development fits,
+  81 verified reuses, 288 cross-fitted evaluations and two exploratory baseline
+  reuses under configs/recall-weighted-extension.json and
+  docs/recall-weighted-extension-protocol.md. It also found no F2 improvement:
+  balanced LightGBM remains selected at 0.3278, versus 0.3261 for the best added
+  strategy. Preserve all four frozen studies. The performance goal remains
+  unachieved; any further search needs a new study. No 1% quota is imposed.
+  The completed learn-chronological-score-stacking study uses
+  configs/chronological-stacking.json and docs/chronological-stacking-protocol.md:
+  12 early base fits, 15 verified reuses, 72 combiner/control fits, 156 forward
+  policy rows and two exploratory baseline reuses. It did not improve F2 0.3278:
+  best learned control 0.3271, best stack 0.3268. Higher stack AP is not the F2
+  objective. Preserve all five frozen studies. Keep all three learning stages
+  chronological and require a new study for further tuning.
+  The completed test-calibrated-f2-batch-policy study used three fixed
+  score sources, 24 earlier-only calibration fits and 42 chronological operating
+  rows. It tests a label-free batch count plug-in F2 surrogate, not exact expected
+  or achieved F2. Keep actual F2 as selection objective, preserve all five completed
+  studies, and generate label-aware development prefix diagnostics only after freeze.
+  Calibration did not improve macro F2: best calibrated 0.32715 versus 0.32780.
+  Preserve this sixth frozen study too. It verified 27 base and three combiner
+  dependency reuses plus two exploratory baseline reuses, with no new base/combiner
+  fits. The performance goal remains unachieved; new tuning needs a new study.
+  The completed test-focal-loss-score-learning study tested eight matched native
+  LightGBM loss presets: 24 new development fits, nine verified reference reuses,
+  66 forward policy rows and four separate miniature integration fits. It found
+  no improvement: best focal F2 0.323007 and best added ordinary control 0.323783
+  versus balanced baseline 0.327802. All 33 prediction results and 14,400 numeric
+  trace rows were audited, including raw-margin derivatives and approximate
+  curvature floors. Two exploratory baseline reuses required no new month-7 fits;
+  selected F2 remains 0.364409 versus unweighted 0.376884. Preserve all seven
+  frozen studies. The performance goal remains unachieved and further tuning
+  needs a new study; month 7 remains consumed.
+  The completed test-direct-fraud-ranking study tested four listwise rankers and
+  two ordinary binary controls: 18 new development fits, nine verified reuses,
+  54 chronological policy rows and 27 macro summaries. It found no improvement:
+  best ranker F2 0.321311 and best new binary control 0.323151 versus balanced
+  0.327802. All 27 predictions, 99 contrasts, 35,532 query rows and 18 group
+  summaries were checked; four miniature integration fits are counted separately.
+  Artificial queries depend only on months/IDs/seed and retain every row and
+  all-negative groups. Raw finite scores are not probabilities. Two exploratory
+  baseline reuses required zero new month-7 fits; selected F2 remains 0.364409
+  versus unweighted 0.376884. Preserve all eight frozen studies. The performance
+  goal remains unachieved; further tuning needs a new study and month 7 is consumed.
+  The completed test-xgboost-rank-ensembles study added 12 full development fits,
+  nine verified references and eight miniature fits. Its 25 strategies produced 150
+  forward rows without an F2 gain: best new raw 0.326484, best blend 0.325311,
+  versus balanced 0.327802. All 75 scores, 302 contrasts, 75 pooled summaries,
+  12 diversity rows and 16 interval summaries were audited. Two exploratory
+  baseline reuses required zero new final model fits; selected F2 remains 0.364409
+  versus unweighted 0.376884. The percentile control scored 0.365259 but was not
+  the development winner and did not beat unweighted. Preserve all nine frozen
+  studies and their dependency identities. The goal remains unachieved; further
+  tuning needs a separate study and month 7 remains consumed.
+  The completed test-xgboost-score-fusion study evaluates 61 fixed raw/logit
+  single/fusion strategies with 12 XGBoost model reuses, nine reference prediction
+  reuses and nine separately counted absent-reference-model verification fits.
+  Its 183 development scores, 366 forward rows and 866 matched contrasts select
+  the fixed 50/50 logit blend xgb_d4_w1/baseline_balanced at macro F2 0.328907
+  versus balanced 0.327802; the conditional development interval spans zero.
+  One final XGBoost fit and two reference reuses yield consumed F2 0.372694,
+  versus balanced 0.364409 and unweighted 0.376884. The gain against balanced
+  has a positive conditional consumed interval, but the stronger unweighted
+  reference is not beaten. All 165 derived provenance records, 28 interval
+  summaries and 1500 paired draws were independently checked; the figure was
+  inspected. Preserve all ten frozen studies. F2 remains beta=2 without quota
+  or precision floor; scores are not calibrated probabilities. The broader
+  performance goal remains unachieved and further tuning needs a new study;
+  month 7 is already consumed and cannot provide independent confirmation.
+  The separate test-spline-logistic-f2 attempt stopped at its declared gate:
+  nine new month-4 fits completed; weighted spline C=0.1 failed to converge
+  within 2000 L-BFGS iterations. Twenty-six further grid fits remain unattempted.
+  The 24-fit numerical preflight and 192 methodological tests passed, but no
+  macro F2 selection or month-7 access occurred. Five of 14 tasks are verified;
+  the change remains incomplete. Preserve its stopped source/config/artifacts
+  alongside ten completed studies. A solver remedy requires a separate study.
+  The separate test-newton-spline-logistic-f2 completed 36 new development fits,
+  nine reference reuses, three fixed fusions, 90 forward rows and 237 contrasts,
+  with 236 passing tests and a separate 24-fit preflight. All 18 matched spline
+  contrasts are positive, but best new F2 0.322264 trails fusion 0.328907.
+  The existing fusion remains selected; five frozen roles transferred with
+  three reference reuses and zero new fits, retaining consumed F2 0.372694
+  versus unweighted 0.376884. All 1500 paired draws were independently
+  reconstructed, both figures inspected and 35 report hashes checked; the
+  finite study is complete and archived with all 14 tasks verified. Findings/verification are in its report directory. Corrected analysis
+  entry points preserve all original fit sources/models/scores and record
+  separate full analysis identities after a verifier index bug. Preserve both
+  identities, configuration/software/models/selection and report evidence for
+  this eleventh completed study, plus the stopped attempt and ten earlier
+  completed studies. Further tuning requires a separate study.
+  No quota/floor is imposed and the broader performance goal remains unachieved.
+  The separate test-spline-score-fusion evaluated 23 strategies using 21
+  development base reuses, zero new development fits, 51 derived scores,
+  138 forward rows and 433 contrasts. Its selected 25% spline/unweighted
+  blend with latest policy scores macro F2 0.329010 versus fusion 0.328907;
+  the conditional interval spans zero. Consumed F2 0.370248 trails fusion
+  0.372694 and unweighted 0.376884. Ten frozen roles used three Newton fits
+  and three reference reuses. All 1500 paired draws, 85 scores, 433 contrast
+  factors and both figure panels were checked; 288 tests pass. The finite
+  study is complete and archived with all 13 tasks verified. Preserve all
+  twelve completed identities and the stopped attempt; further tuning needs
+  a new study. The goal remains unachieved, with
+  F2 beta=2 without quota/floor and month 7 already consumed.
+  The separate test-spline-interactions-f2 is complete and archived at
+  openspec/changes/archive/2026-10-11-test-spline-interactions-f2/
+  with 14/14 verified tasks; final completion auditing passed. Twelve new full development fits,
+  21 base reuses, three recent-fusion derived reuses, eight miniature fits
+  and ten separately counted tiny cache-test fits are complete. All 379 tests
+  pass, including 91 interaction checks. Independent audits checked 33
+  saved models, 39 scores, 72 operating rows, 204 contrasts, 1392 original
+  feature diagnostics, 72 pair diagnostics, 5016 coefficients and all 1500
+  paired draws/20 interval summaries. Both figures and 1323 pair-surface
+  rows were checked. Best interaction macro F2 0.322976 trails existing
+  fusion/latest 0.329010; seven of twelve matched interaction effects are
+  positive and five negative. The existing fusion remains selected. Six
+  frozen transfer roles used four base reuses and zero new fits, retaining
+  consumed F2 0.370248 versus tree fusion 0.372694 and unweighted 0.376884.
+  Preserve all thirteen completed studies, including its frozen 43-source/
+  config/software/selection/access identities, and the stopped attempt. Findings
+  and verification are in reports/baf-interaction-spline-logistic-v1/. The
+  broader goal remains unachieved; further tuning requires a separate study,
+  F2 keeps beta=2 without quota/floor and month 7 remains consumed.
+  The separate test-interaction-score-fusion-f2 is complete and archived at
+  openspec/changes/archive/2026-10-11-test-interaction-score-fusion-f2/ with
+  14/14 verified tasks and passing final completion auditing. It evaluated 51
+  canonical strategies, four fixed weights, 33 locally reusable development bases,
+  156 physical scores, 306 forward operating rows and 1386 matched contrasts.
+  All 619 tests pass, including 240 new checks and 153 winner/policy cases; eight
+  new tiny cache-test fits across focused/full invocations are counted separately.
+  The predictor-only resource gate passed for 903157 rows/259 features with a
+  15552456976-byte conservative workspace on this 32-GiB host. All fourteen
+  task outputs are verified; all 33 base models passed verification and were reused with
+  zero new full development fits. The complete score/operating/diagnostic tables
+  passed the final independent audit. The selected additive C1/balanced/10%
+  blend with latest policy scores macro F2 0.330793 versus recent 0.329010.
+  Fourteen roles/eight bases/eighteen scores transferred under frozen bounds
+  with one new interaction fit, two additive reproductions and five base reuses.
+  Selected consumed F2 is 0.371534 versus recent 0.370248, tree fusion 0.372694,
+  balanced 0.364409 and unweighted 0.376884. Comparisons against tree fusion
+  and unweighted fail; the broader goal remains unachieved. Independent reporting
+  verified 33 development/eight final models, all 1500 draws and 52 intervals.
+  The three-panel figure and its actual values were checked. The recent-reference
+  development interval and all four consumed-reference intervals include zero.
+  Final completion/preservation/manifest and OpenSpec auditing passed.
+  Its declared 46-source/config/protocol identity must remain unchanged;
+  preserve all fourteen completed studies, separate
+  Newton fit/analysis histories and the stopped attempt. Keep original-reference
+  precedence and six/eleven/fourteen bounded transfer roles. Four new tiny cache
+  reproduction test fits per full invocation are separate from production and
+  historical tests. F2 remains beta=2 without quota/floor and month 7 is consumed.
+  The separate test-unweighted-reference-fusion-f2 is complete and archived at
+  openspec/changes/archive/2026-10-12-test-unweighted-reference-fusion-f2/
+  with 14/14 verified tasks and passing completion auditing. Its 40 strategies used
+  18 base reuses, zero new full development fits, 15 derived reuses and 99
+  new calculations, producing 132 scores, 240 forward rows and 1199 contrasts.
+  Independent source/feature/inference/gradient/score/policy/metric/factor and
+  diagnostic audits passed. No new addition beats the latest anchor: macro
+  F2 remains 0.3307932537. Seven frozen roles used five final base reuses/eight
+  scores and zero new fits; consumed F2 0.3715337955 trails tree fusion
+  0.3726941227 and unweighted 0.3768844221. All 1500 paired draws/24 intervals
+  and the six-panel figure's 120 points/twelve curves were checked; all five
+  consumed-reference intervals include zero. Current full and clean-copy
+  suites pass 941 tests (322 current-study), including all 120 winner/policy
+  cases. Twenty-eight new tiny cache-test fits across seven invocations,
+  including the failed clean-copy fixture run, are separate from historical
+  tests; no new production miniature fits were required. All 27 pins, Base
+  SHA and fourteen exact selection restores/rejection were checked with no
+  prior model/prediction caches. Preserve the original selection-test source,
+  later test-only portability receipts, the new 49-source/config/software/
+  protocol/selection/access identity, 529 mandatory historical paths, fourteen
+  ancestor selection pairs, 3092 prior ignored files and the 87-file stopped
+  format-attempt index. Keep all fourteen completed predecessors and the
+  stopped L-BFGS attempt unchanged. No frozen production module changed in
+  test portability maintenance. F2 beta=2 has no quota/floor, month 7 remains
+  consumed and the broader performance goal remains unachieved.
+  The separate test-bagged-lightgbm-seed-ensembles-f2 is complete and archived
+  with all fourteen tasks verified and seven requirements synchronized.
+  Eighteen new warning-free 200-round fits and fifteen reference reuses give
+  fifty-four physical scores, ninety forward rows and 342 matched contrasts.
+  Best new F2 is 0.327885; existing latest-policy fusion remains selected at
+  0.330793. Seven frozen roles transferred with five reference reuses, eight
+  scores and zero new fits. Consumed F2 remains 0.371534 versus unweighted
+  0.376884. Primary/clean suites each passed 1070 tests (129 current-study);
+  six tiny cache-format fits and nine synthetic-gate fits are separate.
+  All 1500 paired draws, 24 intervals and the inspected figure were checked.
+  Findings/reproduction evidence are in reports/baf-bagged-lightgbm-seeds-v1/.
+  Preserve this sixteenth completed study's fifty-two-source/config/software/
+  protocol/selection identity, 634 mandatory paths, fifteen ancestor selection
+  pairs, 3522 historical files, all fifteen predecessors, separate Newton
+  identities and the stopped attempt. F2 beta=2 has no quota or precision floor;
+  month 7 remains consumed and the broader goal remains active. Further tuning
+  needs a separate study; settings are analyst-selected, not group-approved.
+  The separate test-bagged-anchor-fusion-f2 is complete and archived with 14/14
+  verified tasks at openspec/changes/archive/2026-10-12-test-bagged-anchor-fusion-f2/
+  Seven requirements and eleven scenarios passed final auditing; this is the
+  seventeenth completed study. Scientific/independent checks are complete.
+  Both primary preliminary and fresh-copy suites passed 1501 tests (431 own).
+  Thirty cumulative current tiny fits are separate from historical tests.
+  Development reused 33 models/21 derived scores and calculated 66 new scores,
+  with zero full fits. All 120 scores/222 operating rows/947 contrasts passed.
+  Selected bagged_anchor_balanced_logit_a25/pooled has macro F2 0.330880962
+  versus latest anchor 0.330793254. Frozen 26 roles/11 bases/27 scores used six
+  new bagged fits/five reference reuses; consumed F2 0.372240 trails tree fusion
+  0.372694 and unweighted 0.376884. The broader goal remains active. All 1500
+  draws/100 interval rows, figure values/regeneration and saved inference passed.
+  Preserve its 55-source/config/software/protocol/selection/access identities,
+  all sixteen predecessors, 735 mandatory paths, 3732 historical files, separate
+  Newton histories and stopped attempt. Resource and preserved 9/8-fit ancestry
+  gates pass with zero new production miniature fits. Sixteen restores/rejection,
+  Base SHA and 27 pins pass in the no-prior-cache copy; no full-size retraining
+  there is claimed. Findings are in reports/baf-bagged-anchor-fusion-v1/.
+  Further tuning needs a separate study. No quota/floor; month 7 is consumed;
+  settings remain analyst-selected.
+  The separate test-conditional-lightgbm-experts-f2 completed scientific execution
+  and independent audits. All fourteen tasks are verified and requirements are synchronized; the change is archived.
+  Its 24 strategies used 54 local/six capacity full development fits and 24 base/
+  fifteen derived reuses. All 84 saved models, 93 full scores/54 subsets, 144
+  operating rows, 738 contrasts, 96 routing/2304 group-error rows and actual work
+  passed. Existing anchor/pooled remains selected at macro F2 0.330880962;
+  best new housing/balanced/25% latest blend scored 0.324795452. All twelve
+  pure-vs-global200 comparisons are negative. Eight frozen roles/eight models/
+  thirteen scores transferred with zero new fits; consumed F2 0.372239748
+  fails tree-fusion/unweighted comparisons and ties the existing anchor.
+  All 1500 paired fixed-decision draws/28 intervals and the inspected, identical
+  regenerated figure passed. Primary/clean suites each pass 1915 tests (414 own),
+  ten current/75 historical tiny fits per full invocation. Sixty cumulative
+  current tiny fits and 300 historical calls are separate from sixteen production
+  miniature and sixty full development fits. Seventeen selection restores/rejections,
+  Python3.12.9/27 pins/Base SHA and no-prior-cache archived-path copy pass;
+  full-size clean-copy retraining is not claimed. Preserve all seventeen ancestors,
+  1053 mandatory paths, 4369 historical files, stopped attempt and separate Newton
+  identities. Keep the frozen 58-source/config/software/protocol/selection/access
+  identity and getter-only miniature metadata/supplementary assertion corrections.
+  No producer/model/prediction was edited or numerical recipe relaxed. Work
+  row-rounds describe logical method exposure, not physical prediction-call counts.
+  Further tuning requires a separate study. F2 beta=2 has no quota/floor;
+  partitions/settings are adaptive analyst selections, month7 remains consumed,
+  the broader performance goal remains active and no independent confirmation is claimed.
+  First-study settings are analyst-selected, open to group review. Preserve the
+  selection freeze and mark month 7 as consumed once final scores have been accessed.
+  Archived planning documents are historical context, not current decisions.
+  Prefer chronological evaluation on identical future applications. Fit preprocessing
+  on training data only; tune using validation and freeze choices before final testing.
+  Keep raw data out of git and provide reproducible README commands with modelling code.
+  The report is 8-12 pages excluding references/appendices; use Problem Description,
+  Data Overview, Methodology, Experiments and Results, Conclusion. Report and
+  presentation are due 2026-11-20 23:59 Asia/Singapore. Acknowledge AI and external code.
+  Main specs describe current requirements; change specs describe planned work.
+  Distinguish hypotheses, proposed settings, confirmed decisions and observed results.
+
+rules:
+  proposal:
+    - State the research question or concrete workflow problem and the expected artifact.
+    - Separate core work from optional extensions; do not assume a method improves performance.
+    - Name the proposal or feedback motivating changes to research scope.
+  specs:
+    - Use testable requirements with WHEN/THEN scenarios, including research acceptance criteria.
+    - For experimental changes, cover temporal leakage, comparable evaluation and reproducibility.
+  design:
+    - For research changes, explain data, feature handling by model, splits, controls and metrics.
+    - Identify unresolved choices explicitly instead of presenting them as approved settings.
+    - Distinguish fixed-capacity ranking from threshold selection and random-split diagnostics from drift evidence.
+  tasks:
+    - Keep tasks small and ordered; mark complete only when outputs exist and are checked.
+    - Include appropriate verification and documentation; modelling work must update README reproduction commands.
+
+operations:
+  apply:
+    guidance:
+      - Read current source documents and relevant artifacts; preserve unresolved decisions as such.
+      - Run relevant checks and record their outcome before marking tasks complete.
+  archive:
+    guidance:
+      - Check actual outputs and tasks, synchronize requirements, and validate OpenSpec before archiving.
+      - Do not describe documentation-only work as a working experiment or measured result.

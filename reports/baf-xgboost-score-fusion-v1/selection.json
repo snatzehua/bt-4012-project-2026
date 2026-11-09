@@ -1,0 +1,1336 @@
+{
+  "created_at_utc": "2026-10-11T06:13:13.003452+00:00",
+  "fingerprint": {
+    "config": "69346bf2c7554f557e4f52470c7a8de92b47b5a57399a260606c009f903b6ebc",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+      "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+      "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+      "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+      "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+      "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+      "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+      "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082",
+      "baf/direct_grouping.py": "77337d8d6e9c2d1fd25822f7b2c3f50dc10b86a714fd51cc685799786ffe6b54",
+      "baf/direct_ranking.py": "db724fc4f2368ce2f010f5c9a3b0e3fa0ec5b07acccb0b3a1bc25111c99ac9ce",
+      "baf/direct_ranking_report.py": "8973e57aefd0986d19351082a4b75661999be3392169ad6eb9477a2c8c4a6015",
+      "baf/xgboost_inputs.py": "fa9125b8f2f20f65308f0965b5218860d2459c95fdf00f35c33d3c23267fc1e5",
+      "baf/rank_ensemble_scores.py": "0ce961c991b27794505f77f69385d11cdcc9971ef49c8b889bfe4fc462d89cf8",
+      "baf/xgboost_ensemble.py": "286bc961095330d01d560bbfbe62e1ff2f3f75b090b172525cd64448325fec50",
+      "baf/xgboost_ensemble_report.py": "0d24b0b1352068bb54af308eeb01fb1803fd7ec08a4182ee37862716a7878679",
+      "requirements.txt": "7054110540fe08cc44b48b36c5c947c61772a827a1a8b4c2310dcf4ee6f25c3b",
+      "requirements-improvements.txt": "5a385cefb4081e5d49e539ffb624226f08c39bff6202036716be579c76d8828b",
+      "requirements-xgboost.txt": "cc162a3642eb36209185f28a2ea649eb9b98b58f2e5367898b6022b85a1dccd7",
+      "baf/score_fusion.py": "712e99139ee05f46aa542cd1e8544479cb65440a709ee10ad2d3f99142843baf",
+      "baf/score_fusion_study.py": "33c49d74dba17ad71060b90db5114b541180434f5677e7e6ff20d5b8d027502a",
+      "baf/score_fusion_report.py": "4f2409e44b84a3ffded3ef9e3bce4f659ab38cb0f25d17c76ad7742d899a31cc"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0",
+      "xgboost": "3.4.1"
+    },
+    "python": "3.12.9"
+  },
+  "config": {
+    "data_path": "data/raw/baf/Base.csv",
+    "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+    "validation_months": [
+      4,
+      5,
+      6
+    ],
+    "test_month": 7,
+    "beta": 2,
+    "seed": 2026,
+    "threads": 6,
+    "policies": [
+      "pooled",
+      "latest",
+      "rank_fraction"
+    ],
+    "references": [
+      {
+        "id": "baseline_balanced",
+        "family": "baseline",
+        "model": "lightgbm",
+        "engineered": false,
+        "weighted": true
+      },
+      {
+        "id": "baseline_lgbm",
+        "family": "baseline",
+        "model": "lightgbm",
+        "engineered": false,
+        "weighted": false
+      },
+      {
+        "id": "native31",
+        "family": "lightgbm",
+        "engineered": false,
+        "params": {
+          "n_estimators": 800,
+          "learning_rate": 0.03,
+          "num_leaves": 31,
+          "min_child_samples": 100,
+          "reg_lambda": 5,
+          "colsample_bytree": 0.9
+        }
+      }
+    ],
+    "bootstrap_replicates": 500,
+    "bootstrap_seed": 1027,
+    "output_dir": "outputs/baf-xgboost-score-fusion-v1",
+    "report_dir": "reports/baf-xgboost-score-fusion-v1",
+    "source_config": "configs/xgboost-rank-ensembles.json",
+    "reference_source_config": "configs/calibrated-f2-policy.json",
+    "source_fingerprint": {
+      "config": "45311327a661a429a2a851e2d6a90462fb12794bbdeca28a80ba2f7004c64225",
+      "sources": {
+        "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+        "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+        "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+        "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+        "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+        "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+        "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+        "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+        "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+        "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+        "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+        "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+        "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+        "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519",
+        "baf/focal_loss.py": "982230ff2496a7c1c0e8f5196e22715eb842de06a386448a3e5d59dcb155ef48",
+        "baf/focal_study.py": "e70039cb02122fd95dd602bae25104a82271420720e5eee25bf88287f3dde092",
+        "baf/focal_report.py": "64e8e274aabc6716261a86ee59cb897437aa9e43a0cfd6ba7b5e4acff289a082",
+        "baf/direct_grouping.py": "77337d8d6e9c2d1fd25822f7b2c3f50dc10b86a714fd51cc685799786ffe6b54",
+        "baf/direct_ranking.py": "db724fc4f2368ce2f010f5c9a3b0e3fa0ec5b07acccb0b3a1bc25111c99ac9ce",
+        "baf/direct_ranking_report.py": "8973e57aefd0986d19351082a4b75661999be3392169ad6eb9477a2c8c4a6015",
+        "baf/xgboost_inputs.py": "fa9125b8f2f20f65308f0965b5218860d2459c95fdf00f35c33d3c23267fc1e5",
+        "baf/rank_ensemble_scores.py": "0ce961c991b27794505f77f69385d11cdcc9971ef49c8b889bfe4fc462d89cf8",
+        "baf/xgboost_ensemble.py": "286bc961095330d01d560bbfbe62e1ff2f3f75b090b172525cd64448325fec50",
+        "baf/xgboost_ensemble_report.py": "0d24b0b1352068bb54af308eeb01fb1803fd7ec08a4182ee37862716a7878679",
+        "requirements.txt": "7054110540fe08cc44b48b36c5c947c61772a827a1a8b4c2310dcf4ee6f25c3b",
+        "requirements-improvements.txt": "5a385cefb4081e5d49e539ffb624226f08c39bff6202036716be579c76d8828b",
+        "requirements-xgboost.txt": "cc162a3642eb36209185f28a2ea649eb9b98b58f2e5367898b6022b85a1dccd7"
+      },
+      "software": {
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "lightgbm": "4.7.0",
+        "catboost": "1.2.10",
+        "joblib": "1.6.0",
+        "threadpoolctl": "3.7.0",
+        "xgboost": "3.4.1"
+      },
+      "python": "3.12.9"
+    },
+    "preserve_sha256": {
+      "outputs/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+      "reports/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+      "outputs/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+      "reports/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+      "outputs/baf-recall-weighted-v1/selection.json": "b7058cf1dd2111473f953ecdc478e75418f38e2bf0b1e70b85319fff23d30b16",
+      "reports/baf-recall-weighted-v1/selection.json": "b7058cf1dd2111473f953ecdc478e75418f38e2bf0b1e70b85319fff23d30b16",
+      "outputs/baf-recall-weighted-extension-v1/selection.json": "17507207fb9aed254d5ca7c44ab19ce3ac1c0a191c9007f1b9bbaa8681d905c6",
+      "reports/baf-recall-weighted-extension-v1/selection.json": "17507207fb9aed254d5ca7c44ab19ce3ac1c0a191c9007f1b9bbaa8681d905c6",
+      "outputs/baf-chronological-stacking-v1/selection.json": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+      "reports/baf-chronological-stacking-v1/selection.json": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+      "outputs/baf-calibrated-f2-policy-v1/selection.json": "89625d5162533a487c65feeb7fceae0084b980a7e2fffa74627f88c2c9de0089",
+      "reports/baf-calibrated-f2-policy-v1/selection.json": "89625d5162533a487c65feeb7fceae0084b980a7e2fffa74627f88c2c9de0089",
+      "configs/calibrated-f2-policy.json": "d7eca424381b86cb5c6b6f40dfe4fa1a7d267f7fa0fadc3dde8238fe2c131d4c",
+      "configs/focal-loss.json": "4b2d742c49cd3c395afdc4dde65365d5f6ba949568273f1f12aa2c4f0c642390",
+      "outputs/baf-focal-loss-v1/selection.json": "a8817aa2f2398c87dc8f55e4cf71b34ed49891c3dc69c1b67846b285b8a0653a",
+      "reports/baf-focal-loss-v1/selection.json": "a8817aa2f2398c87dc8f55e4cf71b34ed49891c3dc69c1b67846b285b8a0653a",
+      "configs/direct-ranking.json": "80bcfc3a82c61a5b1fbb6042c92463033c32b4e22f8ed4194377cc4bebf1ef0c",
+      "outputs/baf-direct-ranking-v1/selection.json": "186391cd2936986dfa7f176c29ca01e043a5dde1782dd9073f3e8b91394060e1",
+      "reports/baf-direct-ranking-v1/selection.json": "186391cd2936986dfa7f176c29ca01e043a5dde1782dd9073f3e8b91394060e1",
+      "configs/xgboost-rank-ensembles.json": "45311327a661a429a2a851e2d6a90462fb12794bbdeca28a80ba2f7004c64225",
+      "outputs/baf-xgboost-rank-ensembles-v1/selection.json": "f95dd200148b98c9dc2f77343b7a74f08f2666b7e92dfe8019f25685fd1f22f8",
+      "reports/baf-xgboost-rank-ensembles-v1/selection.json": "f95dd200148b98c9dc2f77343b7a74f08f2666b7e92dfe8019f25685fd1f22f8"
+    },
+    "presets": [
+      {
+        "id": "xgb_d4_w1",
+        "max_depth": 4,
+        "scale_pos_weight": 1
+      },
+      {
+        "id": "xgb_d4_w5",
+        "max_depth": 4,
+        "scale_pos_weight": 5
+      },
+      {
+        "id": "xgb_d6_w1",
+        "max_depth": 6,
+        "scale_pos_weight": 1
+      },
+      {
+        "id": "xgb_d6_w5",
+        "max_depth": 6,
+        "scale_pos_weight": 5
+      }
+    ],
+    "tree_params": {
+      "n_estimators": 800,
+      "learning_rate": 0.03,
+      "min_child_weight": 10,
+      "reg_lambda": 5,
+      "reg_alpha": 0,
+      "gamma": 0,
+      "subsample": 0.8,
+      "colsample_bytree": 0.9,
+      "tree_method": "hist",
+      "grow_policy": "depthwise",
+      "max_bin": 256,
+      "max_cat_to_onehot": 4,
+      "max_cat_threshold": 64,
+      "enable_categorical": true,
+      "device": "cpu",
+      "objective": "binary:logistic",
+      "base_score": 0.5,
+      "eval_metric": "logloss"
+    },
+    "strategies": [
+      {
+        "id": "xgb_d4_w1",
+        "kind": "raw",
+        "members": [
+          "xgb_d4_w1"
+        ]
+      },
+      {
+        "id": "xgb_d4_w5",
+        "kind": "raw",
+        "members": [
+          "xgb_d4_w5"
+        ]
+      },
+      {
+        "id": "xgb_d6_w1",
+        "kind": "raw",
+        "members": [
+          "xgb_d6_w1"
+        ]
+      },
+      {
+        "id": "xgb_d6_w5",
+        "kind": "raw",
+        "members": [
+          "xgb_d6_w5"
+        ]
+      },
+      {
+        "id": "baseline_balanced",
+        "kind": "raw",
+        "members": [
+          "baseline_balanced"
+        ]
+      },
+      {
+        "id": "baseline_lgbm",
+        "kind": "raw",
+        "members": [
+          "baseline_lgbm"
+        ]
+      },
+      {
+        "id": "native31",
+        "kind": "raw",
+        "members": [
+          "native31"
+        ]
+      },
+      {
+        "id": "logit_xgb_d4_w1",
+        "kind": "logit",
+        "members": [
+          "xgb_d4_w1"
+        ]
+      },
+      {
+        "id": "logit_xgb_d4_w5",
+        "kind": "logit",
+        "members": [
+          "xgb_d4_w5"
+        ]
+      },
+      {
+        "id": "logit_xgb_d6_w1",
+        "kind": "logit",
+        "members": [
+          "xgb_d6_w1"
+        ]
+      },
+      {
+        "id": "logit_xgb_d6_w5",
+        "kind": "logit",
+        "members": [
+          "xgb_d6_w5"
+        ]
+      },
+      {
+        "id": "logit_baseline_balanced",
+        "kind": "logit",
+        "members": [
+          "baseline_balanced"
+        ]
+      },
+      {
+        "id": "logit_baseline_lgbm",
+        "kind": "logit",
+        "members": [
+          "baseline_lgbm"
+        ]
+      },
+      {
+        "id": "raw_mean_xgb_d4_w1_baseline_balanced_a25",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "raw_mean_xgb_d4_w1_baseline_balanced_a50",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "raw_mean_xgb_d4_w1_baseline_balanced_a75",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "raw_mean_xgb_d4_w1_baseline_lgbm_a25",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "raw_mean_xgb_d4_w1_baseline_lgbm_a50",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "raw_mean_xgb_d4_w1_baseline_lgbm_a75",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "raw_mean_xgb_d4_w5_baseline_balanced_a25",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "raw_mean_xgb_d4_w5_baseline_balanced_a50",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "raw_mean_xgb_d4_w5_baseline_balanced_a75",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "raw_mean_xgb_d4_w5_baseline_lgbm_a25",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "raw_mean_xgb_d4_w5_baseline_lgbm_a50",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "raw_mean_xgb_d4_w5_baseline_lgbm_a75",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "raw_mean_xgb_d6_w1_baseline_balanced_a25",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "raw_mean_xgb_d6_w1_baseline_balanced_a50",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "raw_mean_xgb_d6_w1_baseline_balanced_a75",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "raw_mean_xgb_d6_w1_baseline_lgbm_a25",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "raw_mean_xgb_d6_w1_baseline_lgbm_a50",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "raw_mean_xgb_d6_w1_baseline_lgbm_a75",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "raw_mean_xgb_d6_w5_baseline_balanced_a25",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "raw_mean_xgb_d6_w5_baseline_balanced_a50",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "raw_mean_xgb_d6_w5_baseline_balanced_a75",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "raw_mean_xgb_d6_w5_baseline_lgbm_a25",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "raw_mean_xgb_d6_w5_baseline_lgbm_a50",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "raw_mean_xgb_d6_w5_baseline_lgbm_a75",
+        "kind": "raw_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "logit_mean_xgb_d4_w1_baseline_balanced_a25",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "logit_mean_xgb_d4_w1_baseline_balanced_a75",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "logit_mean_xgb_d4_w1_baseline_lgbm_a25",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "logit_mean_xgb_d4_w1_baseline_lgbm_a50",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "logit_mean_xgb_d4_w1_baseline_lgbm_a75",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "logit_mean_xgb_d4_w5_baseline_balanced_a25",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "logit_mean_xgb_d4_w5_baseline_balanced_a50",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "logit_mean_xgb_d4_w5_baseline_balanced_a75",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "logit_mean_xgb_d4_w5_baseline_lgbm_a25",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "logit_mean_xgb_d4_w5_baseline_lgbm_a50",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "logit_mean_xgb_d4_w5_baseline_lgbm_a75",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d4_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "logit_mean_xgb_d6_w1_baseline_balanced_a25",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "logit_mean_xgb_d6_w1_baseline_balanced_a50",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "logit_mean_xgb_d6_w1_baseline_balanced_a75",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "logit_mean_xgb_d6_w1_baseline_lgbm_a25",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "logit_mean_xgb_d6_w1_baseline_lgbm_a50",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "logit_mean_xgb_d6_w1_baseline_lgbm_a75",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w1",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "logit_mean_xgb_d6_w5_baseline_balanced_a25",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "logit_mean_xgb_d6_w5_baseline_balanced_a50",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "logit_mean_xgb_d6_w5_baseline_balanced_a75",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_balanced"
+        ],
+        "alpha": 0.75
+      },
+      {
+        "id": "logit_mean_xgb_d6_w5_baseline_lgbm_a25",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.25
+      },
+      {
+        "id": "logit_mean_xgb_d6_w5_baseline_lgbm_a50",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.5
+      },
+      {
+        "id": "logit_mean_xgb_d6_w5_baseline_lgbm_a75",
+        "kind": "logit_mean",
+        "members": [
+          "xgb_d6_w5",
+          "baseline_lgbm"
+        ],
+        "alpha": 0.75
+      }
+    ],
+    "epsilon": 1e-06
+  },
+  "selected_candidate": "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+  "selected_policy": "pooled",
+  "selected_development_f2": 0.3289065701775199,
+  "choices": {
+    "selected": [
+      "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+      "pooled"
+    ],
+    "balanced": [
+      "baseline_balanced",
+      "pooled"
+    ],
+    "unweighted": [
+      "baseline_lgbm",
+      "pooled"
+    ],
+    "same_model": [
+      "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+      "pooled"
+    ],
+    "xgb_member": [
+      "logit_xgb_d4_w1",
+      "pooled"
+    ],
+    "anchor_member": [
+      "logit_baseline_balanced",
+      "pooled"
+    ],
+    "raw_xgb": [
+      "xgb_d4_w1",
+      "pooled"
+    ],
+    "raw_anchor": [
+      "baseline_balanced",
+      "pooled"
+    ]
+  },
+  "rules": {
+    "selected": {
+      "kind": "pooled",
+      "threshold": -0.5732084408730248,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "balanced": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "unweighted": {
+      "kind": "pooled",
+      "threshold": 0.046095701655237555,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "same_model": {
+      "kind": "pooled",
+      "threshold": -0.5732084408730248,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "xgb_member": {
+      "kind": "pooled",
+      "threshold": -2.737687551074208,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "anchor_member": {
+      "kind": "pooled",
+      "threshold": 1.6547302516247722,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "raw_xgb": {
+      "kind": "pooled",
+      "threshold": 0.06078578904271126,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "raw_anchor": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  "score_specs": [
+    {
+      "id": "xgb_d4_w1",
+      "kind": "raw",
+      "members": [
+        "xgb_d4_w1"
+      ]
+    },
+    {
+      "id": "baseline_balanced",
+      "kind": "raw",
+      "members": [
+        "baseline_balanced"
+      ]
+    },
+    {
+      "id": "baseline_lgbm",
+      "kind": "raw",
+      "members": [
+        "baseline_lgbm"
+      ]
+    },
+    {
+      "id": "logit_xgb_d4_w1",
+      "kind": "logit",
+      "members": [
+        "xgb_d4_w1"
+      ]
+    },
+    {
+      "id": "logit_baseline_balanced",
+      "kind": "logit",
+      "members": [
+        "baseline_balanced"
+      ]
+    },
+    {
+      "id": "logit_mean_xgb_d4_w1_baseline_balanced_a50",
+      "kind": "logit_mean",
+      "members": [
+        "xgb_d4_w1",
+        "baseline_balanced"
+      ],
+      "alpha": 0.5
+    }
+  ],
+  "fit_specs": [
+    {
+      "id": "xgb_d4_w1",
+      "max_depth": 4,
+      "scale_pos_weight": 1
+    },
+    {
+      "id": "baseline_balanced",
+      "family": "baseline",
+      "model": "lightgbm",
+      "engineered": false,
+      "weighted": true
+    },
+    {
+      "id": "baseline_lgbm",
+      "family": "baseline",
+      "model": "lightgbm",
+      "engineered": false,
+      "weighted": false
+    }
+  ],
+  "validation_files": {
+    "crossfit.csv": "33bfe70563f77e28081d6307a60e22dd4997fb16eacfa03c7058dc5e1bff9fda",
+    "summary.csv": "495d72aefa67d7083ca63c483339bdab90914b8e6f38362e26a067128784a80d",
+    "contrasts.csv": "b432e704cfe2b742fdd75c3c7b82fdc5fb915b2c8c6016b4d9eb69ac3c96e8a3",
+    "pooled.csv": "36a8a0583af62c8ff188956b96c462ae0e47e9e4bbf98ad668c9009bb0bfd741",
+    "score_diagnostics.csv": "b884eae28a5272f8ee22d92ebf81089033efc09346385416bccca2806b3d529e",
+    "clipping.csv": "8c28bf5722d68de594563d092f61914de4e5172aa1138bf9ff6cb0697ec585f0"
+  },
+  "artifacts": {
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w1_baseline_balanced_a50.json": "74bc17eb50634c04a0f78bbe7ad5702c49d1c8459e552fb2d38a6e8cf618f5a4",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_xgb_d6_w5.json": "ba73623f62de4ef21cabf47e3178db98ed7d25442db93e290c321532c51a4ec6",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w5_baseline_lgbm_a75.json": "edb7cedc7999362c23cab859487b6c88f18726c21e385f39a80ea3749b38931f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w1_baseline_lgbm_a50.json": "ee0535db2fc4abad21f9410e8acd8c3c83056c552fe9428214c9bfdebdff3d6c",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-xgb_d4_w1.json": "150a8c47eb9a523b532caf2aa4fdd476c1ef2de7c7a42c6aed0807eaed480f79",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w1_baseline_balanced_a75.json": "6138995bad95f0100dbe8fabdee48572f598e100e58fc39925bdf2b49c257a77",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w1_baseline_balanced_a25.json": "8277ab0bdc7d68ec417176b0274165e86ae108ecd7c05e3d2a2187a88784d09e",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w1_baseline_lgbm_a25.json": "d8acb6e7057b83d41673c1aaa14bb7159eb90d87cfa0c0b62bf361d103a4c58c",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w5_baseline_balanced_a25.json": "d32d160625bb312badf0a9521faddd3078d9fcd0332a668286010a7bb641708a",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-native31.json": "74a6c2e4278946939cedb3c35b661c73f3c68a66beae6c402e093ac62ff28c7f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w5_baseline_balanced_a25.json": "8d08eabe09d8588ef9c90f2978796a2710dc7fa3644ba82930469177ef804eb3",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w5_baseline_balanced_a75.json": "15aee0a3ba82068a30a8a14afce418a2e8a7f350ef9bcd8798248bf8d49e42b5",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w1_baseline_lgbm_a75.json": "a393a459a324827b6c91e9c4201c22a623f6f1f36e07a398ddcc19328889deef",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-xgb_d6_w1.json": "3f07b7c5803dfc5eda1b2b69ebaa1046c73d02ceb59e09c468ad59e87cbf3a52",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w5_baseline_lgbm_a75.json": "3c7c76927e490a71d9adf1949df19848d5587c2305a028dee480295140c286f3",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w1_baseline_balanced_a50.json": "0588f35cb3653bee255d4a358a0c1f5baa183ca85b6717439b700ba3018b8d34",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_baseline_balanced.json": "14e716fb5bfa8f2160268ccae52573aa254ac9b87c1e59dd29e8e1d36b3fb89c",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w5_baseline_balanced_a50.json": "b9ed1c0aab65359cc66ae9c7e9032c6af5f12e075f5d91f6031c28497a5947b6",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w1_baseline_balanced_a75.json": "ed98d0d96b740e3c4c668a9daab4c2ef78df1ade952fd6ed2660f7167837d7ab",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w1_baseline_lgbm_a25.json": "eb98545c36d68461ea4fb14c70e95d2fbdb57d86017b63ee9cc3e9553f91a710",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w5_baseline_lgbm_a25.json": "b13d6731f7200f5cf4f7f0e05224a73e9810883087381ff8e107ef5a4cc72f94",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w1_baseline_lgbm_a50.json": "4e3aea0c13efb7e55bba2aaa5fddb732fe371364b5015a051801a69b69fb6a71",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w1_baseline_lgbm_a50.json": "7379ace6924e86e006bc074e2a3b27f61272899308e0052d22f3ac3ecd0132c2",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-baseline_balanced.json": "38ed895c63e921002fcff2b0faa14eec8dc8bb5c11b66183ed0766b545051acb",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w1_baseline_balanced_a25.json": "7509415388196175ceb536abbf01f3377c8e782f5863812c1af7b1e920f880e5",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w5_baseline_lgbm_a50.json": "e74989a868bc2cefe9cf5fff570a60fd374a0564d1633fedc14fe52177413241",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w1_baseline_lgbm_a75.json": "c376be9a9ebe23bbc3da72b50e8a0743dbed8752b9460baeacbb56c5c9570a9b",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w1_baseline_balanced_a25.json": "5ec4f9da0e5f7e4c599971abafac0ad76b4c364c5bf7fdf7ecd2fb86eb6a071f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w5_baseline_balanced_a50.json": "c8904790e281337a8eb911235714c5463a7b456e81ef9b5a2a94670bcaa89af0",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w5_baseline_balanced_a75.json": "ee36f08bac1d72eb128389ff947bbca1f690bd8a14d83e748efc404e991bdf3f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w5_baseline_lgbm_a25.json": "7f90217c3fa72bc9849d62517e942ee729dc3d0f92805368f03b633056634195",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w5_baseline_balanced_a25.json": "7efcd699e5a020ab84da32910064de89ca1e82fab9828a2ff3e0d2532c20ac5a",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_xgb_d6_w1.json": "e7eaf1c1e6bf70db65acb65b4a58e8f1fe48e127d793d0e905fe9ab1b03b7bc0",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_xgb_d4_w5.json": "4dd7c82cfb32ccba3b24e11014d83362ccb3fb4c77380f95973032c0c1f75dbb",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w5_baseline_lgbm_a75.json": "f1c54214c4d1c53d0a714328b1416f2466a93697a6820ade6bdb52b87b3ccdcf",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w1_baseline_lgbm_a75.json": "c52f9c3ef1bb5a8469a6487096fad9834fb0f18a71fdc8d7e58ce2897fb890cf",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w5_baseline_lgbm_a50.json": "55cdca7e64bbddb79b59be60e8e95f7dbdf35db4da69e765ee4d24e892bbbcb0",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-xgb_d4_w1.json": "cfba52f417cc68919daadc07afdedd7fb9d976d563888e3c7a339dfdde0588e2",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w1_baseline_balanced_a75.json": "19f229490cd3d6b1ff8915194cd558e3e1369f812cb8ab04109a6004364c92ba",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w5_baseline_balanced_a50.json": "8bd0ef7ebc6684ab5299eda4f4bbab4c8406b0c3b28d5566c275e7abe7024233",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w1_baseline_balanced_a50.json": "72accc786938ae34b65d6353e6488fa1f2267e8b9b39777ed7fc2f81f7de45f3",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w5_baseline_lgbm_a50.json": "dfbc6da52f8c250ae048f40954e2247c43d3adf25ab3aaccedab757be6f0078c",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w5_baseline_lgbm_a25.json": "b5b30fadcc7430d69e1f0a6704a6e574765771a0ce0d310752967b8d1b1be370",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w5_baseline_balanced_a75.json": "a26ed64c8bda189a6ab2e35f9223aad5671021a858d62f8a1d7ea2dfe368e801",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w1_baseline_lgbm_a25.json": "548394e825f5876f4c978d46e6785db0540e5fd2a76af2cc34983d452d87f99d",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w1_baseline_lgbm_a50.json": "808772e34dc53f199fbe41c0f384f4fddbea886f5d764048fe36d107f6177588",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w5_baseline_balanced_a25.json": "acd1fd377646a745460408179e1d93a3b962c5227289cf46a9838dc8eeb738bf",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w5_baseline_lgbm_a75.json": "66a3a104071ee1440d42106d5711a68abb3108fdf94be971be7ded1177548258",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w5_baseline_balanced_a75.json": "4cf19e12370e5b137e40651be03d1d3b90293c189361e498071be57eeb8934d8",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w5_baseline_balanced_a50.json": "422c827b39b73fc2a8e13d810d3741bcc6c051e54a6a1199fd8cdf0afe5cafe1",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w1_baseline_lgbm_a25.json": "53b0c7c3515c3574ac686061188c2b6bec0d8c62c5732ad95cd52fb313ce097f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w1_baseline_balanced_a50.json": "472dffbc26530ca409fe60ff7aae353c29e4558aa786543c0252c14d00bbc83f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w1_baseline_balanced_a75.json": "913c481d9148d26e43e44a6a9c79f605df73b101d70d7287d7c26134597f316b",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w1_baseline_balanced_a75.json": "c0357790f8985e1e038a5c6347decf94481ee64ea9bdaddc4543dfa72ed74ba4",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w1_baseline_balanced_a50.json": "3a27300f242a7020329169ee951470893106f554a70a925f6d9c4df0f3caae41",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-baseline_lgbm.json": "80739158e19ad6b4f1ca1d4e821f7bab455d71eaeccca80346741dcec6ad711f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w1_baseline_lgbm_a75.json": "f564f9513a1fe1acbed0ce2296edb55601a2cb9f8cd06ceb4cad3307d03c32f2",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w5_baseline_lgbm_a75.json": "c8b6e0584de8841c58ef84df2e56d70f9847ee803afd1ad5278c085707f5b776",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w5_baseline_balanced_a25.json": "ab9320da27c8af1a14df528970b963ff066243b12587c57856962e862696bd62",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_xgb_d4_w1.json": "097cd3490b285d23a4a8dbf6536d2449df8e86b1d769fa8597f0b2ea275d41f7",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-baseline_balanced.json": "53ffd1d52700c73a73cc1a10221ead2f2915d9e875ad89a06e42e75758da9927",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w1_baseline_balanced_a25.json": "b0d8f93c8be84ce02e9d0eec6a87300534c29dca7c83d8977f0759178dff7911",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_xgb_d6_w5.json": "3003b5ad3c118be02ec8ea27b2e222a311e5f898f389961826059c05bc36ce80",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w1_baseline_lgbm_a50.json": "b76e3bdb82bc031e74547fc0688eccb267032ebdc4295a24e20814f8bdfb2c8d",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w1_baseline_lgbm_a25.json": "6eef567a2df9322de5198c83f6d63dd980c87ae10bca0ecdeb4c8c679b025322",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w5_baseline_lgbm_a25.json": "9fc4fda53cebbf9f29fbad69e7d2e3b13cb8bcbbe528c599fc75ad62756477f5",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w1_baseline_lgbm_a50.json": "ef4c1966de92f6b45a5c74dfe1af965e91c43dc0f631ffc3833b8589cb1fbfcc",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-xgb_d6_w1.json": "264562c57bc9be7be22c7bc81c418767f56494cd768f3a17a2db42220091949f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-baseline_balanced.json": "d58b7e890f84783856700619f7adea198c00490817fd6e162183fa836b43d618",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w5_baseline_balanced_a75.json": "f1e2e5fb6e946e9da93ac029adafe63b8ea343d5f19d4472af35a18b125cb20f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w5_baseline_balanced_a50.json": "0f320353d98c7825bc1d7e179c515a228b71f02e621349a26be8cf1240c47d9a",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_xgb_d4_w5.json": "31f21a20054359b355dd3cda55eeb55c4533a2ae39b981fdd739c3dd71bc244f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w1_baseline_lgbm_a75.json": "ea292d96b7dce617a459296bfd57e3a5532215428097ed58bbfbce005a4f8855",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-xgb_d6_w1.json": "5c9acb2bd7f8df2c3d528fb58f8c0c5cc4eb4a00bee97b2bd9f4e7426837ec61",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w5_baseline_balanced_a50.json": "65c9c63db7ee9cfeeb22d319347874d056722b44ecc544fafca11c7344ef490d",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w5_baseline_balanced_a75.json": "6664ceaff6d740cebd757d068706f7b9126c5700174b1fa641682a60d8126b85",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w5_baseline_lgbm_a50.json": "7c992db1b35373de07c4624846fd767c4a89200f23bb11259589401ae5cd6fe3",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w1_baseline_balanced_a25.json": "925e1ddff0817c358a2b3576db50782f16c14224506a388e759b81821cfd6d3d",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w1_baseline_balanced_a75.json": "0d6575eb89df16a36544bca529c298ff2802d05df374162a9a8407d50105008f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w5_baseline_lgbm_a25.json": "6c6b2176ed7581e5c701e2a2decfd39ab7f4ad95aeaa1252567683ddb41753a5",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w1_baseline_balanced_a50.json": "1fee5a812449624b0933bfa81e15afb368069fe2ad099d5de5405b5c1631a31e",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w5_baseline_lgbm_a75.json": "e10dfa870a8c28b293cc276fe11e5258331dd7c429399bd72ec36bc1eed991ae",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-xgb_d4_w1.json": "a3c700d3a680f5609d0932d7922ad6975c3b284652bb6e53858603c4bd2c5333",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-baseline_lgbm.json": "84263f795c1a73a249e3f38c6e3ff48e5704c706cbc38ea3cadb71880f8da63d",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_baseline_lgbm.json": "84cbc0d11a6d8fec2eefe6f0926ddcaf2ec3b38379fabbc00be7554dad98dfec",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w1_baseline_lgbm_a75.json": "ac2f975dede9b127e595763dab879bef3f308f884ea913c1500a222b6346acd5",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w1_baseline_balanced_a25.json": "e3e1fe8027b0694d33754a80f765bd66b8f0d8fadf9c3202b9d7fe07c8762d64",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w5_baseline_lgbm_a50.json": "7c709d918f162ae13ff2eb1f1df513ed3213f0c1a62981c9a25b33226833b915",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w5_baseline_lgbm_a25.json": "8922709567dd74c4641f6515803ae3c26615109b0e35bd1e5be51924d1fae141",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w5_baseline_balanced_a25.json": "0dfb606a1d88498efc715bbc4080ede4d32a32b53027112ad997f5137b5dd5fe",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w1_baseline_lgbm_a25.json": "d7db49a7fa20ad20cf2d0634528cfc2527165af75ac4a47bd31fa9237288c532",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w5_baseline_lgbm_a50.json": "1d751870b75ffb75cad2198af51d124f10076bfd7d3c903fb28e462d8456af18",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w5_baseline_lgbm_a75.json": "e0da2924c4e20994472311ce6a4af7f202d368c8319a458db76b028d861107c9",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w1_baseline_balanced_a75.json": "d760197b90a477c0168fc0ee9843d44c81069ab4b87ea9253bd1c1816c10fbf4",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w5_baseline_balanced_a50.json": "c412479fd7e1571a0d6fadc9d77c71a0ca23ce080768e35d6e71e0d91f89ee45",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w1_baseline_balanced_a50.json": "fb4175d69b30f8895412d116f40aaac448b4e5a4b8725c5ed575a177f4fbd0df",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w5_baseline_lgbm_a75.json": "58d3e6d020d2735f3a4793a4319a6ee2be184d899178ea1565bc4e2ed173dff7",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w5_baseline_balanced_a75.json": "24255799ab8ecb8df0e6af2915c3bac86a7350b57f270c216879a17000d266f3",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w1_baseline_lgbm_a25.json": "f39b0a60bc159a5fb0cb8905c34cf6982850cfec90a239cd74d459d34583c02c",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w1_baseline_lgbm_a50.json": "f29c447c5c1515d3c7059797473aa27c7c2130a6772b88e5aea69b2721f600db",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w5_baseline_lgbm_a50.json": "e00f1087057d4221a34fc7c43054222c48b66c4092a25eab4cd838edb878e6be",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w1_baseline_lgbm_a25.json": "ce5a53e967959d4136e07f3659b7dfe2d56659aac31922b52dfea4a3781853d8",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-xgb_d6_w5.json": "e1f1c22583daf054331e571af05991b851a1f340d046fb14e378a81d9172e366",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w1_baseline_lgbm_a25.json": "6a1e8909343da04404c3b4986c86c4a13f511275c8c175e2dafeda671dc17042",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w5_baseline_balanced_a50.json": "eb32744499adc3c5323c3b77c146bfc142f19ee81be5e4930df8c7becfcc800e",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w5_baseline_balanced_a75.json": "dfface8673a66af2dfc01b1f4e13e64fa93dd07e47a99a90b4b81711e49ab92f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w5_baseline_balanced_a25.json": "2f8d46779ab6eaa1f4cda550fd17cd656f4e22d274996f4ee23932816af2ebbc",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w5_baseline_lgbm_a75.json": "a37215483b9f8b2eb796a7b11e5f983db157ff1c9b58bbad9fdfed8a139c3d4d",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w1_baseline_balanced_a25.json": "2088aa78fc192e8b25a9594e4e1bc123519ef5cbf5c5dafba0285d17077f3cc5",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w1_baseline_lgbm_a50.json": "e368363fd4eda4749b4966efbcdb1ed6ad75e28b341bf5daee32ff1e0b95040e",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-xgb_d4_w5.json": "48ee6db57af8ccb9b77e1a27eb86ba4de3ad62144a8343972d4e3df6ece0f61f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-baseline_lgbm.json": "7210f2c4e2ccdd9946b672ab6b684179212447de63cad1c8d3b91afa5ea06303",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_xgb_d6_w1.json": "547464e9aeaa62e47cb78c9703e59849d2d0f1c3985de712a4b5cc411a20064c",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w1_baseline_balanced_a25.json": "462a76a6be3c37a578e30ddbe5b42a14e2a50d5fd63b44dd615a108775403935",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w1_baseline_lgbm_a75.json": "d6e469fff0cc84777277dc2932809760366d1674ecdec18749488b52d252ba67",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w1_baseline_lgbm_a75.json": "c8e227fe292f4f8117b63405608325f7c3db547076dd17f1ddeb586e0a2c35f6",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-xgb_d4_w5.json": "560c1773ab331b4fab3599964c91c52689aa5c82212e2f79772f170a7c4f669a",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w5_baseline_balanced_a75.json": "701af9c5f7092b3b0830a3088e58a2cf33e053ad0d3f47054d53419eefe5ddac",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_baseline_lgbm.json": "10b3ae78318fa980f441562359b5266894a83b891f681a22b94ae0c86fe47f1e",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w1_baseline_balanced_a50.json": "bcb8b8055e87299c78c6d099b0e68f8ea51d496ef6b601d9a6acfafb0075dc98",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w5_baseline_lgbm_a25.json": "13b8993e36eee762631fb244c4f9929ed6f2ac03c742ba065d05f5880888ca18",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w5_baseline_lgbm_a50.json": "2a3bbe31646a2e5adf29ec4d454807637e26559698f90bedded7100e481cd66a",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w5_baseline_balanced_a50.json": "0a02e5ca8660a6565203ef09c5a820fc989d569ea067d95d6ec427b11459091d",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_xgb_d4_w1.json": "7e5fe0f75a38a33284f9cef5d13f65cb0b8c5cc775c1e8004e8a032947c089a3",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w1_baseline_lgbm_a50.json": "ff4a02b43a9424bedb80bfc4a956dde7d7749e10078f1fe3994fdf027680b8b9",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_xgb_d6_w5.json": "b4f245296f31fc073fe817fed2b397bc550db2f6d1852cefb15cb196cdf3fafb",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w1_baseline_balanced_a75.json": "7e82286813b64502d2123f935bbc35dadfd3001893743d5dc478975011d0e4ae",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w5_baseline_lgbm_a25.json": "aef05cb866b2d34c92ac36b761dcc8de62e8ae9c013d7dc359938486a87243f6",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w5_baseline_balanced_a25.json": "6eb60a5eb3ba65a24b5f1772cdbb9e78e440ea925fae7e73339a2864f4b9dacc",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w5_baseline_balanced_a25.json": "abb2a168d11a585493a744b231a43621de52e82cabb0a20807ba659b682c1afb",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w5_baseline_lgbm_a25.json": "dc0584beb366ce4f93fff7d5547c8181909a242c719e096e74cda43f87bfdb53",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w1_baseline_balanced_a50.json": "289e0c51b1aa116f339849f48be4ecaab706a86b3f874c19aa7a8c88bb3ae33b",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w5_baseline_lgbm_a50.json": "2858fbde7e171100c0e6b891764a6bc21239fc6a2ba17825dcc062b15f485bbd",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w1_baseline_balanced_a75.json": "811a68ce72e5364830cca777f38bed88d1e5252efd6dd2b299feb02892550355",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w1_baseline_lgbm_a75.json": "19c8b1ae502552dee0cfcb8530e4fe4805fb2602be5bf2a1900dc93ba36f532e",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w1_baseline_balanced_a25.json": "d65ca3a9583d4b514884fadb879f76fa6008a64479275bb5ba0e22e629338e59",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w1_baseline_balanced_a25.json": "c8a5cd8edb1434cd4fd914bc9f56b10c11c4b6814abde6bc126114e55d29ad39",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-xgb_d6_w5.json": "4d894ea05c3492414c13b05b0d7d8019df6dfeb098b4df5a02e1991ec99e33f4",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w5_baseline_lgbm_a75.json": "2d48d1968400ce7f5af72328d2d1693c1d9282510d67e84aa4a5ecd2fa440a8b",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d4_w5_baseline_balanced_a25.json": "99b5e9fd7d4a29ea44079d8e64077c1baf8a73469bd8db86d5a9d05e7e271344",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_baseline_lgbm.json": "642895a53653f9b8385fb10d49c110d5e4c9f6fe8d38197e6ef6fed6d00d3a5c",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w5_baseline_lgbm_a75.json": "5ae044aa20a98d34c0de96e94f962959bf0f67baa8dea3c1664dea9db3142b70",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_xgb_d6_w1.json": "490ad2e0f68f93fe8f9e3ed38a19be97970ef038a9135d825ccf01be7e524250",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w1_baseline_lgbm_a50.json": "0363b8fbb430e7ecc427d05d5617b40544d79ab6c6056b1b1645913066a260c6",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w5_baseline_lgbm_a50.json": "e3e7eb6313ba96c5927ff594a495b095e6da2624ddc8297c7f80e85021a16226",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_xgb_d4_w5.json": "8844a64b201569e31f74cd699ddeddf1f8619a9f739d43b955a5e1f02ef06be1",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w1_baseline_lgbm_a25.json": "8defc58a004ea5adb018688cc274c6f24c76778252dc35c072f2cccafaa00a91",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_baseline_balanced.json": "93362c5d4752add251e7b29043b11aa3ef5550245065c7a4149279ee584a120f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w1_baseline_lgbm_a25.json": "c229e031547fb41636cf57c69e2ca8ade90f6c842b02dc19f72c9f4901b3c172",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d6_w1_baseline_balanced_a25.json": "46a41643dc38e208fd941326e72aaefc28fa235fef5d8153fa777f23481ee4b5",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w1_baseline_balanced_a75.json": "12619aa5b4574bea1ccb0f1852d1b036c7b0a44a7e9f2a878e91a5eb0b110862",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-native31.json": "835e8d7bfc1e9fe18f61a6fa92419515c5b618ddea97f37df57d8e150aeb7ba3",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w1_baseline_lgbm_a25.json": "c53979497dc583b1b27ebeb78a851d691d646cec2c38877968f53f97f36a817e",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w1_baseline_balanced_a50.json": "694cf01580e4647f4f91e4c01e46e755a875922cdd53cf96f4ee4524a3cb7b0d",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w1_baseline_lgbm_a50.json": "d484046ef0787b6289a64e21a9bea1d88b7da0336d7e4f54186f6085eb7958cd",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w5_baseline_lgbm_a75.json": "c8643c33ff5294fb48f2acd25f5a29b1d6b2d568a49a7b551aacf25c1f047bc5",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w5_baseline_balanced_a75.json": "59acaa42fbd4c0916d5b146354717c8a3c82cb8250ef9ea1dbf5ccb7ab4a873e",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w5_baseline_balanced_a50.json": "65e88b0d51d94c8e4511761d48e3cb5322e565dc499daf712e62a55163f4e022",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w5_baseline_balanced_a50.json": "5822a21221f835bd4a2d6edb8344054a1caa1f8a0d8eb132741cfa43f93472ac",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w5_baseline_balanced_a75.json": "b5d1fbdca43dc7461c723b3247880ee067b4ae98f177dc84c4f412a0df83304a",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-native31.json": "c30a2a1f22d44c9600621f5dae0ce01c030b436f27a388c1c4f88558d5dd8fac",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d6_w1_baseline_lgbm_a75.json": "0575ec211b149e7af1068c2cfedc57f1848cad9fc558f9463190d906997393cd",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w1_baseline_lgbm_a75.json": "df97c2f81ed7192c8de798e0ca25a33cb72975d6919a03b046ac3d6a4b6b2c9f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w5_baseline_lgbm_a25.json": "bbd1c03791dadad98138f722c8a5cba4a63a447970eb432fbe2e9850d0279895",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_mean_xgb_d4_w5_baseline_balanced_a25.json": "88fb385ad9fb2f1ee586c1a9182f12db1805fc30263bd1d9a1825f0f1440de71",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-xgb_d4_w5.json": "79287af218f29a48ff3fc9e429182d0fc4fed4281cdd896e214b10704ae49145",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w1_baseline_balanced_a25.json": "a03c48019993f29d4b5ad911c8508319916b5a9ab2013ce77456ec06deef76bd",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w5_baseline_lgbm_a25.json": "4825715c9b99e7235f6af5497bae59de3013a205c0bffbedb82e51808c24acf2",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w5_baseline_lgbm_a50.json": "164d05230df479b2f3d4de20ec678e050f434793636cfa6a225e4eda8146c36f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_mean_xgb_d6_w1_baseline_lgbm_a50.json": "da8423ba8679104295fd39cf34ea9b3534e7ff538a2b0a91a6a5e1cda2bb2594",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d4_w1_baseline_balanced_a50.json": "ad3538ba07f06a6f5ff002836be4900294e8e3cc7a658423cc7e2746f6be5975",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d6_w1_baseline_balanced_a75.json": "c266e9d5f9c300abc58b6cd4b1a7d8c7e53d7efb8ab63b5250ba9690f5d24ffe",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w5_baseline_lgbm_a25.json": "940c9230e74b243bcd95ffe7e35c83a7f8a33614b1b9d91ebb98f788eb2a2c78",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-raw_mean_xgb_d6_w1_baseline_balanced_a75.json": "8a75e2533167aabb0be9f6678c24ebf97160e883633dadb76a01352fe148045f",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-logit_mean_xgb_d4_w1_baseline_balanced_a50.json": "1ac74f4e18da43efc39eecfd951b821f4a5af909ce58c694686bab44226dba6d",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-logit_baseline_balanced.json": "1f1ada520d4bf48005efb1e35b382206e788aae78fca186b6fde981a4cd7fefd",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w5_baseline_balanced_a25.json": "6b1d2c2303c8f476b4de994076e24931d4080e6fa540c4b7cb89a35fe51dc6a5",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-xgb_d6_w5.json": "54df24b42612fe1d56f28fd3fb76d23b1c728cca15810a91ca7a63626e85d194",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m4-logit_xgb_d4_w1.json": "67d3a390533b092b397273ba7873d27f13573df215b4896d7d5c9d8cc82a42f3",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w5_baseline_balanced_a75.json": "e0aed3d870b0e2a4364161b540b77a1e631d686b0d0c088e4cfe342dd88e5424",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d4_w1_baseline_lgbm_a75.json": "1d3d5c4211a74116ff39506fd616cdef217be1e5a1d05158048a3819a54e9dc3",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m6-raw_mean_xgb_d4_w5_baseline_lgbm_a50.json": "54ac8324b6ec301ce49c6c00996953685d00a1f679f641f4ad296cf890806a4c",
+    "outputs/baf-xgboost-score-fusion-v1/runs/validation-m5-raw_mean_xgb_d6_w5_baseline_balanced_a50.json": "38453375d9976882dedb9028f9c8dabc66c41a95a9e4e6d4b670a496a9b84731",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w1_baseline_lgbm_a25.npz": "b56745d8dd5fe203c9c393ba8f50a739695bdb16173e8fabce1dfe063ce456d4",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w1_baseline_lgbm_a25.npz": "17f013dcff54488b3a6a4f2c378d7915b6878050decb8ca6bf184326a317a8f1",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w1_baseline_balanced_a75.npz": "878ad4b47f157813b0156ea7f6f867071fa24ee8fead7e79687ec0bfccb62fa8",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-native31.npz": "97b8aecb1a6625d2c9d3b5921db37d130ad398542c071bbcc2ae4a47ee1e91c9",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w1_baseline_lgbm_a75.npz": "c360cd7fca20cfd2900660ee25ef23cc171b7a9b84cda1fe63680820da0088c8",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w5_baseline_lgbm_a50.npz": "e766a58f80ae91fb8ea37d8b4378ef98404d46604c3293fdc624ce0ceb71146c",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w5_baseline_lgbm_a50.npz": "25127bc6179830c26cbc2d89895a090ef220a665525a12086e02370580499902",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w1_baseline_balanced_a75.npz": "39731664952bc73a1f608885530252f7a6776c144ba5694cb6f8830ffa434b36",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w5_baseline_balanced_a75.npz": "eaf28e06135faf6dda95cb70e81ff318a094f392e69972ede95e31ca0f50a691",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w1_baseline_balanced_a25.npz": "34dbcad52aa6d08359130bbc8705984506e2c1d2738c18c5011d244d481cfdae",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w5_baseline_balanced_a50.npz": "613dc075cb2f6466ef6b2fd36a82c067c459cd8b5004520fefef11e756dc01e6",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w1_baseline_lgbm_a75.npz": "f0dab4777f1c110b0b12b17b45dd4526776f3633c7a2a876fc2433bd64604be6",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w1_baseline_balanced_a50.npz": "bdf4639664f182674cf287d60d7c05f12db3d2fe5b18f41c5328bf927d11dc05",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w1_baseline_balanced_a25.npz": "b696866037f6828335677093698602f036480cad9857316e760de6dce9e6f07b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w5_baseline_lgbm_a75.npz": "9bf069da37cd9cfdc04cf1387924307b6e2531be90a1ef5ecce892ccfd88e230",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w5_baseline_balanced_a25.npz": "44d87af4289d87f73f1bbc1e11eb706d5b0dc836fce5dbd4947b6b08af037454",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w1_baseline_lgbm_a75.npz": "6fc5888744fd4713f28f4a6fc7a57f0b5581a3bad569ddde8b32cc6ed781acbc",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w5_baseline_balanced_a50.npz": "a072880cf437e33142e0d89230367a3f5c582a5a2c54be35dcbb9083d2970834",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-native31.npz": "ac7613374e84dd32a04a6d7dda57d4c874bb501dbdb9f283eea07777e62b8a1b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w5_baseline_balanced_a25.npz": "bfcc9295d198682263d65676d47fbbfc052dfcd036e75b7cd57d0483ad9ac5d2",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w1_baseline_balanced_a50.npz": "93563bd254baa8817992bbaa0a20d86c00fb078fb128edffeb16f421c63314b7",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w5_baseline_lgbm_a25.npz": "0bc07d74efb425b2fc8a79aa277a251b24bb058d163c0dec1cc8a54c18325ae8",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w1_baseline_lgbm_a50.npz": "e941ab39fd8a7bd0174d5a58c79bd56c64994dae1de4c913968d9f0e05a09234",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w5_baseline_balanced_a25.npz": "f0a9709f1c56af3ac0c99a3d39c2ebb19d7622f2fbcf5e13551318ecafa91555",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w1_baseline_balanced_a25.npz": "b4e85110d4e40b54904205d5030ef8cdfd0015119084011228e3dd9c17b56899",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w5_baseline_balanced_a50.npz": "fc4d11107d89df2e3266b980875792cf15c3f1defec72367eda6b7ea0a1f92f0",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w1_baseline_balanced_a50.npz": "418d189598026ccaeaf26bf034794a3cc0e71a9467521a6a6e870c182c43b472",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_baseline_lgbm.npz": "00439deda180ecd4edd53185e2b0d634db4548efcd0b36d8ba02516ae191cda2",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w5_baseline_lgbm_a75.npz": "0aee24a4edece381d2407821ae1c436224707482813b58e538f65290ddf2d106",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w5_baseline_lgbm_a75.npz": "1e2d6c8e60f2733ddab79815b1cc589b8258ea56c5e04e79ec49d3052a07732a",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w1_baseline_lgbm_a50.npz": "01db55e4a09124068771d05ee3ba40c64eafca6c15a4313f198ff259b82579ed",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w5_baseline_lgbm_a25.npz": "85291daf91f1fa935aa36c0b87757abe76b430850685c73aace3671e307a2030",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w1_baseline_lgbm_a25.npz": "b9846f53f77c484a082fbdd620db718b2851e6a43bfc9adcbcfb3b9febc82b5a",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w5_baseline_balanced_a75.npz": "1454bf205e3614565982400b64ed43cc5a4f78dff382fe8aee5798d38abb6a60",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w1_baseline_lgbm_a50.npz": "2be139d6033585dd9c13a1bd8f10b6aa9b1641562c9f8d08a1f83ab42d52a3ab",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w5_baseline_lgbm_a50.npz": "236839bfb18488c921fea1a7ddcb793873681ca910d8b4e48f4d3dac2b62eddf",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w5_baseline_lgbm_a25.npz": "508cc4c5c4af398d0e59854d550d551a3a4fdb34f92372bdfc4633e18ce78908",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w1_baseline_balanced_a75.npz": "5259361b3daad8205f3564e93babf1eba05fdc2aa7b2634491ed849cf742dd24",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w5_baseline_balanced_a75.npz": "cc9b7303b246a174883239a88c54677aaacf4f395add0529d4f87a0ab9af2db6",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-xgb_d4_w1.npz": "7af9ee81286424c2ba34fc594537a5f598f851dc109dca68dfd9ea39218b4dae",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w5_baseline_lgbm_a75.npz": "e44d3f50e3ccd4d7e8ba508a4a3d2d4e0a82dcf859c96aaf970fad72dcf7b5e0",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w5_baseline_balanced_a25.npz": "b14f01dd2b1e7a83f3ce52e0c0afed85e59065841dadc2caf7eb43d441f238f2",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w5_baseline_balanced_a50.npz": "0e3446a880a379c2ad14c32e482b47354e0a45474b98e17810bee3ca064a9638",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w1_baseline_balanced_a50.npz": "5807441fad0db8bcacf8e9e9844feedad004d110b04df172a1cc7da06ea81b36",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w1_baseline_balanced_a25.npz": "b35d57282ddb2d5ae6fc928976c14ef07c939c6fc19a7663830bc3d9f43db157",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-xgb_d6_w1.npz": "a40ba85a695ed0afcec54e2b48e3aa3883ddbecd5a9c6fd9ece13a2f4efa11b8",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w5_baseline_lgbm_a75.npz": "a2b4fc119cbb35774d9a75c3d151b8cf14f9fdb394ee3c6cee8d484d4d860aa5",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w1_baseline_lgbm_a75.npz": "a806f9e1111e6fe166dca0844b90aae85ff27c2190b6555f1d89edb75954a4ae",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-xgb_d6_w5.npz": "910b2b173a0d3c757a9651d2b291b11b04eae4b3ad67340293f4fa29ada7847b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-xgb_d4_w5.npz": "2e92bdc6503811ab218c8ad1bbfc5a27f0fc6e0731d23e4c8d032cad0edfcd27",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w5_baseline_balanced_a25.npz": "37f13e343d639b5266826593f4ddae32431dea2931c4350b4359a82de6379f44",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w1_baseline_balanced_a50.npz": "efb5eb1600d20124d9b57f1c603ccde0cee2a72432c0aa36794192fda0e565bf",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w5_baseline_balanced_a75.npz": "e3febbabcdb97cef2b49c711748a25ca2615e95414f73e8c5b40fa7b0e118c17",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w1_baseline_balanced_a75.npz": "200b1489053b15d681981319704fb7b94e705fe4fb989944499051c3ceb0ff53",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w5_baseline_lgbm_a25.npz": "3f44a05aa09d15f8896eead65af88696792c2f3e25f10ed1f8f99b77f956c7c3",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w5_baseline_lgbm_a25.npz": "bf3446758119fd5901e21ded3ed6b134029343657a9e9c4319284d216b51e7da",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w5_baseline_lgbm_a75.npz": "f639e8d4b84f2279b5035a4ca2b29fff68db87433958866d92cb42164ce47c92",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w5_baseline_balanced_a75.npz": "5fae33aa1ea1c88bfe5fa75871c3b95665b3fdcabb29bfca58a22af91857b4db",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w1_baseline_lgbm_a50.npz": "b7756d593b301434df2b2dad92056a4aface6e96cbae0ebf80485df72dfda2c5",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w1_baseline_lgbm_a50.npz": "98d472f741a2588c2a674804952676c2cbe541fdb1766a6969f1492e73c14cb2",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_baseline_lgbm.npz": "2d4919fa65646cc1e61efa16f33bbe5f701b016d43393ac78e904a8b729a70a2",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w5_baseline_balanced_a75.npz": "43054f0ecc414347d6524ca79e486b64b1701bc7a973f799d419cb62fd9bb436",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w5_baseline_lgbm_a50.npz": "6629861fb58b623fdba582a1b29a1b9036fc5fa5940a5991731c592d6dd2b1f2",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w1_baseline_balanced_a75.npz": "45e78b2203d5581bd252df222d4f7cf2c02ea251a9b3900ce76056b89666b8a2",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-baseline_balanced.npz": "ec9fb57ca64b8dfc636d9c6ca317d981af916ac78a2acd4ac53620f914c8ec0e",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w5_baseline_lgbm_a25.npz": "ad7b0dc56f02752200e9f27df5b90709cb501fd4c7c59d4bc4d458233605c5db",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w1_baseline_lgbm_a25.npz": "325cd3d7dee4b316cc6cd479cd17bf632000914a95f7a46180ada91c05b154a3",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w1_baseline_lgbm_a50.npz": "21b4e67ab21715b0ef583cfb77a49e0fb64fa434ae5dcac826b697550fbf0784",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w5_baseline_lgbm_a50.npz": "902d0c4d4b5caae8199714056c5e95df5541f63dd8743c94f3cc1a2eeb9335e1",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w1_baseline_balanced_a75.npz": "b57e4be8bd4dfa4346e9dcaac7fd88c67980fa80c0fd260c2f60f7e18e525fdd",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w1_baseline_lgbm_a25.npz": "da5648a30035e527b0c7a579eafed6d974cdf2ee38012ad848b78c6e3f8ebedc",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-xgb_d4_w1.npz": "dbf1ecc1828ea9e4e138f30ef1065bc2d6a067b8603998b0c5c12aa1d6358da5",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w1_baseline_balanced_a25.npz": "aad90029ed39a0aff9a291af55c8f658c75ed6d6ce1e09fd29c08981d3d3b4f0",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-xgb_d6_w1.npz": "4acc48ff0f53c89a03d8a8bf9986239e696c787889430833c0b1f0cd622d5a51",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w5_baseline_balanced_a25.npz": "cdfa0ab1a4f73a5629d6922cfa7bf562775eb9d78d0c09677cdb4187c12220f6",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w1_baseline_balanced_a50.npz": "852df60dd2c899306d129c2df1510d0bf45a559bdeb28a9c9e4cfa56aacf6451",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w5_baseline_balanced_a50.npz": "eb23f4ce639de8472a10fde239c95d47656fec93f11e77cf8bf0b8cc535a38bd",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w1_baseline_lgbm_a25.npz": "81e441c95df73694d5cd73e1a15be4239b2ae47749f9cdc46e23f5044d3b8731",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-xgb_d6_w5.npz": "0c4e97637c640ba4d2cf20894c64408e4c8f865583cdc21dd972442d7d13d88e",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_baseline_balanced.npz": "97ede3e06c269a515837e8ebb7344c899cde14b693fb4e9495b08769f9cf7921",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w5_baseline_lgbm_a50.npz": "69e69f2dd2ab1abdfe5bd814d72a1ea623c320cb267878de3717d73040fc432d",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w1_baseline_balanced_a25.npz": "ca4673286652665f230ae13e4476695392925b307b91e42d9ba898d3e06fb29e",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w5_baseline_balanced_a50.npz": "92dda21f7156a8e39bdacf472100a16e55bd3acb2494de4682d81a105b9a1115",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-xgb_d4_w5.npz": "214e254b17f3a113d0c74b96988690e1172abce75d4184dfb2a50b98c91666f8",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w1_baseline_lgbm_a75.npz": "b5ae22bbee2655a52f750375145e0008bac299a56b7c369eb46a2ef9aeda89f3",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w1_baseline_lgbm_a75.npz": "ad4cb2ccf8a0b4a8b5d8f34ca6c2d61ffdbe1e87030525fc111a5b32f61dec83",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w1_baseline_lgbm_a50.npz": "a1b35f517ecaf5f1844837a6afeef9d0d021ca78e0a609b7527728346fd4f6b5",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w1_baseline_lgbm_a50.npz": "af56af407628ba7e7a05aae9686ec1a4dc20d06ea0c67b241288b46a0fe0a46b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w5_baseline_balanced_a75.npz": "3122aef8d7de51baea82c021fa59159f26c7a6a74f910a435f6bd2d2d9f0e90d",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w5_baseline_lgbm_a75.npz": "4e994936508a981f54cd3f815cd00689d6026f9d57307cfda21c92bce111ab2e",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_xgb_d4_w1.npz": "91226b54de394bb514c917aa814549f13698590011de759bb582e8b8f4315aa1",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-baseline_lgbm.npz": "5efeda574d591987f0b815beb9b8d99db3b029f801b68b0b448482a933ca5944",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w5_baseline_balanced_a75.npz": "e2c8ab54446f915e8db33cee23ba0c2e67019324cdac8ed8aee83e1152e55efa",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w1_baseline_balanced_a75.npz": "28939c7a7cbcb4df0f6e8f113a4aa4dfd614265250e171ffa013579ec27da07b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_baseline_balanced.npz": "ce55914f25cbaca6ceb7f807fddb5bbf9b481bfa1a611f2624507f24e30c584f",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_xgb_d6_w5.npz": "3ad7fee3ce11885150e6dcba3248793303a62190f0248b15be7dfdad7c91d55f",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w5_baseline_lgbm_a25.npz": "bf70c1c4cad89488f9a077472f6b9830c93172ed0bc32284706d97aedd567d1f",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w5_baseline_lgbm_a25.npz": "8e444316dee6734f6ce9cc64ba13316f89cdab97e7972862ff458a907aa92dc7",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_xgb_d6_w5.npz": "c46024598d6f5f9d1d35730305045c7c5b6bce5c711ae05a386be17e8d8eeb28",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_xgb_d4_w1.npz": "1a88f127ca7d0e6e6cbe761ab3e0e1aebefeabf8b4e349fa6aa85fc8f663eb62",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-xgb_d4_w5.npz": "6f1fd3136a85e3d74f861fd9061ae9796bd591ef241f882488963c3fead64270",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w5_baseline_lgbm_a75.npz": "d3e7a8a7e133614a2d4d7d8113ee8b79635d68e71ebc2eafa44f6a3c8d569bcf",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w1_baseline_lgbm_a75.npz": "723a8316c03fcc58ff6e99d00e4074eac82b3aad9c3778b61517cd8cbd38f3ce",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w1_baseline_balanced_a50.npz": "060823b349bf75c8483fae90e657f6a9592d6e0f46015d118bdd02ee8982ed0b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w5_baseline_balanced_a25.npz": "fe431daa89c6784e037a31a32d6c3717fdd8dc9096f5cba3c7993b06ce9cbfa3",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_xgb_d4_w1.npz": "4187499d42fbc7c53404eae181497f7e2ff8f48cde9d0198c7b2e886e678bf74",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-xgb_d6_w1.npz": "a51087d581403b9b5b0bec0131eaa34e7b0aefbaad01814e5ef239b134a6b1e3",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_xgb_d6_w5.npz": "a44c69ff1bd7ed470d44278d413e7b572e579546362acef16f5e47266e15a65e",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w1_baseline_balanced_a50.npz": "fbba36a81b18315b243e1300a7f23f09938fcfbcdae2a6b1b64a9f1e8e2420be",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w1_baseline_balanced_a25.npz": "8381b8812aa36ae61868ebe1366c5e90695455cf1c6822ad1f2368687aa73d4b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w5_baseline_lgbm_a75.npz": "c1e0f4b3150e0a929944d842a708351e56f35c1c3f93416186d92d3449c94d95",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w5_baseline_balanced_a25.npz": "91a8d28de729027765d8ac6704a1960041b32f5ae570b4eabfd0497c235d120b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w5_baseline_balanced_a50.npz": "2dcd87aa8fe57cf17329c1e33bff29c0b5615d72bb990476204460ec14bcd421",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w1_baseline_lgbm_a75.npz": "db27bb886b5fa9eaee48de349d354c0d43561e9092a08828b84204a71a5139fe",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w1_baseline_lgbm_a75.npz": "0570760a563d030fa2736e45e9c2b9cbb2678b7fe1cec12229fbf42c6fb54df4",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_xgb_d6_w1.npz": "42ee9622d85082d9c5c2f9be103afb737fa118eae9f5e04bc1088ebc80da9201",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-xgb_d6_w5.npz": "7fe37d3e2c6c969b298bba060b21c74d5cb7a825739e9d1a5523788df19d8d43",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w5_baseline_balanced_a50.npz": "9cfc59a54d73c60fbe37da73d9dcd7fd349aa77c5f801b356fb9db9bbd8a3831",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w1_baseline_balanced_a25.npz": "3a30d2817ab9d336784345d97dc5d724539ccc6e13e4dbaaf08c8550daace6ef",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_xgb_d4_w5.npz": "cf334bf415aff344b2004ec234be6b26bd7ad90cb6e99a24bc5cb8d4c28442bf",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w5_baseline_lgbm_a50.npz": "0f21fa73d0fcf85d9834c846d832cf733a368e2347d12db85686774ad57f5609",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-baseline_lgbm.npz": "9f573069c67dd4ab7393ae978c8d923158f94dc4ff259d32808c2b265f49f668",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w1_baseline_lgbm_a25.npz": "ce8fd5842d67a8030e5e158023738b61f7b8293799d01d6c6bf106dc837d9233",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-xgb_d4_w1.npz": "05a80e99f918d6c3aeb455d83c737700fab820ec997fe620e3b4240323762b54",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_xgb_d4_w5.npz": "6c650980acd86a0b78800b96e6d187c3de5b25625b04d0480d59c14c68bf400b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w1_baseline_balanced_a50.npz": "3f0c1df5beff68fc8ed06fff6112e8c6f3e8ebff12edba8db4638c21a50e7b4c",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w5_baseline_balanced_a50.npz": "57cbfd216eb018128dce276bb0bd9064ca135e55f398b732233a0fc21a699f9b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_xgb_d6_w1.npz": "1501a4ba3dd1de6d6ca6df5b9960c6079b38e242729a852f78502960b23324df",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w1_baseline_balanced_a25.npz": "d55094c7fc901410d23f447badccb38759a2bc10a71e5918ce99f5641f15a491",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w5_baseline_balanced_a25.npz": "5d68971a1db601eb9ba93a383a1c5dd2b9c5800b6e31705662a63ac848b9027a",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w1_baseline_balanced_a75.npz": "abf94641b1a4ffb6dcdb3aa2a765d2d8153151b4e7d377673b89ac248cb93dea",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w1_baseline_lgbm_a25.npz": "cc17035da84c78330a1a1d2071af54ab626bcabaa245be4973ddcc11ca9eb5b8",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_xgb_d6_w1.npz": "80e556606337553e5f16cfe00943a32dbceb27acadb9ff7d5cb88010f6adb39c",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w1_baseline_lgbm_a50.npz": "9414fb422933c91635224a817f5c673f745b89ce80fbcb73be4bd7bddfa9d500",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w5_baseline_lgbm_a50.npz": "adf4edd0cb927064846cf1f7bf8037fa69a49994faecd4abd71d82e5808d3d8a",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_xgb_d4_w5.npz": "0fba706256c0471a7b8a3cfe8077f4aab647ba2a91021cb1f2d62b73baf7e706",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w1_baseline_balanced_a75.npz": "6b33b27ac581b759dff764e5636ba5d7a6a7c607a1109f83b135171567f4f4a7",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w5_baseline_lgbm_a25.npz": "23799171ceef65aeeced07d09403a7dfbe2887b5e003537226c5c45cac3b01e1",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w1_baseline_lgbm_a25.npz": "4e84e09d9bd87c07a1b94222902a2f41d232b588c5f89bb26c29f18c9708d96e",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w5_baseline_balanced_a75.npz": "68ff343d899bc552420c9846d439ea26a8bd24694bd87e5ec834bb83e591ef54",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w5_baseline_lgbm_a50.npz": "0a725dac72cc752081162a16dc257398106e7ece4b72f597961bf55b88de8bcb",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w5_baseline_balanced_a25.npz": "12cf6713ca85f85609119745252882aca7673868db1ca43df6c48340f8485d1b",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w5_baseline_balanced_a50.npz": "0df2f1127160fb38fbea09202e0752367c545e8dad96787b795728e70a255114",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w1_baseline_balanced_a50.npz": "da7ebe0119c72eaacec925fd5788dfc0a65fc5867d102cff45436eaaa2a41761",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w1_baseline_balanced_a25.npz": "e2955805f160594693ba66eb90b22a98b85e1561ce8ca32f4368d19af7caea85",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-native31.npz": "fb904d711eb6742c377ee5d88435e8fd16c4376c3e22d44079cb5d3802a4f365",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w5_baseline_lgbm_a75.npz": "511567884d7336985513c12176a6bf2c4518b13d7217997f9e111bbad5462fb2",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w1_baseline_lgbm_a75.npz": "6fda28c95ac019215839e4ca97a0ebc965fc54425f6c41e8d04698a4a8330f97",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w5_baseline_balanced_a50.npz": "0c07dcd8f53261b27e22e36c47bcc36c75a39b5d91d60c2ff0fe6c5ce13b8aba",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w1_baseline_balanced_a25.npz": "3453f8c0fcd4ad744e76da03aef8f110fba85998584c79e155caa537ba8e57df",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d6_w1_baseline_lgbm_a75.npz": "bf9da3be406639ffc5e72d7e501a5bc79d3c0a9b107b1d3a82d4759026d6d107",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w5_baseline_lgbm_a50.npz": "be89f9647bc8ee97551291fa175c5b52a7d64c94e44123a5cb19809b33af6265",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w5_baseline_lgbm_a50.npz": "20ea90a581570e4d64bdb09134dcdb939b52155e8840ed765dec1564bb5290df",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w1_baseline_balanced_a75.npz": "2da07ee83a425e5e0a0c261244ed2f2871f24499ae84af4f984a1e259c6bccf9",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w5_baseline_balanced_a75.npz": "27fff06ed66b5376b6665b82f204b9f67808afe90d8ee0192b8ec3e53ca69933",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d6_w1_baseline_lgbm_a75.npz": "d632535a277e88750d4d00135a9c0064c1ac89d6d23e554252ff55d405cff201",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-baseline_balanced.npz": "f6ed6f494e0050a31b140d2ae2e213fcc9d05f8e8276615cdbe93325ac0aa816",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_baseline_balanced.npz": "be6ed965456550ed39dc46dc5993b7811025a01c10cbdf8b42c63aa2ba1fa514",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w1_baseline_balanced_a75.npz": "0fca2989fcc496d6e7261fc1fadde8daa3861cf739d8f163573ba557b7a2d437",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w1_baseline_lgbm_a25.npz": "aa495d967b68a2f14c96da6a874d5b966e051a3d43534728fd6db4cc3b3399d3",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w1_baseline_lgbm_a25.npz": "6c759c89e7888f6b7de7a9bd54e9bb88925a4fc1b27ab5f0be38b4da9afca2c0",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_baseline_lgbm.npz": "3224068af23aac3a29bd3b35f63677dfcad12bfe4c4372e1049651e8e4a10fd0",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w5_baseline_lgbm_a25.npz": "d8540d0866a12dbe56f3c0e63b225795416fda2bba256524af84ea98e0063a01",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w5_baseline_balanced_a75.npz": "e791a8be83fd4fe86b03d1ca1e76816a40db280773dfa07616aa47d40c706374",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w1_baseline_lgbm_a50.npz": "89e6b7d7fdc19f4e8ce02372aa733949387d237a8bddbe744813d9c43f9b77bf",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w5_baseline_lgbm_a50.npz": "2226cc6aaf66b72648436a9496dd7a64c366516a3405c766266ff406554617b5",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w1_baseline_balanced_a75.npz": "740266fc26f1e9fcd168664ae7ee3a45681053ceb971bebe70c6fa538bf1ffea",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-baseline_lgbm.npz": "c0781e9e8a2ec655bd9bfdd95469e1d33e4aceb8231504d130963924464c631d",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w5_baseline_lgbm_a25.npz": "ffe65a6e7e9741f0001dbc0fba8d69c3c9ca3d60a397003522416729a21d079a",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w1_baseline_lgbm_a25.npz": "2941c1edf726c2b9ad82f4111acdf93c81a502e5560cd0e85eb5555b4f6e0316",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d4_w5_baseline_balanced_a75.npz": "7d0c4a706ee5305997a9db9957762d4798892fd580ce2dd23e0d168f45fe6b89",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-raw_mean_xgb_d4_w1_baseline_lgbm_a50.npz": "b7d944c126a5ec5f18717d6acbf9c7e6f1fb5e68bba61b07dbf97460de8cc823",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-baseline_balanced.npz": "4bc78321ed490014179988b80c0decd829396af529d66154585a95071b4196a0",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w5_baseline_balanced_a50.npz": "e1f6651414f9fd41420e5dfce216cdb300b8a2f4506aa1fedd5fc30fe5969f1e",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d4_w1_baseline_balanced_a50.npz": "17bc4645702fee301518327eb8408f16331e6ba8ee9d5014eaba6254e06953f7",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-logit_mean_xgb_d6_w5_baseline_lgbm_a75.npz": "0f0d3c54a83489816bc90b0cb125d04df9de992e2d0b0822ccba14efb8da7fcc",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d4_w5_baseline_lgbm_a75.npz": "35598d0708ff425fa4bf84d52736f9ed672ed85c68b13b0a92956fe2d779f828",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m4-logit_mean_xgb_d6_w5_baseline_balanced_a25.npz": "ebc0d42b7044e464ffa7b75b0f20296cf6b3327c8e67a89655c564397cc508d7",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-raw_mean_xgb_d6_w1_baseline_balanced_a25.npz": "7455dd28fdf6d3f0a8e6e9c6ab9dbbf7edd49ef39a1e61d501d601d9bee78311",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w1_baseline_lgbm_a50.npz": "a9bdf592bb9ec8169d3056d240403dc326e829da94335b787a6f182dce307780",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m5-logit_mean_xgb_d4_w5_baseline_lgbm_a25.npz": "92a883a3b19ba48b5da4f92f8cb800eac788dc9ed7c2fe03fdba3292ccfad829",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d4_w1_baseline_balanced_a50.npz": "b7dca2802d358e01d564623d7f05a9f516308ffe393bdd3cab4bc7d2b9037a41",
+    "outputs/baf-xgboost-score-fusion-v1/predictions/validation-m6-raw_mean_xgb_d6_w5_baseline_balanced_a25.npz": "5f4a7b396af39bb9ea4e512fb90d6659484c2b69cbdf5fedd1418e19f3240731",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-xgb_d6_w1.joblib": "13ac2e50fe1e0e0c89d705f82f489f0c8186fca27eba93c3b963178c22737c8a",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-xgb_d4_w1.joblib": "35c9f477c6f3dc696f5272a9f057e53746e6bd63a34defd28795a3bd4561d67d",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-native31-reference.joblib": "e963f1ee1e9048d5fab68dd4fb49af033e176af3ce1deba0a8a1561f47c3042f",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-xgb_d6_w5.joblib": "cf04b492f74f87aaeb42a6853c0dba01c42c312cbf3eab9485687ddff335a12e",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-baseline_balanced-reference.joblib": "53406896cdcc54a14afebfe241f3dcb06293f071bb2ac9e11582e8defc748466",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-xgb_d6_w1.joblib": "def35611a5f10d593d6374c64ea20cfc88bc74e46528138423aa396b04dc9eb4",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-xgb_d6_w1.ubj": "ab88f1dda3440a8bb9d7cd37edb98ddc4dde30bcd562590a9736613f00209107",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-baseline_lgbm-reference.joblib": "15e8ba08aa981acda2285ec4c552a506e3a3b6be8942d717a1ec3c07f0357a12",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-xgb_d4_w5.ubj": "1dd1221955f50b3a8cf70afa35690c7b8d8787011137a20ae354c90681608426",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-xgb_d4_w1.ubj": "2046fae71b4c19cb9f9c9d1ac2f418ee3ef730dadded5d2a34b8b5fa3926cd6f",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-xgb_d6_w5.joblib": "8236d4b6448977882fb86ed1189866f6af6d8c96b537e2b130f9bb55e99fea3e",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-native31-reference.joblib": "0b05bdf243e49c0e58024773502b0d93c94dfe1ca6e4786f0e0b28926925739c",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-xgb_d6_w5.ubj": "d9e9f1f759971acc1529567afdbb4d34473d05bbea616203167fca451c457e21",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-xgb_d4_w5.joblib": "7fa1c3e6a30bbb5feb85de6101d9c13387f62bac50bad1b0f4ca3a061c92659b",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-xgb_d4_w5.ubj": "9d47771dce79d2f942ea269ba0855f0285a1cffac2d0ee08bb7e2d88647afd0a",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-baseline_lgbm-reference.joblib": "dd6938d0087fea30d91507b778c7d42a5ee53780db2c2eb7e4917e3af724f6c1",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-xgb_d4_w1.joblib": "e8b99344f05825cd20c7c61da1c1fac2672427cae47efeb06124c013c29de3c4",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-xgb_d6_w5.ubj": "4d41e9c43d61d7831a1513aa6d9f021c528817ad924506bff33c9b67946ecc21",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-xgb_d6_w1.ubj": "581a2fe8d199a4aaf1e03f24d886d638f6ea1e7fe0fe8068600f08c0c02df267",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-xgb_d4_w1.ubj": "f62ed97f1750442254cce1e4db6cfda6aee514f40e2a0fd8fe4293e4024976f7",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-xgb_d6_w1.joblib": "21378dbe9f27fc116b82a483cad4757144a6bf97eb18d0990b46fe61ef9caf8c",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-native31-reference.joblib": "4d3bc93cef3dd2f12075063ab28e70d1a4cb3b9701628ed45377aaeb5c15a82b",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-xgb_d4_w5.joblib": "7ddadb9d163d9ecab219e3ed1646156066901262d7d7598394ff410522bd6009",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-xgb_d4_w5.ubj": "375616799dd0e08f4d4a65b7ad2744dbd001e62e0915828ccb69d0a7e87879c3",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-xgb_d6_w5.ubj": "990152cf3869db571db1c5797cc19ee49e1e61bf06fd6265629eec453f3ca220",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-xgb_d6_w1.ubj": "e6f6b265c89bb440fa46048c7cc312d9574eb4e8af9f2370870eddd7cc5635d9",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-xgb_d4_w1.ubj": "691da9ba9fa30d4adfa9f4706e16e89f808f8ef93cb9eb3944070bb31c387b91",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-baseline_balanced-reference.joblib": "0213c5b3397f080b6ea2d124b6e993aca9845653db5d8cc163825e17b18209c7",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-xgb_d4_w1.joblib": "c5374e2002619e81c6ede9a5066ec654a8d92d4c4b48dcc4ea84e6908d4fbfed",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-baseline_lgbm-reference.joblib": "be05c0cdf9e5ac9e9df73b6a93779cf467c8612ab164176b525095ba8f0589f1",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m4-xgb_d4_w5.joblib": "3c0b2dc19b1b78c04c559c248d735fb7ae85e5d8da6ab61188004e4f09535e18",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m6-xgb_d6_w5.joblib": "3f70184ebc9ffa572e47e0fdad9c7ab8c59a030de605d934e06fe9ca77141fe0",
+    "outputs/baf-xgboost-score-fusion-v1/models/validation-m5-baseline_balanced-reference.joblib": "519bbd087558216c9711ca6ee8bbbd4799e03f760e59cbfd3a3aec4c053b6030"
+  },
+  "month7_previously_consumed": true,
+  "exploratory": true
+}

@@ -1,0 +1,7 @@
+{
+  "step": "freeze",
+  "module": "baf.bagged_anchor_study",
+  "returncode": 0,
+  "elapsed_seconds": 14.468990832916461,
+  "closed_log_sha256": "4dd5d494de3ade3f5e9a7c52ef5a09c091bc0f4d013b3d5d21e6525db0cab91b"
+}

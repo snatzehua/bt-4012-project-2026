@@ -1,0 +1,12 @@
+{
+  "figure_sha256": "3954c050a19bcc0e3d29c6615d0700e11c769cff73a4dd35e808948f79993dd0",
+  "summary_sha256": "9df5006bb61c54777119c74d08cb6a55f63c3d5846d51e991c68857817d60218",
+  "operating_points": 45,
+  "matched_curves": 4,
+  "matched_curve_points": 20,
+  "unbagged_reference_lines": 4,
+  "all_values_independently_checked": true,
+  "regeneration_pixel_identical": true,
+  "visual_inspection_complete": true,
+  "visual_result": "Legible three-panel plot;axes,ticks,legends and all matched views inspected without clipping."
+}

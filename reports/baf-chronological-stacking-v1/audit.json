@@ -1,0 +1,36 @@
+{
+  "base_development_results": 27,
+  "new_base_development_fits": 12,
+  "reused_base_results": 15,
+  "combiner_control_development_fits": 72,
+  "strategy_count": 26,
+  "crossfit_rows": 156,
+  "selected_candidate": "baseline_balanced",
+  "selected_policy": "pooled",
+  "development_f2_gain": 0.0,
+  "consumed_month7_f2_gains": {
+    "balanced": 0.0,
+    "unweighted": -0.0124758650635729
+  },
+  "performance_goal_achieved": false,
+  "final_combiner_fits": 0,
+  "new_exploratory_base_fits": 0,
+  "reused_exploratory_base_results": 2,
+  "saved_predictions_verified_and_metrics_recomputed": true,
+  "earlier_only_base_combiner_and_policy_sources_pass": true,
+  "training_only_scalers_and_feature_order_pass": true,
+  "identical_future_cases": true,
+  "prior_four_studies_preserved": true,
+  "source_config_software_identity_pass": true,
+  "selection_unchanged_after_access": true,
+  "final_combiners_fitted_before_access": true,
+  "freeze_precedes_access": true,
+  "month7_previously_consumed": true,
+  "config_sha256": "b409d3806a241a599c07c4fba13d59e0a232b171d64c71941f23213c978393ab",
+  "selection_sha256": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+  "report_source_sha256": "e23920a1669e359c4096bdfc0cd29174e5a83335ddde20f7f526a81349890fa6",
+  "final_prediction_sha256": {
+    "baseline_balanced": "cbf8b45eb83bfd36e622a6f53a9ba84d99b13c9e8ca6bdff3f765b5d5b878d41",
+    "baseline_lgbm": "b4c36ff7923883bba192caad7c2eddea30d718926f6d26e941d87c03d3f8564d"
+  }
+}

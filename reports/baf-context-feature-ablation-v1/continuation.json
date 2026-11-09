@@ -1,0 +1,25 @@
+{
+  "objective": "improve performance of weighted F1, weighing recall as higher",
+  "goal_achieved": false,
+  "tasks_complete": 3,
+  "tasks_total": 14,
+  "live_sessions": [],
+  "current_tests_passed": 173,
+  "current_test_fit_calls_latest": 12,
+  "cumulative_current_test_fits": 60,
+  "historical_test_fits_this_study": 0,
+  "new_full_baf_fits": 0,
+  "new_production_miniature_fits": 0,
+  "scientific_identity_frozen": false,
+  "execution_cli_currently": [
+    "verify_declaration"
+  ],
+  "original_planning_preserved": "reports/baf-context-feature-ablation-v1/planning-original",
+  "next_steps": [
+    "Finish execution identity/check/resource/miniature/coordinator entry points and independent development/final/report work auditing.",
+    "Complete uncertainty/figure/selection/freeze/bounded transfer integration and tests.",
+    "Run the complete methodological suite (current and historical), then freeze scientific sources/config/protocol/software.",
+    "Run resource/source/eight-fit production miniature gates, eighteen full development fits, all audits, freeze and bounded consumed transfer.",
+    "Complete uncertainty/figures/clean reproduction/closure; retain the broader performance goal unless all declared comparisons pass."
+  ]
+}

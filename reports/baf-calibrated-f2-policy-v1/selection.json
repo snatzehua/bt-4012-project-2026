@@ -1,0 +1,492 @@
+{
+  "created_at_utc": "2026-10-11T04:22:58.866880+00:00",
+  "fingerprint": {
+    "config": "d7eca424381b86cb5c6b6f40dfe4fa1a7d267f7fa0fadc3dde8238fe2c131d4c",
+    "sources": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+      "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9",
+      "baf/calibrated_policy_metrics.py": "369ea2fc62bebc95654b40910389f3ea6b24a7914c50edcc08b87292bd552920",
+      "baf/calibrated_policy.py": "fd418e19336bc2094066284330c9cc06cc52ab387fb1137e75de050be553fa4f",
+      "baf/calibrated_policy_report.py": "32dcf3af7871df8d41e7cae411f3ba9ef9fbf2be2d0c8e6184774cfdd0bb7519"
+    },
+    "software": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.7.0",
+      "catboost": "1.2.10",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0"
+    },
+    "python": "3.12.9"
+  },
+  "config": {
+    "data_path": "data/raw/baf/Base.csv",
+    "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+    "output_dir": "outputs/baf-calibrated-f2-policy-v1",
+    "report_dir": "reports/baf-calibrated-f2-policy-v1",
+    "validation_months": [
+      4,
+      5,
+      6
+    ],
+    "test_month": 7,
+    "beta": 2,
+    "seed": 2026,
+    "threads": 6,
+    "baseline_config": "configs/study.json",
+    "review_fractions": [
+      0.005,
+      0.01,
+      0.02,
+      0.05
+    ],
+    "policies": [
+      "pooled",
+      "latest",
+      "rank_fraction"
+    ],
+    "candidates": [
+      {
+        "id": "baseline_lgbm",
+        "family": "baseline",
+        "model": "lightgbm",
+        "engineered": false,
+        "weighted": false
+      },
+      {
+        "id": "baseline_balanced",
+        "family": "baseline",
+        "model": "lightgbm",
+        "engineered": false,
+        "weighted": true
+      },
+      {
+        "id": "native31",
+        "family": "lightgbm",
+        "engineered": false,
+        "params": {
+          "n_estimators": 800,
+          "learning_rate": 0.03,
+          "num_leaves": 31,
+          "min_child_samples": 100,
+          "reg_lambda": 5,
+          "colsample_bytree": 0.9
+        }
+      },
+      {
+        "id": "logistic_engineered",
+        "family": "logistic",
+        "engineered": true,
+        "C": 0.1
+      },
+      {
+        "id": "catboost_engineered6",
+        "family": "catboost",
+        "engineered": true,
+        "pos_weight": 1,
+        "params": {
+          "iterations": 1000,
+          "depth": 6,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 5,
+          "border_count": 128,
+          "max_ctr_complexity": 1
+        }
+      }
+    ],
+    "bootstrap_replicates": 500,
+    "bootstrap_seed": 1027,
+    "prior_config": "configs/improvements.json",
+    "prior_fingerprint": {
+      "config": "69ce021f440b840327127b6faada39fe89df7b0f4a870c8eaf7c0739c9a6e13d",
+      "sources": {
+        "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+        "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+        "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+        "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398"
+      },
+      "software": {
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "lightgbm": "4.7.0",
+        "catboost": "1.2.10",
+        "joblib": "1.6.0",
+        "threadpoolctl": "3.7.0"
+      },
+      "python": "3.12.9"
+    },
+    "preserve_sha256": {
+      "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+      "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+      "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+      "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+      "baf/logistic_ablation.py": "a96058d8dd9824c23c826d2fe467d1a2cd6073e7bb41dadd013153ea70e50467",
+      "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+      "configs/improvements.json": "69ce021f440b840327127b6faada39fe89df7b0f4a870c8eaf7c0739c9a6e13d",
+      "configs/logistic-ablation.json": "020e43be9c470c87000ee009ddbcc999ddf170a92e63d23ef504feee5974e823",
+      "configs/study.json": "a4a1bf6c4d1d724a478c7a16809f69e93a3f32905768c3d2897359cbec6dbdac",
+      "outputs/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+      "outputs/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+      "reports/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+      "reports/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+      "requirements-improvements.txt": "5a385cefb4081e5d49e539ffb624226f08c39bff6202036716be579c76d8828b",
+      "requirements.txt": "7054110540fe08cc44b48b36c5c947c61772a827a1a8b4c2310dcf4ee6f25c3b",
+      "configs/recall-weighted.json": "01ae128212bb3dfcaea0410c2a98b81a8f4fe5809769b1019c1948f2a0c06d48",
+      "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+      "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+      "baf/recall_weighted_report.py": "582927a418847db0571fbadd0c5e8f6fdda4d7ecf40267a9f373f8d061556edf",
+      "reports/baf-recall-weighted-v1/selection.json": "b7058cf1dd2111473f953ecdc478e75418f38e2bf0b1e70b85319fff23d30b16",
+      "outputs/baf-recall-weighted-v1/selection.json": "b7058cf1dd2111473f953ecdc478e75418f38e2bf0b1e70b85319fff23d30b16",
+      "configs/recall-weighted-extension.json": "19a6c2ac8dbe440120cdadba5035297addc9dc051f3709d11f7d8d897b573469",
+      "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+      "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+      "baf/recall_extension_report.py": "cc1335e2316a6b0a2542ab8730a185202a0984c194f6279fb9f1b533619a04f2",
+      "reports/baf-recall-weighted-extension-v1/selection.json": "17507207fb9aed254d5ca7c44ab19ce3ac1c0a191c9007f1b9bbaa8681d905c6",
+      "outputs/baf-recall-weighted-extension-v1/selection.json": "17507207fb9aed254d5ca7c44ab19ce3ac1c0a191c9007f1b9bbaa8681d905c6",
+      "reports/baf-recall-weighted-extension-v1/findings.md": "6fdfa4a055176b05c289ce8c037edb4861090ea99b331819580c6df9a2bc4d57",
+      "reports/baf-recall-weighted-extension-v1/audit.json": "d6047fefb06df604319ce79db7720f23e745b468640da1c5257a08bdca8015ed",
+      "reports/baf-chronological-stacking-v1/selection.json": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+      "outputs/baf-chronological-stacking-v1/selection.json": "f533ae7c3246366d0f9922c343541e18fcaa9bdfb0844d096a7ce5ac806dc773",
+      "baf/stacking_report.py": "e23920a1669e359c4096bdfc0cd29174e5a83335ddde20f7f526a81349890fa6"
+    },
+    "exploratory": true,
+    "previous_f2_config": "configs/recall-weighted.json",
+    "previous_f2_fingerprint": {
+      "config": "01ae128212bb3dfcaea0410c2a98b81a8f4fe5809769b1019c1948f2a0c06d48",
+      "sources": {
+        "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+        "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+        "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+        "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+        "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+        "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11"
+      },
+      "software": {
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "lightgbm": "4.7.0",
+        "catboost": "1.2.10",
+        "joblib": "1.6.0",
+        "threadpoolctl": "3.7.0"
+      },
+      "python": "3.12.9"
+    },
+    "original_config": "configs/study.json",
+    "original_identity": {
+      "config_sha256": "a4a1bf6c4d1d724a478c7a16809f69e93a3f32905768c3d2897359cbec6dbdac",
+      "source_sha256": "f80a1d87af5be4cbcc1b979f7fef0cbce1bf0677aecc15e413fcdba3127dd905"
+    },
+    "expected_strategy_count": 3,
+    "expected_crossfit_rows": 42,
+    "members": [
+      "baseline_balanced",
+      "native31",
+      "catboost_engineered6",
+      "logistic_engineered"
+    ],
+    "early_months": [
+      1,
+      2,
+      3
+    ],
+    "clip": 1e-06,
+    "extension_config": "configs/recall-weighted-extension.json",
+    "extension_fingerprint": {
+      "config": "19a6c2ac8dbe440120cdadba5035297addc9dc051f3709d11f7d8d897b573469",
+      "sources": {
+        "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+        "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+        "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+        "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+        "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+        "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+        "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+        "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+        "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed"
+      },
+      "software": {
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "lightgbm": "4.7.0",
+        "catboost": "1.2.10",
+        "joblib": "1.6.0",
+        "threadpoolctl": "3.7.0"
+      },
+      "python": "3.12.9"
+    },
+    "expected_base_results": 27,
+    "expected_meta_results": 3,
+    "combiners": [
+      {
+        "id": "stack_logit_percentile_c0p01_w1",
+        "group": "stack",
+        "representation": "logit_percentile",
+        "C": 0.01,
+        "pos_weight": 1,
+        "members": [
+          "baseline_balanced",
+          "native31",
+          "catboost_engineered6",
+          "logistic_engineered"
+        ]
+      }
+    ],
+    "stack_config": "configs/chronological-stacking.json",
+    "stack_fingerprint": {
+      "config": "b409d3806a241a599c07c4fba13d59e0a232b171d64c71941f23213c978393ab",
+      "sources": {
+        "baf/common.py": "b616a202dafdeebe69ad35efcb1a6ff4e491cfe1db3174db7a3857c2e11a0d53",
+        "baf/engineering.py": "9e1f5f480fd0fa724b99c0acab6ded2e054f334738bef755284fd67e588ffe81",
+        "baf/improvement_metrics.py": "e5f21723bcff6d6442aeca5ecf6139609b95fdf10d043b8a06967efa3b392b47",
+        "baf/improvements.py": "2896dd5d9f28fa220b8c7137f1f13bc45b0c97335fc4704453d4cac7a95ad398",
+        "baf/study.py": "dabe19c3292ade2484496996df4872829a4994dbd29f092e38bb869fba477273",
+        "baf/recall_weighted.py": "78a44e4709682416ac2ac265c99fd673ff50c3df6d7c4e4c12a718b7cb7efb11",
+        "baf/recall_weighted_metrics.py": "c034b5e2f3f6bea2b110e2cce55c7d44c48accf5ece10e8401dbac67791f004b",
+        "baf/recall_extension.py": "aefdd13b87dc9b0677a4e09a13bbdf62444a7d7f77255fd5baef96e4120d8b2f",
+        "baf/recall_extension_metrics.py": "a90714a1db1085e829189a2a3b2689c8d8606bdaf4ebd6c672edb677a2695bed",
+        "baf/stacking.py": "c9746a8c6c5ec3fd1dc09f24f9021cbdf3196d5f98da566a732b8f634b1c50a2",
+        "baf/stacking_features.py": "f4ddca2e0061d93331a1407bb51b33678f73b57374005ef70fed918fae493ba9"
+      },
+      "software": {
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "lightgbm": "4.7.0",
+        "catboost": "1.2.10",
+        "joblib": "1.6.0",
+        "threadpoolctl": "3.7.0"
+      },
+      "python": "3.12.9"
+    },
+    "score_sources": [
+      "baseline_balanced",
+      "baseline_lgbm",
+      "stack_logit_percentile_c0p01_w1"
+    ],
+    "calibration_policies": [
+      "sigmoid_pooled",
+      "sigmoid_latest",
+      "isotonic_pooled",
+      "isotonic_latest"
+    ],
+    "expected_calibrator_fits": 24
+  },
+  "selected_candidate": "baseline_balanced",
+  "selected_policy": "pooled",
+  "selected_development_f2": 0.32780157809618937,
+  "choices": {
+    "selected": [
+      "baseline_balanced",
+      "pooled"
+    ],
+    "balanced": [
+      "baseline_balanced",
+      "pooled"
+    ],
+    "unweighted": [
+      "baseline_lgbm",
+      "pooled"
+    ],
+    "same_model": [
+      "baseline_balanced",
+      "pooled"
+    ]
+  },
+  "rules": {
+    "selected": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "balanced": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "unweighted": {
+      "kind": "pooled",
+      "threshold": 0.046095701655237555,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "same_model": {
+      "kind": "pooled",
+      "threshold": 0.8395293330571296,
+      "beta": 2,
+      "source_months": [
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  "final_meta": null,
+  "fit_specs": [
+    {
+      "id": "baseline_lgbm",
+      "family": "baseline",
+      "model": "lightgbm",
+      "engineered": false,
+      "weighted": false
+    },
+    {
+      "id": "baseline_balanced",
+      "family": "baseline",
+      "model": "lightgbm",
+      "engineered": false,
+      "weighted": true
+    }
+  ],
+  "validation_files": {
+    "crossfit": "e3fe468bedf11beaaeabf1c0c6f6c5c1c0c8a40f7dc23ac07bdb6129f65d4491",
+    "summary": "044d3d90c7272a0f74d4e180ed391e8e525b52dde31a619985ab4f9589c5ae42",
+    "reliability": "bf2f7d6e3ea455c53acf31e1f60682109ac19cecf4b4e807fb797d9a857376a0"
+  },
+  "development_artifacts": {
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m4-native31.json": "125ba03196e7ffcac4e3f1fa102c1874c72b5bda40f4a0202944499f91fcf4fd",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m3-baseline_balanced.json": "1ef54364eceb51f3f69f40e5976da3cd4f8097490ac67bd9bb8b1a1187e20882",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m3-catboost_engineered6.json": "628156ebd2d54fe4458fa84636444691edd3961ff71d9e9f7b85b2a36251f959",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m4-logistic_engineered.json": "9043b6f6bd2b8e3e8e346c4344c2c33578bafeca22a22dff21ff9e3aa270bd7a",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m4-baseline_balanced.json": "5a18c461a55b64680c5fcbf1131e4bed7dfb253474018810b56fd5f6e9c0f929",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m4-catboost_engineered6.json": "495fa9988b14cad9aea4ebf1a20ad3e33895bfcd22869cb802a1a7f3775409f6",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m3-native31.json": "ba98133bf60f6cb53114c6367445efb2eacc61ae56ce1c1340ec7d4ea775b5c7",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m1-baseline_balanced.json": "55bb970714de7dc0e5ce1294624bd7af5ee063760a9eb42c231a554309269d61",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m6-baseline_lgbm.json": "03f7481b2d0ad9f2cd06162c283cad290bd05046c8ff6656ce3fb861f9e7d4ec",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m1-catboost_engineered6.json": "f979ff4a39bf3cd7d645415c88f83fcca03a1114294e1e374090cae8039710a3",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m6-baseline_balanced.json": "8b630f4116703ebd98198d76c4ded38ea451816afaaf48c227e6c53fa63c4703",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m5-baseline_balanced.json": "15698a6c65c8a65d33956e6a5dde939c16fc499e75eb2216774449b1b4d45405",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m6-catboost_engineered6.json": "07f7d99795c25591dfc00945060471e31ba0fad181c0ecc04c6f5a9c0aafb378",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m2-baseline_balanced.json": "d9f3b58dde08379072c59d0a6d92962cc41340f1032a2f795557f577c8342ed8",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m5-baseline_lgbm.json": "3807affe004312bb0956e8498583331232708f0e9eea66a14ee27520cbcd1ba2",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m1-logistic_engineered.json": "02ad5ed0f243948c91f72c9d9e3735283693c51015b71c4e348b19e02c54147c",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m5-logistic_engineered.json": "cadb85eb0ecd4d51463772161fcb00a7509db1677d1e6b1f88811892aaf94703",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m4-baseline_lgbm.json": "db53e25095f92cde18714f65c8103fd74e9e6b19c271e3f09ace9207e4e1b2e0",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m3-logistic_engineered.json": "4ca61a4a3e803bc3b2facc14c0b9d86a46be4dd5c7ccb479290dfeeefed6ea68",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m2-logistic_engineered.json": "26c5c97b43a02cfe72904a7077074b9d43f2de11bbdc1911d789dca12fae6282",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m6-logistic_engineered.json": "844364c572182dffc0002d14b644f2f13ec90cd396c796af8cfb3f3b21c406d2",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m6-native31.json": "46423cbdd0a1663ea84e0e110071f09ca1d16f26e872424f64bb9e40e5082eef",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m5-catboost_engineered6.json": "ce9f77873ec4e71ae224da2665961b564403ab5b81d1f254f4b3ddf8bad13c41",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m2-native31.json": "7fe4224f2c5f46a48875d9eba43440b774a93d454c652ade9dc9895a4e762563",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m5-native31.json": "b1e5e7df2ea90912de77d300ab07b8e2962c51e7d189a0d95d9d567d1d3aaedc",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m2-catboost_engineered6.json": "a08554c0398bed19558fb03b129b9916873f34884e4f65930bfda5118869a514",
+    "outputs/baf-calibrated-f2-policy-v1/runs/validation-m1-native31.json": "6d7854fd2dacee4949aa4ca384ccb2a59fc32ed98b453df8c4b25c2be471f49e",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m4-stack_logit_percentile_c0p01_w1.npz": "e8cc70bc0ea05948260c4d0a6386b49418f7a4e45f780aa629ddc8ceb594404d",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m2-native31.npz": "966bcf0d7d44e0f4d437395031cf5f58b7190ecffbb5a69352448ec86313fc9c",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m5-native31.npz": "97b8aecb1a6625d2c9d3b5921db37d130ad398542c071bbcc2ae4a47ee1e91c9",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m4-catboost_engineered6.npz": "6f9a522476444a1e54322f058951c0869412fde406d06b1c222142bb4571136e",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m3-baseline_balanced.npz": "3ef7f835c2e253b32aa0ea9bdbce57ddad6ef4c4ee25e4d7d2ffff802b2c16d8",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m4-native31.npz": "ac7613374e84dd32a04a6d7dda57d4c874bb501dbdb9f283eea07777e62b8a1b",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m3-native31.npz": "cb36b8f7ca494ff5cf58ac2ba3a09fbbcc0d81ff99a5b10c14c08208eb155dfb",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m3-logistic_engineered.npz": "be87502c2b149959bbfe0d08e160e43752b8c01c9f69bd15dc2b34eb0e636d0e",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m1-baseline_balanced.npz": "75ff69c7208c700f12ff3d4928864c5e6efdfb21694d0b393c72c36f44d9bc1f",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m5-catboost_engineered6.npz": "21bce9220c0dd7cafef420d6697aca3d4c1274b9075ab8d96b12fb244dd3f82a",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m5-baseline_balanced.npz": "ec9fb57ca64b8dfc636d9c6ca317d981af916ac78a2acd4ac53620f914c8ec0e",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m1-catboost_engineered6.npz": "bb0ded2bd9e3abc9ab94963427b2f2848ef30e7f1b1512b1d354e2f623bee385",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m4-logistic_engineered.npz": "6576c6a5096c1ada0f31bd5b5e41a7ce8718eacff42df913085d3c2a0ba0b67f",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m5-baseline_lgbm.npz": "5efeda574d591987f0b815beb9b8d99db3b029f801b68b0b448482a933ca5944",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m2-baseline_balanced.npz": "f6424a767743257d64c140413a8d1a9722ec5c2dc3b4cb6943a5f86d722180e6",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m5-stack_logit_percentile_c0p01_w1.npz": "827fbd94d3fc07ce3f6ad686f196e7e7892e3c542796892ea62a8587d51921d9",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m2-logistic_engineered.npz": "6dcef56965c22a3187a1ef23db1254431bb39faef417f6bfcf5188cb4b369ba1",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m6-stack_logit_percentile_c0p01_w1.npz": "d83a6cae3a0145bcc96a8e3ff66f7d5d697157941d9371d0a739aaf05369c65d",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m4-baseline_lgbm.npz": "9f573069c67dd4ab7393ae978c8d923158f94dc4ff259d32808c2b265f49f668",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m6-logistic_engineered.npz": "00d862fe8b2dc558aea83f97d7e9716f7581033a218bbecf91287927953a42f7",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m3-catboost_engineered6.npz": "491482c2397f2f80140ad63275b41b759b2f53eb9ef13e2c5b18571a9bb065e5",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m5-logistic_engineered.npz": "2d8266bd9b23c5225a9d4fcb2b8aaf4594d60faf89f33750a4b21a8185746719",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m1-native31.npz": "99a0660a8b32bed8000ce1eeaf584526566cf284f5fefdc2aeb812f2abe79191",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m6-native31.npz": "fb904d711eb6742c377ee5d88435e8fd16c4376c3e22d44079cb5d3802a4f365",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m6-catboost_engineered6.npz": "8402c55a1644fa7840182ee900f9e87db5bec4b417cd4e3edafb96842fbdc017",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m2-catboost_engineered6.npz": "6c54def7e2b930ea187da646defeb854097e44baf849d9b9ed22ef3a2dadb3f6",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m6-baseline_balanced.npz": "f6ed6f494e0050a31b140d2ae2e213fcc9d05f8e8276615cdbe93325ac0aa816",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m6-baseline_lgbm.npz": "c0781e9e8a2ec655bd9bfdd95469e1d33e4aceb8231504d130963924464c631d",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m1-logistic_engineered.npz": "856e94e6ee25f4c22e760f07d98f836b707c2844bd9b4164910e6d5efe1538bb",
+    "outputs/baf-calibrated-f2-policy-v1/predictions/validation-m4-baseline_balanced.npz": "4bc78321ed490014179988b80c0decd829396af529d66154585a95071b4196a0",
+    "outputs/baf-calibrated-f2-policy-v1/models/validation-m4-stack_logit_percentile_c0p01_w1.joblib": "31900ea368656f59b0df618afac9c094c290b465bae4f93388f089725cc128b6",
+    "outputs/baf-calibrated-f2-policy-v1/models/validation-m6-stack_logit_percentile_c0p01_w1.joblib": "1c8954cc30c21c8b86ee8ef7dc6d7d643a33a1b737294ff71f15919fb85e926b",
+    "outputs/baf-calibrated-f2-policy-v1/models/validation-m5-stack_logit_percentile_c0p01_w1.joblib": "6aab3006bd26ba1460fbe08c6d38a999be5dace63a5f4b5bac37ba95a8473efb",
+    "outputs/baf-calibrated-f2-policy-v1/meta/validation-m5-stack_logit_percentile_c0p01_w1.json": "9a88d82aed1dc12679ec8cf37c26f483e03bde32c35c5acb6ce819b26ca1406c",
+    "outputs/baf-calibrated-f2-policy-v1/meta/validation-m4-stack_logit_percentile_c0p01_w1.json": "c9ef46636c00e5ef8fb14dfc773f21b15bd060c00178759515e433a0761e1a04",
+    "outputs/baf-calibrated-f2-policy-v1/meta/validation-m6-stack_logit_percentile_c0p01_w1.json": "0c01a5016b734fb1a0382c95fe1693f16a6e825ca330bf7c0475da2ffe194a47",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_lgbm-sigmoid_latest.joblib": "b61bb9db911d16799efb64c9b03f764eb8de49788e49ea35b0490b918fff756a",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_balanced-sigmoid_latest.joblib": "9b24b1937c4a071c83fa8cc96580d28ae494d9a30127b3167a2ebaa6ac0899de",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_lgbm-isotonic_latest.joblib": "e1a2bef99d3fffae9ee3b6d500e4f464fe6870b170824f8a0841d731315594d7",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_lgbm-isotonic_pooled.joblib": "7c1b7e8d5bebc25ba6f3f05211eae355760c2750bb183a950e5cdfea12409753",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_balanced-isotonic_pooled.joblib": "5b2365089ba44cbc300468d7b05b6c0b922923f1d0ea3c887b7874c9155eba55",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_lgbm-sigmoid_latest.json": "fd0929dfeb20dfd009e0558d305ec9f15a4b45ffb4d1ffd3363ca0e38dc51293",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_lgbm-sigmoid_pooled.json": "5d5e10b3e633db4c975440dcccd05ce58364313584b3f9ebc0713b1bcaa94b39",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_lgbm-sigmoid_latest.joblib": "1896cb74fbfa1a5a73b633c8f34038c9bfc663f9162b7ea55fbbd67284663405",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_balanced-isotonic_pooled.json": "40d10a0e3841a2aaa361e3af82784cf836f2d07bf8d7f67637f42a6251fe680c",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_balanced-sigmoid_latest.joblib": "928e101110819a9ac51cd4bad1a05ca174a5bc25856ca326f2cbe2c3f60170cb",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_balanced-isotonic_latest.json": "9ecce66d0cc27007ad3c3132a3204c56e76df44b79bfc1237a9199a6690c4b4a",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_balanced-isotonic_pooled.json": "04f8fc821da34d18a5d4d2202fa9690faf968c449d07883ab750b98d29d61a96",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_balanced-isotonic_latest.json": "86c720b105e541137d2d05e3d0eb11eab6d1ed8d381f4cadab041c7aef8cb5f6",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_lgbm-isotonic_latest.json": "4cce6b9219ed4caf5efd9fb232c7cc1ac17192ba0aa2d596fcf96bf58f1ea3e5",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_lgbm-isotonic_pooled.json": "35457e04ba381d3a1afd9802d3621a2ea5f22f8f37dcb885e4e275b880dbda50",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-stack_logit_percentile_c0p01_w1-sigmoid_latest.joblib": "1417b0655a849cddbd22e5ab72ad2317e9b151fe5cd4270ae0dbc016d304f1b0",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_lgbm-sigmoid_latest.json": "8124a6eb2c2969ed968180082233016a3f7b7db8bbb7c9d0d5fa88e0cc496985",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_lgbm-sigmoid_pooled.json": "5fb7553e58ff7bb26c813c730dd66a4bb36e0480b63bb46287e81045ad0cd802",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-stack_logit_percentile_c0p01_w1-isotonic_latest.joblib": "779e163c8c4b5566d561c44b77a67efe6d89ad56599cee1d50cbb38030be1f82",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-stack_logit_percentile_c0p01_w1-isotonic_pooled.joblib": "ce53515229f33607e9d6d1e88384a7d3ce437c69fe463bda1e947e35b017f1e8",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-stack_logit_percentile_c0p01_w1-sigmoid_pooled.json": "9439aa52d892a91f961e7b098793d8e0f6b43228bd727963f34c07acc85304bf",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-stack_logit_percentile_c0p01_w1-isotonic_pooled.json": "134efedba4cd062a1b1f82a59fb24f8af48d743db99f4825ea21d08bcb8e0469",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_balanced-isotonic_pooled.joblib": "c8f4cdbee87ecd54b9ef77e9afdc3540fc0eb401dfd010dba03d0e7a670e5198",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-stack_logit_percentile_c0p01_w1-sigmoid_latest.json": "a6835ef910c54845a7c0a17a0dbbc582745585934d5f7b93ca4bc40ebcba8f9c",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-stack_logit_percentile_c0p01_w1-isotonic_latest.json": "ebe5a629b49379067021d3d3049614f555fea8ac30060eda6e189c0f719e90aa",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-stack_logit_percentile_c0p01_w1-sigmoid_pooled.joblib": "dc1b698b62b725fd2a6583fdb53ac4005217196539ac2bb67adc9899ab795aca",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-stack_logit_percentile_c0p01_w1-sigmoid_pooled.joblib": "1c41bc5bdf88d99ce662f11afa1215998eef1a98031cffa4dc00e7766bf65dd9",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_lgbm-isotonic_pooled.json": "ddf28ccfb19dcb7a9cda4f2ebf544de9a158ea627e3aed7b937d15c87c341198",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_lgbm-isotonic_latest.json": "e0f6621d0e1b48b803be2032c81af7cf0bd213e15813e2feb49518f85d360d00",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-stack_logit_percentile_c0p01_w1-isotonic_pooled.joblib": "779e163c8c4b5566d561c44b77a67efe6d89ad56599cee1d50cbb38030be1f82",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-stack_logit_percentile_c0p01_w1-isotonic_latest.joblib": "c0ba0c44de882845184c7f29cc0b526705bfa4c40fd52533bf0ac28969bc9f66",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-stack_logit_percentile_c0p01_w1-sigmoid_latest.joblib": "dc1b698b62b725fd2a6583fdb53ac4005217196539ac2bb67adc9899ab795aca",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-stack_logit_percentile_c0p01_w1-isotonic_latest.json": "ab27948374a05d1a6a7455718ce054ef369f1609b562af3fb08762bb8d867211",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-stack_logit_percentile_c0p01_w1-isotonic_pooled.json": "5cfcb4c619407b620586ab707c7afe7bca09234d8fdc7bc2c9976b45defccaf5",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_balanced-isotonic_latest.joblib": "c8f4cdbee87ecd54b9ef77e9afdc3540fc0eb401dfd010dba03d0e7a670e5198",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_balanced-sigmoid_latest.json": "de8b4e2d33bf631f8522e21aee4e03c7c954e43e1c688e23d30a36f78bb02842",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_balanced-sigmoid_pooled.joblib": "6eb893a5d959fe46f264278d801654007c7f17129ef45a62bedaece0d2f68391",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_balanced-sigmoid_pooled.json": "30a9be5e86ecd934721a2fb10f02df35d53b813df16f7d2811d7f24b2887054c",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_balanced-sigmoid_pooled.json": "6a93fe5dc74dea3181f9d7aef9f04881c8ce856d9e67d222c6e503ce73eff4ea",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_lgbm-sigmoid_pooled.joblib": "b61bb9db911d16799efb64c9b03f764eb8de49788e49ea35b0490b918fff756a",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_balanced-sigmoid_latest.json": "7bab3793b53b2caaf7a16fafa58af24e9e84c311c12b7fdc17fe240c4ea2f85d",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_lgbm-isotonic_pooled.joblib": "e1a2bef99d3fffae9ee3b6d500e4f464fe6870b170824f8a0841d731315594d7",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_balanced-isotonic_latest.joblib": "ee97a1cf892ba7aa15ed68f39bbeab1129a83177328fcd54bb6df6c65bd061bd",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_lgbm-isotonic_latest.joblib": "9570d6466c06068bb4caf80b90a2dff40773686207957105b11fcf5b6028449a",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m5-baseline_balanced-sigmoid_pooled.joblib": "928e101110819a9ac51cd4bad1a05ca174a5bc25856ca326f2cbe2c3f60170cb",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-baseline_lgbm-sigmoid_pooled.joblib": "558143accb0cd1051e2bbb5b865e46f68d7d3c329f510ad9f8c93dfbd2473ea4",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-stack_logit_percentile_c0p01_w1-sigmoid_pooled.json": "14de28b087845c35c7e1d3cd4eff2f204d0e733aa273546ccda61c338b5f13ed",
+    "outputs/baf-calibrated-f2-policy-v1/calibration/m6-stack_logit_percentile_c0p01_w1-sigmoid_latest.json": "a33ea6e12f318c62b40d0ae9b540eaab253e55024f568e0406962fe6a2d07b09"
+  },
+  "month7_previously_consumed": true,
+  "exploratory": true
+}

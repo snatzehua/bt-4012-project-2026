@@ -1,0 +1,50 @@
+Preparing validation 4 bagged_balanced_s17
+Preparing validation 4 bagged_balanced_s29
+Preparing validation 4 bagged_balanced_s43
+Preparing validation 4 bagged_unweighted_s17
+Preparing validation 4 bagged_unweighted_s29
+Preparing validation 4 bagged_unweighted_s43
+Preparing validation 4 baseline_balanced
+Preparing validation 4 baseline_lgbm
+Preparing validation 4 spline_c0p1_unweighted
+Preparing validation 4 spline_c1p0_balanced
+Preparing validation 4 xgb_d4_w1
+Preparing validation 5 bagged_balanced_s17
+Preparing validation 5 bagged_balanced_s29
+Preparing validation 5 bagged_balanced_s43
+Preparing validation 5 bagged_unweighted_s17
+Preparing validation 5 bagged_unweighted_s29
+Preparing validation 5 bagged_unweighted_s43
+Preparing validation 5 baseline_balanced
+Preparing validation 5 baseline_lgbm
+Preparing validation 5 spline_c0p1_unweighted
+Preparing validation 5 spline_c1p0_balanced
+Preparing validation 5 xgb_d4_w1
+Preparing validation 6 bagged_balanced_s17
+Preparing validation 6 bagged_balanced_s29
+Preparing validation 6 bagged_balanced_s43
+Preparing validation 6 bagged_unweighted_s17
+Preparing validation 6 bagged_unweighted_s29
+Preparing validation 6 bagged_unweighted_s43
+Preparing validation 6 baseline_balanced
+Preparing validation 6 baseline_lgbm
+Preparing validation 6 spline_c0p1_unweighted
+Preparing validation 6 spline_c1p0_balanced
+Preparing validation 6 xgb_d4_w1
+                                 candidate policy       f2       f1       f3  precision   recall  flagged_fraction  average_precision    tp     fp    fn  roc_auc
+          bagged_anchor_balanced_logit_a25 pooled 0.330881 0.237872 0.381426   0.162720 0.451466          0.035935           0.189225 646.5 3395.0 784.0 0.896785
+           bagged_anchor_balanced_prob_a25 pooled 0.330828 0.237833 0.381384   0.162705 0.451466          0.035955           0.189216 646.5 3397.0 784.0 0.896785
+interaction_blend_spline_c1p0_balanced_a10 latest 0.330793 0.234529 0.384271   0.158659 0.459837          0.037598           0.189693 658.5 3569.0 772.0 0.896985
+interaction_blend_spline_c1p0_balanced_a10 pooled 0.330716 0.234546 0.384105   0.158702 0.459493          0.037552           0.189693 658.0 3564.5 772.5 0.896985
+           bagged_anchor_balanced_prob_a10 latest 0.330675 0.236437 0.382205   0.160941 0.453928          0.036444           0.189655 650.0 3450.5 780.5 0.896922
+           bagged_anchor_balanced_prob_a25 latest 0.330452 0.237399 0.381118   0.162337 0.451466          0.036066           0.189216 646.5 3409.0 784.0 0.896785
+          bagged_anchor_balanced_logit_a10 latest 0.330389 0.236042 0.382022   0.160550 0.453928          0.036512           0.189654 650.0 3458.5 780.5 0.896922
+          bagged_anchor_balanced_logit_a25 latest 0.330347 0.237257 0.381050   0.162199 0.451466          0.036092           0.189225 646.5 3412.0 784.0 0.896785
+           bagged_anchor_balanced_prob_a10 pooled 0.330226 0.235166 0.382676   0.159657 0.456342          0.037063           0.189655 653.5 3514.0 777.0 0.896922
+          bagged_anchor_balanced_logit_a10 pooled 0.329957 0.234789 0.382505   0.159283 0.456342          0.037126           0.189654 653.5 3521.5 777.0 0.896922
+         bagged_anchor_unweighted_prob_a25 pooled 0.329810 0.238280 0.379293   0.163758 0.447616          0.035501           0.189337 641.0 3350.0 789.5 0.896936
+        bagged_anchor_unweighted_logit_a10 latest 0.329462 0.234677 0.381300   0.159038 0.453286          0.036570           0.189710 649.0 3471.5 781.5 0.896985
+        bagged_anchor_unweighted_logit_a25 pooled 0.329457 0.237386 0.379348   0.162713 0.448325          0.035711           0.189350 642.0 3374.0 788.5 0.896923
+         bagged_anchor_unweighted_prob_a10 pooled 0.329137 0.236577 0.379329   0.161717 0.448679          0.035813           0.189753 642.5 3387.5 788.0 0.896991
+   margin_blend_spline_c0p1_unweighted_a25 latest 0.329010 0.231593 0.383368   0.155537 0.460249          0.038074           0.190366 659.0 3628.5 771.5 0.897179
+null

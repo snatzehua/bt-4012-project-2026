@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/reports/baf-conditional-lightgbm-experts-v1/verify-production-gates.py", line 47, in <module>
+    assert run.scores.signature(model)==run.scores.signature(expected)==r['requested_model_params']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,7 @@
+{
+  "step": "prepare_development",
+  "module": "baf.bagged_anchor_study",
+  "returncode": 0,
+  "elapsed_seconds": 137.38778275006916,
+  "closed_log_sha256": "0c4630260ed0c128e89ce2c5b095c1406fb0d106491f23afa972d69f0ab09a03"
+}

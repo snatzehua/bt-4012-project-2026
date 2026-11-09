@@ -1,0 +1,7 @@
+{
+  "step": "report",
+  "module": "baf.bagged_anchor_report",
+  "returncode": 0,
+  "elapsed_seconds": 206.86401374998968,
+  "closed_log_sha256": "e179d06b1da4065ea44be173e761fa0d570d309910124db3f8ea168ee160457a"
+}

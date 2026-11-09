@@ -1,0 +1,26 @@
+{
+  "prior_checkpoint_current_tiny_fits": 18,
+  "prior_checkpoint_receipt_sha256": "c6dfa37415ee6110727f0a9ad79cb3b024c6762d2f5c5d9cbb8ad7c136261e0f",
+  "invocations": [
+    {
+      "label": "primary-full-pre-portability",
+      "tests_passed": 1501,
+      "current_tiny_fits": 6,
+      "historical_attempts": 69,
+      "ledger_sha256": "40864b50d3df71b61ab09002289c783c266b7e1b476ee352c51327557f08bdf5",
+      "ledger_path": "reports/baf-bagged-anchor-fusion-v1/implementation-checks/full-suite-1501-pre-portability/test_model_fits.json"
+    },
+    {
+      "label": "clean-full-execution-receipt",
+      "tests_passed": 1501,
+      "current_tiny_fits": 6,
+      "historical_attempts": 69,
+      "historical_completed": 69,
+      "historical_failed": 0,
+      "ledger_path": "reports/baf-bagged-anchor-fusion-v1/test_model_fits.json",
+      "ledger_sha256": "6a6a16fe67e089424aa44dd298b21f78e36b697fed85833e16b1a00581f559ec"
+    }
+  ],
+  "total_current_tiny_fits_so_far": 30,
+  "note": "18 prior checkpoint + 6 primary pre-portability + 6 exact-source clean-copy fits. Historical-module fits counted separately in both new full ledgers. Focused gate/lifecycle checks made zero fits."
+}

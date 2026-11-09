@@ -1,0 +1,13 @@
+{
+  "validation_fits": 90,
+  "final_fits": 14,
+  "diagnostic_fits": 3,
+  "source_config_hashes_match": true,
+  "train_boundaries_pass": true,
+  "same_future_cases_pass": true,
+  "matched_sizes_and_classes_pass": true,
+  "budget_confusion_accounting_pass": true,
+  "convergence_warnings": 0,
+  "freeze_precedes_final_access": true,
+  "eda_months_and_target_group_totals_pass": true
+}

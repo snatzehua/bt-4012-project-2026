@@ -1,0 +1,14 @@
+{
+  "selection_sha256": "0445cadfbcfa2255f1f045665f48e579ebbe5a333777bcee0acc929348a03501",
+  "winner": "bagged_anchor_balanced_logit_a25",
+  "policy": "pooled",
+  "macro_f2": 0.33088096180021687,
+  "roles": 8,
+  "physical_scores": 13,
+  "base_models": 8,
+  "model_files": 9,
+  "new_fits": 0,
+  "prospective_cases_verified": 162,
+  "changed_dependency_rejection": "Frozen roles/DAG/bounds differ",
+  "selection_bytes_unchanged": true
+}

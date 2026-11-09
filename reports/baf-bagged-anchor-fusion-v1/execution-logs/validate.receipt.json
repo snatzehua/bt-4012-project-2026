@@ -1,0 +1,7 @@
+{
+  "step": "validate",
+  "module": "baf.bagged_anchor_study",
+  "returncode": 0,
+  "elapsed_seconds": 175.20938641706016,
+  "closed_log_sha256": "069362abaa3e95569816a8a2a7021bfa62d72fefa5c67ee871180a736d68708e"
+}

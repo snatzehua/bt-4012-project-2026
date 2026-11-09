@@ -1,0 +1,16 @@
+{
+  "checked_at_utc": "2026-10-13T03:37:13.146999+00:00",
+  "stage": "postarchive",
+  "selection_sha256": "0445cadfbcfa2255f1f045665f48e579ebbe5a333777bcee0acc929348a03501",
+  "preserved_mandatory_files": 1860,
+  "preserved_historical_files": 4848,
+  "tasks_complete": 14,
+  "tasks_total": 14,
+  "development_audited_models": 60,
+  "transfer_audited_models": 8,
+  "bootstrap_draws": 1500,
+  "interval_rows": 28,
+  "negative_result_preserved": true,
+  "broader_goal_achieved": false,
+  "manifests_require_separate_closed_log_verification": true
+}

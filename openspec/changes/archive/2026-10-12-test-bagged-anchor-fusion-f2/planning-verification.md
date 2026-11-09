@@ -1,0 +1,9 @@
+# Prospective declaration verification
+
+Two separate declarative implementations checked all 37 strategy IDs,111 winner/policy role mappings and exact dependency DAGs. The second reconstruction independently regenerated every 947 factor identity and matched the complete set, not just its count. The whole development graph has11 bases/40 scores per month, giving120 physical and 111 selectable scores, 222 forward rows and 111 macro/pooled/monthly-score summaries. All role/category maxima match the design table:7/9/21/26 roles, at most 11 bases/28 scores/six bagged fits.
+
+The exact 735-path mandatory union, sixteen original/exported selection pairs and 3732 available historical ignored files were hash-checked. All52 existing sources match the frozen parent; the three new planned modules do not exist yet. Current-parent final reference caches are complete and all six final bagged caches are wholly absent. The preserved parent production/config/software/protocol/selection/report identities were checked without changing any historical files.
+
+Planning computed24 existing-source development diagnostics, using already-frozen predictions and eligible earlier-only policies. It fitted no estimator, evaluated no new blend, read no new bagged month7 prediction and created no implementation configuration, protocol, module or output/report destination. The diagnostics justify testing complementarity cautiously, not claiming improvement. Six future tiny cache-format fits per full methodological invocation are a prospective test requirement, not work already performed.
+
+The planning scripts, complete hash maps, source diagnostics, all 111 case mappings and 947 factor rows are retained alongside the proposal, delta spec, design and14 pending implementation tasks. Strict OpenSpec validation and final CLI planning status are recorded separately. Artifact readiness is not task completion or performance achievement.

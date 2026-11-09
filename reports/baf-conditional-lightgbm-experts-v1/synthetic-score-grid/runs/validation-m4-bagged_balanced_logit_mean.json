@@ -1,0 +1,8 @@
+{
+  "fixture": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "candidate": "bagged_balanced_logit_mean",
+  "eval_month": 4,
+  "prediction_sha256": "8d292527a63757bad32de2298324601024a1b738be5c311d319dbcfb36315a4f"
+}

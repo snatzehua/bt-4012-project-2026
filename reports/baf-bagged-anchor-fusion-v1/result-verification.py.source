@@ -1,0 +1,28 @@
+from pathlib import Path
+import tempfile,shutil,json
+import pandas as pd,numpy as np
+from PIL import Image
+from baf import bagged_anchor_study as run,bagged_anchor_report as report
+from baf.common import read_config,digest,write_json
+c=read_config(run.CONFIG);out=Path(c['output_dir']);dest=Path(c['report_dir'])
+run.guard(c);s=read_config(out/'selection.json');a=read_config(dest/'audit.json');prep=read_config(out/'preparation.json');done=read_config(out/'transfer_complete.json')
+run.verify_hashes(s['artifacts']);run.verify_hashes(read_config(dest/'generated_report_hashes.json'))
+run.verify_hashes(s['fingerprint']['sources']);run.verify_hashes({str(out/p):h for p,h in s['validation_files'].items()})
+assert a['saved_development_models_checked']==33 and a['saved_final_models_checked']==done['base_results']
+assert a['direct_draws_checked']==1500 and a['visible_roles']==len(s['choices'])
+assert a['development_intervals']==3*(len(s['choices'])-1) and a['consumed_intervals']==len(s['choices'])-1
+for name,n in [('crossfit',222),('summary',111),('pooled',111),('contrasts',947),('diversity',18),('decision_overlap',36),('clipping',39),('expressions',60)]:
+ assert len(pd.read_csv(out/(name+'.csv')))==n,(name,n)
+assert len(pd.read_csv(dest/'development_draws.csv'))==1000 and len(pd.read_csv(dest/'consumed_draws.csv'))==500
+summary=pd.read_csv(out/'summary.csv');report.audit_figure(summary,dest)
+with tempfile.TemporaryDirectory(prefix='baf-bagged-anchor-figure-') as tmp:
+ report.operating_figure(summary,Path(tmp));before=np.asarray(Image.open(dest/'bagged_anchor_operating.png'));after=np.asarray(Image.open(Path(tmp)/'bagged_anchor_operating.png'))
+ assert np.array_equal(before,after)
+ for name in ['plotted_operating_points.csv','plotted_alpha_curves.csv','figure_legends.json']:
+  assert (dest/name).read_bytes()==(Path(tmp)/name).read_bytes()
+write_json(dest/'figure_verification.json',dict(all_operating_points=111,all_curve_rows=60,matched_curves=12,canonical_endpoints=True,values_legends_independently_reconstructed=True,pixel_identical_regeneration=True))
+for p in (out/'execution-logs').glob('*.receipt.json'):
+ r=read_config(p);assert r['returncode']==0 and r['closed_log_sha256']==digest(p.with_name(r['step']+'.log'))
+shutil.copytree(out/'execution-logs',dest/'execution-logs')
+write_json(dest/'execution_verification.json',dict(development_models=33,development_scores=120,forward_rows=222,contrasts=947,roles=len(s['choices']),final_models=done['base_results'],final_scores=done['total_scores'],new_development_fits=prep['new_bagged_fits']+prep['reproduced_additive_fits']+prep['reproduced_tree_fits'],new_final_bagged_fits=done['new_bagged_fits'],preserved_histories=16,mandatory_paths=735,preservation_checked=True,source_identity_checked=True,closed_scientific_logs_checked=True,all_five_both_scope_measured_acceptance=a['measured_gain_on_both_scopes']))
+print(json.dumps(a,indent=2))

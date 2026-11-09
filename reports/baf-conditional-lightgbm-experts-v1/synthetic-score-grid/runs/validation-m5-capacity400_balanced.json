@@ -1,0 +1,8 @@
+{
+  "fixture": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "candidate": "capacity400_balanced",
+  "eval_month": 5,
+  "prediction_sha256": "e4438baec5d241eec4e7afc90d0901f4da0c4009a0351c1a9cba4a16cffd146a"
+}

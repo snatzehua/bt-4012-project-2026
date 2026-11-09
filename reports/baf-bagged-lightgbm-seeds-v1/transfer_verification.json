@@ -1,0 +1,11 @@
+{
+  "selection_sha256": "f95014916a891deb6267652adbc0725d224715b7ca4927169bcf836c5d44b43c",
+  "transfer_sha256": "dd58a02f8ca923114a00c12987c592a5343425a2a2063d710d9a773430fa981b",
+  "exact_roles": 7,
+  "exact_bases": 5,
+  "exact_scores": 8,
+  "new_fits": 0,
+  "reference_reuses": 5,
+  "freeze_before_access": true,
+  "losing_grid_absent": true
+}

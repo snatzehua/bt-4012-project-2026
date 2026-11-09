@@ -1,0 +1,13 @@
+candidate,baseline,metric,difference,ci_low,ci_high,replicates,uncertainty
+baseline_balanced,baseline_lgbm,average_precision,-0.006304202784772478,-0.01256847601597511,2.351545942234734e-05,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+baseline_balanced,baseline_lgbm,recall_at_1pct,-0.007002801120448182,-0.016009832509062263,0.002804728374816383,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+baseline_balanced,baseline_lgbm,f1_policy,-0.008629910522269635,-0.01882968570390535,0.0009324685813106806,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+baseline_logistic,baseline_lgbm,average_precision,-0.029709743843394476,-0.03996840098733354,-0.018721619210741572,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+baseline_logistic,baseline_lgbm,recall_at_1pct,-0.02941176470588236,-0.0429348255344543,-0.013631928181108512,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+baseline_logistic,baseline_lgbm,f1_policy,-0.03200675359851424,-0.04791363401391395,-0.0160257697221461,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+blend25,baseline_lgbm,average_precision,0.0042340107662253434,-0.0023085647478870504,0.010752445518996605,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+blend25,baseline_lgbm,recall_at_1pct,0.01050420168067226,0.0013669239336885242,0.022553435013967876,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+blend25,baseline_lgbm,f1_policy,0.0037477891967334087,-0.006952125716581108,0.013863120805691864,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+blend50,baseline_lgbm,average_precision,0.003916904901727358,-0.0021254136926447138,0.009404097348192074,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+blend50,baseline_lgbm,recall_at_1pct,0.007703081232492998,-0.003408699355073596,0.019157453695657866,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction
+blend50,baseline_lgbm,f1_policy,0.0007730348986815794,-0.009489112297181555,0.01056398180703144,500,conditional paired row bootstrap; fixed models and thresholds; no search/multiplicity correction

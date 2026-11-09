@@ -1,0 +1,12 @@
+{
+  "selection_sha256": "484db880ec8477cfc54db83e7f8e6b0f5970cc9950f4e5925b90a0cf736a8c01",
+  "created_at_utc": "2026-10-11T13:13:23.643914+00:00",
+  "frozen_roles_only": true,
+  "bases": 5,
+  "scores": 8,
+  "base_reuses": 5,
+  "new_fits": 0,
+  "consumed_month7": true,
+  "preliminary_selected_f2": 0.3715337954939341,
+  "reference_comparison_failed": true
+}

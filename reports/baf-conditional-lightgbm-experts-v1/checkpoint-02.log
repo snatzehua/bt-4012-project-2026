@@ -1,0 +1,91 @@
+........................................................................ [ 51%]
+............................F........................................    [100%]
+=================================== FAILURES ===================================
+_________ test_complete_analytical_tables_independently_reconstructed __________
+
+analytical = ({'data_path': 'data/raw/baf/Base.csv', 'data_sha256': '7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b8....                     0.000000
+737  matched_partition  ...                     0.000000
+
+[738 rows x 11 columns], ...})
+
+    def test_complete_analytical_tables_independently_reconstructed(analytical):
+        c,frame,h,generated=analytical
+>       receipt=report.audit_tables(c,frame,h,generated)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_conditional_experts.py:248: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+baf/conditional_expert_report.py:145: in audit_tables
+    close(row,direct_group_metrics(d['labels'][take],masks[n,k,m][take]))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+baf/conditional_expert_report.py:66: in direct_group_metrics
+    tn, fp, fn, tp = [int(x) for x in confusion_matrix(labels, mask, labels=[0,1]).ravel()]
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:218: in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:552: in confusion_matrix
+    y_type, unique_labels, y_true, y_pred, _ = _check_targets(y_true, y_pred)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+y_true = array([], dtype=int64), y_pred = array([], dtype=bool)
+sample_weight = None
+
+    def _check_targets(y_true, y_pred, sample_weight=None):
+        """Check that y_true and y_pred belong to the same classification task.
+    
+        This converts multiclass or binary types to a common shape, and raises a
+        ValueError for:
+    
+            - targets of different lengths,
+            - a mix of multilabel and multiclass targets,
+            - a mix of multilabel target and anything else
+              (because there are no explicit labels),
+            - the presence of continuous-valued or multioutput (or 'unknown') targets,
+            - mix of string and integer labels.
+    
+        Column vectors are squeezed to 1d, while multilabel formats are returned
+        as CSR sparse label indicators.
+    
+        Parameters
+        ----------
+        y_true : array-like
+    
+        y_pred : array-like
+    
+        sample_weight : array-like, default=None
+    
+        Returns
+        -------
+        type_true : one of {'multilabel-indicator', 'multiclass', 'binary'}
+            The type of the true target data, as output by
+            ``utils.multiclass.type_of_target``.
+    
+        unique_labels : array
+            An ordered array of unique labels occurring either in `y_true`, `y_pred` or
+            both.
+    
+        y_true : array or indicator matrix
+    
+        y_pred : array or indicator matrix
+    
+        sample_weight : array or None
+        """
+        xp, _ = get_namespace(y_true, y_pred, sample_weight)
+        check_consistent_length(y_true, y_pred, sample_weight)
+        type_true = type_of_target(y_true, input_name="y_true")
+        type_pred = type_of_target(y_pred, input_name="y_pred")
+        for array in [y_true, y_pred]:
+            if _num_samples(array) < 1:
+>               raise ValueError(
+                    "Found empty input array (e.g., `y_true` or `y_pred`) while a minimum "
+                    "of 1 sample is required."
+                )
+E               ValueError: Found empty input array (e.g., `y_true` or `y_pred`) while a minimum of 1 sample is required.
+
+.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:120: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_conditional_experts.py::test_complete_analytical_tables_independently_reconstructed
+1 failed, 140 passed, 1501 deselected in 29.18s
+Actual classifier-fit calls: 10

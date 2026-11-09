@@ -1,0 +1,8 @@
+{
+  "fixture": {
+    "fixture": "synthetic scores only; no classifier, preprocessor or operational-result claim"
+  },
+  "candidate": "spline_c0p1_unweighted",
+  "eval_month": 5,
+  "prediction_sha256": "f8172936d1bd66b30327314368bb68bbf2bb438b5b6a8764f387b8c758c45cbf"
+}

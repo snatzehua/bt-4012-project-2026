@@ -1,0 +1,31 @@
+mandatory_preservation_sha256 1053 verified
+historical_ignored_file_sha256 4369 verified
+{
+  "status": "planning_complete_implementation_pending",
+  "tasks_complete": 0,
+  "tasks_total": 14,
+  "requirements": 8,
+  "scenarios": 12,
+  "new_model_fits": 0,
+  "new_proposed_evaluations": 0,
+  "mandatory_paths_verified": 1053,
+  "historical_files_verified": 4369,
+  "selection_pairs": 17,
+  "strategies": 24,
+  "winner_policy_cases": 72,
+  "contrast_identities": 738,
+  "planned_sources": 58,
+  "max_visible_roles": 17,
+  "max_full_transfer_scores": 22,
+  "observed_training_only_max_new_transfer_fits": 15,
+  "python": "3.12.9",
+  "pins_verified": 27,
+  "data_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+  "strict_openspec": "25 passed,0 failed",
+  "previous_goal_execution_turn": "progress: seventeenth study completed with verified negative comparisons; intervening budget clarification did not execute a study",
+  "current_progress": "old development diagnostic changes next action; conditional experiment declared prospectively",
+  "goal_achieved": false,
+  "implementation_absence_verified": true,
+  "initial_mapping_failure_retained": true,
+  "initial_status_semantics_failure_retained": true
+}

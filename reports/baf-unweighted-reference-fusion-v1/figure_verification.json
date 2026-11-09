@@ -1,0 +1,11 @@
+{
+  "figure_sha256": "32f512e7fb7c21bb33a2b902ffa5eaa55e182c4cb077b6314a0cb214ef54228c",
+  "visually_inspected": true,
+  "layout": "six readable panels; all legends/labels visible",
+  "operating_points_checked": 120,
+  "independent_crossfit_values_checked": true,
+  "addition_curves": 8,
+  "matched_anchor_curves": 4,
+  "existing_endpoint_controls": true,
+  "numerical_regeneration_identical": true
+}

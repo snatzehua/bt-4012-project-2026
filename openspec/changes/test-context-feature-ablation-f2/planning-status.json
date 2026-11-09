@@ -1,0 +1,104 @@
+{
+  "changeName": "test-context-feature-ablation-f2",
+  "schemaName": "spec-driven",
+  "planningHome": {
+    "kind": "repo",
+    "root": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026",
+    "changesDir": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes",
+    "defaultSchema": "spec-driven"
+  },
+  "changeRoot": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-context-feature-ablation-f2",
+  "artifactPaths": {
+    "proposal": {
+      "outputPath": "proposal.md",
+      "resolvedOutputPath": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-context-feature-ablation-f2/proposal.md",
+      "existingOutputPaths": [
+        "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-context-feature-ablation-f2/proposal.md"
+      ]
+    },
+    "specs": {
+      "outputPath": "specs/**/*.md",
+      "resolvedOutputPath": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-context-feature-ablation-f2/specs/**/*.md",
+      "existingOutputPaths": [
+        "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-context-feature-ablation-f2/specs/baf-context-feature-ablation-study/spec.md"
+      ]
+    },
+    "design": {
+      "outputPath": "design.md",
+      "resolvedOutputPath": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-context-feature-ablation-f2/design.md",
+      "existingOutputPaths": [
+        "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-context-feature-ablation-f2/design.md"
+      ]
+    },
+    "tasks": {
+      "outputPath": "tasks.md",
+      "resolvedOutputPath": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-context-feature-ablation-f2/tasks.md",
+      "existingOutputPaths": [
+        "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/openspec/changes/test-context-feature-ablation-f2/tasks.md"
+      ]
+    }
+  },
+  "isPlanningComplete": true,
+  "isComplete": true,
+  "applyRequires": [
+    "tasks"
+  ],
+  "nextSteps": [
+    "All planning artifacts are complete. Run openspec instructions apply --change \"test-context-feature-ablation-f2\" --json to inspect implementation progress."
+  ],
+  "actionContext": {
+    "mode": "repo-local",
+    "sourceOfTruth": "repo",
+    "planningArtifacts": [
+      "proposal",
+      "specs",
+      "design",
+      "tasks"
+    ],
+    "linkedContext": [],
+    "allowedEditRoots": [
+      "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026"
+    ],
+    "requiresAffectedAreaSelection": false,
+    "constraints": [
+      "Repo-local change artifacts and implementation edits are scoped to this project."
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "proposal",
+      "outputPath": "proposal.md",
+      "status": "done",
+      "requires": []
+    },
+    {
+      "id": "specs",
+      "outputPath": "specs/**/*.md",
+      "status": "done",
+      "requires": [
+        "proposal"
+      ]
+    },
+    {
+      "id": "design",
+      "outputPath": "design.md",
+      "status": "done",
+      "requires": [
+        "proposal"
+      ]
+    },
+    {
+      "id": "tasks",
+      "outputPath": "tasks.md",
+      "status": "done",
+      "requires": [
+        "specs",
+        "design"
+      ]
+    }
+  ],
+  "root": {
+    "path": "/Users/snatzehua/Documents/GitHub/bt-4012-project-2026",
+    "source": "nearest"
+  }
+}

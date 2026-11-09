@@ -1,0 +1,10 @@
+{
+  "check": "Byte-identical CSV after float parsing/reserialization",
+  "failed_file": "plotted_reference_intervals.csv",
+  "original_sha256": "decc7de63960b5acc200a5a10768bb0e91bc683de02430881bbedc699c618301",
+  "regenerated_sha256": "b84c4cc812691bc6f8ac8ea440e2802059224c0dafe7b645d3805a66aa4069f0",
+  "preserved_regenerated_directory": "/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/baf-shallow-figure-ia2x6vdu",
+  "png_identical": true,
+  "scientific_source_changed": false,
+  "remedy": "Require numeric equality at unchanged absolute 1e-12 / relative 0; encoding identity is not a scientific requirement."
+}

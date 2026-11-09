@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-10-12T08:32:27.358951+00:00",
+  "files": {
+    "reports/baf-shallow-catboost-v1/clean-copy/full-suite.log": "c77e7c92202f6b952d4d051f590fc7a5113b5b68bce476ca25e4e026f8f577ec",
+    "reports/baf-shallow-catboost-v1/clean-copy/tests.xml": "f767b03dc8a17aa2952dc5355e72d40eb73a3f6fbee6cf592e8b3e24770456c9",
+    "reports/baf-shallow-catboost-v1/clean-copy/checks.json": "f47dd2e11a0196963f4042d3b8bd7f227e52338c251825b9d0d912f203318560",
+    "reports/baf-shallow-catboost-v1/clean-copy/setup_restore.json": "3b6d49d5cb9ed0a26871bf15f450c5320a037bc1b5824979ba53097049a1974d",
+    "reports/baf-shallow-catboost-v1/clean-copy/record_checks.log": "f47dd2e11a0196963f4042d3b8bd7f227e52338c251825b9d0d912f203318560"
+  },
+  "actual_fit_ledger_sha256": "3313210b707721644f521bcc58b805450b2166726b13e52a3e9435cec9b63c00",
+  "source_identity_matches_primary": true,
+  "tests": 2136,
+  "actual_current_tiny_fits": 18,
+  "actual_historical_tiny_fits": 85,
+  "full_size_clean_copy_retraining": false,
+  "archived_path_simulation_only": true
+}

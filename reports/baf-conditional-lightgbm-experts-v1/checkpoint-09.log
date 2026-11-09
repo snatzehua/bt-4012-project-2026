@@ -1,0 +1,45 @@
+........F....                                                            [100%]
+=================================== FAILURES ===================================
+_ test_source_gates_use_exports_when_optional_caches_are_wholly_absent[changed_original_receipt] _
+
+tmp_path = PosixPath('/private/var/folders/t5/x93h4kds34110n67wlm59khw0000gn/T/pytest-of-snatzehua/pytest-94/test_source_gates_use_exports_3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x12252f410>
+change = 'changed_original_receipt'
+
+    @pytest.mark.parametrize('change',['absent','partial_sampling','partial_older','changed_original_receipt'])
+    def test_source_gates_use_exports_when_optional_caches_are_wholly_absent(tmp_path,monkeypatch,change):
+        root=Path.cwd();c=dict(read_config(run.CONFIG),output_dir=str(tmp_path/'own'))
+        (tmp_path/'configs').symlink_to(root/'configs',target_is_directory=True)
+        (tmp_path/'reports').symlink_to(root/'reports',target_is_directory=True)
+        monkeypatch.chdir(tmp_path)
+        if change=='partial_sampling':
+            ancestor=read_config(c['parent_config']);seed=read_config(ancestor['parent_config'])
+            p=Path(next(iter(read_config(Path(seed['report_dir'])/'miniature_gate.json')['files'])))
+            p.parent.mkdir(parents=True);p.write_bytes(b'partial fixture')
+        elif change in ['partial_older','changed_original_receipt']:
+            fusion=read_config(c['fusion_source_config']);receipt=read_config(Path(fusion['report_dir'])/'source_miniature_gate.json')
+            p=Path(receipt['source'])
+            if change=='partial_older':
+                exported=read_config(str(p).replace('outputs/','reports/',1));p=Path(exported['results'][0]['artifact'])
+>           p.parent.mkdir(parents=True);p.write_bytes(b'changed or partial fixture')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/Users/snatzehua/Documents/GitHub/bt-4012-project-2026/tests/test_conditional_experts.py:620: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('reports/baf-interaction-spline-logistic-v1'), mode = 511
+parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           os.mkdir(self, mode)
+E           FileExistsError: [Errno 17] File exists: 'reports/baf-interaction-spline-logistic-v1'
+
+/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py:1311: FileExistsError
+=========================== short test summary info ============================
+FAILED tests/test_conditional_experts.py::test_source_gates_use_exports_when_optional_caches_are_wholly_absent[changed_original_receipt]
+1 failed, 12 passed, 1902 deselected in 0.95s
+Actual classifier-fit calls: 0

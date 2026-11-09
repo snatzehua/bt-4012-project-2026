@@ -1,0 +1,14 @@
+{
+  "files": {
+    "README.md": "381cf5a53979f12ec94ec1c9544f0b96c5f9aa155ba0733d40e9389f4325010f",
+    "AGENTS.md": "5a8a1c91740fe6f6fbb1ab3140760ead4d092c80e4ee70497c514523150f9a4c",
+    "openspec/config.yaml": "ad8cdd49158a32ec886f3eb189a8806e0eaea1614406b5187c766c8efa7ae260"
+  },
+  "all_reproduction_blocks_identical_to_executed": true,
+  "blocks": 3,
+  "selection_restores": 15,
+  "full_clean_suite": 1070,
+  "full_production_retraining_in_clean_copy_claimed": false,
+  "final_archive_context_consistent": true,
+  "archive_path": "openspec/changes/archive/2026-10-12-test-bagged-lightgbm-seed-ensembles-f2"
+}
