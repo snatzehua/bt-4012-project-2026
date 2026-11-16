@@ -1,0 +1,3 @@
+threshold,TP (fraud caught),FP (false alarm),FN (fraud missed),TN (legit passed),accuracy,precision,recall
+T1: review top 1% (set on validation),684,1936,2194,200197,0.9798547395017828,0.26106870229007634,0.23766504517025713
+T2: 5% FPR (set on validation),1621,11530,1257,190603,0.937627737048256,0.12326058854839936,0.563238359972203

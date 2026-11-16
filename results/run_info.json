@@ -1,0 +1,144 @@
+{
+  "settings": {
+    "data_path": "data\\Base.csv",
+    "results_dir": "C:\\Users\\zwjf0\\Documents\\bt-4012-project-2026-lecture-aligned\\results",
+    "fig_dir": "C:\\Users\\zwjf0\\Documents\\bt-4012-project-2026-lecture-aligned\\figures",
+    "sample_frac": 1.0,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "train_months": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "val_months": [
+      5
+    ],
+    "test_months": [
+      6,
+      7
+    ],
+    "window_test_months": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "window_ks": [
+      1,
+      2,
+      3
+    ],
+    "fixed_k_test_months": [
+      5,
+      6,
+      7
+    ],
+    "fixed_k_sizes": [
+      25000,
+      50000,
+      100000,
+      200000,
+      300000
+    ],
+    "fixed_k_models": [
+      "lightgbm",
+      "logreg"
+    ],
+    "feature_set": "engineered",
+    "fpr_target": 0.05,
+    "review_capacities": [
+      0.01,
+      0.02,
+      0.05
+    ],
+    "cost_ratios": [
+      10,
+      25,
+      50,
+      100
+    ],
+    "rf_trees": 200,
+    "lgbm_trees": 500,
+    "undersample_ratio": 10,
+    "n_bootstrap": 200,
+    "n_jobs": -1
+  },
+  "rows": 1000000,
+  "fraud_rate": 0.011029,
+  "cleaning": {
+    "missing_rate": {
+      "prev_address_months_count": 0.71292,
+      "current_address_months_count": 0.004254,
+      "intended_balcon_amount": 0.742523,
+      "bank_months_count": 0.253635,
+      "session_length_in_minutes": 0.002015,
+      "device_distinct_emails_8w": 0.000359
+    },
+    "dropped_constant": [
+      "device_fraud_count"
+    ]
+  },
+  "numeric_features": [
+    "income",
+    "name_email_similarity",
+    "prev_address_months_count",
+    "current_address_months_count",
+    "customer_age",
+    "days_since_request",
+    "intended_balcon_amount",
+    "zip_count_4w",
+    "velocity_6h",
+    "velocity_24h",
+    "velocity_4w",
+    "bank_branch_count_8w",
+    "date_of_birth_distinct_emails_4w",
+    "credit_risk_score",
+    "email_is_free",
+    "phone_home_valid",
+    "phone_mobile_valid",
+    "bank_months_count",
+    "has_other_cards",
+    "proposed_credit_limit",
+    "foreign_request",
+    "session_length_in_minutes",
+    "keep_alive_session",
+    "device_distinct_emails_8w",
+    "velocity_6h_to_24h",
+    "velocity_24h_to_4w",
+    "velocity_6h_to_4w",
+    "n_missing",
+    "has_prev_address",
+    "total_address_months",
+    "phones_valid"
+  ],
+  "categorical_features": [
+    "payment_type",
+    "employment_status",
+    "housing_status",
+    "source",
+    "device_os"
+  ],
+  "engineered_features": [
+    "velocity_6h_to_24h",
+    "velocity_24h_to_4w",
+    "velocity_6h_to_4w",
+    "n_missing",
+    "has_prev_address",
+    "total_address_months",
+    "phones_valid"
+  ],
+  "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "versions": {
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "scikit-learn": "1.8.0",
+    "lightgbm": "4.6.0"
+  }
+}

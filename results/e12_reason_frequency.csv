@@ -1,0 +1,29 @@
+feature,times_in_top3,share_of_flagged_cases,description
+housing_status,8185,0.6850518915299632,declared housing status
+device_os,7601,0.6361734181452963,device operating system
+name_email_similarity,4051,0.33905256109809173,e-mail address does not resemble the applicant's name
+income,3081,0.2578674255105457,declared income decile
+credit_risk_score,2886,0.24154670237696685,internal credit risk score
+current_address_months_count,2115,0.1770170739872782,months at current address
+date_of_birth_distinct_emails_4w,1702,0.14245061935051892,e-mails seen with the same date of birth (4 weeks)
+customer_age,1100,0.0920656176765986,applicant age band
+proposed_credit_limit,1066,0.089219953130231,credit limit requested
+keep_alive_session,912,0.0763307666555072,kept the session logged in
+velocity_4w,880,0.07365249414127888,"application volume, last 4 weeks"
+device_distinct_emails_8w,744,0.062269835955808504,e-mails seen from the same device (8 weeks)
+days_since_request,497,0.04159691998660864,days since the request
+bank_branch_count_8w,461,0.03858386340810178,applications at the same branch (8 weeks)
+email_is_free,126,0.01054569802477402,free web-mail address
+session_length_in_minutes,117,0.009792433880147305,session length
+bank_months_count,99,0.008285905590893873,months with previous bank
+phone_home_valid,68,0.005691329092735186,home phone number validity
+zip_count_4w,50,0.004184800803481754,applications from the same zip code (4 weeks)
+foreign_request,39,0.0032641446267157683,request from a foreign country
+intended_balcon_amount,17,0.0014228322731837965,initial transfer amount
+phones_valid,14,0.001171744224974891,number of valid phone numbers
+n_missing,13,0.001088048208905256,number of optional fields left empty
+total_address_months,12,0.001004352192835621,total months at current + previous address
+velocity_24h,3,0.00025108804820890524,"application volume, last 24 hours"
+prev_address_months_count,2,0.00016739203213927018,months at previous address
+velocity_6h_to_4w,2,0.00016739203213927018,velocity_6h_to_4w
+velocity_24h_to_4w,1,8.369601606963509e-05,velocity_24h_to_4w

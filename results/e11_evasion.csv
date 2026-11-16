@@ -1,0 +1,13 @@
+target_model,attack,budget_fields,frauds_caught_before,evasion_rate,recall_before,recall_after
+logreg,"query (black-box, score only)",1,1414,0.6944837340876945,0.49131341209173035,0.15010423905489922
+logreg,"query (black-box, score only)",2,1414,0.9575671852899575,0.49131341209173035,0.020847810979847115
+logreg,"query (black-box, score only)",3,1414,0.9978783592644979,0.49131341209173035,0.0010423905489923557
+lightgbm,"query (black-box, score only)",1,1621,0.567550894509562,0.563238359972203,0.24357192494788046
+lightgbm,"query (black-box, score only)",2,1621,0.8723010487353485,0.563238359972203,0.07192494788047255
+lightgbm,"query (black-box, score only)",3,1621,0.9648365206662554,0.563238359972203,0.01980542043085476
+lightgbm,transfer from logistic-regression proxy,1,1299,0.3279445727482679,,
+lightgbm,transfer from logistic-regression proxy,2,1299,0.7421093148575828,,
+lightgbm,transfer from logistic-regression proxy,3,1299,0.9337952270977675,,
+lightgbm (adversarially trained),"query (black-box, score only)",1,1524,0.4251968503937008,,0.30437804030576787
+lightgbm (adversarially trained),"query (black-box, score only)",2,1524,0.6811023622047244,,0.16886726893676163
+lightgbm (adversarially trained),"query (black-box, score only)",3,1524,0.8208661417322834,,0.09485753995830438

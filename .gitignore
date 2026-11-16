@@ -1,3 +1,17 @@
 archive
-README.md
 AGENTS.md
+
+# data is never committed (download Base.csv from Kaggle, see README)
+data/*
+!data/.gitkeep
+
+# large generated files
+results/models/
+results/e1_scores.csv.gz
+
+# Python / notebooks / OS
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+.DS_Store

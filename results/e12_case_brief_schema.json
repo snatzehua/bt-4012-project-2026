@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Application fraud case brief",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "month",
+    "risk_percentile",
+    "band",
+    "escalation_rule",
+    "top_reasons",
+    "recommended_action",
+    "requires_human_approval",
+    "not_checked",
+    "model"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "pattern": "^APP-[0-9]{7}$"
+    },
+    "month": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 7
+    },
+    "risk_percentile": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "band": {
+      "enum": [
+        "escalate",
+        "review",
+        "clear"
+      ]
+    },
+    "escalation_rule": {
+      "type": "string"
+    },
+    "top_reasons": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "feature",
+          "description",
+          "value",
+          "typical_legit_value",
+          "contribution"
+        ],
+        "properties": {
+          "feature": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "string",
+              "number",
+              "null"
+            ]
+          },
+          "typical_legit_value": {
+            "type": [
+              "string",
+              "number",
+              "null"
+            ]
+          },
+          "contribution": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "recommended_action": {
+      "type": "string"
+    },
+    "requires_human_approval": {
+      "type": "boolean"
+    },
+    "not_checked": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "model": {
+      "type": "string"
+    }
+  }
+}

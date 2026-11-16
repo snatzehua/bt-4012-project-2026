@@ -1,0 +1,25 @@
+{
+  "params": {
+    "logreg": {
+      "C": 0.1
+    },
+    "random_forest": {
+      "min_samples_leaf": 50
+    },
+    "lightgbm": {
+      "num_leaves": 31,
+      "learning_rate": 0.05
+    }
+  },
+  "best_model": "lightgbm",
+  "strategy": {
+    "logreg": "undersample",
+    "random_forest": "none",
+    "lightgbm": "undersample"
+  },
+  "val_pr_auc": {
+    "logreg": 0.16544245907991406,
+    "random_forest": 0.16290190283592165,
+    "lightgbm": 0.18675326483563595
+  }
+}
