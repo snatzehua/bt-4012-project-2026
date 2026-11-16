@@ -1,0 +1,10 @@
+data/*.csv
+results/*/models/
+results/*/e1_scores.csv.gz
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# The group repo's root .gitignore ignores README.md; keep this project's README
+!README.md

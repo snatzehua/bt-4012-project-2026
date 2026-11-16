@@ -1,0 +1,16 @@
+{
+  "params": {
+    "logreg": {
+      "C": 0.1
+    },
+    "random_forest": {
+      "min_samples_leaf": 50
+    },
+    "lightgbm": {
+      "num_leaves": 31,
+      "learning_rate": 0.05
+    }
+  },
+  "best_model": "lightgbm",
+  "strategy": "class_weight"
+}

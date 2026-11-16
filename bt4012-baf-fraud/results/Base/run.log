@@ -1,0 +1,139 @@
+[    0.1s] Loading data/Base.csv (sample_frac=1.0)
+[    3.4s] 1,000,000 rows, 24 numeric + 5 categorical features, fraud rate 0.0110
+[    3.4s] E0: variable summary
+[    4.7s] E0: monthly volume and fraud rate
+[    4.9s] E0: covariate drift (does each feature's distribution change over months?)
+[    9.7s] E0: concept drift (does each feature's link to fraud change over months?)
+[   13.4s] E0 done
+[   13.5s] E1: train 675,666 rows (months [0, 1, 2, 3, 4]), val 119,323, test 205,011
+[   19.2s]   tune logreg {'C': 0.1}: val PR-AUC 0.1552
+[   24.9s]   tune logreg {'C': 1.0}: val PR-AUC 0.1552
+[  172.3s]   tune random_forest {'min_samples_leaf': 10}: val PR-AUC 0.1521
+[  321.8s]   tune random_forest {'min_samples_leaf': 50}: val PR-AUC 0.1534
+[  344.3s]   tune lightgbm {'num_leaves': 31, 'learning_rate': 0.05}: val PR-AUC 0.1778
+[  369.2s]   tune lightgbm {'num_leaves': 63, 'learning_rate': 0.05}: val PR-AUC 0.1710
+[  369.2s] E1: best params {'logreg': {'C': 0.1}, 'random_forest': {'min_samples_leaf': 50}, 'lightgbm': {'num_leaves': 31, 'learning_rate': 0.05}}; best model on validation: lightgbm
+[  384.2s]   logreg seed 0: test PR-AUC 0.1597, recall@5%FPR 0.500, realised FPR 0.046
+[  544.3s]   random_forest seed 0: test PR-AUC 0.1670, recall@5%FPR 0.521, realised FPR 0.053
+[  698.3s]   random_forest seed 1: test PR-AUC 0.1675, recall@5%FPR 0.519, realised FPR 0.054
+[  848.2s]   random_forest seed 2: test PR-AUC 0.1672, recall@5%FPR 0.513, realised FPR 0.053
+[  883.0s]   lightgbm seed 0: test PR-AUC 0.1804, recall@5%FPR 0.526, realised FPR 0.050
+[  909.2s]   lightgbm seed 1: test PR-AUC 0.1743, recall@5%FPR 0.518, realised FPR 0.050
+[  934.7s]   lightgbm seed 2: test PR-AUC 0.1790, recall@5%FPR 0.525, realised FPR 0.049
+[  939.4s] E1 done
+[  947.3s] E2 logreg seed 0 temporal: PR-AUC 0.1643, recall@5%FPR 0.507
+[  954.4s] E2 logreg seed 0 random: PR-AUC 0.1484, recall@5%FPR 0.516
+[  983.5s] E2 lightgbm seed 0 temporal: PR-AUC 0.1840, recall@5%FPR 0.527
+[ 1010.7s] E2 lightgbm seed 0 random: PR-AUC 0.1707, recall@5%FPR 0.533
+[ 1038.6s] E2 lightgbm seed 1 temporal: PR-AUC 0.1790, recall@5%FPR 0.514
+[ 1064.8s] E2 lightgbm seed 1 random: PR-AUC 0.1516, recall@5%FPR 0.523
+[ 1097.0s] E2 lightgbm seed 2 temporal: PR-AUC 0.1811, recall@5%FPR 0.530
+[ 1123.8s] E2 lightgbm seed 2 random: PR-AUC 0.1683, recall@5%FPR 0.528
+[ 1123.9s] E2 done
+[ 1143.2s] E3 t=4 expanding         k=None seed=0 n=547,975: recall@5%FPR 0.548
+[ 1151.6s] E3 t=4 rolling           k=1 seed=0 n=150,936: recall@5%FPR 0.506
+[ 1159.6s] E3 t=4 expanding_matched k=1 seed=0 n=150,936: recall@5%FPR 0.512
+[ 1171.9s] E3 t=4 rolling           k=2 seed=0 n=287,915: recall@5%FPR 0.526
+[ 1183.2s] E3 t=4 expanding_matched k=2 seed=0 n=287,915: recall@5%FPR 0.526
+[ 1198.7s] E3 t=4 rolling           k=3 seed=0 n=415,535: recall@5%FPR 0.533
+[ 1218.1s] E3 t=4 expanding_matched k=3 seed=0 n=415,535: recall@5%FPR 0.532
+[ 1237.6s] E3 t=4 expanding         k=None seed=1 n=547,975: recall@5%FPR 0.561
+[ 1246.1s] E3 t=4 rolling           k=1 seed=1 n=150,936: recall@5%FPR 0.491
+[ 1254.0s] E3 t=4 expanding_matched k=1 seed=1 n=150,936: recall@5%FPR 0.491
+[ 1268.4s] E3 t=4 rolling           k=2 seed=1 n=287,915: recall@5%FPR 0.506
+[ 1282.4s] E3 t=4 expanding_matched k=2 seed=1 n=287,915: recall@5%FPR 0.532
+[ 1297.5s] E3 t=4 rolling           k=3 seed=1 n=415,535: recall@5%FPR 0.523
+[ 1312.2s] E3 t=4 expanding_matched k=3 seed=1 n=415,535: recall@5%FPR 0.538
+[ 1331.2s] E3 t=4 expanding         k=None seed=2 n=547,975: recall@5%FPR 0.543
+[ 1340.3s] E3 t=4 rolling           k=1 seed=2 n=150,936: recall@5%FPR 0.501
+[ 1348.0s] E3 t=4 expanding_matched k=1 seed=2 n=150,936: recall@5%FPR 0.508
+[ 1359.7s] E3 t=4 rolling           k=2 seed=2 n=287,915: recall@5%FPR 0.514
+[ 1370.5s] E3 t=4 expanding_matched k=2 seed=2 n=287,915: recall@5%FPR 0.530
+[ 1385.2s] E3 t=4 rolling           k=3 seed=2 n=415,535: recall@5%FPR 0.523
+[ 1400.1s] E3 t=4 expanding_matched k=3 seed=2 n=415,535: recall@5%FPR 0.538
+[ 1423.2s] E3 t=5 expanding         k=None seed=0 n=675,666: recall@5%FPR 0.543
+[ 1430.8s] E3 t=5 rolling           k=1 seed=0 n=127,691: recall@5%FPR 0.492
+[ 1437.7s] E3 t=5 expanding_matched k=1 seed=0 n=127,691: recall@5%FPR 0.478
+[ 1450.4s] E3 t=5 rolling           k=2 seed=0 n=278,627: recall@5%FPR 0.508
+[ 1461.2s] E3 t=5 expanding_matched k=2 seed=0 n=278,627: recall@5%FPR 0.519
+[ 1475.9s] E3 t=5 rolling           k=3 seed=0 n=415,606: recall@5%FPR 0.519
+[ 1490.4s] E3 t=5 expanding_matched k=3 seed=0 n=415,606: recall@5%FPR 0.527
+[ 1513.0s] E3 t=5 expanding         k=None seed=1 n=675,666: recall@5%FPR 0.522
+[ 1520.2s] E3 t=5 rolling           k=1 seed=1 n=127,691: recall@5%FPR 0.480
+[ 1527.1s] E3 t=5 expanding_matched k=1 seed=1 n=127,691: recall@5%FPR 0.476
+[ 1538.0s] E3 t=5 rolling           k=2 seed=1 n=278,627: recall@5%FPR 0.488
+[ 1549.0s] E3 t=5 expanding_matched k=2 seed=1 n=278,627: recall@5%FPR 0.504
+[ 1564.1s] E3 t=5 rolling           k=3 seed=1 n=415,606: recall@5%FPR 0.511
+[ 1580.3s] E3 t=5 expanding_matched k=3 seed=1 n=415,606: recall@5%FPR 0.516
+[ 1602.7s] E3 t=5 expanding         k=None seed=2 n=675,666: recall@5%FPR 0.529
+[ 1609.8s] E3 t=5 rolling           k=1 seed=2 n=127,691: recall@5%FPR 0.484
+[ 1617.1s] E3 t=5 expanding_matched k=1 seed=2 n=127,691: recall@5%FPR 0.488
+[ 1628.1s] E3 t=5 rolling           k=2 seed=2 n=278,627: recall@5%FPR 0.512
+[ 1638.5s] E3 t=5 expanding_matched k=2 seed=2 n=278,627: recall@5%FPR 0.501
+[ 1653.2s] E3 t=5 rolling           k=3 seed=2 n=415,606: recall@5%FPR 0.502
+[ 1667.4s] E3 t=5 expanding_matched k=3 seed=2 n=415,606: recall@5%FPR 0.519
+[ 1692.7s] E3 t=6 expanding         k=None seed=0 n=794,989: recall@5%FPR 0.522
+[ 1700.0s] E3 t=6 rolling           k=1 seed=0 n=119,323: recall@5%FPR 0.461
+[ 1706.7s] E3 t=6 expanding_matched k=1 seed=0 n=119,323: recall@5%FPR 0.463
+[ 1716.6s] E3 t=6 rolling           k=2 seed=0 n=247,014: recall@5%FPR 0.503
+[ 1726.3s] E3 t=6 expanding_matched k=2 seed=0 n=247,014: recall@5%FPR 0.490
+[ 1739.9s] E3 t=6 rolling           k=3 seed=0 n=397,950: recall@5%FPR 0.488
+[ 1753.7s] E3 t=6 expanding_matched k=3 seed=0 n=397,950: recall@5%FPR 0.503
+[ 1778.0s] E3 t=6 expanding         k=None seed=1 n=794,989: recall@5%FPR 0.496
+[ 1784.5s] E3 t=6 rolling           k=1 seed=1 n=119,323: recall@5%FPR 0.463
+[ 1790.7s] E3 t=6 expanding_matched k=1 seed=1 n=119,323: recall@5%FPR 0.457
+[ 1800.4s] E3 t=6 rolling           k=2 seed=1 n=247,014: recall@5%FPR 0.479
+[ 1809.9s] E3 t=6 expanding_matched k=2 seed=1 n=247,014: recall@5%FPR 0.477
+[ 1823.8s] E3 t=6 rolling           k=3 seed=1 n=397,950: recall@5%FPR 0.492
+[ 1838.8s] E3 t=6 expanding_matched k=3 seed=1 n=397,950: recall@5%FPR 0.475
+[ 1863.4s] E3 t=6 expanding         k=None seed=2 n=794,989: recall@5%FPR 0.516
+[ 1869.9s] E3 t=6 rolling           k=1 seed=2 n=119,323: recall@5%FPR 0.457
+[ 1877.1s] E3 t=6 expanding_matched k=1 seed=2 n=119,323: recall@5%FPR 0.478
+[ 1887.3s] E3 t=6 rolling           k=2 seed=2 n=247,014: recall@5%FPR 0.508
+[ 1897.2s] E3 t=6 expanding_matched k=2 seed=2 n=247,014: recall@5%FPR 0.495
+[ 1911.2s] E3 t=6 rolling           k=3 seed=2 n=397,950: recall@5%FPR 0.496
+[ 1925.6s] E3 t=6 expanding_matched k=3 seed=2 n=397,950: recall@5%FPR 0.492
+[ 1954.3s] E3 t=7 expanding         k=None seed=0 n=903,157: recall@5%FPR 0.536
+[ 1960.3s] E3 t=7 rolling           k=1 seed=0 n=108,168: recall@5%FPR 0.476
+[ 1966.4s] E3 t=7 expanding_matched k=1 seed=0 n=108,168: recall@5%FPR 0.492
+[ 1977.1s] E3 t=7 rolling           k=2 seed=0 n=227,491: recall@5%FPR 0.513
+[ 1986.2s] E3 t=7 expanding_matched k=2 seed=0 n=227,491: recall@5%FPR 0.512
+[ 1999.3s] E3 t=7 rolling           k=3 seed=0 n=355,182: recall@5%FPR 0.531
+[ 2012.5s] E3 t=7 expanding_matched k=3 seed=0 n=355,182: recall@5%FPR 0.527
+[ 2042.9s] E3 t=7 expanding         k=None seed=1 n=903,157: recall@5%FPR 0.542
+[ 2049.4s] E3 t=7 rolling           k=1 seed=1 n=108,168: recall@5%FPR 0.475
+[ 2055.5s] E3 t=7 expanding_matched k=1 seed=1 n=108,168: recall@5%FPR 0.458
+[ 2067.3s] E3 t=7 rolling           k=2 seed=1 n=227,491: recall@5%FPR 0.513
+[ 2077.1s] E3 t=7 expanding_matched k=2 seed=1 n=227,491: recall@5%FPR 0.489
+[ 2091.2s] E3 t=7 rolling           k=3 seed=1 n=355,182: recall@5%FPR 0.518
+[ 2105.2s] E3 t=7 expanding_matched k=3 seed=1 n=355,182: recall@5%FPR 0.521
+[ 2136.2s] E3 t=7 expanding         k=None seed=2 n=903,157: recall@5%FPR 0.549
+[ 2142.2s] E3 t=7 rolling           k=1 seed=2 n=108,168: recall@5%FPR 0.466
+[ 2148.8s] E3 t=7 expanding_matched k=1 seed=2 n=108,168: recall@5%FPR 0.478
+[ 2158.9s] E3 t=7 rolling           k=2 seed=2 n=227,491: recall@5%FPR 0.512
+[ 2169.0s] E3 t=7 expanding_matched k=2 seed=2 n=227,491: recall@5%FPR 0.523
+[ 2182.8s] E3 t=7 rolling           k=3 seed=2 n=355,182: recall@5%FPR 0.543
+[ 2195.2s] E3 t=7 expanding_matched k=3 seed=2 n=355,182: recall@5%FPR 0.524
+[ 2195.4s] E3 done
+[ 2200.2s] E4 logreg none seed 0: recall@5%FPR 0.508, realised FPR 0.048, fit 4s
+[ 2206.3s] E4 logreg class_weight seed 0: recall@5%FPR 0.500, realised FPR 0.046, fit 6s
+[ 2207.4s] E4 logreg undersample seed 0: recall@5%FPR 0.506, realised FPR 0.047, fit 0s
+[ 2208.3s] E4 logreg undersample seed 1: recall@5%FPR 0.503, realised FPR 0.047, fit 0s
+[ 2209.3s] E4 logreg undersample seed 2: recall@5%FPR 0.502, realised FPR 0.047, fit 0s
+[ 2232.7s] E4 lightgbm none seed 0: recall@5%FPR 0.536, realised FPR 0.059, fit 18s
+[ 2256.2s] E4 lightgbm none seed 1: recall@5%FPR 0.539, realised FPR 0.059, fit 19s
+[ 2279.6s] E4 lightgbm none seed 2: recall@5%FPR 0.543, realised FPR 0.058, fit 18s
+[ 2305.5s] E4 lightgbm class_weight seed 0: recall@5%FPR 0.526, realised FPR 0.050, fit 20s
+[ 2330.3s] E4 lightgbm class_weight seed 1: recall@5%FPR 0.518, realised FPR 0.050, fit 19s
+[ 2354.9s] E4 lightgbm class_weight seed 2: recall@5%FPR 0.525, realised FPR 0.049, fit 19s
+[ 2363.5s] E4 lightgbm undersample seed 0: recall@5%FPR 0.534, realised FPR 0.056, fit 3s
+[ 2372.7s] E4 lightgbm undersample seed 1: recall@5%FPR 0.531, realised FPR 0.060, fit 3s
+[ 2381.6s] E4 lightgbm undersample seed 2: recall@5%FPR 0.534, realised FPR 0.062, fit 3s
+[ 2381.8s] E4 done
+[ 2382.2s] E5: operating-point analysis for lightgbm
+[ 2384.6s] E5 done
+/usr/local/lib/python3.13/site-packages/shap/explainers/_tree.py:578: UserWarning: LightGBM binary classifier with TreeExplainer shap values output has changed to a list of ndarray
+  warnings.warn(
+[ 2391.7s] E6: SHAP summary saved
+[ 2397.4s] E6 done
+[ 2397.4s] All done: {'e0': 10.0, 'e1': 926.0, 'e2': 184.5, 'e3': 1071.5, 'e4': 186.4, 'e5': 2.9, 'e6': 12.8}
