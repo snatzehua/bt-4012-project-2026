@@ -26,40 +26,7 @@ python scripts/build_submission_evidence.py --check
 python scripts/build_submission_evidence.py
 ```
 
-The first command checks source evidence without writing files. The second overwrites the generated table view. To verify an existing export without overwriting it, generate into a temporary destination and compare:
-
-```sh
-python - <<'PY'
-from pathlib import Path
-from tempfile import TemporaryDirectory
-import json
-import subprocess
-import sys
-
-with TemporaryDirectory() as directory:
-    subprocess.run([sys.executable, 'scripts/build_submission_evidence.py',
-                    '--output', directory], check=True)
-    generated = Path('submission/generated')
-    for fresh in sorted(Path(directory).iterdir()):
-        saved = generated / fresh.name
-        if fresh.suffix == '.json':
-            # JSON formatting and platform newlines do not change its content.
-            assert json.loads(fresh.read_text()) == json.loads(saved.read_text()), fresh.name
-        else:
-            assert fresh.read_bytes() == saved.read_bytes(), fresh.name
-print('All generated tables and manifest match.')
-PY
-```
-
-CSV comparison is byte-exact; JSON comparison checks parsed content. A checkout with converted CSV line endings will fail the byte comparison. Output inside `reports/`, `configs/`, `baf/` or `openspec/` is rejected by the exporter. A mismatch should be investigated before regenerating committed files.
-
-The focused tests require pytest, without the modelling stack or raw data:
-
-```sh
-python -m pytest -q tests/test_submission_evidence.py
-```
-
-Pytest is pinned in `requirements.txt` for the scientific environment. For an evidence-only environment, installing pytest alone is sufficient. If a restricted environment denies access to the default temporary directory, pass `--basetemp tmp/submission-evidence-tests` with a fresh disposable path; pytest clears that directory.
+The first command checks source evidence without writing files. The second overwrites `submission/generated/`. Use the [table index](#report-table-index) to locate results, or continue to [model reproduction](#reproduce-the-models). Optional [export comparison and tests](#optional-export-verification) are below the main routes.
 
 ## Report table index
 
@@ -165,9 +132,54 @@ The separate `configs/logistic-ablation.json` diagnostic adds development-only r
 
 ### Later studies and supplementary notebooks
 
-Use the [later-study recipes](study-reproduction.md) for ordered ancestor restores and stages, and the existing [shallow CatBoost guide](../reports/baf-shallow-catboost-v1/reproduction.md) for that study's full setup. They preserve cache-specific handling, resource gates and separate Newton fit/analysis histories. Do not substitute an unrestricted test run immediately after a base-only installation. Historical full-suite receipts describe their recorded environments; they are not tests performed by the table exporter.
+Use the [later-study recipes](study-reproduction.md) for ordered ancestor restores and stages, and the existing [shallow CatBoost guide](../reports/baf-shallow-catboost-v1/reproduction.md) for that study's full setup. They preserve cache-specific handling, resource gates and separate Newton fit/analysis histories. Several full-suite sequences are historical: the [receipt-handoff investigation](study-reproduction.md#full-suite-receipts-and-training-replay) identifies their unresolved current-replay transition. Do not substitute an unrestricted test run immediately after a base-only installation. Historical full-suite receipts describe their recorded environments; they are not tests performed by the table exporter.
 
 The [supplementary notebook workflow at its audited commit](https://github.com/snatzehua/bt-4012-project-2026/tree/d466ff34df6f62abe935b993ef75c8ca0dd3b1ed) has its own notebook instructions and external Drive artifacts. The [branch audit](submission-branch-audit.md) specifies the training/calibration timeline, prior evaluation exposure and `floor(q*N)` monthly budget, versus the canonical study's `ceil(q*N)`. Embedded notebook results were inspected rather than independently rerun. A fresh clone of this branch does not contain its external model and prediction exports.
+
+## Optional export verification
+
+### Compare generated tables
+
+To verify an existing export without overwriting it, generate into a temporary destination and compare:
+
+```sh
+python - <<'PY'
+from pathlib import Path
+from tempfile import TemporaryDirectory
+import json
+import subprocess
+import sys
+
+with TemporaryDirectory() as directory:
+    subprocess.run([sys.executable, 'scripts/build_submission_evidence.py',
+                    '--output', directory], check=True)
+    generated = Path('submission/generated')
+    for fresh in sorted(Path(directory).iterdir()):
+        saved = generated / fresh.name
+        if fresh.suffix == '.json':
+            # JSON formatting and platform newlines do not change its content.
+            assert json.loads(fresh.read_text()) == json.loads(saved.read_text()), fresh.name
+        else:
+            assert fresh.read_bytes() == saved.read_bytes(), fresh.name
+print('All generated tables and manifest match.')
+PY
+```
+
+CSV comparison is byte-exact; JSON comparison checks parsed content. A checkout with converted CSV line endings will fail the byte comparison. Output inside `reports/`, `configs/`, `baf/` or `openspec/` is rejected by the exporter. A mismatch should be investigated before regenerating committed files.
+
+### Focused evidence tests
+
+The focused tests require pytest, without the modelling stack or raw data:
+
+```sh
+python -m pytest -q tests/test_submission_evidence.py
+```
+
+Pytest is pinned in `requirements.txt` for the scientific environment. For an evidence-only environment, installing pytest alone is sufficient.
+
+### Temporary-directory troubleshooting
+
+If a restricted environment denies access to the default temporary directory, pass `--basetemp tmp/submission-evidence-tests` with a fresh disposable path; pytest clears that directory.
 
 ## Interpretation and assistance
 
