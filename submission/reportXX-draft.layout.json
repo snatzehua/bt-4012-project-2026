@@ -1,0 +1,180 @@
+{
+  "output": "submission/reportXX-draft.pdf",
+  "main_pages": 11,
+  "total_pages": 13,
+  "body_font_pt": 10.5,
+  "layout": [
+    {
+      "page": 1,
+      "appendix": false,
+      "bottom_content_y": 628.0,
+      "elements": [
+        "heading: Robust Bank Account Fraud Detection under Temporal Drift and Class Imbalance",
+        "paragraph",
+        "heading: 1. Problem Description",
+        "paragraph",
+        "paragraph",
+        "paragraph",
+        "paragraph"
+      ]
+    },
+    {
+      "page": 2,
+      "appendix": false,
+      "bottom_content_y": 785.83,
+      "elements": [
+        "heading: 2. Data Overview",
+        "heading: 2.1 Source, scale and temporal coverage",
+        "paragraph",
+        "paragraph",
+        "table",
+        "figure: reports/baf-study-v1/monthly.png",
+        "heading: 2.2 Variables and data quality"
+      ]
+    },
+    {
+      "page": 3,
+      "appendix": false,
+      "bottom_content_y": 678.2,
+      "elements": [
+        "paragraph",
+        "table",
+        "paragraph",
+        "paragraph"
+      ]
+    },
+    {
+      "page": 4,
+      "appendix": false,
+      "bottom_content_y": 781.4,
+      "elements": [
+        "heading: 3. Methodology",
+        "heading: 3.1 Chronological design and information boundaries",
+        "paragraph",
+        "table",
+        "paragraph",
+        "paragraph",
+        "heading: 3.2 Separating recency from sample size",
+        "paragraph",
+        "paragraph",
+        "heading: 3.3 Model-specific preprocessing and justification"
+      ]
+    },
+    {
+      "page": 5,
+      "appendix": false,
+      "bottom_content_y": 788.0,
+      "elements": [
+        "paragraph",
+        "table",
+        "paragraph",
+        "heading: 3.4 Feature engineering and ensembles",
+        "paragraph",
+        "paragraph"
+      ]
+    },
+    {
+      "page": 6,
+      "appendix": false,
+      "bottom_content_y": 361.2,
+      "elements": [
+        "paragraph",
+        "heading: 3.5 Metrics, selection and uncertainty",
+        "paragraph",
+        "paragraph",
+        "paragraph"
+      ]
+    },
+    {
+      "page": 7,
+      "appendix": false,
+      "bottom_content_y": 742.43,
+      "elements": [
+        "heading: 4. Experiments and Results",
+        "heading: 4.1 Recency provides no reliable general advantage",
+        "table",
+        "paragraph",
+        "figure: reports/baf-study-v1/validation_training_size.png",
+        "heading: 4.2 Family and weighting comparisons depend on the policy",
+        "paragraph"
+      ]
+    },
+    {
+      "page": 8,
+      "appendix": false,
+      "bottom_content_y": 784.8,
+      "elements": [
+        "table",
+        "paragraph",
+        "heading: 4.3 Engineering helps the linear model more consistently",
+        "paragraph",
+        "paragraph",
+        "heading: 4.4 Ensemble gains are modest and objective-specific",
+        "paragraph",
+        "paragraph"
+      ]
+    },
+    {
+      "page": 9,
+      "appendix": false,
+      "bottom_content_y": 777.8,
+      "elements": [
+        "table",
+        "paragraph",
+        "figure: reports/baf-improvements-v1/threshold_tradeoffs.png",
+        "heading: 4.5 Integration into an application-review process",
+        "paragraph",
+        "paragraph",
+        "paragraph"
+      ]
+    },
+    {
+      "page": 10,
+      "appendix": false,
+      "bottom_content_y": 356.0,
+      "elements": [
+        "heading: 4.6 Auxiliary branch evidence: updating changes the operating point",
+        "paragraph",
+        "paragraph"
+      ]
+    },
+    {
+      "page": 11,
+      "appendix": false,
+      "bottom_content_y": 593.6,
+      "elements": [
+        "heading: 5. Conclusion",
+        "paragraph",
+        "paragraph",
+        "paragraph",
+        "heading: Acknowledgements and assistance declaration",
+        "paragraph"
+      ]
+    },
+    {
+      "page": 12,
+      "appendix": true,
+      "bottom_content_y": 468.6,
+      "elements": [
+        "heading: References",
+        "paragraph",
+        "paragraph",
+        "paragraph",
+        "paragraph",
+        "paragraph",
+        "paragraph",
+        "paragraph"
+      ]
+    },
+    {
+      "page": 13,
+      "appendix": true,
+      "bottom_content_y": 460.6,
+      "elements": [
+        "heading: Appendix A. Evidence and scope ledger",
+        "table",
+        "paragraph"
+      ]
+    }
+  ]
+}

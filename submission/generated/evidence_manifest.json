@@ -1,0 +1,49 @@
+{
+  "aggregation_warning": "Development macro F2 averages chronological month-specific F2. Do not recompute it from averaged confusion counts.",
+  "evaluation_warning": "Month 7 is already consumed. Later studies and this consolidation are exploratory; no fresh confirmation is claimed.",
+  "excluded_incomplete_studies": [
+    "test-context-feature-ablation-f2",
+    "test-spline-logistic-f2 (stopped at convergence gate)"
+  ],
+  "export_sha256": {
+    "f2_comparison.csv": "e7cb7c2db56ea5185e28d2d9d9648531800b2e84b04d6eadd318d18d844f2d9d",
+    "f2_consumed_intervals.csv": "716632c0716798395bee5be01000af4bf07806a522950428c79405a6b51cf0a6",
+    "f2_development_intervals.csv": "4aa92293c1bc302b1db985c2b12faa509e80a016db19b95b44e2a24454ac8cff",
+    "improvement_development.csv": "b262d4d771b808d3de5f72402dd2eb4752b152f051b0ce52b8950dc7b642e115",
+    "improvement_month7.csv": "9819074d6883e25a4a65d604de0ef254c0645885cf6b5bd6304687bd25234395",
+    "logistic_fixed_c.csv": "2fd354bc10a22776bea6dd1489450e2ecba5058b4d6aa7e93ede6ca55f7f70f6",
+    "monthly.csv": "d147364db42f87a5dfa3c4c813b84fcaa2c198de12d29d9ef6839f2db45da47a",
+    "original_final_summary.csv": "9d520524c861c8e4344fba6918f4d34012bc17e6031b0b53f27986505b03ec94",
+    "recency_development.csv": "97ac11b3590775eb84b059f700c6e2a66eb2a1af60ef2faf02f0d30e79050758",
+    "recency_intervals.csv": "7996756295d11810dcc304e4af89c60bfd570f56f4aaeac02b63948bc72aa42f"
+  },
+  "schema_version": 1,
+  "scope": "Read-only historical evidence export; no model fits or new statistical inference",
+  "selection_warning": "Unweighted month-7 superiority is descriptive, not a replacement for the development-selected strategy.",
+  "source_sha256": {
+    "configs/bagged-anchor-fusion.json": "50e749a9f46bf52e0ec4b2bc5703edfe3a44e4ba4d78449e84ad23bb80e57f85",
+    "configs/improvements.json": "69ce021f440b840327127b6faada39fe89df7b0f4a870c8eaf7c0739c9a6e13d",
+    "configs/study.json": "a4a1bf6c4d1d724a478c7a16809f69e93a3f32905768c3d2897359cbec6dbdac",
+    "reports/baf-bagged-anchor-fusion-v1/consumed_intervals.csv": "716632c0716798395bee5be01000af4bf07806a522950428c79405a6b51cf0a6",
+    "reports/baf-bagged-anchor-fusion-v1/development_intervals.csv": "4aa92293c1bc302b1db985c2b12faa509e80a016db19b95b44e2a24454ac8cff",
+    "reports/baf-bagged-anchor-fusion-v1/exploratory.csv": "fc210d14210a25e7130b175ec5aa9531022cc76ae8a68fc7bc1f0562d993ed2b",
+    "reports/baf-bagged-anchor-fusion-v1/selection.json": "ec308166981ad973ab0fa6bee693e21d7bc8fe0e351bed32f4cb8b02eb8b8d0c",
+    "reports/baf-bagged-anchor-fusion-v1/summary.csv": "10f6e8afada75830f94e8dc14142861436e15778cc5ee3e3e90eb9dcb09e7084",
+    "reports/baf-improvements-v1/exploratory_metrics.csv": "2e7e457b89f29bfb2d535e6e4c4f14c72f89bd0576283fc0324a0025bcd6b64c",
+    "reports/baf-improvements-v1/logistic_fixed_c_summary.csv": "2fd354bc10a22776bea6dd1489450e2ecba5058b4d6aa7e93ede6ca55f7f70f6",
+    "reports/baf-improvements-v1/selection.json": "bd9a851c06917fcfeb7547bea86b98997a794ec0601ad11d315673d0475b02c3",
+    "reports/baf-improvements-v1/validation_summary.csv": "b262d4d771b808d3de5f72402dd2eb4752b152f051b0ce52b8950dc7b642e115",
+    "reports/baf-study-v1/final_metrics.csv": "5bc1b5bf6ac23441503644d2ab44111746bb5359d0475b10479142fe80b7b49e",
+    "reports/baf-study-v1/final_summary.csv": "9d520524c861c8e4344fba6918f4d34012bc17e6031b0b53f27986505b03ec94",
+    "reports/baf-study-v1/monthly.csv": "d147364db42f87a5dfa3c4c813b84fcaa2c198de12d29d9ef6839f2db45da47a",
+    "reports/baf-study-v1/paired_differences.csv": "7996756295d11810dcc304e4af89c60bfd570f56f4aaeac02b63948bc72aa42f",
+    "reports/baf-study-v1/selection.json": "cf88f7795898feb6be74d43e1591288939d93f99eb13a3eba841008a65e3f986",
+    "reports/baf-study-v1/validation_recency.csv": "97ac11b3590775eb84b059f700c6e2a66eb2a1af60ef2faf02f0d30e79050758"
+  },
+  "validated": {
+    "f2_consumed_roles": 5,
+    "improvement_final_rows": 5,
+    "model_fits": 0,
+    "original_final_rows": 14
+  }
+}

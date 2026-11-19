@@ -79,3 +79,8 @@ The separate improvement study is complete under `configs/improvements.json`, `d
 The report must be 8-12 pages excluding references/appendices and follow: Problem Description -> Data Overview -> Methodology -> Experiments and Results -> Conclusion. The full brief is locally at `archive/BT4012 Project Guidelines and Grading Criteria.pdf`.
 
 Acknowledge generative AI assistance, external code and public notebooks in the report, and keep submitted work explainable by the group. Track assistance sources as substantive work is produced.
+
+
+## Submission consolidation (18 November 2026)
+
+The submission working pack is in [`submission/README.md`](submission/README.md), with the pinned [branch audit](docs/submission-branch-audit.md) and [code/evidence guide](docs/submission-code-guide.md). New read-only export and document scripts consolidate completed evidence; they do not change frozen scientific implementations, train models, or restore an independent holdout. The context-feature-ablation study remains incomplete and excluded from measured submission claims. Group/member fields, final slide styling, spoken video, submission filenames and repository access require group review before Canvas submission. See the new `consolidate-submission-deliverables` change for delivery checks.

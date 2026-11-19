@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-18",
+  "scope": "Submission consolidation, not scientific retraining",
+  "focused_tests_passed": 10,
+  "openspec_strict": {
+    "passed": 29,
+    "failed": 0
+  },
+  "model_fits": 0,
+  "new_month7_scoring": false,
+  "frozen_scientific_files_changed": false,
+  "report": {
+    "main_pages": 11,
+    "total_pages": 13,
+    "visual_contact_sheets_inspected": true,
+    "body_font_pt": 10.5,
+    "pdfkit_pages_checked": 13,
+    "required_text_checks_passed": true
+  },
+  "slides": {
+    "slides": 16,
+    "duration_seconds": 790,
+    "timings_by_speaker": {
+      "A": 155,
+      "B": 215,
+      "C": 240,
+      "D": 180
+    },
+    "zip_xml_parts_checked": 41,
+    "editable_text": true,
+    "placeholders": [
+      "Group XX",
+      "member names and student IDs"
+    ],
+    "application_open_verified": false
+  },
+  "unresolved": [
+    "Group number and member names",
+    "Group review and speaker assignment",
+    "Slide aesthetics",
+    "Record and test presentation video",
+    "Final submission filenames",
+    "Teaching-team repository access and publish revision"
+  ],
+  "sha256": {
+    "submission/report.md": "e331f6bd5a0358da2f44de4eda8a1ce559eb6b00ac3a34596471597f52106ab5",
+    "submission/reportXX-draft.pdf": "dcc5ac245f5cd031858433582e3522b2e70d99ded4a7d4e4868da85fd535e5c0",
+    "submission/slides.md": "fe20a04d383df2626472f9cb7dcfcbf1d4eee83804e0cb7da3a52fed44becbac",
+    "submission/presentationXX-skeleton.pptx": "f541375d1f809c58244124e0f5d1ddb6b8ffc8e6122f82b7e641ee9a2224b140",
+    "scripts/build_submission_evidence.py": "4ec0269d161d491ba24c04a8e204ec396242a865dfb9e7e1d20e7b0018c0c150",
+    "scripts/build_report_pdf.py": "4c7a9c961acf4e731fa2f102a61f673c57bafd2eb45f8b35662e8dcc869381ce",
+    "scripts/build_slide_skeleton.py": "204a4e08060b7ba8ee61dc8bdcceeff41e834db67d451a1120edc4f6fd090084",
+    "tests/test_submission_evidence.py": "f6b5e623eea7eb2dcad9c4de0980fe35fc154bad6c7c62d08001db1f2ad1e5d0",
+    "docs/submission-branch-audit.md": "7bd0920b8a6c6785980aeb7ebf44767feb30fbb7e5ec1ace03f846771a859fb1",
+    "docs/submission-code-guide.md": "12947e7738961bf4170dd45e3f3f4985ab1813cdf0b3c4a1f5ec0fbbf67b723e",
+    "submission/generated/evidence_manifest.json": "4c8b213a7f2da24dec7d85cdd831c8c3c855651986f6e1f87444087b2f30fddd"
+  }
+}

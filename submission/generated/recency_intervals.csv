@@ -1,0 +1,5 @@
+model,k,comparison,difference,ci_low,ci_high,replicates,uncertainty
+logistic,250000,recent_minus_mean_matched,0.0009337068160597539,-0.006095816504316164,0.00886908627729362,500,conditional paired test-row bootstrap; no multiplicity adjustment
+logistic,250000,recent_minus_expanding,0.0007002801120448154,-0.009067804101838745,0.008839965946374512,500,conditional paired test-row bootstrap; no multiplicity adjustment
+lightgbm,500000,recent_minus_mean_matched,0.0014005602240896586,-0.008129785587047569,0.008873308383281217,500,conditional paired test-row bootstrap; no multiplicity adjustment
+lightgbm,500000,recent_minus_expanding,-0.006302521008403367,-0.01577429266044155,0.002859137066204828,500,conditional paired test-row bootstrap; no multiplicity adjustment

@@ -1,0 +1,17 @@
+{
+  "slides": 16,
+  "duration_seconds": 790,
+  "timings_by_speaker": {
+    "A": 155,
+    "B": 215,
+    "C": 240,
+    "D": 180
+  },
+  "zip_xml_parts_checked": 41,
+  "editable_text": true,
+  "placeholders": [
+    "Group XX",
+    "member names and student IDs"
+  ],
+  "application_open_verified": false
+}
