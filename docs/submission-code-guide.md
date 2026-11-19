@@ -1,24 +1,67 @@
-# Submission code and evidence guide
+# Code and evidence guide
 
-This guide consolidates the completed local studies for the final report and slide skeleton. It does not change their training, preprocessing, selection, score or inference implementations. The original protocol and all frozen evidence remain authoritative. Settings are analyst-selected and open to group review.
+Use this guide to inspect report evidence or reproduce the model runs. The [submission pack](../submission/README.md) describes document sources; the [branch audit](submission-branch-audit.md) treats supplementary workflows separately. Run commands from the repository root. Shell blocks for full model reproduction use Bash on Linux or WSL; `python` in the evidence-only route means an available Python interpreter.
 
-## Quick route: reproduce the submission tables
+## Export tables from committed evidence
 
-From the repository root, run:
+The exporter needs only the Python standard library. It checks committed source hashes, selection identities and confusion-count consistency, then exports ten CSVs and `evidence_manifest.json` to `submission/generated/`. It does not fit models, read Base.csv, reconstruct raw predictions or reproduce supplementary Drive artifacts.
+
+### Preserve original checkout bytes
+
+Frozen evidence uses SHA-256 of exact file bytes. On Windows, `core.autocrlf=true` changes LF files to CRLF during checkout; Git may report a clean tree while the exporter rejects those files. Create a separate checkout with conversion disabled:
 
 ```sh
-python3 scripts/build_submission_evidence.py --check
-python3 scripts/build_submission_evidence.py
-.venv/bin/python -m pytest -q tests/test_submission_evidence.py
+git -c core.autocrlf=false clone https://github.com/snatzehua/bt-4012-project-2026.git bt4012-replay
+cd bt4012-replay
+git config core.autocrlf false
+git switch --detach 7e9baab
 ```
 
-The exporter uses only the Python standard library and committed small tables/selection records; raw Base.csv, ignored fitted models and prediction caches are not needed. Tests require pytest from the pinned environment. The exporter checks fixed input SHA-256 identities, original and exploratory confusion matrices at every exported review capacity, all five consumed F2 roles, and the selected candidate/policy/development F2 against its frozen selection. It rejects missing, changed or inconsistent evidence. Do not update hashes merely to make a failed export pass: investigate the discrepancy.
+Commit `7e9baab` contains the submission exporter and its evidence. If it is unavailable on the remote, clone from the local repository path instead; the scientific sources and evidence are unchanged by the documentation cleanup. Uncommitted edits are not included in a clone. Do not normalise frozen files in an existing research checkout or replace expected hashes to silence a mismatch.
 
-Outputs are deterministic CSVs plus `submission/generated/evidence_manifest.json`. Re-exporting overwrites only the generated presentation view; it never overwrites frozen reports. `--output /absolute/path/to/new-directory` selects another export destination. Output inside `reports/`, `configs/`, `baf/` or `openspec/` is rejected.
+### Export and compare
 
-This is **table reproduction from saved evidence**, not model retraining, independent raw-score recomputation, a new scientific audit or a new statistical inference. No model fit is performed. Development macro F2 averages month-specific achieved F2 and must not be recomputed from averaged confusion counts.
+```sh
+python scripts/build_submission_evidence.py --check
+python scripts/build_submission_evidence.py
+```
 
-## Files to use in the report
+The first command checks source evidence without writing files. The second overwrites the generated table view. To verify an existing export without overwriting it, generate into a temporary destination and compare:
+
+```sh
+python - <<'PY'
+from pathlib import Path
+from tempfile import TemporaryDirectory
+import json
+import subprocess
+import sys
+
+with TemporaryDirectory() as directory:
+    subprocess.run([sys.executable, 'scripts/build_submission_evidence.py',
+                    '--output', directory], check=True)
+    generated = Path('submission/generated')
+    for fresh in sorted(Path(directory).iterdir()):
+        saved = generated / fresh.name
+        if fresh.suffix == '.json':
+            # JSON formatting and platform newlines do not change its content.
+            assert json.loads(fresh.read_text()) == json.loads(saved.read_text()), fresh.name
+        else:
+            assert fresh.read_bytes() == saved.read_bytes(), fresh.name
+print('All generated tables and manifest match.')
+PY
+```
+
+CSV comparison is byte-exact; JSON comparison checks parsed content. A checkout with converted CSV line endings will fail the byte comparison. Output inside `reports/`, `configs/`, `baf/` or `openspec/` is rejected by the exporter. A mismatch should be investigated before regenerating committed files.
+
+The focused tests require pytest, without the modelling stack or raw data:
+
+```sh
+python -m pytest -q tests/test_submission_evidence.py
+```
+
+Pytest is pinned in `requirements.txt` for the scientific environment. For an evidence-only environment, installing pytest alone is sufficient. If a restricted environment denies access to the default temporary directory, pass `--basetemp tmp/submission-evidence-tests` with a fresh disposable path; pytest clears that directory.
+
+## Report table index
 
 | Generated file | Evidence and permitted interpretation |
 |---|---|
@@ -38,13 +81,54 @@ The five F2 roles are unweighted LightGBM, balanced LightGBM, XGBoost/LightGBM f
 
 Only completed studies contribute measured claims. The stopped L-BFGS spline study and incomplete context-feature ablation are excluded from this submission view. Existing exploratory search history must remain disclosed; excluding a result from the concise report is not erasing it from the repository.
 
-## Full model reproduction is a different route
+## Reproduce the models
 
-Use Python 3.12.9 and the exact pins in `requirements.txt`, `requirements-improvements.txt` and, for XGBoost descendants, `requirements-xgboost.txt`. Obtain BAF Base Kaggle version 2 using the data-access and SHA-256 instructions in README; keep data under ignored `data/raw/baf/Base.csv`. A different dataset version is not the same experiment.
+### Environment and data
 
-The historical full-training recipes and ordered commands are preserved in README under **Reproducing results**, **Exploratory improvement experiments**, **XGBoost score fusion**, and **Bagged-anchor fusion**. Later descendants need their exact ancestor-selection restore blocks, pinned environment and resource gates. The shallow-CatBoost complete reproduction guide is `reports/baf-shallow-catboost-v1/reproduction.md`.
+Exact scientific replay uses Python 3.12.9. In a separate checkout with original LF bytes, create an environment and install the existing pins:
 
-For the original first study, README documents the historical fresh-run order:
+```sh
+python3.12 -c "import sys; assert sys.version_info[:3] == (3, 12, 9), sys.version"
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m pip check
+```
+
+`requirements-improvements.txt` includes the base requirements and adds CatBoost, graphviz and plotly. `requirements-xgboost.txt` includes improvements and adds XGBoost; install it instead for later studies or their complete suites. Keep exact versions rather than upgrading to resolve an installation problem. Installation success in a new environment is not established by historical receipts. Some later modules import Unix `resource`, so use Linux or WSL for those replays.
+
+The dataset is [BAF Base, Kaggle version 2](https://www.kaggle.com/datasets/sgpjesus/bank-account-fraud-dataset-neurips-2022/versions/2): 1,000,000 applications, 32 columns and eight months. See the [official data repository](https://github.com/feedzai/bank-account-fraud) and [dataset paper](https://arxiv.org/abs/2211.13358). Download and extract before running data-dependent checks:
+
+```sh
+mkdir -p data/raw/baf
+curl --fail --location --retry 3 \
+  'https://www.kaggle.com/api/v1/datasets/download/sgpjesus/bank-account-fraud-dataset-neurips-2022/Base.csv?datasetVersionNumber=2' \
+  --output data/raw/baf/Base.csv.zip
+unzip -n data/raw/baf/Base.csv.zip -d data/raw/baf
+.venv/bin/python - <<'PY'
+from pathlib import Path
+import hashlib
+import json
+c = json.loads(Path('configs/study.json').read_text())
+p = Path(c['data_path'])
+assert p.stat().st_size == 213427735
+assert hashlib.sha256(p.read_bytes()).hexdigest() == c['data_sha256']
+print('BAF Base v2 checksum verified.')
+PY
+```
+
+Expected SHA-256: `7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809`. The URL is the historical version-specific download route; a login or network restriction may require downloading version 2 manually through Kaggle. Keep raw data and bulk outputs in ignored `data/` and `outputs/`.
+
+### Original controlled study
+
+The base-only methodology checks have a defined scope:
+
+```sh
+.venv/bin/python -m pytest -q tests/test_methodology.py
+```
+
+This file uses synthetic sampling, metrics and preprocessing fixtures and tests stale/missing selection rejection. It includes a small logistic fit and does not read Base.csv. It is not the complete repository suite. For example, `tests/test_improvements.py` reads Base.csv, and later tests require extra libraries, preserved ancestor selections and small model fits.
+
+In an isolated checkout with no first-study selection, execute:
 
 ```sh
 .venv/bin/python -m baf.eda
@@ -55,12 +139,40 @@ For the original first study, README documents the historical fresh-run order:
 .venv/bin/python -m baf.report
 ```
 
-These commands are not an instruction to rerun a frozen study in place. Existing guards reject overwritten selections and stale identities. Conduct any costly full reproduction in a separate checkout/output destination following the applicable reproduction guide, retain original selections and receipts, and record what was genuinely rerun. Changing output destinations requires the documented config procedure and can affect descendant-preservation identities. Do not simply edit a frozen config. A fresh directory does not make month 7 independent again.
+The [protocol](experiment-protocol.md) and [config](../configs/study.json) define training months 0-3 / validation 4, 0-4 / 5 and 0-5 / 6, with month 7 evaluated after selection freeze. Historical controls match recent K in exact fraud and nonfraud counts, using seeds 17, 29 and 43. Model seed is 2026; fits use at most six threads. The full recipe has 90 validation fits, 14 final fits and three random-split diagnostic fits.
 
-The present consolidation adds no new model family or model search. Local original controlled comparisons provide the report's scientific core; external branch workflows are reviewed separately rather than silently merged into the frozen experiment code. In particular, a split-specific recall-at-FPR benchmark uses evaluation labels to define its cutoff, while a validation-derived threshold can exceed its nominal future budget. Neither is interchangeable with the exact 1% queue used in the original study.
+Run artifacts go to `outputs/baf-study-v1/`; small summaries and figures go to `reports/baf-study-v1/`. **The report command writes tracked report paths**, so a different ignored output directory alone is not replay isolation. Keep the original evidence outside the disposable checkout and compare reproduced outputs before adopting any changes.
 
-## Operational interpretation and acknowledged assistance
+Interrupted validation can resume with unchanged source/config/data/software. Validation refuses to run after freeze, freeze refuses to overwrite choices, and final evaluation rejects stale or missing choices. Never delete a working study's selection to bypass these guards. A revised scientific recipe requires a new configuration and output identity; it cannot restore an untouched month 7.
 
-Each row is a synthetic account application, not a payment or an investigation outcome. Alerts mean additional review, not automatic rejection or money saved. The report should show fraud detected, fraud missed, legitimate reviews and actual alert fraction alongside F2/AP. Costs, label delays, human capacity and retraining cadence need bank-specific evidence before deployment; no financial savings are measured by these studies.
+### Feature and ensemble improvements
 
-Codex/ChatGPT assisted with this consolidation, exporter, tests and documentation. Existing study reports record their own assistance. Preserve those acknowledgements and any teammate/external-branch contributions in the final submission. All group members must be able to explain and justify the submitted code and interpretation.
+After environment/data setup, install the improvements superset and run its scoped checks before training:
+
+```sh
+.venv/bin/python -m pip install -r requirements-improvements.txt
+.venv/bin/python -m pytest -q tests/test_improvements.py
+.venv/bin/python -m baf.improvements validate
+.venv/bin/python -m baf.logistic_ablation
+.venv/bin/python -m baf.improvements freeze
+.venv/bin/python -m baf.improvements exploratory
+.venv/bin/python -m baf.improvement_report
+```
+
+These tests need Base.csv. The [improvement protocol](improvement-protocol.md) and [config](../configs/improvements.json) preserve the first study and define native categories, engineered features, weighting, undersampling and blends. The original exported selection is committed, so the first study need not be retrained first. Predictions/models use `outputs/baf-improvements-v1/`; report tables use `reports/baf-improvements-v1/`.
+
+The separate `configs/logistic-ablation.json` diagnostic adds development-only raw-C=0.1 fits. It is excluded from main selection and month 7. Resume and freeze rules require unchanged identities. For any separately authorised revised config, keep the diagnostic's `main_config` and `output_dir` consistent and use the corresponding `--config` and report `--diagnostic-config` arguments.
+
+### Later studies and supplementary notebooks
+
+Use the [later-study recipes](study-reproduction.md) for ordered ancestor restores and stages, and the existing [shallow CatBoost guide](../reports/baf-shallow-catboost-v1/reproduction.md) for that study's full setup. They preserve cache-specific handling, resource gates and separate Newton fit/analysis histories. Do not substitute an unrestricted test run immediately after a base-only installation. Historical full-suite receipts describe their recorded environments; they are not tests performed by the table exporter.
+
+The [supplementary notebook workflow at its audited commit](https://github.com/snatzehua/bt-4012-project-2026/tree/d466ff34df6f62abe935b993ef75c8ca0dd3b1ed) has its own notebook instructions and external Drive artifacts. The [branch audit](submission-branch-audit.md) specifies the training/calibration timeline, prior evaluation exposure and `floor(q*N)` monthly budget, versus the canonical study's `ceil(q*N)`. Embedded notebook results were inspected rather than independently rerun. A fresh clone of this branch does not contain its external model and prediction exports.
+
+## Interpretation and assistance
+
+AP summarises ranking, while threshold F2 and exact-capacity review describe different decisions. Macro development F2 averages achieved month-specific F2; it is not F2 recomputed from averaged confusion counts. Learned thresholds can change future workload; an F2 policy has neither a 1% quota nor a precision floor.
+
+Applications flagged mean additional review, not automatic rejection or measured money saved. Fixed-model intervals omit retraining, adaptive selection and future-period uncertainty. Month 7 is consumed; all follow-up comparisons are exploratory. Preserve unsuccessful and unfinished studies alongside positive findings.
+
+ChatGPT/Codex assisted with design, code, checks, interpretation and documentation. Study reports retain detailed acknowledgements and software references; the branch audit identifies supplementary sources. Submitted work requires group review and explanation by its authors.
